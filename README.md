@@ -9,6 +9,8 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 **sơ đồ diễn biến** (thủy triều, bãi cọc, phục binh, mũi tên tiến công; ta đỏ – địch xanh như sách giáo khoa) →
 **trích dẫn** → **ý nghĩa lịch sử** → kết. Có phụ đề, nhạc trống trận tự tổng hợp và hạt phim.
 
+> Giọng dẫn chuyện hiện tại của bộ mẫu *Trận đánh lừng danh*: giọng nam trầm, ấm, tạo bằng Manus từ file `loi-dan/GUI-MANUS.txt` (48 đoạn, `loi-dan/<id>/01–08.mp3`).
+
 ## Xưởng phim: tự làm video từ kịch bản
 1. Bấm **＋ Dự án mới từ kịch bản** (cột trái).
 2. Chọn **phong cách**: Phim tài liệu · Viễn tưởng · Hoạt hình. Hình nền, chữ, chuyển cảnh và nhạc do app tự vẽ, tự tạo.
