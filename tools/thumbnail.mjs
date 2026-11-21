@@ -37,7 +37,7 @@ const fonts = [
 const ctx = { window: {} }; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(ROOT, 'battles.js'), 'utf8'), ctx);
 const BATTLES = ctx.window.BATTLES.filter(b => which === 'all' || which.split(',').includes(b.id));
-const HOOK = { 'bach-dang-938': 'CHẤM DỨT NGÀN NĂM BẮC THUỘC', 'nhu-nguyet-1077': '10 VẠN QUÂN TỐNG BỊ CHẶN ĐỨNG', 'bach-dang-1288': 'BÃI CỌC NHẤN CHÌM HẠM ĐỘI NGUYÊN', 'chi-lang-1427': 'LIỄU THĂNG BỎ MẠNG Ở ẢI CHI LĂNG', 'rach-gam-1785': 'TRẬN THỦY CHIẾN TRÊN SÔNG TIỀN', 'dong-da-1789': 'ĐẠI PHÁ 29 VẠN QUÂN THANH' };
+const HOOK = { 'bach-dang-938': 'CHẤM DỨT NGÀN NĂM BẮC THUỘC', 'nhu-nguyet-1077': '10 VẠN QUÂN TỐNG BỊ CHẶN ĐỨNG', 'bach-dang-1288': 'BÃI CỌC NHẤN CHÌM HẠM ĐỘI NGUYÊN', 'chi-lang-1427': 'LIỄU THĂNG BỎ MẠNG Ở ẢI CHI LĂNG', 'rach-gam-1785': 'TRẬN THỦY CHIẾN TRÊN SÔNG TIỀN', 'dong-da-1789': 'ĐẠI PHÁ 29 VẠN QUÂN THANH', 'dong-bo-dau-1258': 'ĐẦU THẦN CHƯA RƠI XUỐNG ĐẤT', 'ham-tu-1285': 'CHƯƠNG DƯƠNG CƯỚP GIÁO GIẶC', 'tay-ket-1285': 'TOA ĐÔ BỎ MẠNG, THOÁT HOAN CHUI ỐNG ĐỒNG', 'van-don-1288': 'NHẤN CHÌM ĐOÀN THUYỀN LƯƠNG GIẶC' };
 const el = (type, style, children) => ({ type, props: { style, children } });
 
 // chụp khung nền từ video
@@ -63,7 +63,7 @@ for (const b of BATTLES) {
       { type: 'img', props: { src: bg, width: tall ? 3413 : W, height: tall ? 1920 : H, style: { position: 'absolute', left: tall ? -1100 : 0, top: 0, objectFit: 'cover' } } },
       el('div', { position: 'absolute', left: 0, top: 0, width: W, height: H, display: 'flex', backgroundImage: tall ? 'linear-gradient(180deg, rgba(10,6,4,.85) 0%, rgba(10,6,4,.15) 35%, rgba(10,6,4,.2) 60%, rgba(10,6,4,.95) 100%)' : 'linear-gradient(90deg, rgba(10,6,4,.95) 0%, rgba(10,6,4,.75) 42%, rgba(10,6,4,0) 75%)' }, []),
       el('div', { position: 'absolute', left: tall ? 70 : 64, top: tall ? 1230 : 110, width: tall ? 940 : 760, display: 'flex', flexDirection: 'column' }, [
-        el('div', { display: 'flex', fontFamily: 'Oswald', fontSize: tall ? 40 : 30, color: '#e2c27a', letterSpacing: 6 }, 'SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH'),
+        el('div', { display: 'flex', fontFamily: 'Oswald', fontSize: tall ? 40 : 30, color: '#e2c27a', letterSpacing: 6 }, b.series || 'SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH'),
         el('div', { display: 'flex', fontFamily: 'Oswald', fontSize: tall ? (name.length > 12 ? 128 : 170) : (name.length > 12 ? 104 : 140), lineHeight: 1.02, color: '#fff', marginTop: 10, textShadow: '0 6px 24px rgba(0,0,0,.8)' }, name),
         el('div', { display: 'flex', marginTop: 18, alignItems: 'center' }, [
           el('div', { display: 'flex', backgroundColor: '#c8352b', color: '#fff', fontFamily: 'Oswald', fontSize: tall ? 64 : 50, padding: '2px 22px', letterSpacing: 4 }, b.year),

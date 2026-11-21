@@ -453,7 +453,7 @@ body.render .app{display:none}
 
   <aside class="left">
     <div class="sec" data-fold="mine"><h3 class="fold"><span class="l">Dự án của bạn</span><small id="myCount"></small></h3><div class="fold-body"><button class="btn add" id="bNew">＋ Dự án mới từ kịch bản</button><div id="myProjs"></div></div></div>
-    <div class="sec" data-fold="mau"><h3 class="fold"><span class="l">Mẫu: Trận đánh lừng danh</span><small>6 trận</small></h3><div class="fold-body"><div id="projs"></div></div></div>
+    <div class="sec" data-fold="mau"><h3 class="fold"><span class="l">Mẫu: Trận đánh lừng danh</span><small id="mauCount"></small></h3><div class="fold-body"><div id="projs"></div></div></div>
     <div class="sec" data-fold="nhac"><h3 class="fold"><span class="l">Phòng nhạc</span><small id="songCount"></small></h3><div class="fold-body"><button class="btn add" id="bSong">♫ Sáng tác bài nhạc mới</button><div id="songs"></div></div></div>
     <div class="sec" data-fold="scn"><h3 class="fold"><span class="l">Cảnh</span><small id="scnCount"></small></h3><div class="fold-body"><div id="scns"></div></div></div>
   </aside>
@@ -779,6 +779,7 @@ body.render .app{display:none}
   function buildProjects() {
     $('projs').innerHTML = BATTLES.map(b => `<button class="proj" data-id="${b.id}"><span class="y">${b.year}</span><span><b>${b.name.replace(/\s\d{3,4}$/, '')}</b><small>${b.who} · quân ${b.vs}</small></span></button>`).join('');
     $('myCount').textContent = mine.length ? mine.length + ' dự án' : '';
+    $('mauCount').textContent = BATTLES.length + ' trận';
     $('myProjs').innerHTML = mine.length ? mine.map(p => `<button class="proj" data-id="${p.id}"><span class="y u">${{ tailieu: '🎞', vientuong: '🚀', hoathinh: '🎨' }[p.style] || '🎞'}</span><span><b>${esc(p.name)}</b><small>${Xuong.STYLES[p.style]} · ${p.scenes.length} cảnh${+p.epLen ? ' · chia tập' : ''}</small></span></button>`).join('')
       : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
     document.querySelectorAll('.proj').forEach(e => { e.onclick = () => open(e.dataset.id); e.classList.toggle('on', P && e.dataset.id === P.id); });

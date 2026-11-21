@@ -1,0 +1,118 @@
+BỘ PROMPT AI – Tây Kết – Vạn Kiếp 1285
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Mùa hè năm 1285, Hưng Đạo Vương mở những đòn quyết định ở Tây Kết và Vạn Kiếp, quét sạch quân Nguyên ra khỏi bờ cõi lần thứ hai.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers at the edge of a historic battle, with exhausted Yuan-Mongol troops visible far away as tiny silhouettes. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers at the edge of a historic battle, with exhausted Yuan-Mongol troops visible far away as tiny silhouettes. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Trước giờ quyết chiến, Hưng Đạo Vương soạn Hịch tướng sĩ. Quân sĩ nhà Trần thích lên cánh tay hai chữ Sát Thát, nghĩa là giết giặc Thát Đát, thể hiện ý chí quyết chiến.
+
+▶ Nhân vật – Trần Hưng Đạo (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Trần Hưng Đạo, the Vietnamese commander (Tổng chỉ huy kháng chiến chống Nguyên Mông), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Trần Hưng Đạo, the Vietnamese commander (Tổng chỉ huy kháng chiến chống Nguyên Mông), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Mất Thăng Long, Thoát Hoan tính đường rút về phía bắc. Đạo quân Toa Đô ở phía nam không hay biết, vẫn ngược sông Hồng định hội quân.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers seen from above, a winding river among mountains, with a long column of exhausted Yuan-Mongol troops moving along it like an armada. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers seen from above, a winding river among mountains, with a long column of exhausted Yuan-Mongol troops moving along it like an armada. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Hưng Đạo Vương bố trí quân chặn hai ngả: đón đánh đạo quân phía nam ở Tây Kết, và chặn đường rút của Thoát Hoan ở Vạn Kiếp, căn cứ quan trọng bên sông Lục Đầu.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of exhausted Yuan-Mongol troops in iron-studded leather armor retreating in disorder, their prince carried in a bronze tube, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms, brown and indigo tunics, leather lamellar vests, conical hats, crossbows with poisoned arrows; Hưng Đạo Vương in red-and-gold lacquered armor watching silently from cover. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of exhausted Yuan-Mongol troops in iron-studded leather armor retreating in disorder, their prince carried in a bronze tube, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms, brown and indigo tunics, leather lamellar vests, conical hats, crossbows with poisoned arrows; Hưng Đạo Vương in red-and-gold lacquered armor watching silently from cover. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Tại Tây Kết, quân ta mai phục đánh tan đạo quân phía nam, chém đầu Toa Đô; Ô Mã Nhi phải lẻn ra biển trốn về. Ở phía bắc, Thoát Hoan tháo chạy qua Vạn Kiếp thì bị Hưng Đạo Vương chặn đánh. Phó tướng Lý Hằng trúng tên độc tử trận; tương truyền Thoát Hoan phải chui vào ống đồng cho quân khiêng chạy về nước.
+
+▶ Diễn biến 1: Toa Đô ngược sông Hồng, không hay Thăng Long đã mất (8s)
+VIDEO PROMPT:
+Wide shot at water level. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms fight exhausted Yuan-Mongol troops: Toa Đô ngược sông Hồng, không hay Thăng Long đã mất. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms fight exhausted Yuan-Mongol troops: Toa Đô ngược sông Hồng, không hay Thăng Long đã mất. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Phục binh Tây Kết – Toa Đô tử trận (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. As the tide falls, hundreds of Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. As the tide falls, hundreds of Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Ô Mã Nhi bỏ chạy ra biển (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms fight exhausted Yuan-Mongol troops: Ô Mã Nhi bỏ chạy ra biển. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms fight exhausted Yuan-Mongol troops: Ô Mã Nhi bỏ chạy ra biển. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Thoát Hoan tháo chạy qua Vạn Kiếp (8s)
+VIDEO PROMPT:
+Wide aerial shot. The defeated exhausted Yuan-Mongol troops flee in panic across a crowded pontoon bridge that collapses into the river. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The defeated exhausted Yuan-Mongol troops flee in panic across a crowded pontoon bridge that collapses into the river. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 5: Hưng Đạo Vương chặn đánh, quân Nguyên tan tác (8s)
+VIDEO PROMPT:
+Wide shot at water level. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms fight exhausted Yuan-Mongol troops: Hưng Đạo Vương chặn đánh, quân Nguyên tan tác. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms fight exhausted Yuan-Mongol troops: Hưng Đạo Vương chặn đánh, quân Nguyên tan tác. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · QUOTE ════════
+Lời dẫn: Lời hịch năm xưa của Hưng Đạo Vương đã trở thành ngọn lửa thôi thúc ý chí quyết chiến của quân dân nhà Trần.
+
+▶ Trích dẫn – không khí (8s)
+VIDEO PROMPT:
+Slow-motion medium close-up. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Very slow dolly in, 48fps slow-motion feel. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Ta thường tới bữa quên ăn, nửa đêm vỗ gối; ruột đau như cắt, nước mắt đầm đìa; chỉ căm tức chưa xả thịt lột da, nuốt gan".
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Ta thường tới bữa quên ăn, nửa đêm vỗ gối; ruột đau như cắt, nước mắt đầm đìa; chỉ căm tức chưa xả thịt lột da, nuốt gan".
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Thắng lợi Tây Kết – Vạn Kiếp kết thúc cuộc kháng chiến lần thứ hai, khẳng định tài thao lược kiệt xuất của Hưng Đạo Vương Trần Quốc Tuấn.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Trần dynasty Vietnamese soldiers with "Sát Thát" tattooed on their arms raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the Red River at Tây Kết and the Vạn Kiếp stronghold at the confluence of the Lục Đầu rivers, northern Vietnam, forested hills, 13th-century Đại Việt, Trần dynasty (summer 1285), stormy summer afternoon, dramatic clouds. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
