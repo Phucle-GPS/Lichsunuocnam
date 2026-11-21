@@ -856,6 +856,60 @@
     return master;
   }
 
+
+  /* ======================================================================
+     HIỆU ỨNG CHỮ (GSAP + SplitText + ScrambleText) – timeline tạm dừng,
+     tua theo thời gian cảnh ⇒ vẫn xuất từng khung chính xác.
+     ====================================================================== */
+  const FX_TARGETS = '.card-head, .hero-name, .sec-title, .stat-head, .end-big, .title-sub, .kicker, .card-kick';
+  function fxAuto(style, el) {
+    const small = el.matches('.title-sub, .kicker, .card-kick, .sec-title');
+    if (style === 'vientuong') return small ? 'quet' : 'giaima';
+    if (style === 'hoathinh') return small ? 'quet' : 'nay';
+    return small ? 'quet' : 'tach';
+  }
+  function textFx(root, kind, style) {
+    const G = window.gsap; if (!G || !kind || kind === 'none') return null;
+    if (window.SplitText && !textFx._reg) { G.registerPlugin(window.SplitText); if (window.ScrambleTextPlugin) G.registerPlugin(window.ScrambleTextPlugin); textFx._reg = 1; }
+    const tl = G.timeline({ paused: true });
+    root.querySelectorAll(FX_TARGETS).forEach((el, k) => {
+      if (!el.textContent.trim()) return;
+      let K = kind === 'auto' ? fxAuto(style, el) : kind; const at = .25 + k * .22;
+      if (K === 'giaima' && el.children.length) K = 'tach';
+      if (K === 'tach' && window.SplitText) {
+        const sp = new SplitText(el, { type: 'chars,words', charsClass: 'fx-ch' });
+        G.set(el, { perspective: 600 });
+        tl.from(sp.chars, { duration: .7, yPercent: 110, rotateX: -80, opacity: 0, ease: 'back.out(1.6)', stagger: .03 }, at);
+      } else if (K === 'nay' && window.SplitText) {
+        const sp = new SplitText(el, { type: 'words' });
+        tl.from(sp.words, { duration: .8, scale: 0, opacity: 0, ease: 'elastic.out(1, .45)', stagger: .09, transformOrigin: '50% 80%' }, at);
+      } else if (K === 'mo' && window.SplitText) {
+        const sp = new SplitText(el, { type: 'words' });
+        tl.from(sp.words, { duration: .9, filter: 'blur(14px)', opacity: 0, y: 18, ease: 'power2.out', stagger: .06 }, at);
+      } else if (K === 'giaima' && window.ScrambleTextPlugin && !el.children.length) {
+        const txt = el.textContent;
+        tl.fromTo(el, { scrambleText: { text: ' ', chars: 'upperCase' } }, { duration: Math.min(1.8, .4 + txt.length * .05), scrambleText: { text: txt, chars: 'ĐĂÂÊÔƠƯXYZ01', revealDelay: .25, speed: .6 }, ease: 'none' }, at);
+      } else if (K === 'quet') {
+        tl.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, { duration: .9, clipPath: 'inset(0 0% 0 0)', ease: 'power3.inOut' }, at);
+      }
+    });
+    return tl.getChildren().length ? tl : null;
+  }
+
+  /* ======================================================================
+     LỚP HOẠT HÌNH (Lottie / Rive) – app đăng ký trình phát qua Studio.plugins
+     ====================================================================== */
+  const plugins = {};
+  function animLayer(root, sc) {
+    const A = sc.anim; if (!A || !A.url || !plugins[A.kind]) return null;
+    const box = h('div', { class: 'anim-layer pos-' + (A.pos || 'center') });
+    const cv = h('canvas', { width: A.pos === 'full' ? 1920 : 900, height: A.pos === 'full' ? 1080 : 900 }, box);
+    const anchor = root.querySelector('.card-box, .stat-head, .title-box, .end-box, .q-mark, .sec-title');
+    anchor ? root.insertBefore(box, anchor) : root.appendChild(box);
+    let hd = null; try { hd = plugins[A.kind].create(cv, A); } catch (e) { console.warn('anim', e); }
+    return { seek(t) { box.style.opacity = Math.min(1, t / .5); if (hd && hd.seek) hd.seek(t); }, destroy() { if (hd && hd.destroy) hd.destroy(); } };
+  }
+
   /* ======================================================================
      PLAYER
      ====================================================================== */
@@ -892,9 +946,24 @@
       return set[(i - 1) % set.length];
     }
     const insts = new Map();
-    function getInst(i) { if (!insts.has(i)) insts.set(i, SCENES[scenes[i].sc.type](scenes[i].sc, battle)); return insts.get(i); }
+    function getInst(i) {
+      if (!insts.has(i)) {
+        const sc = scenes[i].sc, it = SCENES[sc.type](sc, battle);
+        const fxKind = sc.textFx || opts.textFx || 'none';
+        it._fx = null; it._fxKind = fxKind; it._anim = animLayer(it.root, sc);
+        const up = it.update.bind(it);
+        it.update = (t, d) => {
+          up(t, d);
+          if (it._fxKind !== 'none' && !it._fx && it.root.isConnected) it._fx = textFx(it.root, it._fxKind, battle.style) || false;
+          if (it._fx) it._fx.time(Math.max(0, t), false);
+          if (it._anim) it._anim.seek(t);
+        };
+        insts.set(i, it);
+      }
+      return insts.get(i);
+    }
     function show(list) {
-      for (const [k, it] of insts) if (!list.includes(k)) { it.root.remove(); insts.delete(k); }
+      for (const [k, it] of insts) if (!list.includes(k)) { it.root.remove(); if (it._fx) it._fx.kill(); if (it._anim) it._anim.destroy(); insts.delete(k); }
       const roots = list.map(k => getInst(k).root);
       if (roots.some((r, j) => layer.children[j] !== r) || layer.children.length !== roots.length) roots.forEach(r => layer.appendChild(r));
       roots.forEach(r => { r.style.transform = ''; r.style.opacity = ''; r.style.filter = ''; r.style.clipPath = ''; });
@@ -984,5 +1053,5 @@
     return btoa(bin);
   }
 
-  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks };
+  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks, plugins, textFx };
 })();

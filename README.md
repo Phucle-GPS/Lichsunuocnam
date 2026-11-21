@@ -26,6 +26,21 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Thư viện & công cụ đã tích hợp
+| Nguồn | Dùng trong app |
+|---|---|
+| **GSAP** + SplitText + ScrambleText | *Hiệu ứng chữ*: tách chữ bay 3D, giải mã chữ, bật nảy từng từ, mờ nét, quét lộ (Hiển thị → Hiệu ứng chữ) |
+| **Mediabunny** | Xuất MP4 ngay trong trình duyệt: phim 3D xuất từng khung kèm giọng & nhạc (nút ⬇ Xuất MP4); video quay ở app tự chuyển sang MP4 chuẩn |
+| **dotLottie** (LottieFiles) | Gắn hoạt hình Lottie (.lottie/.json) vào cảnh, tua từng khung chính xác |
+| **Rive** (rive-wasm) | Gắn hoạt hình Rive (.riv) vào cảnh |
+| **Motion** | Chuyển động giao diện (hộp thoại, thông báo) |
+| **Satori** + resvg + **SVGO** | `node tools/thumbnail.mjs` tạo ảnh bìa YouTube 1280×720 & TikTok 1080×1920 (thư mục `thumbnails/`) |
+| **Three.js** | Phim 3D `phim3d.html` |
+| **FFmpeg** | Công cụ `tools/render-video.mjs` |
+| **GSAP Skills** | Cài trong `.claude/skills/` để Claude viết GSAP đúng chuẩn khi sửa app |
+
+Chưa tích hợp (lý do): **Remotion**, **Motion Canvas**, **React Three Fiber / Drei / Rapier / React Postprocessing** cần React + bước build (viết lại toàn bộ app); **Anime.js** trùng chức năng GSAP/Motion; **Howler.js** không xuất được âm thanh offline (app đã dùng WebAudio). **Remotion Skills** và **Motion AI Kit** là skill cho dự án Remotion/Motion – cài bằng `npx skills add remotion-dev/skills` nếu sau này chuyển sang Remotion.
+
 ## Làm video THẬT HƠN bằng AI và Blender
 ### 1. Clip AI (Google Flow / Veo 3.1, Gemini, Kling, Runway)
 - Trong app: bấm cảnh → **✨ Prompt AI** → chép *prompt video* (dán vào Flow), *prompt ảnh* (tạo khung đầu bằng Gemini rồi dùng Frames to Video) hoặc *yêu cầu gửi Gemini* (nhờ Gemini viết prompt).

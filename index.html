@@ -306,6 +306,13 @@ button{cursor:pointer}
 .st-vientuong .tr-bar{background:linear-gradient(90deg,transparent,#c9f7ff,transparent);box-shadow:0 0 80px 30px rgba(56,225,255,.55)}
 .st-hoathinh .tr-bar{background:#fff;box-shadow:0 0 0 6px #1d3557}
 .tr-scan{position:absolute;inset:0;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(120,255,255,.22) 0 3px,transparent 3px 9px),linear-gradient(90deg,rgba(255,0,90,.15),rgba(0,240,255,.15));mix-blend-mode:screen}
+.anim-layer{position:absolute;pointer-events:none}
+.anim-layer canvas{width:100%;height:100%;display:block}
+.anim-layer.pos-full{inset:0}
+.anim-layer.pos-center{left:510px;top:90px;width:900px;height:900px}
+.anim-layer.pos-left{left:40px;bottom:40px;width:720px;height:720px}
+.anim-layer.pos-right{right:40px;bottom:40px;width:720px;height:720px}
+.anim-layer.pos-corner{right:60px;top:60px;width:360px;height:360px}
 .frame.nosubs .subs{display:none}
 .frame.nograin .grain,.frame.nograin .vign{display:none}
 
@@ -491,6 +498,9 @@ body.render .app{display:none}
         <option value="whip">Lia máy (whip pan)</option><option value="wipe">Quét lộ cảnh (wipe)</option><option value="slide">Đẩy trượt (push)</option>
         <option value="iris">Mở tròn (iris)</option><option value="glitch">Nhiễu sóng (glitch)</option><option value="fade">Hòa mờ (dissolve)</option>
         <option value="black">Mờ qua đen</option><option value="cut">Cắt thẳng (không hiệu ứng)</option></select></div>
+      <div class="field"><label>Hiệu ứng chữ (GSAP)</label><select class="sel" id="fxSel">
+        <option value="auto">✨ Tự động theo phong cách</option><option value="tach">Tách chữ bay vào 3D</option><option value="giaima">Giải mã chữ (scramble)</option>
+        <option value="nay">Bật nảy từng từ</option><option value="mo">Mờ nét hiện dần</option><option value="quet">Quét lộ chữ</option><option value="none">Không hiệu ứng</option></select></div>
     </div>
     <div class="sec">
       <h3>Cảnh hiện tại <small id="curTag"></small></h3>
@@ -576,7 +586,12 @@ body.render .app{display:none}
 </div>
 <input type="file" id="fMedia" accept="image/*,video/*" hidden>
 <input type="file" id="fVoice" accept="audio/*" hidden>
+<input type="file" id="fAnim" accept=".lottie,.json,.riv" hidden>
 
+<script src="lib/vendor/gsap.min.js"></script>
+<script src="lib/vendor/SplitText.min.js"></script>
+<script src="lib/vendor/ScrambleTextPlugin.min.js"></script>
+<script src="lib/vendor/motion.js"></script>
 <script src="map-data.js"></script>
 <script src="engine.js"></script>
 <script src="battles.js"></script>
@@ -590,14 +605,14 @@ body.render .app{display:none}
   const fmtT = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
 
   /* Dựng khung (ngang 1920×1080 hoặc dọc 1080×1920) và nạp phim */
-  function mount(frame, battle, format, durs, tr) {
+  function mount(frame, battle, format, durs, tr, textFx) {
     frame.innerHTML = '';
     frame.className = 'frame' + (format === 'doc' ? ' doc' : '');
     const FW = format === 'doc' ? 1080 : 1920, FH = format === 'doc' ? 1920 : 1080;
     frame.style.width = FW + 'px'; frame.style.height = FH + 'px';
     const stage = document.createElement('div'); stage.className = 'stage';
     frame.appendChild(stage);
-    const film = Studio.build(battle, stage, { durs, tr });
+    const film = Studio.build(battle, stage, { durs, tr, textFx });
     if (format === 'doc') {
       const k = 1080 / 1920;
       stage.style.transform = `scale(${k})`; stage.style.transformOrigin = '0 0'; stage.style.top = '640px';
@@ -617,7 +632,7 @@ body.render .app{display:none}
     const b = BATTLES.find(x => x.id === Q.get('render'));
     const frame = document.createElement('div'); document.body.appendChild(frame);
     const durs = (Q.get('durs') || '').split(',').filter(Boolean).map(Number);
-    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs, Q.get('tr') || 'auto');
+    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs, Q.get('tr') || 'auto', Q.get('fx') || 'auto');
     frame.style.position = 'absolute';
     document.fonts.ready.then(() => {
       film.seek(0);
@@ -685,7 +700,7 @@ body.render .app{display:none}
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { const before = vsel.value; fillVoices(); if (vsel.value !== before && P) reload(true); };
   fillVoices();
 
-  function note(msg, ms = 4000) { const n = $('notice'); n.textContent = msg; n.style.display = 'block'; clearTimeout(note._t); note._t = setTimeout(() => n.style.display = 'none', ms); }
+  function note(msg, ms = 4000) { const n = $('notice'); n.textContent = msg; if (n.style.display !== 'block' && window.Motion) Motion.animate(n, { opacity: [0, 1], y: [-12, 0] }, { type: 'spring', bounce: .3, duration: .45 }); n.style.display = 'block'; clearTimeout(note._t); note._t = setTimeout(() => n.style.display = 'none', ms); }
   function fit() {
     if (!film) return;
     const k = Math.min(view.clientWidth / FW, view.clientHeight / FH);
@@ -710,6 +725,7 @@ body.render .app{display:none}
   async function prepareCustom(p) {
     for (const sc of p.scenes) {
       if (sc.mediaId) await mediaURL(sc.mediaId);
+      if (sc.animId) await mediaURL(sc.animId);
       sc._dur = 0;
       if (sc.voiceId && voiceMode === 'pack') { const b = await voiceBuf(sc.voiceId); if (b) sc._dur = b.duration + 1; }
     }
@@ -736,7 +752,7 @@ body.render .app{display:none}
     } else B = P;
     if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này chưa có giọng dẫn chuyện – đang dùng phụ đề.'); }
     const durs = packBufs ? packBufs.map(b => b ? b.duration + 1.0 : 0) : [];
-    ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value));
+    ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value, $('fxSel').value));
     if (P.custom && P.musicId && Nhac.lib.get(P.musicId)) { const song = Nhac.lib.get(P.musicId), tot = film.total; film.music = (ctx, dest, off) => Nhac.schedule(ctx, dest, song, tot, off); film.songName = song.name; }
     frame.classList.toggle('nosubs', !$('swSubs').checked); frame.classList.toggle('nograin', !$('swGrain').checked);
     view.classList.toggle('doc', format === 'doc');
@@ -881,6 +897,9 @@ body.render .app{display:none}
       <div class="field"><label>Lời dẫn (phụ đề + giọng đọc)</label><textarea class="txa" id="sSay">${esc(sc.say)}</textarea></div>
       <div class="field"><label>Chuyển vào cảnh này bằng</label><select class="sel" id="sTr">${[['', 'Theo cài đặt chung'], ['zoom', 'Phóng xuyên cảnh'], ['flash', 'Chớp sáng'], ['whip', 'Lia máy'], ['wipe', 'Quét lộ cảnh'], ['slide', 'Đẩy trượt'], ['iris', 'Mở tròn'], ['glitch', 'Nhiễu sóng'], ['fade', 'Hòa mờ'], ['black', 'Mờ qua đen'], ['cut', 'Cắt thẳng']].map(([v, l]) => `<option value="${v}"${(sc.tr || '') === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
       ${sc.type === 'card' ? `<div class="field"><label>Ảnh / video minh họa</label><div class="mfile">${sc.mediaId ? `<span>${sc.mediaKind === 'video' ? '🎬' : '🖼'}</span><b>${esc(sc.mediaName || 'đã thêm')}</b>` : 'Chưa có – dùng hình nền tự vẽ'}</div><div class="btnrow"><button class="btn" id="sMedia">${sc.mediaId ? 'Đổi' : '＋ Thêm'} ảnh/video</button>${sc.mediaId ? '<button class="btn danger" id="sMediaX">Gỡ</button>' : ''}</div></div>` : ''}
+      <div class="field"><label>Hoạt hình động (Lottie .lottie/.json · Rive .riv)</label><div class="mfile">${sc.animId ? `<span>✨</span><b>${esc(sc.animName || 'đã thêm')}</b>` : 'Chưa có – tải miễn phí tại lottiefiles.com hoặc rive.app/community'}</div>
+        ${sc.animId ? `<select class="sel" id="sAnimPos" style="margin-bottom:6px">${[['center', 'Giữa khung'], ['left', 'Góc dưới trái'], ['right', 'Góc dưới phải'], ['corner', 'Góc trên phải (nhỏ)'], ['full', 'Phủ toàn khung']].map(([v, l]) => `<option value="${v}"${(sc.animPos || 'center') === v ? ' selected' : ''}>${l}</option>`).join('')}</select>` : ''}
+        <div class="btnrow"><button class="btn" id="sAnim">${sc.animId ? 'Đổi' : '＋ Thêm'} hoạt hình</button>${sc.animId ? '<button class="btn danger" id="sAnimX">Gỡ</button>' : ''}</div></div>
       <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
       ${sc.type === 'card' && sc.mediaId ? `<label class="row" style="margin:-4px 0 12px"><span>Ảnh/video phủ toàn khung</span><span class="sw"><input type="checkbox" id="sFull"${sc.full ? ' checked' : ''}><i></i></span></label>` : ''}
       <div class="btnrow"><button class="btn" id="sUp" title="Đưa lên">↑ Lên</button><button class="btn" id="sDown" title="Đưa xuống">↓ Xuống</button><button class="btn" id="sDup">⧉ Nhân đôi</button><button class="btn danger" id="sDel">Xóa</button></div>${promptPanel(sc, i)}`;
@@ -910,6 +929,9 @@ body.render .app{display:none}
     $('sDel').onclick = () => { if (P.scenes.length <= 1) return note('Dự án cần ít nhất một cảnh.'); if (!confirm('Xóa cảnh này?')) return; P.scenes.splice(ci, 1); if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); saveP(true); buildProjects(); };
     if ($('sMedia')) $('sMedia').onclick = () => pickFile('fMedia', async f => { if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); sc.mediaId = await Xuong.store.putAsset(f); sc.mediaKind = f.type.startsWith('video') ? 'video' : 'image'; sc.mediaName = f.name; if (sc.mediaKind === 'video' && sc.full == null) sc.full = true; saveP(true); });
     if ($('sMediaX')) $('sMediaX').onclick = () => { Xuong.store.delAsset(sc.mediaId); delete sc.mediaId; delete sc.mediaKind; delete sc.mediaName; saveP(true); };
+    $('sAnim').onclick = () => pickFile('fAnim', async f => { if (sc.animId) Xuong.store.delAsset(sc.animId); sc.animId = await Xuong.store.putAsset(f); sc.animKind = /\.riv$/i.test(f.name) ? 'rive' : 'lottie'; sc.animName = f.name; sc.animPos = sc.animPos || 'center'; saveP(true); });
+    if ($('sAnimX')) $('sAnimX').onclick = () => { Xuong.store.delAsset(sc.animId); delete sc.animId; delete sc.animKind; delete sc.animName; saveP(true); };
+    if ($('sAnimPos')) $('sAnimPos').onchange = e => { sc.animPos = e.target.value; saveP(true); };
     $('sVoice').onclick = () => pickFile('fVoice', async f => { if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); sc.voiceId = await Xuong.store.putAsset(f); sc.voiceName = f.name; if (voiceMode !== 'pack') { vsel.value = 'pack'; store.set('voice', 'pack'); readVoice(); } saveP(true); });
     if ($('sVoiceX')) $('sVoiceX').onclick = () => { Xuong.store.delAsset(sc.voiceId); delete sc.voiceId; delete sc.voiceName; saveP(true); };
   }
@@ -1058,7 +1080,7 @@ body.render .app{display:none}
   function openNew() {
     nmBlocks = null; nmFileName = ''; $('nmName').value = ''; $('nmText').value = ''; $('nmSum').textContent = ''; $('nmCreate').disabled = true;
     $('nmFmt').value = format === 'doc' ? 'doc' : 'doc';
-    $('newModal').classList.add('on');
+    $('newModal').classList.add('on'); popIn($('newModal'));
   }
   const closeNew = () => $('newModal').classList.remove('on');
   $('bNew').onclick = openNew; $('nmClose').onclick = closeNew; $('nmCancel').onclick = closeNew;
@@ -1139,10 +1161,23 @@ body.render .app{display:none}
     play();
   };
   function stopRecording() { if (!recorder) return; if (recorder.state !== 'inactive') recorder.stop(); if (playing) pause(); }
-  function saveRecording() {
+  /* Mediabunny: chuyển bản ghi (webm hoặc mp4 phân mảnh) thành MP4 chuẩn, mở được ở mọi nơi */
+  async function toMP4(blob) {
+    const M = await import(new URL('lib/vendor/mediabunny.min.mjs', location.href).href);
+    const input = new M.Input({ formats: M.ALL_FORMATS, source: new M.BlobSource(blob) });
+    const output = new M.Output({ format: new M.Mp4OutputFormat({ fastStart: 'in-memory' }), target: new M.BufferTarget() });
+    const aac = await M.canEncodeAudio('aac').catch(() => false);
+    const conv = await M.Conversion.init({ input, output, video: { codec: 'avc', bitrate: M.QUALITY_HIGH }, audio: { codec: aac ? 'aac' : 'opus' } });
+    if (!conv.isValid) throw new Error('trình duyệt không mã hóa được');
+    conv.onProgress = p => note(`Đang chuyển sang MP4… ${Math.round(p * 100)}%`, 2000);
+    await conv.execute();
+    return new Blob([output.target.buffer], { type: 'video/mp4' });
+  }
+  async function saveRecording() {
     recStream && recStream.getTracks().forEach(tr => tr.stop());
-    const ext = /mp4/.test(recMime) ? 'mp4' : 'webm';
-    const blob = new Blob(recChunks, { type: recMime || 'video/webm' });
+    let ext = /mp4/.test(recMime) ? 'mp4' : 'webm';
+    let blob = new Blob(recChunks, { type: recMime || 'video/webm' });
+    try { note('Đang chuyển sang MP4…', 4000); blob = await toMP4(blob); ext = 'mp4'; } catch (e) { console.warn('mp4', e); note('Giữ định dạng gốc (' + ext + '): ' + e.message, 5000); }
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
     const base = P.custom ? slug(P.name) + ((B.epCount || 1) > 1 ? `-tap${epIdx + 1}` : '') : P.id;
     a.download = `${base}${format === 'doc' ? '-doc' : ''}.${ext}`; document.body.appendChild(a); a.click();
@@ -1157,6 +1192,34 @@ body.render .app{display:none}
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; $('bInstall').style.display = 'inline-flex'; });
   $('bInstall').onclick = async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; $('bInstall').style.display = 'none'; };
   addEventListener('appinstalled', () => { $('bInstall').style.display = 'none'; });
+
+  /* Motion: hộp thoại bật mở mượt (lò xo) */
+  function popIn(modal) { if (!window.Motion) return; Motion.animate(modal, { opacity: [0, 1] }, { duration: .2 }); Motion.animate(modal.querySelector('.dlg'), { opacity: [0, 1], scale: [.94, 1], y: [24, 0] }, { type: 'spring', bounce: .28, duration: .5 }); }
+
+  /* ---------- HOẠT HÌNH: Lottie (dotLottie) & Rive ---------- */
+  let lottieMod = null, riveReady = null;
+  async function loadLottie() {
+    if (!lottieMod) { lottieMod = await import(new URL('lib/vendor/dotlottie-web.mjs', location.href).href); lottieMod.DotLottie.setWasmUrl(new URL('lib/vendor/dotlottie-player.wasm', location.href).href); }
+    return lottieMod;
+  }
+  function loadRive() {
+    if (!riveReady) riveReady = new Promise((ok, no) => { const sc = document.createElement('script'); sc.src = 'lib/vendor/rive.js'; sc.onload = () => { try { rive.RuntimeLoader.setWasmUrl(new URL('lib/vendor/rive.wasm', location.href).href); } catch (e) {} ok(window.rive); }; sc.onerror = no; document.head.appendChild(sc); });
+    return riveReady;
+  }
+  Studio.plugins.lottie = {
+    create(canvas, A) {
+      const H = { dl: null, dead: false };
+      loadLottie().then(M => { if (H.dead) return; H.dl = new M.DotLottie({ canvas, src: A.url, autoplay: false, loop: true, renderConfig: { autoResize: false, devicePixelRatio: 1 } }); }).catch(e => console.warn('lottie', e));
+      return { seek(t) { const d = H.dl; if (d && d.isLoaded && d.totalFrames) { const fps = (d.totalFrames / (d.duration || 1)) || 30; d.setFrame((t * fps) % d.totalFrames); } }, destroy() { H.dead = true; if (H.dl) H.dl.destroy(); } };
+    }
+  };
+  Studio.plugins.rive = {
+    create(canvas, A) {
+      const H = { r: null, dead: false };
+      loadRive().then(R => { if (H.dead) return; H.r = new R.Rive({ src: A.url, canvas, autoplay: true, onLoad: () => { try { const sm = H.r.stateMachineNames; if (sm && sm.length) H.r.play(sm[0]); H.r.resizeDrawingSurfaceToCanvas(); } catch (e) {} } }); }).catch(e => console.warn('rive', e));
+      return { seek() {}, destroy() { H.dead = true; if (H.r) H.r.cleanup(); } };
+    }
+  };
 
   /* ---------- PHÒNG NHẠC ---------- */
   let song = null, smSrc = null, smStart = 0, smRaf = 0;
@@ -1214,7 +1277,7 @@ body.render .app{display:none}
   }
   function openSong(s) {
     song = s ? JSON.parse(JSON.stringify(s)) : Nhac.newSong('bolero');
-    $('songModal').classList.add('on'); smFill();
+    $('songModal').classList.add('on'); smFill(); popIn($('songModal'));
   }
   function closeSong() { smStop(); $('songModal').classList.remove('on'); }
   $('bSong').onclick = () => openSong(null);
@@ -1249,6 +1312,8 @@ body.render .app{display:none}
   });
   $('bNewTop').onclick = () => { setFold(document.querySelector('[data-fold=mine]'), false, true); openNew(); };
   $('trSel').value = store.get('tr', 'auto');
+  $('fxSel').value = store.get('fx', 'auto');
+  $('fxSel').onchange = e => { store.set('fx', e.target.value); reload(true); };
   $('trSel').onchange = e => { store.set('tr', e.target.value); reload(true); };
 
   /* ---------- khởi động ---------- */

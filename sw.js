@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v11';
+const VERSION = 'v12';
 const CORE = [
   './',
   'index.html',
@@ -13,6 +13,10 @@ const CORE = [
   'lib/xuong.js',
   'lib/nhac.js',
   'lib/aiprompt.js',
+  'lib/vendor/gsap.min.js',
+  'lib/vendor/SplitText.min.js',
+  'lib/vendor/ScrambleTextPlugin.min.js',
+  'lib/vendor/motion.js',
   'lib/jszip.min.js',
   'fonts/be-vietnam-pro-latin-400-normal.woff2',
   'fonts/be-vietnam-pro-latin-600-normal.woff2',

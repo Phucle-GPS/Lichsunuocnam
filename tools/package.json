@@ -1,0 +1,17 @@
+{
+  "name": "xuong-video-tools",
+  "private": true,
+  "type": "module",
+  "description": "Công cụ dòng lệnh của Xưởng Video: xuất MP4, tạo giọng, ảnh bìa",
+  "scripts": {
+    "render": "node render-video.mjs",
+    "thumbnail": "node thumbnail.mjs",
+    "tts": "node tts-google.mjs"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "playwright": "^1.48.0",
+    "satori": "0.63.2",
+    "svgo": "4.1.0"
+  }
+}

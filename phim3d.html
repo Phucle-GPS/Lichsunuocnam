@@ -59,15 +59,9 @@ body.render #ui{display:none}
 </head>
 <body>
 <div id="wrap">
-  <div class="ov" id="ovl"></div>
-  <canvas class="grain" id="grain" width="384" height="216"></canvas>
-  <div class="vign"></div>
-  <div class="bar t"></div><div class="bar b"></div>
-  <div class="subs" id="subs"></div>
-  <div class="flash" id="flash"></div>
-  <div class="fade" id="fade"></div>
+  <canvas id="ov2d" width="1920" height="1080" style="position:absolute;left:0;top:0"></canvas>
 </div>
-<div id="ui"><button id="play">▶ Phát</button><input type="range" id="seek" min="0" max="1000" value="0"><span id="tc">0:00</span><a href="./">← Về Xưởng Video</a></div>
+<div id="ui"><button id="play">▶ Phát</button><button id="exp">⬇ Xuất MP4</button><input type="range" id="seek" min="0" max="1000" value="0"><span id="tc">0:00</span><a href="./">← Về Xưởng Video</a></div>
 <div id="load">ĐANG DỰNG PHIM 3D…</div>
 
 <script src="lib/three.min.js"></script>
@@ -94,7 +88,7 @@ const esc = t => String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', 
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(1); renderer.setSize(W, H);
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
-$('wrap').insertBefore(renderer.domElement, $('ovl'));
+$('wrap').insertBefore(renderer.domElement, $('ov2d'));
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(42, W / H, .5, 3000);
 scene.fog = new THREE.FogExp2(0xd9a777, .0022);
@@ -388,7 +382,7 @@ function camPath(keys, f) { // keys: [[f, pos, look], ...]
 function fleetC(t) { const x = enemyX(t); return V(x - 40, 0, riverZ(x - 40)); }
 const SHOTS = [
   /* 1 tiêu đề */ (f, t) => { setLight('dawn', 'dawn', 0, .0016); camPath([[0, V(-260, 60, -40), V(120, 8, 20)], [1, V(-120, 34, -10), V(160, 6, 10)]], f); },
-  /* 2 Trần Hưng Đạo */ (f, t) => { setLight('dawn', 'dawn', 0, .0015); const a = .55 + f * .7, R = 19 - f * 4; camera.position.set(HERO.x + Math.cos(a) * R, HERO.y + 4 + f * 2, HERO.z + Math.sin(a) * R); const side = new THREE.Vector3(-Math.sin(a), 0, Math.cos(a)); camera.lookAt(HERO.x + side.x * 6, HERO.y + 6, HERO.z + side.z * 6); },
+  /* 2 Trần Hưng Đạo */ (f, t) => { setLight('dawn', 'dawn', 0, .0015); const a = .55 + f * .7, R = 27 - f * 5; camera.position.set(HERO.x + Math.cos(a) * R, HERO.y + 4 + f * 2, HERO.z + Math.sin(a) * R); const side = new THREE.Vector3(-Math.sin(a), 0, Math.cos(a)); camera.lookAt(HERO.x + side.x * 6, HERO.y + 6, HERO.z + side.z * 6); },
   /* 3 bản đồ */ (f, t) => { setLight('dawn', 'day', f * .5, .00045); camPath([[0, V(-60, 420, 160), V(-60, 0, 0)], [1, V(-20, 330, 260), V(0, 0, -20)]], f); },
   /* 4 lực lượng */ (f, t) => { setLight('dawn', 'day', .5 + f * .3); const c = fleetC(t); camPath([[0, V(c.x - 70, 4, c.z + 52), V(c.x + 10, 6, c.z)], [1, V(c.x + 30, 14, c.z + 60), V(c.x - 30, 8, c.z)]], f); },
   /* 5 trận đánh */ (f, t) => {
@@ -406,42 +400,90 @@ const SHOTS = [
   /* 8 kết */ (f, t) => { setLight('rise', 'rise', 0, .0007); camPath([[0, V(60, 90, 200), V(40, 0, 0)], [1, V(80, 220, 380), V(40, 0, 0)]], f); }
 ];
 
-/* ======================= LỚP CHỮ ======================= */
-const ovl = $('ovl');
+/* ======================= LỚP CHỮ (vẽ trên canvas ⇒ xuất thẳng ra MP4) ======================= */
+const ov = $('ov2d'), g2 = ov.getContext('2d');
 function project(x, y, z) { _v.set(x, y, z).project(camera); return [(_v.x + 1) / 2 * W, (1 - _v.y) / 2 * H, _v.z]; }
-let ovlShot = -1;
-function buildOverlay(i) {
-  const sc = SC[i]; let h = '';
-  if (sc.type === 'title') h = `<div class="title"><div class="big">${esc(sc.title)}</div><div class="sub">${esc(sc.sub)}</div><div class="line">${esc(sc.line)}</div></div>`;
-  else if (sc.type === 'hero') h = `<div class="card"><div class="k">${esc(sc.kicker)}</div><div class="n">${esc(sc.name.toUpperCase())}</div><div class="a">${esc(sc.alt)}</div><div class="r">${esc(sc.role)}</div></div>`;
-  else if (sc.type === 'map') h = `<div class="date">${esc(sc.date)}</div><div class="tag dich" id="tg1">Đoàn thuyền Ô Mã Nhi</div><div class="tag place" id="tg2">Bãi cọc ngầm</div><div class="tag place" id="tg3">Cửa biển</div><div class="tag ta" id="tg4">Trần Hưng Đạo</div>`;
-  else if (sc.type === 'forces') h = ['ours', 'enemy'].map((k, j) => `<div class="cmp ${j ? 'r' : 'l'}"><h3>${esc(sc[k].name)}</h3>${sc[k].rows.map(([a, b, n]) => `<div><b>${esc(a.toUpperCase())}</b>${esc(String(b).replace('#', n || ''))}</div>`).join('')}</div>`).join('');
-  else if (sc.type === 'diagram') h = `<div class="phase" id="phase"></div>`;
-  else if (sc.type === 'quote') h = `<div class="quote">“${esc(sc.quote)}”<small>— ${esc(sc.by)}</small></div>`;
-  else if (sc.type === 'points') h = `<div class="points"><h2>Ý NGHĨA LỊCH SỬ</h2>${sc.items.map((x, k) => `<div><b>0${k + 1}</b>${esc(x)}</div>`).join('')}</div>`;
-  else if (sc.type === 'end') h = `<div class="end"><div class="big">${esc(sc.title || 'GHI NHỚ CÔNG ƠN TIỀN NHÂN')}</div><div class="sub">${esc(sc.sub)}</div><div class="src">Phim 3D minh họa · Nguồn: ${(B.sources || []).map(esc).join(' · ')}</div></div>`;
-  if (sc.type !== 'title') h += `<div class="brand">SỬ VIỆT · PHIM 3D</div>`;
-  ovl.innerHTML = h;
+function font(w, size, fam, style = '') { g2.font = `${style} ${w} ${size}px ${fam}`.trim(); }
+function txt(t, x, y, { align = 'left', color = '#fff', ls = 0, shadow = 12, alpha = 1 } = {}) {
+  g2.save(); g2.globalAlpha *= alpha; g2.textAlign = align; g2.fillStyle = color; g2.letterSpacing = ls + 'px';
+  if (shadow) { g2.shadowColor = 'rgba(0,0,0,.85)'; g2.shadowBlur = shadow; g2.shadowOffsetY = 3; }
+  g2.fillText(t, x, y); g2.restore();
 }
-function updateOverlay(i, f, t) {
-  if (i !== ovlShot) { ovlShot = i; buildOverlay(i); }
-  const sc = SC[i], kids = [...ovl.children];
-  const inK = eout(ramp(f * D(i), .4, 1.4));
-  if (sc.type === 'title') { const k = eout(ramp(f * D(i), .5, 2)); ovl.firstChild.style.opacity = k * (1 - ramp(f, .85, 1)); ovl.firstChild.style.transform = `scale(${1.08 - k * .08})`; }
-  else if (sc.type === 'map') {
-    const tags = [['tg1', ...[fleetC(t).x, 22, fleetC(t).z]], ['tg2', 78, 8, riverZ(78)], ['tg3', 260, 6, riverZ(260)], ['tg4', HERO.x, HERO.y + 16, HERO.z]];
-    tags.forEach(([id, x, y, z], k) => { const e = $(id), [px, py, pz] = project(x, y, z); e.style.left = px + 'px'; e.style.top = (py - 40) + 'px'; e.style.opacity = pz < 1 ? eout(ramp(f, .15 + k * .12, .25 + k * .12)) : 0; });
-    ovl.querySelector('.date').style.opacity = inK;
-  } else if (sc.type === 'diagram') {
-    const P = sc.phases || []; let ph = ''; P.forEach(([a, x]) => { if (f >= a) ph = x; });
-    const e = $('phase'); if (e.textContent !== ph) { e.textContent = ph; e._s = t; } e.style.opacity = ph ? eout(ramp(t - (e._s || 0), 0, .5)) : 0;
-  } else kids.forEach((e, k) => { if (!e.classList.contains('brand')) { e.style.opacity = eout(ramp(f * D(i), .4 + k * .25, 1.3 + k * .25)); } });
-  if (sc.type === 'points') ovl.querySelectorAll('.points div').forEach((e, k) => { const a = 1 + k * (D(i) - 2) / 3; const q = eout(ramp(f * D(i), a, a + .6)); e.style.opacity = q; e.style.transform = `translateX(${(1 - q) * 60}px)`; });
-}
+function wrap(t, maxW) { const ws = String(t).split(/\s+/), out = []; let cur = ''; ws.forEach(w => { const tr = cur ? cur + ' ' + w : w; if (g2.measureText(tr).width > maxW && cur) { out.push(cur); cur = w; } else cur = tr; }); if (cur) out.push(cur); return out; }
+function panelGrad(x, y, w, h, a = .7) { const gr = g2.createLinearGradient(x, 0, x + w, 0); gr.addColorStop(0, `rgba(0,0,0,${a})`); gr.addColorStop(1, 'rgba(0,0,0,0)'); g2.fillStyle = gr; g2.fillRect(x, y, w, h); }
+function radialDark(cx, cy, rx, ry, a) { g2.save(); g2.translate(cx, cy); g2.scale(1, ry / rx); const gr = g2.createRadialGradient(0, 0, 0, 0, 0, rx); gr.addColorStop(0, `rgba(0,0,0,${a})`); gr.addColorStop(1, 'rgba(0,0,0,0)'); g2.fillStyle = gr; g2.fillRect(-rx, -rx, rx * 2, rx * 2); g2.restore(); }
+const GOLD = '#e2c27a', RED = '#c8352b';
+const grains = [...Array(6)].map((_, k) => { const c = document.createElement('canvas'); c.width = 384; c.height = 216; const x = c.getContext('2d'), im = x.createImageData(384, 216), r = rng(k + 1); for (let p = 0; p < im.data.length; p += 4) { const v = r() * 255; im.data[p] = im.data[p + 1] = im.data[p + 2] = v; im.data[p + 3] = 255; } x.putImageData(im, 0, 0); return c; });
 
-/* ======================= HẠT PHIM, PHỤ ĐỀ, CHUYỂN CẢNH ======================= */
-const gctx = $('grain').getContext('2d'), gimg = gctx.createImageData(384, 216);
-function grain(t) { const k = Math.floor(t * 8) % 6; if (k === grain._k) return; grain._k = k; const r = rng(k + 1), d = gimg.data; for (let p = 0; p < d.length; p += 4) { const v = r() * 255; d[p] = d[p + 1] = d[p + 2] = v; d[p + 3] = 14; } gctx.putImageData(gimg, 0, 0); }
+function drawOverlay(i, f, t, lt) {
+  g2.clearRect(0, 0, W, H);
+  const sc = SC[i], d = D(i), inK = (a, b) => eout(ramp(lt, a, b));
+  // chữ theo từng cảnh
+  if (sc.type === 'title') {
+    const k = eout(ramp(lt, .5, 2)) * (1 - ramp(f, .85, 1));
+    g2.save(); g2.globalAlpha = k; g2.translate(W / 2, 470); g2.scale(1.08 - .08 * eout(ramp(lt, .5, 2)), 1.08 - .08 * eout(ramp(lt, .5, 2)));
+    font(700, 220, 'Oswald'); txt(sc.title, 0, 0, { align: 'center', color: '#f6ecd4', ls: 10, shadow: 40 });
+    font(700, 44, 'Oswald'); txt(sc.sub, 0, 80, { align: 'center', color: GOLD, ls: 12 });
+    font(400, 26, "'Be Vietnam Pro'"); txt(sc.line, 0, 130, { align: 'center', color: '#efe4cc', ls: 5 });
+    g2.restore();
+  } else if (sc.type === 'hero') {
+    const a = inK(.4, 1.4); g2.save(); g2.globalAlpha = a;
+    panelGrad(150, 590, 900, 280); g2.fillStyle = RED; g2.fillRect(150, 590, 8, 280);
+    font(500, 28, 'Oswald'); txt(sc.kicker, 184, 640, { color: GOLD, ls: 8 });
+    font(700, 96, 'Oswald'); txt(sc.name.toUpperCase(), 184, 740);
+    font(400, 42, "'Playfair Display'", 'italic'); txt(sc.alt, 184, 800, { color: GOLD });
+    font(400, 26, "'Be Vietnam Pro'"); txt(sc.role, 184, 845, { color: '#e8dcc0' });
+    g2.restore();
+  } else if (sc.type === 'map') {
+    const a = inK(.2, .8); g2.save(); g2.globalAlpha = a; g2.fillStyle = 'rgba(0,0,0,.6)'; g2.fillRect(60, 126, 250, 56); g2.strokeStyle = '#ffd36b'; g2.lineWidth = 2; g2.strokeRect(60, 126, 250, 56);
+    font(700, 36, 'Oswald'); txt(sc.date, 80, 168, { color: '#ffd36b', ls: 3, shadow: 0 }); g2.restore();
+    const fc = fleetC(t);
+    [['Đoàn thuyền Ô Mã Nhi', fc.x, 22, fc.z, '#9fd0ff', '#4fa3f7'], ['Bãi cọc ngầm', 78, 8, riverZ(78), '#ffd36b', '#ffd36b'], ['Cửa biển', 260, 6, riverZ(260), '#ffd36b', '#ffd36b'], ['Trần Hưng Đạo', HERO.x, HERO.y + 16, HERO.z, '#ff8a75', '#e8442f']].forEach(([label, x, y, z, col, bord], k) => {
+      const [px, py, pz] = project(x, y, z); if (pz >= 1) return; const al = eout(ramp(f, .15 + k * .12, .25 + k * .12)); if (!al) return;
+      g2.save(); g2.globalAlpha = al; font(700, 30, 'Oswald'); const w = g2.measureText(label).width + 28;
+      g2.fillStyle = 'rgba(0,0,0,.7)'; g2.fillRect(px - w / 2, py - 96, w, 46); g2.fillStyle = bord; g2.fillRect(px - w / 2, py - 96, 5, 46); g2.fillRect(px - 1, py - 50, 2, 40);
+      txt(label, px + 2, py - 62, { align: 'center', color: col, shadow: 0, ls: 1 }); g2.restore();
+    });
+  } else if (sc.type === 'forces') {
+    ['ours', 'enemy'].forEach((key, j) => {
+      const a = inK(.4 + j * .25, 1.3 + j * .25), x = j ? W - 110 - 560 : 110, S = sc[key];
+      g2.save(); g2.globalAlpha = a; g2.fillStyle = 'rgba(0,0,0,.6)'; g2.fillRect(x, 150, 560, 70 + S.rows.length * 92); g2.fillStyle = j ? '#4fa3f7' : '#e8442f'; g2.fillRect(x, 150, 560, 5);
+      font(700, 40, 'Oswald'); txt(S.name, x + 30, 210, { color: j ? '#7cc0ff' : '#ff6a55', ls: 2, shadow: 0 });
+      S.rows.forEach(([k2, v, n], r) => { font(600, 21, "'Be Vietnam Pro'"); txt(k2.toUpperCase(), x + 30, 262 + r * 92, { color: '#bfae8c', ls: 2, shadow: 0 }); font(400, 27, "'Be Vietnam Pro'"); txt(String(v).replace('#', n || ''), x + 30, 298 + r * 92, { shadow: 0 }); });
+      g2.restore();
+    });
+  } else if (sc.type === 'diagram') {
+    let ph = '', st = 0; (sc.phases || []).forEach(([a, x]) => { if (f >= a) { ph = x; st = a; } });
+    if (ph) { const a = eout(ramp(f - st, 0, .5 / d)); g2.save(); g2.globalAlpha = a; font(700, 32, "'Be Vietnam Pro'"); const w = g2.measureText(ph).width + 64; g2.fillStyle = 'rgba(10,8,6,.85)'; g2.fillRect(W / 2 - w / 2, 130, w, 64); g2.fillStyle = RED; g2.fillRect(W / 2 - w / 2, 130, 8, 64); txt(ph, W / 2 + 4, 174, { align: 'center', shadow: 0 }); g2.restore(); }
+  } else if (sc.type === 'quote') {
+    const a = inK(.4, 1.6); g2.save(); g2.globalAlpha = a; radialDark(W / 2, 470, 1100, 360, .62);
+    font(700, 64, "'Playfair Display'", 'italic'); const ls = wrap('“' + sc.quote + '”', 1400); ls.forEach((l, k) => txt(l, W / 2, 400 + k * 90, { align: 'center', color: '#fbefd5', shadow: 24 }));
+    font(600, 32, "'Be Vietnam Pro'"); txt('— ' + sc.by, W / 2, 420 + ls.length * 90, { align: 'center', color: GOLD });
+    g2.restore();
+  } else if (sc.type === 'points') {
+    panelGrad(0, 96, 1150, H - 192, .7 * inK(.2, 1));
+    font(700, 62, 'Oswald'); txt('Ý NGHĨA LỊCH SỬ', 180, 270, { color: GOLD, ls: 8, alpha: inK(.3, 1) });
+    sc.items.forEach((x, k) => { const a0 = 1 + k * (d - 2) / 3, q = eout(ramp(lt, a0, a0 + .6)); g2.save(); g2.globalAlpha = q; g2.translate((1 - q) * 60, 0); font(700, 44, 'Oswald'); txt('0' + (k + 1), 180, 370 + k * 96, { color: '#ff6a55' }); font(700, 40, "'Be Vietnam Pro'"); wrap(x, 820).slice(0, 2).forEach((l, m) => txt(l, 270, 370 + k * 96 + m * 46)); g2.restore(); });
+  } else if (sc.type === 'end') {
+    const a = inK(.4, 1.6); g2.save(); g2.globalAlpha = a; radialDark(W / 2, 470, 1000, 300, .72);
+    font(700, 96, 'Oswald'); txt(sc.title || 'GHI NHỚ CÔNG ƠN TIỀN NHÂN', W / 2, 440, { align: 'center', ls: 4, shadow: 24 });
+    font(600, 34, "'Be Vietnam Pro'"); txt(sc.sub, W / 2, 500, { align: 'center', color: GOLD });
+    font(400, 22, "'Be Vietnam Pro'"); txt('Phim 3D minh họa · Nguồn: ' + (B.sources || []).join(' · '), W / 2, 560, { align: 'center', color: '#cbbd9c' });
+    g2.restore();
+  }
+  if (sc.type !== 'title') { font(500, 22, 'Oswald'); txt('SỬ VIỆT · PHIM 3D', W - 60, 146, { align: 'right', color: GOLD, ls: 4, alpha: .8, shadow: 0 }); }
+  // phụ đề
+  const c = shots[i].cuts.find(c => lt >= c[0] && lt < c[1] + .25);
+  if (c) { font(600, 40, "'Be Vietnam Pro'"); const ls = wrap(c[2], 1560); ls.forEach((l, k) => { const y = H - 120 - (ls.length - 1 - k) * 54, w = g2.measureText(l).width; g2.fillStyle = 'rgba(0,0,0,.35)'; g2.fillRect(W / 2 - w / 2 - 14, y - 40, w + 28, 52); txt(l, W / 2, y, { align: 'center', shadow: 10 }); }); }
+  // hạt phim, viền tối, khung điện ảnh, chớp sáng, mờ đen
+  g2.save(); g2.globalCompositeOperation = 'overlay'; g2.globalAlpha = .045; g2.imageSmoothingEnabled = true; g2.drawImage(grains[Math.floor(t * 8) % 6], 0, 0, W, H); g2.restore();
+  const vg = g2.createRadialGradient(W / 2, H / 2, H * .45, W / 2, H / 2, W * .62); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.55)'); g2.fillStyle = vg; g2.fillRect(0, 0, W, H);
+  g2.fillStyle = '#000'; g2.fillRect(0, 0, W, 96); g2.fillRect(0, H - 96, W, 96);
+  const fl = i > 0 ? Math.max(0, 1 - lt / .35) * .9 : 0;
+  if (fl > 0) { g2.save(); g2.globalCompositeOperation = 'screen'; g2.globalAlpha = fl; const gr = g2.createRadialGradient(W * .4, H * .45, 0, W * .4, H * .45, W * .6); gr.addColorStop(0, '#fff6dc'); gr.addColorStop(.4, 'rgba(255,180,90,.7)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g2.fillStyle = gr; g2.fillRect(0, 0, W, H); g2.restore(); }
+  const fade = i === 0 ? 1 - ramp(lt, 0, 1.2) : i === shots.length - 1 ? ramp(lt, D(i) - 1, D(i)) : 0;
+  if (fade > 0) { g2.fillStyle = `rgba(0,0,0,${fade})`; g2.fillRect(0, 0, W, H); }
+}
 
 function seek(t) {
   t = clamp(t, 0, TOTAL - .001);
@@ -449,18 +491,38 @@ function seek(t) {
   const lt = t - T(i), f = lt / D(i);
   updateWorld(t);
   SHOTS[i](f, t);
-  // rung máy nhẹ khi giao chiến
   if (i === 4 && f > .5 && f < .85) { camera.position.x += Math.sin(t * 23) * .12; camera.position.y += Math.sin(t * 31) * .1; }
   renderer.render(scene, camera);
-  updateOverlay(i, f, t);
-  const c = shots[i].cuts.find(c => lt >= c[0] && lt < c[1] + .25), txt = c ? c[2] : '';
-  const sb = $('subs'); if (sb._t !== txt) { sb._t = txt; sb.innerHTML = txt ? `<span>${esc(txt)}</span>` : ''; }
-  // chuyển cảnh: đen ở đầu/cuối phim, chớp sáng giữa các cảnh
-  $('fade').style.opacity = i === 0 ? 1 - ramp(lt, 0, 1.2) : i === shots.length - 1 ? ramp(lt, D(i) - 1, D(i)) : 0;
-  const near = Math.min(lt, i > 0 ? 9 : 99);
-  $('flash').style.opacity = i > 0 ? Math.max(0, 1 - near / .35) * .9 : 0;
-  grain(t);
+  drawOverlay(i, f, t, lt);
   return i;
+}
+
+/* ======================= XUẤT MP4 TRONG TRÌNH DUYỆT (Mediabunny + WebCodecs) ======================= */
+async function exportMP4(fps, onProg) {
+  const M = await import(new URL('lib/vendor/mediabunny.min.mjs', location.href).href);
+  if (!(await M.canEncodeVideo('avc'))) throw new Error('Trình duyệt chưa hỗ trợ mã hóa H.264 (hãy dùng Chrome/Edge bản mới trên máy tính).');
+  const comp = document.createElement('canvas'); comp.width = W; comp.height = H; const cx = comp.getContext('2d');
+  const output = new M.Output({ format: new M.Mp4OutputFormat({ fastStart: 'in-memory' }), target: new M.BufferTarget() });
+  const vsrc = new M.CanvasSource(comp, { codec: 'avc', bitrate: M.QUALITY_HIGH, keyFrameInterval: 2 });
+  output.addVideoTrack(vsrc, { frameRate: fps });
+  const aac = await M.canEncodeAudio('aac').catch(() => false), asrc = new M.AudioBufferSource({ codec: aac ? 'aac' : 'opus', bitrate: M.QUALITY_HIGH });
+  output.addAudioTrack(asrc);
+  await output.start();
+  // âm thanh: nhạc + giọng đọc trộn sẵn
+  const sr = 48000, oc = new OfflineAudioContext(2, Math.ceil(sr * TOTAL), sr), mg = oc.createGain(); mg.gain.value = .45; mg.connect(oc.destination);
+  Studio.music(oc, mg, TOTAL, shots.filter((s, i) => [0, 2, 4, 7].includes(i)).map(s => s.start + .05), 0, '');
+  (window._vb || []).forEach((b, i) => { if (!b) return; const s = oc.createBufferSource(); s.buffer = b; s.connect(oc.destination); s.start(shots[i].start + .4); });
+  const mix = await oc.startRendering();
+  const n = Math.ceil(TOTAL * fps);
+  for (let k = 0; k < n; k++) {
+    const t = k / fps; seek(t);
+    cx.drawImage(renderer.domElement, 0, 0, W, H); cx.drawImage(ov, 0, 0);
+    await vsrc.add(t, 1 / fps);
+    if (onProg && k % 6 === 0) onProg(k / n);
+  }
+  await asrc.add(mix);
+  await output.finalize();
+  return new Blob([output.target.buffer], { type: 'video/mp4' });
 }
 
 /* ======================= KHỞI ĐỘNG ======================= */
@@ -471,7 +533,10 @@ async function boot() {
     window._vb = await Promise.all(SC.map(async (_, i) => { try { const r = await fetch(`loi-dan/${B.id}/${String(i + 1).padStart(2, '0')}.mp3`); return await ctx.decodeAudioData(await r.arrayBuffer()); } catch (e) { return null; } }));
     durs = window._vb.map(b => b ? b.duration + 1 : 0);
   }
-  layout(); await document.fonts.ready; seek(0.01);
+  layout();
+  // canvas không tự nạp font web ⇒ nạp sẵn các kiểu chữ dùng trong lớp chữ
+  await Promise.all(['700 40px Oswald', '500 40px Oswald', '400 40px "Be Vietnam Pro"', '600 40px "Be Vietnam Pro"', '700 40px "Be Vietnam Pro"', 'italic 400 40px "Playfair Display"', 'italic 700 40px "Playfair Display"'].map(f => document.fonts.load(f, 'ĐẰNG Trần Hưng Đạo ạ'))).catch(() => {});
+  seek(0.01);
   $('load').style.display = 'none';
   window.STUDIO = { total: TOTAL, W, H, seek: t => seek(t), starts: shots.map(s => s.start), audio: () => renderMusic() };
   if (!RENDER) liveUI();
@@ -497,6 +562,16 @@ function liveUI() {
     (window._vb || []).forEach((b, i) => { if (!b) return; const vs = shots[i].start + .4; if (t >= vs + b.duration) return; const s = ctx.createBufferSource(); s.buffer = b; s.connect(ctx.destination); s.start(a0 + Math.max(0, vs - t), Math.max(0, t - vs)); nodes.push(s); });
   };
   $('play').onclick = () => { playing = !playing; $('play').textContent = playing ? '❚❚ Dừng' : '▶ Phát'; if (playing) { if (t >= TOTAL - .1) t = 0; start(); } else stop(); };
+  $('exp').onclick = async () => {
+    if (playing) $('play').click();
+    const b = $('exp'); b.disabled = true;
+    try {
+      const blob = await exportMP4(30, p => { b.textContent = '⏳ ' + Math.round(p * 100) + '%'; });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'bach-dang-1288-phim3d.mp4'; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+      b.textContent = '✔ Đã lưu MP4';
+    } catch (e) { alert('Không xuất được: ' + e.message); b.textContent = '⬇ Xuất MP4'; }
+    b.disabled = false; seek(t);
+  };
   $('seek').oninput = e => { t = e.target.value / 1000 * TOTAL; seek(t); if (playing) start(); };
   const loop = () => { if (playing) { t = t0 + ctx.currentTime - a0; if (t >= TOTAL) { playing = false; $('play').textContent = '▶ Phát'; stop(); } seek(t); $('seek').value = t / TOTAL * 1000; $('tc').textContent = Math.floor(t / 60) + ':' + String(Math.floor(t % 60)).padStart(2, '0'); } requestAnimationFrame(loop); };
   loop();
