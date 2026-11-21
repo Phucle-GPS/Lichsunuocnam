@@ -447,6 +447,7 @@ body.render .app{display:none}
     <div class="sp"></div>
     <button class="btn hide-m" id="bNewTop" title="Tạo dự án mới từ kịch bản">＋ Dự án mới</button>
     <button class="btn ghost hide-m" id="bInstall" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Cài ứng dụng</button>
+    <button class="btn" id="bFB" title="Đăng / hẹn giờ video lên Fanpage Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>Đăng Facebook</button>
     <button class="btn primary" id="bExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span>Xuất video</span></button>
     <button class="btn primary" id="bRec" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>Chế độ quay</button>
   </header>
@@ -584,6 +585,41 @@ body.render .app{display:none}
     <footer><button class="btn danger" id="smDel" style="margin-right:auto">Xóa bài</button><button class="btn" id="smUse">🎬 Dùng cho dự án đang mở</button><button class="btn primary" id="smSave">💾 Lưu vào thư viện</button></footer>
   </div>
 </div>
+<div class="modal" id="fbModal">
+  <div class="dlg" style="width:min(780px,100%)">
+    <header><h2>ĐĂNG VIDEO LÊN FACEBOOK</h2><button class="ibtn" id="fbClose" title="Đóng">✕</button></header>
+    <div class="body">
+      <div class="field"><label>1 · Kết nối Fanpage</label>
+        <div class="btnrow"><input class="inp" id="fbApp" placeholder="App ID Facebook (dãy số)" style="flex:1"><button class="btn primary" id="fbConnect">Kết nối Facebook</button></div>
+        <select class="sel" id="fbPage" style="margin-top:8px;display:none"></select>
+        <div class="hint" id="fbStatus">Chỉ đăng được lên <b>Fanpage</b> bạn quản lý (Facebook không cho ứng dụng đăng lên trang cá nhân).</div>
+        <details class="aip"><summary>Hướng dẫn lấy App ID (làm 1 lần, 5 phút)</summary><div class="ai-item" style="font-size:12.5px;line-height:1.6">
+          1. Vào <b>developers.facebook.com</b> → <b>My Apps</b> → <b>Create App</b> → chọn loại <b>Business</b> (hoặc "Other" → Business), đặt tên VD "Xưởng Video".<br>
+          2. Trong app: <b>Add product → Facebook Login for Business</b> (hoặc Facebook Login). Ở <b>Settings</b> thêm <i>Allowed Domains for the JavaScript SDK</i>: <b>phucle-gps.github.io</b>, và <i>Valid OAuth Redirect URIs</i>: <b>https://phucle-gps.github.io/Lichsunuocnam/</b>.<br>
+          3. <b>App settings → Basic</b>: điền App Domains <b>phucle-gps.github.io</b>, Privacy Policy URL (có thể dùng https://phucle-gps.github.io/). Copy <b>App ID</b> dán vào ô trên.<br>
+          4. Để app ở chế độ <b>Development</b> là đủ: bạn (quản trị app & Fanpage) dùng được ngay, không cần Facebook duyệt.<br>
+          5. Bấm <b>Kết nối Facebook</b> → đăng nhập → tick chọn Fanpage và đồng ý các quyền.</div></details>
+      </div>
+      <div class="field"><label>2 · Chọn video</label>
+        <div class="btnrow"><button class="btn" id="fbUseLast">🎬 Video vừa xuất trong app</button><button class="btn" id="fbPick">📁 Chọn file MP4 (chọn nhiều được)</button></div>
+        <div class="summary" id="fbFiles">Chưa chọn video.</div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Kiểu đăng</label><select class="sel" id="fbKind"><option value="video">Video Fanpage (16:9 hoặc 9:16)</option><option value="reel">Reels (video dọc 9:16, dưới 90 giây)</option></select></div>
+        <div class="field"><label>Thời điểm</label><select class="sel" id="fbWhen"><option value="now">Đăng ngay</option><option value="at">Hẹn giờ</option><option value="series">Lên lịch hàng loạt</option></select></div>
+      </div>
+      <div class="grid2" id="fbTimeRow" style="display:none">
+        <div class="field"><label id="fbAtL">Giờ đăng (video đầu tiên)</label><input class="inp" type="datetime-local" id="fbAt"></div>
+        <div class="field" id="fbEveryF"><label>Mỗi video cách nhau</label><select class="sel" id="fbEvery"><option value="24">1 ngày</option><option value="12">12 giờ</option><option value="48">2 ngày</option><option value="168">1 tuần</option><option value="6">6 giờ</option></select></div>
+      </div>
+      <div class="field" id="fbTextF"><label>Tiêu đề</label><input class="inp" id="fbTitle"><label style="margin-top:8px">Mô tả (tự soạn từ kịch bản, sửa được)</label><textarea class="txa" id="fbDesc" style="min-height:120px"></textarea></div>
+      <div class="hint">Hẹn giờ do Facebook thực hiện (từ 10 phút đến 30 ngày tới): đã gửi xong thì tắt máy vẫn đăng đúng giờ. Khi đăng nhiều video, tiêu đề/mô tả tự soạn theo tên file (VD <i>bach-dang-1288.mp4</i>).</div>
+      <div id="fbLog" class="summary"></div>
+    </div>
+    <footer><button class="btn" id="fbHist" style="margin-right:auto">🕘 Lịch sử đăng</button><button class="btn primary" id="fbGo" disabled>📤 Đăng lên Facebook</button></footer>
+  </div>
+</div>
+<input type="file" id="fbFile" accept="video/mp4,video/*" multiple hidden>
 <input type="file" id="fMedia" accept="image/*,video/*" hidden>
 <input type="file" id="fVoice" accept="audio/*" hidden>
 <input type="file" id="fAnim" accept=".lottie,.json,.riv" hidden>
@@ -598,6 +634,7 @@ body.render .app{display:none}
 <script src="lib/xuong.js"></script>
 <script src="lib/nhac.js"></script>
 <script src="lib/aiprompt.js"></script>
+<script src="lib/facebook.js"></script>
 <script>
 (function () {
   const Q = new URLSearchParams(location.search);
@@ -1182,6 +1219,7 @@ body.render .app{display:none}
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
     const base = P.custom ? slug(P.name) + ((B.epCount || 1) > 1 ? `-tap${epIdx + 1}` : '') : P.id;
     a.download = `${base}${format === 'doc' ? '-doc' : ''}.${ext}`; document.body.appendChild(a); a.click();
+    window._lastExport = { file: new File([blob], a.download, { type: blob.type }), battle: P.custom ? Object.assign({}, B, { name: P.name }) : P };
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
     recorder = null; recStream = null; $('bExport').querySelector('span').textContent = 'Xuất video';
     app.classList.remove('recording'); exitRec(); note(`Đã lưu ${a.download} vào thư mục Tải xuống.`, 6000);
@@ -1303,6 +1341,62 @@ body.render .app{display:none}
     $('smWav').textContent = '⬇ Tải WAV'; $('smWav').disabled = false;
   };
   buildSongs();
+
+  /* ---------- ĐĂNG FACEBOOK ---------- */
+  let fbPages = FBPost.cachedPages(), fbFiles = [];
+  function fbFill() {
+    const sel = $('fbPage'); sel.style.display = fbPages.length ? '' : 'none';
+    sel.innerHTML = fbPages.map(p => `<option value="${p.id}">📄 ${esc(p.name)}</option>`).join('');
+    const keep = store.get('fbPage', ''); if (fbPages.some(p => p.id === keep)) sel.value = keep;
+    if (fbPages.length) $('fbStatus').innerHTML = `Đã kết nối <b>${fbPages.length}</b> Fanpage. Chọn trang để đăng.`;
+    $('fbGo').disabled = !(fbPages.length && fbFiles.length);
+  }
+  const battleOfFile = f => BATTLES.find(b => (f.name || '').startsWith(b.id));
+  function fbSetFiles(list) {
+    fbFiles = list;
+    $('fbFiles').innerHTML = list.length ? list.map(x => `🎞 <b>${esc(x.file.name)}</b> · ${(x.file.size / 1048576).toFixed(1)} MB${x.battle ? ' · ' + esc(x.battle.name) : ''}`).join('<br>') : 'Chưa chọn video.';
+    const one = list.length === 1; $('fbTextF').style.display = one ? '' : 'none';
+    if (one) { const d = FBPost.describe(list[0].battle || (P && !P.custom ? P : null)); $('fbTitle').value = d.title || list[0].file.name.replace(/\.[^.]+$/, ''); $('fbDesc').value = d.description; }
+    if (list.length > 1) $('fbWhen').value = 'series';
+    fbWhenUI(); fbFill();
+  }
+  function fbWhenUI() {
+    const w = $('fbWhen').value; $('fbTimeRow').style.display = w === 'now' ? 'none' : ''; $('fbEveryF').style.display = w === 'series' ? '' : 'none';
+    $('fbAtL').textContent = w === 'series' ? 'Giờ đăng video đầu tiên' : 'Giờ đăng';
+    if (!$('fbAt').value) { const d = new Date(Date.now() + 864e5); d.setHours(20, 0, 0, 0); $('fbAt').value = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16); }
+  }
+  $('bFB').onclick = () => { $('fbApp').value = store.get('fbApp', ''); fbFill(); fbWhenUI(); $('fbModal').classList.add('on'); popIn($('fbModal')); };
+  $('fbClose').onclick = () => $('fbModal').classList.remove('on');
+  $('fbWhen').onchange = fbWhenUI;
+  $('fbConnect').onclick = async () => {
+    const id = $('fbApp').value.trim(); store.set('fbApp', id); $('fbStatus').textContent = 'Đang kết nối…';
+    try { fbPages = await FBPost.connect(id); if (!fbPages.length) $('fbStatus').innerHTML = 'Tài khoản chưa có Fanpage nào cấp quyền. Khi đăng nhập, hãy tick chọn Fanpage.'; fbFill(); }
+    catch (e) { $('fbStatus').innerHTML = '⚠ ' + esc(e.message); }
+  };
+  $('fbPage').onchange = e => store.set('fbPage', e.target.value);
+  $('fbUseLast').onclick = () => { if (!window._lastExport) return note('Chưa có video vừa xuất. Bấm "Xuất video" trước, hoặc chọn file MP4.', 5000); fbSetFiles([window._lastExport]); };
+  $('fbPick').onclick = () => { const i = $('fbFile'); i.value = ''; i.onchange = () => fbSetFiles([...i.files].map(f => ({ file: f, battle: battleOfFile(f) }))); i.click(); };
+  $('fbHist').onclick = () => { const h = FBPost.history.list(); $('fbLog').innerHTML = h.length ? h.slice(0, 20).map(x => `${x.when ? '⏰ ' + new Date(x.when).toLocaleString('vi-VN') : '✔ ' + new Date(x.at).toLocaleString('vi-VN')} · <b>${esc(x.title)}</b> · ${esc(x.page)} · <a href="${x.url}" target="_blank" rel="noopener" style="color:var(--gold)">mở</a>`).join('<br>') : 'Chưa đăng video nào từ máy này.'; };
+  $('fbGo').onclick = async () => {
+    const page = fbPages.find(p => p.id === $('fbPage').value) || fbPages[0]; if (!page || !fbFiles.length) return;
+    const mode = $('fbWhen').value, kind = $('fbKind').value, base = mode === 'now' ? null : new Date($('fbAt').value), step = +$('fbEvery').value * 36e5;
+    if (base) { const ahead = (base - Date.now()) / 6e4, last = (base.getTime() + (mode === 'series' ? step * (fbFiles.length - 1) : 0) - Date.now()) / 864e5; if (ahead < 10) return note('Giờ hẹn phải cách hiện tại ít nhất 10 phút.', 5000); if (last > 30) return note('Facebook chỉ cho hẹn trong vòng 30 ngày. Hãy giảm số video hoặc khoảng cách.', 6000); }
+    $('fbGo').disabled = true; const log = $('fbLog'); log.innerHTML = '';
+    for (let k = 0; k < fbFiles.length; k++) {
+      const { file, battle } = fbFiles[k], when = base ? new Date(base.getTime() + (mode === 'series' ? k * step : 0)) : null;
+      const d = fbFiles.length === 1 ? { title: $('fbTitle').value, description: $('fbDesc').value } : FBPost.describe(battle || { name: file.name.replace(/\.[^.]+$/, '') });
+      const line = document.createElement('div'); log.appendChild(line);
+      const prog = p => line.innerHTML = `⏳ ${esc(file.name)} – đang tải lên ${Math.round(p * 100)}%`; prog(0);
+      try {
+        let r; const opt = { title: d.title, description: d.description, when, onProgress: prog };
+        if (kind === 'reel') { try { r = await FBPost.uploadReel(page, file, opt); } catch (e) { line.innerHTML = `↪ Reels không được (${esc(e.message)}), chuyển sang đăng video thường…`; r = await FBPost.uploadVideo(page, file, opt); } }
+        else r = await FBPost.uploadVideo(page, file, opt);
+        FBPost.history.add({ at: Date.now(), when: when && when.getTime(), title: d.title, page: page.name, url: r.url });
+        line.innerHTML = `${when ? '⏰ Đã hẹn ' + when.toLocaleString('vi-VN') : '✔ Đã đăng'} · <b>${esc(d.title)}</b> · <a href="${r.url}" target="_blank" rel="noopener" style="color:var(--gold)">mở trên Facebook</a>`;
+      } catch (e) { line.innerHTML = `⚠ ${esc(file.name)}: ${esc(e.message)}`; }
+    }
+    $('fbGo').disabled = false;
+  };
 
   /* ---------- mục gập ở cột trái ---------- */
   const folds = store.get('folds', {});

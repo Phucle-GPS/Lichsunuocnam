@@ -26,6 +26,14 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Đăng Facebook (Fanpage) – đăng ngay, hẹn giờ, lên lịch hàng loạt
+1. Tạo app tại developers.facebook.com (loại Business, thêm Facebook Login; tên miền `phucle-gps.github.io`), để chế độ **Development** là đủ cho chính bạn dùng. Copy **App ID**.
+2. Trong Xưởng Video bấm **Đăng Facebook** → dán App ID → **Kết nối Facebook** → chọn Fanpage.
+3. Chọn *video vừa xuất* hoặc nhiều file MP4 → chọn **Đăng ngay / Hẹn giờ / Lên lịch hàng loạt** (VD mỗi ngày 20:00) → **Đăng lên Facebook**.
+- Tiêu đề, mô tả, hashtag, nguồn tự soạn từ kịch bản (theo tên file `id-trận.mp4`).
+- Hẹn giờ do Facebook thực hiện (10 phút – 30 ngày), tắt máy vẫn đăng đúng giờ.
+- Chỉ đăng được lên **Fanpage** (Facebook không cho ứng dụng đăng lên trang cá nhân). Mã truy cập chỉ lưu trong trình duyệt của bạn.
+
 ## Thư viện & công cụ đã tích hợp
 | Nguồn | Dùng trong app |
 |---|---|
