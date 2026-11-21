@@ -498,7 +498,8 @@ function seek(t) {
 }
 
 /* ======================= XUẤT MP4 TRONG TRÌNH DUYỆT (Mediabunny + WebCodecs) ======================= */
-async function exportMP4(fps, onProg) {
+async function exportMP4(fps, onProg, maxT) {
+  const LEN = Math.min(TOTAL, maxT || TOTAL);
   const M = await import(new URL('lib/vendor/mediabunny.min.mjs', location.href).href);
   if (!(await M.canEncodeVideo('avc'))) throw new Error('Trình duyệt chưa hỗ trợ mã hóa H.264 (hãy dùng Chrome/Edge bản mới trên máy tính).');
   const comp = document.createElement('canvas'); comp.width = W; comp.height = H; const cx = comp.getContext('2d');
@@ -509,11 +510,11 @@ async function exportMP4(fps, onProg) {
   output.addAudioTrack(asrc);
   await output.start();
   // âm thanh: nhạc + giọng đọc trộn sẵn
-  const sr = 48000, oc = new OfflineAudioContext(2, Math.ceil(sr * TOTAL), sr), mg = oc.createGain(); mg.gain.value = .45; mg.connect(oc.destination);
+  const sr = 48000, oc = new OfflineAudioContext(2, Math.ceil(sr * LEN), sr), mg = oc.createGain(); mg.gain.value = .45; mg.connect(oc.destination);
   Studio.music(oc, mg, TOTAL, shots.filter((s, i) => [0, 2, 4, 7].includes(i)).map(s => s.start + .05), 0, '');
   (window._vb || []).forEach((b, i) => { if (!b) return; const s = oc.createBufferSource(); s.buffer = b; s.connect(oc.destination); s.start(shots[i].start + .4); });
   const mix = await oc.startRendering();
-  const n = Math.ceil(TOTAL * fps);
+  const n = Math.ceil(LEN * fps);
   for (let k = 0; k < n; k++) {
     const t = k / fps; seek(t);
     cx.drawImage(renderer.domElement, 0, 0, W, H); cx.drawImage(ov, 0, 0);
@@ -538,7 +539,7 @@ async function boot() {
   await Promise.all(['700 40px Oswald', '500 40px Oswald', '400 40px "Be Vietnam Pro"', '600 40px "Be Vietnam Pro"', '700 40px "Be Vietnam Pro"', 'italic 400 40px "Playfair Display"', 'italic 700 40px "Playfair Display"'].map(f => document.fonts.load(f, 'ĐẰNG Trần Hưng Đạo ạ'))).catch(() => {});
   seek(0.01);
   $('load').style.display = 'none';
-  window.STUDIO = { total: TOTAL, W, H, seek: t => seek(t), starts: shots.map(s => s.start), audio: () => renderMusic() };
+  window.STUDIO = { total: TOTAL, W, H, seek: t => seek(t), starts: shots.map(s => s.start), audio: () => renderMusic(), exportMP4 };
   if (!RENDER) liveUI();
 }
 async function renderMusic() {
