@@ -802,6 +802,7 @@
     const total = acc;
     stage.classList.remove('st-tailieu', 'st-vientuong', 'st-hoathinh'); if (battle.style) stage.classList.add('st-' + battle.style);
     const layer = h('div', { class: 'layer' }, stage);
+    const fxLeak = h('div', { class: 'tr-leak' }, stage), fxBar = h('div', { class: 'tr-bar' }, stage), fxScan = h('div', { class: 'tr-scan' }, stage);
     const subs = h('div', { class: 'subs' }, stage);
     const grain = h('canvas', { class: 'grain', width: 384, height: 216 }, stage);
     const gctx = grain.getContext('2d');
@@ -811,22 +812,80 @@
     const brand = h('div', { class: 'brand' }, stage, esc(battle.series || 'SỬ VIỆT · NHỮNG TRẬN ĐÁNH LỪNG DANH'));
     let cur = -1, inst = null;
     scenes.forEach(S => { S.chunks = chunks(S.sc.say); const L = S.chunks.reduce((a, c) => a + c.length, 0) || 1; let a = .25; S.cuts = S.chunks.map(c => { const st = a; a += (S.d - .6) * c.length / L; return [st, a, c]; }); });
+    /* ---------- chuyển cảnh kiểu After Effects ---------- */
+    const TR_T = .8;
+    const TR_SETS = { tailieu: ['zoom', 'flash', 'whip', 'wipe'], vientuong: ['glitch', 'zoom', 'iris', 'whip'], hoathinh: ['iris', 'slide', 'zoom', 'wipe'] };
+    const trOpt = opts.tr || 'auto';
+    function trKind(i) {
+      if (scenes[i].sc.tr) return scenes[i].sc.tr;
+      if (trOpt !== 'auto') return trOpt;
+      const set = TR_SETS[battle.style] || TR_SETS.tailieu;
+      return set[(i - 1) % set.length];
+    }
+    const insts = new Map();
+    function getInst(i) { if (!insts.has(i)) insts.set(i, SCENES[scenes[i].sc.type](scenes[i].sc, battle)); return insts.get(i); }
+    function show(list) {
+      for (const [k, it] of insts) if (!list.includes(k)) { it.root.remove(); insts.delete(k); }
+      const roots = list.map(k => getInst(k).root);
+      if (roots.some((r, j) => layer.children[j] !== r) || layer.children.length !== roots.length) roots.forEach(r => layer.appendChild(r));
+      roots.forEach(r => { r.style.transform = ''; r.style.opacity = ''; r.style.filter = ''; r.style.clipPath = ''; });
+    }
+    function applyTr(kind, p, a, b) {
+      const e = ease(p);
+      fxLeak.style.opacity = 0; fxBar.style.opacity = 0; fxScan.style.opacity = 0;
+      if (kind === 'zoom') {
+        a.style.transform = `scale(${1 + e * .35})`; a.style.filter = `blur(${e * 10}px)`; a.style.opacity = 1 - e;
+        b.style.transform = `scale(${1.25 - e * .25})`; b.style.filter = `blur(${(1 - e) * 10}px)`; b.style.opacity = e;
+      } else if (kind === 'flash') {
+        b.style.opacity = p < .5 ? 0 : 1; a.style.opacity = p < .5 ? 1 : 0;
+        a.style.transform = `scale(${1 + p * .06})`; b.style.transform = `scale(${1.06 - p * .06})`;
+        fxLeak.style.opacity = Math.pow(1 - Math.abs(p - .5) * 2, 1.5);
+      } else if (kind === 'whip') {
+        a.style.transform = `translateX(${-e * 70}%)`; a.style.filter = `blur(${Math.sin(e * Math.PI) * 28}px)`;
+        b.style.transform = `translateX(${(1 - e) * 70}%)`; b.style.filter = `blur(${Math.sin(e * Math.PI) * 28}px)`;
+        b.style.opacity = e < .5 ? e * 2 : 1;
+      } else if (kind === 'wipe') {
+        b.style.clipPath = `inset(0 ${(1 - e) * 100}% 0 0)`;
+        fxBar.style.opacity = Math.sin(p * Math.PI); fxBar.style.left = (e * 100) + '%';
+      } else if (kind === 'slide') {
+        a.style.transform = `translateX(${-e * 100}%)`; b.style.transform = `translateX(${(1 - e) * 100}%)`;
+      } else if (kind === 'iris') {
+        b.style.clipPath = `circle(${e * 80}% at 50% 50%)`; a.style.transform = `scale(${1 + e * .1})`;
+      } else if (kind === 'glitch') {
+        const j = Math.sin(p * 97) * 40 * Math.sin(p * Math.PI), split = 14 * Math.sin(p * Math.PI);
+        const sh = `drop-shadow(${split}px 0 rgba(255,0,80,.8)) drop-shadow(${-split}px 0 rgba(0,240,255,.8))`;
+        a.style.opacity = p < .5 ? 1 : 0; b.style.opacity = p < .5 ? 0 : 1;
+        [a, b].forEach(r => { r.style.transform = `translateX(${j}px) skewX(${j * .1}deg)`; r.style.filter = sh; });
+        fxScan.style.opacity = Math.sin(p * Math.PI) * .8;
+      } else if (kind === 'black') {
+        a.style.opacity = 1 - Math.min(1, p * 2); b.style.opacity = Math.max(0, p * 2 - 1);
+      } else { b.style.opacity = e; }
+    }
+
     function seek(t) {
       t = clamp(t, 0, total - 1e-3);
       let i = scenes.findIndex(S => t < S.start + S.d); if (i < 0) i = scenes.length - 1;
       const S = scenes[i];
-      if (i !== cur) {
-        layer.innerHTML = '';
-        inst = SCENES[S.sc.type](S.sc, battle);
-        layer.appendChild(inst.root); cur = i;
-      }
       const lt = t - S.start;
-      inst.update(lt, S.d);
+      // có đang ở vùng giao giữa hai cảnh không?
+      let pair = null;
+      if (i > 0 && lt < TR_T / 2 && trKind(i) !== 'cut') pair = [i - 1, i, (lt + TR_T / 2) / TR_T];
+      else if (i < scenes.length - 1 && S.d - lt < TR_T / 2 && trKind(i + 1) !== 'cut') pair = [i, i + 1, (lt - (S.d - TR_T / 2)) / TR_T];
+      if (pair) {
+        const [a, b, p] = pair;
+        show([a, b]);
+        getInst(a).update(Math.min(t - scenes[a].start, scenes[a].d), scenes[a].d);
+        getInst(b).update(Math.max(0, t - scenes[b].start), scenes[b].d);
+        applyTr(trKind(b), clamp(p, 0, 1), getInst(a).root, getInst(b).root);
+      } else {
+        show([i]); getInst(i).update(lt, S.d);
+        fxLeak.style.opacity = 0; fxBar.style.opacity = 0; fxScan.style.opacity = 0;
+      }
+      inst = getInst(i); cur = i;
       const c = S.cuts.find(c => lt >= c[0] && lt < c[1] + .25) || null;
       const txt = c ? c[2] : '';
       if (subs._t !== txt) { subs._t = txt; subs.innerHTML = txt ? `<span>${esc(txt)}</span>` : ''; }
-      const fi = 1 - ramp(lt, 0, .35), fo = ramp(lt, S.d - .3, S.d);
-      fade.style.opacity = Math.max(i === 0 ? fi : fi * .9, i === scenes.length - 1 ? 0 : fo * .9);
+      fade.style.opacity = i === 0 ? 1 - ramp(lt, 0, .5) : i === scenes.length - 1 ? ramp(lt, S.d - .6, S.d) : 0;
       brand.style.opacity = ['title', 'map', 'diagram'].includes(S.sc.type) ? 0 : .75;
       // hạt phim
       const gk = Math.floor(t * 4) % 4;

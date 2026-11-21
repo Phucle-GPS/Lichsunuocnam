@@ -24,6 +24,16 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Chuyển cảnh kiểu After Effects
+Mục **Hiển thị → Chuyển cảnh**: Tự động theo phong cách, Phóng xuyên cảnh (zoom blur), Chớp sáng (light leak), Lia máy (whip pan), Quét lộ cảnh (wipe), Đẩy trượt, Mở tròn (iris), Nhiễu sóng (glitch), Hòa mờ, Mờ qua đen, Cắt thẳng.
+Với dự án của bạn, có thể chọn kiểu chuyển riêng cho từng cảnh.
+
+## Phòng nhạc
+App **tự sáng tác bài mới** theo phong cách xưa: Bolero xưa · Valse tiền chiến · Dân ca ngũ cung · Lofi hoài niệm.
+Chọn nhạc cụ chính (vĩ cầm, sáo trúc, piano, guitar, harmonica), giọng, nhịp độ, bật/tắt từng lớp (giai điệu, hòa âm, bass, nhịp).
+Bấm **Giai điệu khác** để ra bài mới; **Lưu**, **Tải WAV**, hoặc **Dùng cho dự án đang mở** làm nhạc nền.
+Nhạc do app sáng tác không lấy từ bài có sẵn nên tự do sử dụng. Lưu ý: phối lại (kể cả bằng AI) một bài nhạc xưa có thật vẫn cần phép của tác giả – quyền tác giả ở Việt Nam kéo dài suốt đời tác giả + 50 năm.
+
 ## 0. Dùng như ứng dụng trên máy tính
 1. Mở trang bằng **Chrome** hoặc **Edge** trên máy tính.
 2. Bấm **⬇ Cài ứng dụng vào máy** (hoặc biểu tượng ⊕ cuối thanh địa chỉ) → app có biểu tượng trên màn hình, mở thành cửa sổ riêng, chạy cả khi không có mạng.

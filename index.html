@@ -48,6 +48,12 @@ button{cursor:pointer}
 .right{grid-area:right;border-left:1px solid var(--line)}
 .sec{border-bottom:1px solid var(--line);padding:12px}
 .sec h3{margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:space-between}
+.sec h3.fold{cursor:pointer;user-select:none;margin-bottom:0}
+.sec h3.fold::before{content:'▾';display:inline-block;margin-right:6px;transition:.15s;color:var(--dim)}
+.sec.closed h3.fold::before{transform:rotate(-90deg)}
+.sec:not(.closed) h3.fold{margin-bottom:10px}
+.sec.closed .fold-body{display:none}
+.sec h3 span.l{flex:1}
 .sec h3 small{font-weight:500;letter-spacing:0;text-transform:none;color:var(--dim)}
 .proj{display:flex;gap:10px;align-items:center;width:100%;padding:8px;border-radius:8px;border:1px solid transparent;background:transparent;text-align:left;margin-bottom:2px}
 .proj:hover{background:var(--panel2)}
@@ -94,7 +100,7 @@ button{cursor:pointer}
 .rng{display:flex;align-items:center;gap:8px}
 .rng input{flex:1;accent-color:var(--red)}
 .rng em{font-style:normal;color:var(--muted);font-size:11px;width:30px;text-align:right;font-variant-numeric:tabular-nums}
-.sw{position:relative;width:36px;height:20px;flex:none}
+.sw{position:relative;display:inline-block;width:36px;height:20px;flex:none}
 .sw input{opacity:0;width:0;height:0}
 .sw i{position:absolute;inset:0;border-radius:20px;background:#3a342d;transition:.15s}
 .sw i::after{content:'';position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#cfc5b4;transition:.15s}
@@ -278,6 +284,11 @@ button{cursor:pointer}
 .tide-bar i{position:absolute;left:0;right:0;bottom:0;background:#4f86b0}
 .tide-s{color:#ffd36b}
 
+.tr-leak{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 35% 40%,#fff8e6 0%,rgba(255,196,110,.95) 25%,rgba(214,90,30,.55) 55%,transparent 80%);mix-blend-mode:screen}
+.tr-bar{position:absolute;top:0;bottom:0;width:18px;margin-left:-9px;background:linear-gradient(90deg,transparent,#fff6d6,transparent);box-shadow:0 0 80px 30px rgba(255,214,140,.55);opacity:0;pointer-events:none}
+.st-vientuong .tr-bar{background:linear-gradient(90deg,transparent,#c9f7ff,transparent);box-shadow:0 0 80px 30px rgba(56,225,255,.55)}
+.st-hoathinh .tr-bar{background:#fff;box-shadow:0 0 0 6px #1d3557}
+.tr-scan{position:absolute;inset:0;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(120,255,255,.22) 0 3px,transparent 3px 9px),linear-gradient(90deg,rgba(255,0,90,.15),rgba(0,240,255,.15));mix-blend-mode:screen}
 .frame.nosubs .subs{display:none}
 .frame.nograin .grain,.frame.nograin .vign{display:none}
 
@@ -384,15 +395,17 @@ body.render .app{display:none}
     <div class="crumb" id="crumb"></div>
     <select class="epsel" id="epSel" style="display:none" title="Chọn tập"></select>
     <div class="sp"></div>
+    <button class="btn hide-m" id="bNewTop" title="Tạo dự án mới từ kịch bản">＋ Dự án mới</button>
     <button class="btn ghost hide-m" id="bInstall" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Cài ứng dụng</button>
     <button class="btn primary" id="bExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span>Xuất video</span></button>
     <button class="btn primary" id="bRec" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>Chế độ quay</button>
   </header>
 
   <aside class="left">
-    <div class="sec"><h3>Dự án của bạn <small id="myCount"></small></h3><button class="btn add" id="bNew">＋ Dự án mới từ kịch bản</button><div id="myProjs"></div></div>
-    <div class="sec"><h3>Mẫu: Trận đánh lừng danh <small>6 trận</small></h3><div id="projs"></div></div>
-    <div class="sec"><h3>Cảnh <small id="scnCount"></small></h3><div id="scns"></div></div>
+    <div class="sec" data-fold="mine"><h3 class="fold"><span class="l">Dự án của bạn</span><small id="myCount"></small></h3><div class="fold-body"><button class="btn add" id="bNew">＋ Dự án mới từ kịch bản</button><div id="myProjs"></div></div></div>
+    <div class="sec" data-fold="mau"><h3 class="fold"><span class="l">Mẫu: Trận đánh lừng danh</span><small>6 trận</small></h3><div class="fold-body"><div id="projs"></div></div></div>
+    <div class="sec" data-fold="nhac"><h3 class="fold"><span class="l">Phòng nhạc</span><small id="songCount"></small></h3><div class="fold-body"><button class="btn add" id="bSong">♫ Sáng tác bài nhạc mới</button><div id="songs"></div></div></div>
+    <div class="sec" data-fold="scn"><h3 class="fold"><span class="l">Cảnh</span><small id="scnCount"></small></h3><div class="fold-body"><div id="scns"></div></div></div>
   </aside>
 
   <main class="mid">
@@ -423,12 +436,18 @@ body.render .app{display:none}
       <div class="field"><label>Giọng dẫn chuyện</label><select class="sel" id="voiceSel"></select></div>
       <div class="field"><label>Âm lượng giọng</label><div class="rng"><input type="range" id="volV" min="0" max="150" value="100"><em id="volVt">100%</em></div></div>
       <div class="field"><label>Âm lượng nhạc nền</label><div class="rng"><input type="range" id="volM" min="0" max="150" value="100"><em id="volMt">100%</em></div></div>
-      <div class="row"><span>Nhạc trống trận</span><label class="sw"><input type="checkbox" id="swMusic" checked><i></i></label></div>
+      <div class="field" id="musicField" style="display:none"><label>Nhạc nền của dự án</label><select class="sel" id="musicSel"></select></div>
+      <div class="row"><span id="swMusicL">Nhạc nền</span><label class="sw"><input type="checkbox" id="swMusic" checked><i></i></label></div>
     </div>
     <div class="sec">
       <h3>Hiển thị</h3>
       <div class="row"><span>Phụ đề</span><label class="sw"><input type="checkbox" id="swSubs" checked><i></i></label></div>
       <div class="row"><span>Hạt phim &amp; viền tối</span><label class="sw"><input type="checkbox" id="swGrain" checked><i></i></label></div>
+      <div class="field" style="margin-top:10px"><label>Chuyển cảnh</label><select class="sel" id="trSel">
+        <option value="auto">✨ Tự động theo phong cách</option><option value="zoom">Phóng xuyên cảnh (zoom blur)</option><option value="flash">Chớp sáng (light leak)</option>
+        <option value="whip">Lia máy (whip pan)</option><option value="wipe">Quét lộ cảnh (wipe)</option><option value="slide">Đẩy trượt (push)</option>
+        <option value="iris">Mở tròn (iris)</option><option value="glitch">Nhiễu sóng (glitch)</option><option value="fade">Hòa mờ (dissolve)</option>
+        <option value="black">Mờ qua đen</option><option value="cut">Cắt thẳng (không hiệu ứng)</option></select></div>
     </div>
     <div class="sec">
       <h3>Cảnh hiện tại <small id="curTag"></small></h3>
@@ -483,6 +502,35 @@ body.render .app{display:none}
     <footer><button class="btn" id="nmCancel">Hủy</button><button class="btn primary" id="nmCreate" disabled>Tạo dự án</button></footer>
   </div>
 </div>
+<div class="modal" id="songModal">
+  <div class="dlg" style="width:min(820px,100%)">
+    <header><h2>PHÒNG NHẠC · SÁNG TÁC MỚI</h2><button class="ibtn" id="smClose" title="Đóng">✕</button></header>
+    <div class="body">
+      <div class="field"><label>Tên bài</label><input class="inp" id="smName" placeholder="VD: Chiều quê ngoại"></div>
+      <div class="field"><label>Phong cách</label><div class="styles" id="smStyles" style="grid-template-columns:repeat(4,1fr)"></div></div>
+      <div class="grid2">
+        <div class="field"><label>Nhạc cụ chính</label><select class="sel" id="smLead"></select></div>
+        <div class="field"><label>Giọng (cao độ)</label><select class="sel" id="smKey"></select></div>
+        <div class="field"><label>Nhịp độ <em id="smTempoV" style="font-style:normal;color:var(--gold)"></em></label><input type="range" id="smTempo" min="50" max="140" style="width:100%;accent-color:var(--red)"></div>
+        <div class="field"><label>Độ dài nghe thử / tải về</label><select class="sel" id="smLen"><option value="60">1 phút</option><option value="120" selected>2 phút</option><option value="180">3 phút</option><option value="300">5 phút</option></select></div>
+      </div>
+      <div class="field"><label>Các lớp nhạc</label><div class="btnrow" id="smLayers">
+        <label class="row" style="flex:1;margin:0"><span>Giai điệu</span><span class="sw"><input type="checkbox" data-l="melody"><i></i></span></label>
+        <label class="row" style="flex:1;margin:0"><span>Hòa âm</span><span class="sw"><input type="checkbox" data-l="chords"><i></i></span></label>
+        <label class="row" style="flex:1;margin:0"><span>Bass</span><span class="sw"><input type="checkbox" data-l="bass"><i></i></span></label>
+        <label class="row" style="flex:1;margin:0"><span>Nhịp</span><span class="sw"><input type="checkbox" data-l="drums"><i></i></span></label>
+      </div></div>
+      <canvas id="smRoll" height="150" style="width:100%;height:150px;background:#0b0a09;border:1px solid var(--line);border-radius:8px;display:block"></canvas>
+      <div class="btnrow" style="margin-top:10px">
+        <button class="btn" id="smNew">🎲 Giai điệu khác</button>
+        <button class="btn primary" id="smPlay">▶ Nghe thử</button>
+        <button class="btn" id="smWav">⬇ Tải WAV</button>
+      </div>
+      <div class="hint">Mỗi lần bấm <b>Giai điệu khác</b>, app tự sáng tác một bài mới theo phong cách đã chọn: giai điệu, hòa âm, tiết tấu đều do máy tạo, không lấy từ bài hát có sẵn nào, nên bạn tự do dùng cho video. Lưu ý: dùng một bài nhạc xưa có thật (kể cả khi đã phối lại bằng AI) vẫn cần xin phép tác giả.</div>
+    </div>
+    <footer><button class="btn danger" id="smDel" style="margin-right:auto">Xóa bài</button><button class="btn" id="smUse">🎬 Dùng cho dự án đang mở</button><button class="btn primary" id="smSave">💾 Lưu vào thư viện</button></footer>
+  </div>
+</div>
 <input type="file" id="fMedia" accept="image/*,video/*" hidden>
 <input type="file" id="fVoice" accept="audio/*" hidden>
 
@@ -490,6 +538,7 @@ body.render .app{display:none}
 <script src="engine.js"></script>
 <script src="battles.js"></script>
 <script src="lib/xuong.js"></script>
+<script src="lib/nhac.js"></script>
 <script>
 (function () {
   const Q = new URLSearchParams(location.search);
@@ -497,14 +546,14 @@ body.render .app{display:none}
   const fmtT = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
 
   /* Dựng khung (ngang 1920×1080 hoặc dọc 1080×1920) và nạp phim */
-  function mount(frame, battle, format, durs) {
+  function mount(frame, battle, format, durs, tr) {
     frame.innerHTML = '';
     frame.className = 'frame' + (format === 'doc' ? ' doc' : '');
     const FW = format === 'doc' ? 1080 : 1920, FH = format === 'doc' ? 1920 : 1080;
     frame.style.width = FW + 'px'; frame.style.height = FH + 'px';
     const stage = document.createElement('div'); stage.className = 'stage';
     frame.appendChild(stage);
-    const film = Studio.build(battle, stage, { durs });
+    const film = Studio.build(battle, stage, { durs, tr });
     if (format === 'doc') {
       const k = 1080 / 1920;
       stage.style.transform = `scale(${k})`; stage.style.transformOrigin = '0 0'; stage.style.top = '640px';
@@ -524,7 +573,7 @@ body.render .app{display:none}
     const b = BATTLES.find(x => x.id === Q.get('render'));
     const frame = document.createElement('div'); document.body.appendChild(frame);
     const durs = (Q.get('durs') || '').split(',').filter(Boolean).map(Number);
-    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs);
+    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs, Q.get('tr') || 'auto');
     frame.style.position = 'absolute';
     document.fonts.ready.then(() => {
       film.seek(0);
@@ -643,7 +692,8 @@ body.render .app{display:none}
     } else B = P;
     if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này chưa có giọng dẫn chuyện – đang dùng phụ đề.'); }
     const durs = packBufs ? packBufs.map(b => b ? b.duration + 1.0 : 0) : [];
-    ({ film, FW, FH } = mount(frame, B, format, durs));
+    ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value));
+    if (P.custom && P.musicId && Nhac.lib.get(P.musicId)) { const song = Nhac.lib.get(P.musicId), tot = film.total; film.music = (ctx, dest, off) => Nhac.schedule(ctx, dest, song, tot, off); film.songName = song.name; }
     frame.classList.toggle('nosubs', !$('swSubs').checked); frame.classList.toggle('nograin', !$('swGrain').checked);
     view.classList.toggle('doc', format === 'doc');
     t = keepT ? Math.min(t, film.total - .01) : 0; curScene = -1;
@@ -741,6 +791,7 @@ body.render .app{display:none}
     el.innerHTML = `
       <div class="field"><label>Loại cảnh</label>${typeSel}</div>${fields}
       <div class="field"><label>Lời dẫn (phụ đề + giọng đọc)</label><textarea class="ta" id="sSay">${esc(sc.say)}</textarea></div>
+      <div class="field"><label>Chuyển vào cảnh này bằng</label><select class="sel" id="sTr">${[['', 'Theo cài đặt chung'], ['zoom', 'Phóng xuyên cảnh'], ['flash', 'Chớp sáng'], ['whip', 'Lia máy'], ['wipe', 'Quét lộ cảnh'], ['slide', 'Đẩy trượt'], ['iris', 'Mở tròn'], ['glitch', 'Nhiễu sóng'], ['fade', 'Hòa mờ'], ['black', 'Mờ qua đen'], ['cut', 'Cắt thẳng']].map(([v, l]) => `<option value="${v}"${(sc.tr || '') === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
       ${sc.type === 'card' ? `<div class="field"><label>Ảnh / video minh họa</label><div class="mfile">${sc.mediaId ? `<span>${sc.mediaKind === 'video' ? '🎬' : '🖼'}</span><b>${esc(sc.mediaName || 'đã thêm')}</b>` : 'Chưa có – dùng hình nền tự vẽ'}</div><div class="btnrow"><button class="btn" id="sMedia">${sc.mediaId ? 'Đổi' : '＋ Thêm'} ảnh/video</button>${sc.mediaId ? '<button class="btn danger" id="sMediaX">Gỡ</button>' : ''}</div></div>` : ''}
       <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
       <div class="btnrow"><button class="btn" id="sUp" title="Đưa lên">↑ Lên</button><button class="btn" id="sDown" title="Đưa xuống">↓ Xuống</button><button class="btn" id="sDup">⧉ Nhân đôi</button><button class="btn danger" id="sDel">Xóa</button></div>`;
@@ -757,6 +808,7 @@ body.render .app{display:none}
     if ($('sTitle')) $('sTitle').oninput = deb(e => { sc.title = e.target.value; saveP(true); });
     if ($('sItems')) $('sItems').oninput = deb(e => { sc.items = e.target.value.split('\n').map(x => x.trim()).filter(Boolean).slice(0, 5); saveP(true); });
     $('sSay').oninput = deb(e => { sc.say = e.target.value; saveP(true); });
+    $('sTr').onchange = e => { if (e.target.value) sc.tr = e.target.value; else delete sc.tr; saveP(true); };
     const move = d => { const j = ci + d; if (j < 0 || j >= P.scenes.length) return; P.scenes.splice(j, 0, P.scenes.splice(ci, 1)[0]); saveP(true); setTimeout(() => jumpToUid(sc.uid), 400); };
     $('sUp').onclick = () => move(-1); $('sDown').onclick = () => move(1);
     $('sDup').onclick = () => { const c = JSON.parse(JSON.stringify(sc, (k, v) => k.startsWith('_') ? undefined : v)); c.uid = Xuong.uid(); delete c.voiceId; delete c.voiceName; P.scenes.splice(ci + 1, 0, c); saveP(true); buildProjects(); };
@@ -783,7 +835,8 @@ body.render .app{display:none}
       const d = packBufs && packBufs[i] ? packBufs[i].duration : (voiceMode === 'sys' ? S.d - .8 : 0); if (!d) return '';
       return `<div class="clip voice" style="left:${(S.start + .4) * pxs}px;width:${Math.max(4, d * pxs)}px"><i></i></div>`;
     }).join('');
-    $('trM').innerHTML = musicOn ? `<div class="clip music" style="left:1px;width:${W - 2}px">Nhạc nền tự tổng hợp · ${B.style ? Xuong.STYLES[B.style] : 'trống trận'}</div>` : '';
+    $('trM').innerHTML = musicOn ? `<div class="clip music" style="left:1px;width:${W - 2}px">${film.songName ? '♫ ' + esc(film.songName) : 'Nhạc nền tự tổng hợp · ' + (B.style ? Xuong.STYLES[B.style] : 'trống trận')}</div>` : '';
+    buildMusicSel();
   }
   (function () {
     const sc = $('tlScroll'); let drag = false;
@@ -891,7 +944,7 @@ body.render .app{display:none}
   $('bFull').onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else view.requestFullscreen().catch(() => {}); };
   document.addEventListener('fullscreenchange', () => setTimeout(fit, 150));
   addEventListener('keydown', e => {
-    if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || !film || $('newModal').classList.contains('on')) return;
+    if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || !film || document.querySelector('.modal.on')) return;
     if (e.code === 'Space') { e.preventDefault(); playing ? pause() : play(); }
     else if (e.code === 'ArrowLeft') seekTo(t - 5); else if (e.code === 'ArrowRight') seekTo(t + 5);
     else if (e.code === 'Home') seekTo(0);
@@ -1010,9 +1063,103 @@ body.render .app{display:none}
   $('bInstall').onclick = async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; $('bInstall').style.display = 'none'; };
   addEventListener('appinstalled', () => { $('bInstall').style.display = 'none'; });
 
+  /* ---------- PHÒNG NHẠC ---------- */
+  let song = null, smSrc = null, smStart = 0, smRaf = 0;
+  function buildSongs() {
+    const a = Nhac.lib.list();
+    $('songCount').textContent = a.length ? a.length + ' bài' : '';
+    $('songs').innerHTML = a.length ? a.map(x => `<button class="proj" data-sid="${x.id}"><span class="y u">♫</span><span><b>${esc(x.name || 'Bài chưa đặt tên')}</b><small>${Nhac.STYLES[x.style].name} · ${Nhac.KEYS[x.key]} · ${x.tempo} bpm</small></span></button>`).join('')
+      : '<div class="hint" style="margin:0">Chưa có bài nào. Bấm nút trên để app tự sáng tác nhạc nền phong cách xưa.</div>';
+    document.querySelectorAll('[data-sid]').forEach(e => e.onclick = () => openSong(Nhac.lib.get(e.dataset.sid)));
+  }
+  function buildMusicSel() {
+    const f = $('musicField'); f.style.display = P && P.custom ? '' : 'none';
+    $('swMusicL').textContent = P && !P.custom ? 'Nhạc trống trận' : 'Nhạc nền';
+    if (!P || !P.custom) return;
+    const a = Nhac.lib.list();
+    $('musicSel').innerHTML = `<option value="">Tự động theo phong cách phim</option>` + a.map(x => `<option value="${x.id}"${P.musicId === x.id ? ' selected' : ''}>♫ ${esc(x.name || 'Bài chưa đặt tên')} · ${Nhac.STYLES[x.style].name}</option>`).join('') + '<option value="+">＋ Sáng tác bài mới…</option>';
+    if (!P.musicId) $('musicSel').value = '';
+  }
+  $('musicSel').onchange = e => { const v = e.target.value; if (v === '+') { buildMusicSel(); openSong(null); return; } if (v) P.musicId = v; else delete P.musicId; saveP(true); };
+  function smFill() {
+    $('smStyles').innerHTML = Object.entries(Nhac.STYLES).map(([k, v]) => `<button class="stc${song.style === k ? ' on' : ''}" data-st="${k}"><div class="pv" style="height:46px;background:${{ bolero: 'linear-gradient(135deg,#5a1e2c,#c9774a)', valse: 'linear-gradient(135deg,#2b3a5c,#d9c08a)', ngucung: 'linear-gradient(135deg,#1f4a3a,#c9b26a)', lofi: 'linear-gradient(135deg,#3a2c4f,#e09a8a)' }[k]}"></div><b>${v.name}</b><small>${v.desc}</small></button>`).join('');
+    document.querySelectorAll('#smStyles .stc').forEach(b => b.onclick = () => { const keep = { id: song.id, name: song.name }; song = Object.assign(Nhac.newSong(b.dataset.st), keep); smFill(); smChanged(); });
+    $('smLead').innerHTML = Object.entries(Nhac.LEADS).map(([k, v]) => `<option value="${k}"${song.lead === k ? ' selected' : ''}>${v}</option>`).join('');
+    const minor = ['bolero', 'lofi'].includes(song.style);
+    $('smKey').innerHTML = Nhac.KEYS.map((k, i) => `<option value="${i}"${song.key === i ? ' selected' : ''}>${k} ${song.style === 'ngucung' ? 'ngũ cung' : minor ? 'thứ' : 'trưởng'}</option>`).join('');
+    $('smTempo').value = song.tempo; $('smTempoV').textContent = song.tempo + ' bpm';
+    $('smName').value = song.name || '';
+    document.querySelectorAll('#smLayers input').forEach(i => i.checked = !!song.layers[i.dataset.l]);
+    $('smDel').style.display = Nhac.lib.get(song.id) ? '' : 'none';
+    $('smUse').style.display = P && P.custom ? '' : 'none';
+    drawRoll();
+  }
+  function drawRoll(pos) {
+    const c = $('smRoll'), w = c.width = c.clientWidth * devicePixelRatio, hh = c.height = 150 * devicePixelRatio, g = c.getContext('2d');
+    const len = +$('smLen').value, view = Math.min(len, 40), { events, barDur } = Nhac.arrange(song, view);
+    g.fillStyle = '#0b0a09'; g.fillRect(0, 0, w, hh);
+    g.strokeStyle = '#2a251f'; for (let x = 0; x < view; x += barDur) { const px = x / view * w; g.beginPath(); g.moveTo(px, 0); g.lineTo(px, hh); g.stroke(); }
+    const notes = events.filter(e => e.note), lo = Math.min(...notes.map(e => e.note)) - 2, hi = Math.max(...notes.map(e => e.note)) + 2;
+    const col = { lead: '#e2c27a', bass: '#4fa3f7', pad: 'rgba(200,53,43,.35)' };
+    events.forEach(e => {
+      const x = e.t / view * w, y = e.note ? hh - (e.note - lo) / (hi - lo) * hh : hh - 6;
+      g.fillStyle = col[e.inst] || (e.note ? 'rgba(232,68,47,.75)' : 'rgba(160,150,130,.6)');
+      g.fillRect(x, y - (e.note ? 3 : 2) * devicePixelRatio, Math.max(2, e.dur / view * w), (e.note ? 5 : 3) * devicePixelRatio);
+    });
+    if (pos != null) { g.fillStyle = '#fff'; g.fillRect((pos % view) / view * w, 0, 2 * devicePixelRatio, hh); }
+  }
+  function smStop() { if (smSrc) { try { smSrc.disconnect(); } catch (e) {} smSrc = null; } cancelAnimationFrame(smRaf); $('smPlay').textContent = '▶ Nghe thử'; drawRoll(); }
+  function smChanged() { const was = !!smSrc; smStop(); drawRoll(); if (was) smPlay(); }
+  function smPlay() {
+    if (smSrc) return smStop();
+    pause(); ensureCtx(); actx.resume();
+    const len = +$('smLen').value; smSrc = Nhac.schedule(actx, actx.destination, song, len, 0); smStart = actx.currentTime;
+    $('smPlay').textContent = '■ Dừng';
+    const tick = () => { const p = actx.currentTime - smStart; if (p > len) return smStop(); drawRoll(p); smRaf = requestAnimationFrame(tick); }; tick();
+  }
+  function openSong(s) {
+    song = s ? JSON.parse(JSON.stringify(s)) : Nhac.newSong('bolero');
+    $('songModal').classList.add('on'); smFill();
+  }
+  function closeSong() { smStop(); $('songModal').classList.remove('on'); }
+  $('bSong').onclick = () => openSong(null);
+  $('smClose').onclick = closeSong;
+  $('smNew').onclick = () => { song.seed = Math.floor(Math.random() * 1e9); smChanged(); };
+  $('smPlay').onclick = smPlay;
+  $('smLead').onchange = e => { song.lead = e.target.value; smChanged(); };
+  $('smKey').onchange = e => { song.key = +e.target.value; smChanged(); };
+  $('smTempo').oninput = e => { song.tempo = +e.target.value; $('smTempoV').textContent = song.tempo + ' bpm'; };
+  $('smTempo').onchange = smChanged;
+  $('smLen').onchange = smChanged;
+  $('smName').oninput = e => { song.name = e.target.value; };
+  document.querySelectorAll('#smLayers input').forEach(i => i.onchange = () => { song.layers[i.dataset.l] = i.checked; smChanged(); });
+  const smName = () => song.name || (song.name = `${Nhac.STYLES[song.style].name} ${Nhac.KEYS[song.key]} #${String(song.seed).slice(-4)}`);
+  $('smSave').onclick = () => { smName(); Nhac.lib.save(song); buildSongs(); buildMusicSel(); $('smDel').style.display = ''; note(`Đã lưu bài "${song.name}" vào Phòng nhạc.`); };
+  $('smUse').onclick = () => { smName(); Nhac.lib.save(song); buildSongs(); P.musicId = song.id; closeSong(); saveP(true); note(`Đã dùng "${song.name}" làm nhạc nền cho "${P.name}".`); };
+  $('smDel').onclick = () => { if (!confirm('Xóa bài nhạc này khỏi thư viện?')) return; Nhac.lib.remove(song.id); mine.forEach(p => { if (p.musicId === song.id) { delete p.musicId; Xuong.store.save(p); } }); closeSong(); buildSongs(); reload(true); };
+  $('smWav').onclick = async () => {
+    $('smWav').textContent = '⏳ Đang xuất…'; $('smWav').disabled = true;
+    try { const blob = await Nhac.renderWav(song, +$('smLen').value); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = slug(smName()) + '.wav'; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000); }
+    catch (e) { note('Không xuất được: ' + e.message); }
+    $('smWav').textContent = '⬇ Tải WAV'; $('smWav').disabled = false;
+  };
+  buildSongs();
+
+  /* ---------- mục gập ở cột trái ---------- */
+  const folds = store.get('folds', {});
+  function setFold(sec, closed, save) { sec.classList.toggle('closed', closed); if (save) { folds[sec.dataset.fold] = closed; store.set('folds', folds); } }
+  document.querySelectorAll('.sec[data-fold]').forEach(sec => {
+    if (folds[sec.dataset.fold] != null) setFold(sec, folds[sec.dataset.fold]);
+    sec.querySelector('h3.fold').onclick = () => setFold(sec, !sec.classList.contains('closed'), true);
+  });
+  $('bNewTop').onclick = () => { setFold(document.querySelector('[data-fold=mine]'), false, true); openNew(); };
+  $('trSel').value = store.get('tr', 'auto');
+  $('trSel').onchange = e => { store.set('tr', e.target.value); reload(true); };
+
   /* ---------- khởi động ---------- */
   (async () => {
     try { mine = await Xuong.store.list(); } catch (e) { mine = []; note('Trình duyệt không cho lưu dự án (chế độ ẩn danh?).'); }
+    if (folds.mau == null && mine.length) setFold(document.querySelector('[data-fold=mau]'), true);
     buildProjects();
     await document.fonts.ready;
     const want = Q.get('tran') || store.get('last', BATTLES[0].id);
