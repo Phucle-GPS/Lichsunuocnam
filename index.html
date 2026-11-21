@@ -719,7 +719,7 @@ body.render .app{display:none}
   function fillVoices() {
     const keep = vsel.value || store.get('voice', 'pack');
     const sys = ('speechSynthesis' in window) ? speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang)) : [];
-    let html = `<option value="pack">${P && P.custom ? '🎙 Giọng thu của bạn (tải lên từng cảnh)' : '🎙 Giọng dẫn chuyện (có sẵn)'}</option>`;
+    let html = `<option value="pack">${P && P.custom ? '🎙 Giọng thu của bạn (tải lên từng cảnh)' : '🎙 Giọng dẫn chuyện Manus'}</option>`;
     sys.forEach((v, i) => {
       const n = v.name.replace(/^Microsoft\s*/, '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
       html += `<option value="sys:${i}:1:1">🗣 ${n}</option><option value="sys:${i}:0.8:0.95">🗣 ${n} – trầm</option>`;
@@ -787,7 +787,7 @@ body.render .app{display:none}
       await prepareCustom(P); if (my !== loadId) return;
       B = Xuong.filmSource(P, epIdx, id => mediaURLs[id]); epIdx = B.ep;
     } else B = P;
-    if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này chưa có giọng dẫn chuyện – đang dùng phụ đề.'); }
+    if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này đang chờ giọng dẫn chuyện Manus – tạm thời chỉ có phụ đề.', 6000); }
     const durs = packBufs ? packBufs.map(b => b ? b.duration + 1.0 : 0) : [];
     ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value, $('fxSel').value));
     if (P.custom && P.musicId && Nhac.lib.get(P.musicId)) { const song = Nhac.lib.get(P.musicId), tot = film.total; film.music = (ctx, dest, off) => Nhac.schedule(ctx, dest, song, tot, off); film.songName = song.name; }

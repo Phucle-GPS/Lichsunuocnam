@@ -1,16 +1,15 @@
-YÊU CẦU GỬI MANUS – GIỌNG DẪN CHUYỆN 4 TRẬN HƯNG ĐẠO VƯƠNG (dùng CÙNG giọng nam trầm như lần trước)
+YÊU CẦU GỬI MANUS – GIỌNG DẪN CHUYỆN CÒN THIẾU (32 đoạn)
 =========================================
 
-Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dưới:
+Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dưới, DÙNG ĐÚNG GIỌNG như các lần trước:
 
 - Giọng: nam trung niên, giọng trầm, ấm, truyền cảm, chuẩn giọng Bắc.
 - Phong cách: kể chuyện lịch sử chậm rãi, như người dẫn phim tài liệu; ngắt nghỉ rõ ở dấu phẩy, dấu chấm; nhấn nhẹ vào tên người, địa danh, năm tháng.
 - Tốc độ: chậm hơn mức bình thường một chút (khoảng 0,9).
 - Không bắt chước giọng của bất kỳ người thật hay kênh nào; dùng giọng AI có quyền sử dụng thương mại.
-- Mỗi đoạn xuất thành MỘT file mp3 riêng, đặt tên ĐÚNG như tên trong ngoặc vuông, ví dụ: bach-dang-938_01.mp3
+- Mỗi đoạn xuất thành MỘT file mp3 riêng, đặt tên ĐÚNG như tên trong ngoặc vuông.
 - Đọc nguyên văn, không thêm, không bớt chữ. Không chèn nhạc nền.
 - Gói tất cả 32 file vào một file .zip để tải về.
-
 
 ──────── ĐÔNG BỘ ĐẦU 1258 (Trần Thái Tông) ────────
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/* Tạo file lời dẫn (giọng Google tiếng Việt) cho từng cảnh, dùng với render-video.mjs --voice
+/* Tạo giọng NHÁP (Google tiếng Việt) để duyệt nhịp – KHÔNG dùng cho mục Trận đánh lừng danh (mục này chỉ dùng giọng Manus).
+   Dùng với render-video.mjs --voice giong-nhap
    Cách dùng:  node tools/tts-google.mjs <id-trận | all> [--out loi-dan] [--speed 1.15]
    Kết quả:    loi-dan/<id>/01.mp3, 02.mp3 ...
    Ghi chú: dùng dịch vụ đọc của Google Dịch (không chính thức, mỗi đoạn ≤ 200 ký tự),
@@ -15,7 +16,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const flag = (n, d) => { const i = args.indexOf(n); return i < 0 ? d : args[i + 1]; };
 const which = args.find(a => !a.startsWith('--') && args[args.indexOf(a) - 1] !== '--out' && args[args.indexOf(a) - 1] !== '--speed') || 'all';
-const out = path.resolve(flag('--out', path.join(ROOT, 'loi-dan')));
+const out = path.resolve(flag('--out', path.join(ROOT, 'giong-nhap')));
+if (out === path.join(ROOT, 'loi-dan')) { console.error('✖ Mục Trận đánh lừng danh chỉ dùng giọng Manus – không ghi giọng Google vào loi-dan/. Dùng --out thư-mục-khác (bản nháp).'); process.exit(1); }
 const speed = Number(flag('--speed', 1.15));
 
 const ctx = { window: {} }; vm.createContext(ctx);

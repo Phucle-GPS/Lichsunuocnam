@@ -26,6 +26,14 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Giọng dẫn chuyện: chỉ dùng giọng Manus
+Mục **Trận đánh lừng danh** chỉ dùng giọng nam trầm do **Manus** tạo (nguồn ghi trong `loi-dan/NGUON.json`).
+1. Thêm trận mới vào `battles.js`.
+2. `node tools/nap-giong-manus.mjs --yeu-cau` → tạo `loi-dan/CAN-GUI-MANUS.txt` (chỉ các đoạn còn thiếu) → gửi file này cho Manus, nhắc dùng đúng giọng cũ.
+3. Nhận gói zip → `node tools/nap-giong-manus.mjs goi.zip` (tự kiểm tra tên file, file câm, tốc độ đọc; ghi nguồn).
+4. Xuất video: `node tools/render-video.mjs <id>` – trận chưa đủ giọng Manus sẽ **không được xuất**.
+`tools/tts-google.mjs` chỉ tạo giọng *nháp* vào `giong-nhap/` để duyệt nhịp, không dùng cho mục này.
+
 ## Đăng Facebook (Fanpage) – đăng ngay, hẹn giờ, lên lịch hàng loạt
 1. Tạo app tại developers.facebook.com (loại Business, thêm Facebook Login; tên miền `phucle-gps.github.io`), để chế độ **Development** là đủ cho chính bạn dùng. Copy **App ID**.
 2. Trong Xưởng Video bấm **Đăng Facebook** → dán App ID → **Kết nối Facebook** → chọn Fanpage.

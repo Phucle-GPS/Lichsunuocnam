@@ -10,6 +10,7 @@
                (mặc định: thư mục loi-dan/ trong kho; --no-voice để tắt giọng)
                (thu bằng điện thoại hoặc AI giọng đọc). Cảnh sẽ tự kéo dài theo độ dài file.
    --preview   chỉ xuất ảnh PNG giữa mỗi cảnh để duyệt nhanh
+   --cho-phep-thieu-giong  vẫn xuất khi trận chưa đủ giọng Manus (chỉ phụ đề, dùng để duyệt hình)
    --page F    trang dựng (mặc định index.html; phim 3D: --page phim3d.html bach-dang-1288 --fps 24)
    Ví dụ:  node tools/render-video.mjs bach-dang-1288
 */
@@ -38,6 +39,17 @@ const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=
 
 function probe(f) { return Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim()); }
 
+/* Quy tắc: mục Trận đánh lừng danh chỉ dùng giọng Manus (loi-dan/NGUON.json) */
+const MANI_F = path.join(ROOT, 'loi-dan', 'NGUON.json');
+const isDefaultVoice = voiceDir && path.resolve(voiceDir) === path.join(ROOT, 'loi-dan');
+function manusOK(id, n) {
+  if (!isDefaultVoice) return true;
+  const m = fs.existsSync(MANI_F) ? JSON.parse(fs.readFileSync(MANI_F, 'utf8')).tran[id] : null;
+  if (!m || m.nguon !== 'manus') return false;
+  for (let i = 1; i <= n; i++) if (!fs.existsSync(path.join(voiceDir, id, String(i).padStart(2, '0') + '.mp3'))) return false;
+  return true;
+}
+
 async function renderOne(browser, id) {
   const page = await browser.newPage({ viewport: format === 'doc' ? { width: 1080, height: 1920 } : { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
   // lời dẫn thu sẵn ⇒ tính lại thời lượng từng cảnh
@@ -45,6 +57,10 @@ async function renderOne(browser, id) {
   if (voiceDir) {
     await page.goto(page_url(id)); await page.waitForFunction(() => window.STUDIO);
     const n = await page.evaluate(() => window.STUDIO.starts.length);
+    if (!manusOK(id, n) && !args.includes('--cho-phep-thieu-giong')) {
+      console.log(`⏸ ${id}: chưa đủ giọng Manus ⇒ KHÔNG xuất (quy tắc chỉ dùng giọng Manus). Chạy "node tools/nap-giong-manus.mjs --yeu-cau" để tạo file gửi Manus, rồi nạp gói bằng "node tools/nap-giong-manus.mjs goi.zip".`);
+      await page.close(); return;
+    }
     for (let i = 1; i <= n; i++) {
       const f = ['mp3', 'm4a', 'wav', 'ogg'].map(e => path.join(voiceDir, id, String(i).padStart(2, '0') + '.' + e)).find(fs.existsSync);
       voices.push(f || null); durs.push(f ? probe(f) + 1.0 : 0);
