@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v2';
+const VERSION = 'v3';
 const CORE = [
   './',
   'index.html',
@@ -10,6 +10,8 @@ const CORE = [
   'manifest.webmanifest',
   'icons/icon-192.png',
   'icons/icon-512.png',
+  'lib/xuong.js',
+  'lib/jszip.min.js',
   'fonts/be-vietnam-pro-latin-400-normal.woff2',
   'fonts/be-vietnam-pro-latin-600-normal.woff2',
   'fonts/be-vietnam-pro-latin-700-normal.woff2',

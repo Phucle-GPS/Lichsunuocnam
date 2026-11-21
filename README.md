@@ -7,6 +7,21 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 **sơ đồ diễn biến** (thủy triều, bãi cọc, phục binh, mũi tên tiến công; ta đỏ – địch xanh như sách giáo khoa) →
 **trích dẫn** → **ý nghĩa lịch sử** → kết. Có phụ đề, nhạc trống trận tự tổng hợp và hạt phim.
 
+## Xưởng phim: tự làm video từ kịch bản
+1. Bấm **＋ Dự án mới từ kịch bản** (cột trái).
+2. Chọn **phong cách**: Phim tài liệu · Viễn tưởng · Hoạt hình. Hình nền, chữ, chuyển cảnh và nhạc do app tự vẽ, tự tạo.
+3. Chọn **chia tập** (60 giây / 90 giây / 3 phút / 10 phút) và **khung hình** (dọc 9:16 hoặc ngang 16:9).
+4. **Tải file kịch bản** (.docx, .pdf, .srt, .txt, .md) hoặc **dán chữ**. App tự nhận diện:
+   - dòng VIẾT HOA, "Cảnh 1…", "Phần 2…", "# …", tiêu đề trong Word/PDF → **tiêu đề cảnh**
+   - dòng bắt đầu bằng "-", "•", "1." → cảnh **Ý chính**
+   - đoạn trong ngoặc kép (có thể kèm "— Tác giả") → cảnh **Trích dẫn**
+   - đoạn văn thường → cảnh **Thẻ nội dung** (tự cắt khoảng 40 chữ một cảnh)
+5. Bấm từng cảnh để **sửa lời dẫn, đổi loại cảnh, thêm ảnh/video, thêm file giọng thu**, đưa lên/xuống, nhân đôi, xóa.
+6. Chọn **tập** ở thanh trên rồi **Xuất video** lần lượt từng tập.
+
+Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
+Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
+
 ## 0. Dùng như ứng dụng trên máy tính
 1. Mở trang bằng **Chrome** hoặc **Edge** trên máy tính.
 2. Bấm **⬇ Cài ứng dụng vào máy** (hoặc biểu tượng ⊕ cuối thanh địa chỉ) → app có biểu tượng trên màn hình, mở thành cửa sổ riêng, chạy cả khi không có mạng.

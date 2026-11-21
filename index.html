@@ -280,6 +280,98 @@ button{cursor:pointer}
 
 .frame.nosubs .subs{display:none}
 .frame.nograin .grain,.frame.nograin .vign{display:none}
+
+/* ---------- xưởng phim: biểu mẫu, hộp thoại ---------- */
+.inp,.ta{width:100%;border-radius:7px;border:1px solid var(--line2);background:var(--panel2);padding:7px 9px;font-size:13px}
+.ta{min-height:96px;resize:vertical;line-height:1.5}
+.inp:focus,.ta:focus,.sel:focus{outline:none;border-color:var(--gold)}
+.btnrow{display:flex;gap:6px;flex-wrap:wrap}
+.btnrow .btn{flex:1;justify-content:center;height:32px;padding:0 8px}
+.btn.danger{color:#ff8a7a;border-color:#5a2a24}
+.btn.add{width:100%;justify-content:center;border-style:dashed;margin-bottom:8px;color:var(--gold)}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px;background:#2a2520;color:var(--muted);margin-left:6px;vertical-align:1px}
+.proj .y.u{font-size:18px;color:var(--gold)}
+.epsel{height:30px;border-radius:7px;border:1px solid var(--gold);background:var(--panel2);color:var(--gold);padding:0 8px;font-weight:600}
+.mfile{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:6px;min-height:20px}
+.mfile b{color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:170px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.modal.on{display:flex}
+.dlg{width:min(720px,100%);max-height:92vh;overflow:auto;background:var(--panel);border:1px solid var(--line2);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.dlg header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
+.dlg header h2{margin:0;font-family:Oswald;font-weight:700;font-size:20px;letter-spacing:1px;color:var(--gold)}
+.dlg .body{padding:16px 18px}
+.dlg footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 18px;border-top:1px solid var(--line)}
+.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stc{border:2px solid var(--line2);border-radius:10px;overflow:hidden;background:var(--panel2);text-align:left;padding:0}
+.stc.on{border-color:var(--gold)}
+.stc .pv{height:84px}
+.stc b{display:block;padding:7px 10px 0;font-size:13px}
+.stc small{display:block;padding:0 10px 8px;color:var(--muted);font-size:11px}
+.pv.tailieu{background:linear-gradient(180deg,#3b3226,#6b5a42 55%,#2a241b)}
+.pv.vientuong{background:radial-gradient(circle at 75% 30%,#3a1d6e,#120b2e 50%,#05040d),#05040d;box-shadow:inset 0 -14px 0 -8px #38e1ff}
+.pv.hoathinh{background:linear-gradient(180deg,#5fc3ff,#bfe9ff 60%,#7ed957 60%,#4cb648)}
+.drop{border:2px dashed var(--line2);border-radius:10px;padding:18px;text-align:center;color:var(--muted);cursor:pointer}
+.drop.over{border-color:var(--gold);color:var(--gold)}
+.drop b{color:var(--ink)}
+.tabs{display:flex;gap:4px;margin-bottom:8px}
+.tabs button{border:1px solid var(--line2);background:transparent;border-radius:7px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.tabs button.on{color:var(--gold);border-color:var(--gold)}
+.summary{margin-top:10px;font-size:12.5px;color:var(--muted);min-height:18px}
+.summary b{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:900px){.styles{grid-template-columns:1fr}.stc{display:flex;align-items:center}.stc .pv{width:90px;height:60px;flex:none}.grid2{grid-template-columns:1fr}}
+
+/* ---------- cảnh "thẻ nội dung" ---------- */
+.card-media{position:absolute;right:0;top:0;width:64%;height:100%;object-fit:cover;transform-origin:60% 50%}
+.card-shade{background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.35) 60%,rgba(0,0,0,.7))}
+.card-shade.has-media{background:linear-gradient(90deg,rgba(10,8,6,.96) 30%,rgba(10,8,6,.55) 55%,rgba(0,0,0,.1) 80%),linear-gradient(180deg,transparent 60%,rgba(0,0,0,.55))}
+.card-box{position:absolute;left:140px;top:230px;width:1500px}
+.card-shade.has-media+.card-box{width:900px}
+.card-kick{font-family:Oswald;font-weight:500;font-size:30px;letter-spacing:8px;color:var(--gold)}
+.card-head{font-family:Oswald;font-weight:700;font-size:104px;line-height:1.05;color:#fff;margin-top:8px;text-shadow:0 6px 24px rgba(0,0,0,.6)}
+.card-bar{height:8px;background:var(--red);width:0;margin:26px 0 30px}
+.card-pull{font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:58px;line-height:1.35;color:#f4ead3;text-shadow:0 4px 18px rgba(0,0,0,.7)}
+.card-pull span{display:inline}
+
+/* ---------- phong cách VIỄN TƯỞNG ---------- */
+.st-vientuong .title-big{color:#eafcff;text-shadow:0 0 30px #38e1ff,0 0 80px rgba(56,225,255,.5),0 4px 0 #0b3a52}
+.st-vientuong .title-sub,.st-vientuong .card-kick,.st-vientuong .sec-title,.st-vientuong .brand,.st-vientuong .kicker{color:#38e1ff}
+.st-vientuong .title-line{color:#b9c6ff}
+.st-vientuong .shade{background:linear-gradient(180deg,rgba(5,4,13,0),rgba(5,4,13,.15) 50%,rgba(5,4,13,.65))}
+.st-vientuong .card-bar,.st-vientuong .redbar{background:#38e1ff;box-shadow:0 0 20px #38e1ff}
+.st-vientuong .card-head{text-shadow:0 0 24px rgba(56,225,255,.6)}
+.st-vientuong .card-pull{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;color:#dff6ff}
+.st-vientuong .sc-quote,.st-vientuong .sc-points,.st-vientuong .sc-forces,.st-vientuong .sc-tl{background:radial-gradient(ellipse at 70% 20%,#2a1758,#0b0720 60%,#05040d)}
+.st-vientuong .q-mark,.st-vientuong .p-item b{color:#38e1ff;text-shadow:0 0 20px #38e1ff}
+.st-vientuong .q-text{font-family:'Be Vietnam Pro';font-style:normal;color:#e8f6ff}
+.st-vientuong .q-by{color:#38e1ff}
+.st-vientuong .q-drum,.st-vientuong .p-drum{filter:hue-rotate(160deg) saturate(2)}
+.st-vientuong .end-next{border-color:#38e1ff}
+.st-vientuong .end-sub{color:#38e1ff}
+.st-vientuong .vign{background:radial-gradient(ellipse at center,transparent 60%,rgba(0,0,10,.6))}
+.st-vientuong .card-shade.has-media{background:linear-gradient(90deg,rgba(5,4,13,.96) 30%,rgba(5,4,13,.5) 55%,rgba(0,0,0,.05) 80%)}
+
+/* ---------- phong cách HOẠT HÌNH ---------- */
+.st-hoathinh .bgsvg{filter:none}
+.st-hoathinh .grain{display:none}
+.st-hoathinh .vign{background:none}
+.st-hoathinh .shade{background:linear-gradient(180deg,transparent 55%,rgba(29,53,87,.25))}
+.st-hoathinh .title-big,.st-hoathinh .card-head,.st-hoathinh .end-big{color:#fff;-webkit-text-stroke:5px #1d3557;paint-order:stroke fill;text-shadow:0 10px 0 #1d3557}
+.st-hoathinh .title-sub,.st-hoathinh .card-kick{color:#ff6b35;text-shadow:none;-webkit-text-stroke:0}
+.st-hoathinh .title-line,.st-hoathinh .end-sub{color:#1d3557;text-shadow:none}
+.st-hoathinh .card-bar,.st-hoathinh .redbar{background:#ff6b35;height:12px;border-radius:12px}
+.st-hoathinh .card-pull{display:inline-block;background:#fff;border:6px solid #1d3557;border-radius:44px;padding:28px 44px;color:#1d3557;font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-size:50px;text-shadow:none;box-shadow:0 10px 0 #1d3557}
+.st-hoathinh .sc-quote,.st-hoathinh .sc-points,.st-hoathinh .sc-forces,.st-hoathinh .sc-tl{background:radial-gradient(circle at 80% 20%,#fff9e8,#ffe7b3)}
+.st-hoathinh .sec-title{color:#ff6b35}
+.st-hoathinh .q-text,.st-hoathinh .p-item span{color:#1d3557;font-family:'Be Vietnam Pro';font-style:normal}
+.st-hoathinh .q-mark,.st-hoathinh .p-item b{color:#ff6b35}
+.st-hoathinh .q-by{color:#1d3557}
+.st-hoathinh .p-item{border-color:rgba(29,53,87,.15)}
+.st-hoathinh .q-drum,.st-hoathinh .p-drum{opacity:.18;filter:hue-rotate(-20deg) saturate(1.5)}
+.st-hoathinh .brand{color:#1d3557;text-shadow:none}
+.st-hoathinh .end-next{border-color:#1d3557;background:#fff;color:#1d3557}
+.st-hoathinh .card-shade.has-media{background:linear-gradient(90deg,rgba(255,244,214,.97) 30%,rgba(255,244,214,.6) 55%,transparent 80%)}
+.st-hoathinh .card-shade.has-media+.card-box .card-head{color:#fff}
 /* ---------- chế độ render ---------- */
 body.render{background:#000;overflow:hidden}
 body.render .app{display:none}
@@ -290,6 +382,7 @@ body.render .app{display:none}
   <header class="top">
     <div class="logo"><img src="icons/icon-192.png" alt="">LỊCH SỬ NƯỚC NAM</div>
     <div class="crumb" id="crumb"></div>
+    <select class="epsel" id="epSel" style="display:none" title="Chọn tập"></select>
     <div class="sp"></div>
     <button class="btn ghost hide-m" id="bInstall" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Cài ứng dụng</button>
     <button class="btn primary" id="bExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span>Xuất video</span></button>
@@ -297,7 +390,8 @@ body.render .app{display:none}
   </header>
 
   <aside class="left">
-    <div class="sec"><h3>Trận đánh <small>6 dự án</small></h3><div id="projs"></div></div>
+    <div class="sec"><h3>Dự án của bạn <small id="myCount"></small></h3><button class="btn add" id="bNew">＋ Dự án mới từ kịch bản</button><div id="myProjs"></div></div>
+    <div class="sec"><h3>Mẫu: Trận đánh lừng danh <small>6 trận</small></h3><div id="projs"></div></div>
     <div class="sec"><h3>Cảnh <small id="scnCount"></small></h3><div id="scns"></div></div>
   </aside>
 
@@ -322,7 +416,7 @@ body.render .app{display:none}
   <aside class="right">
     <div class="sec">
       <h3>Dự án</h3>
-      <dl class="kv" id="projInfo"></dl>
+      <div id="projPanel"></div>
     </div>
     <div class="sec">
       <h3>Giọng &amp; âm thanh</h3>
@@ -339,8 +433,7 @@ body.render .app{display:none}
     <div class="sec">
       <h3>Cảnh hiện tại <small id="curTag"></small></h3>
       <dl class="kv" id="curInfo" style="margin-bottom:10px"></dl>
-      <div class="say" id="curSay"></div>
-      <button class="btn ghost wide" id="bCopy" style="margin-top:8px">Sao chép lời dẫn</button>
+      <div id="scenePanel"></div>
     </div>
     <div class="sec">
       <h3>Xuất bản</h3>
@@ -363,9 +456,40 @@ body.render .app{display:none}
   </section>
 </div>
 
+<div class="modal" id="newModal">
+  <div class="dlg">
+    <header><h2>DỰ ÁN MỚI TỪ KỊCH BẢN</h2><button class="ibtn" id="nmClose" title="Đóng">✕</button></header>
+    <div class="body">
+      <div class="field"><label>Tên dự án (để trống: lấy tiêu đề trong kịch bản)</label><input class="inp" id="nmName" placeholder="VD: Hành trình đến sao Hỏa"></div>
+      <div class="field"><label>Thể loại / phong cách hình ảnh</label>
+        <div class="styles" id="nmStyles">
+          <button class="stc on" data-s="tailieu"><div class="pv tailieu"></div><b>Phim tài liệu</b><small>Tranh cổ, trầm ấm, trống trận</small></button>
+          <button class="stc" data-s="vientuong"><div class="pv vientuong"></div><b>Viễn tưởng</b><small>Vũ trụ, lưới neon, nhạc điện tử</small></button>
+          <button class="stc" data-s="hoathinh"><div class="pv hoathinh"></div><b>Hoạt hình</b><small>Trời xanh, mây, nét vẽ vui</small></button>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Chia tập</label><select class="sel" id="nmEp"><option value="0">Không chia – 1 video</option><option value="60" selected>Mỗi tập ~60 giây (TikTok, Reels)</option><option value="90">Mỗi tập ~90 giây</option><option value="180">Mỗi tập ~3 phút (Facebook)</option><option value="600">Mỗi tập ~10 phút (YouTube)</option></select></div>
+        <div class="field"><label>Khung hình</label><select class="sel" id="nmFmt"><option value="doc">Dọc 9:16 (TikTok, Reels)</option><option value="ngang">Ngang 16:9 (Facebook, YouTube)</option></select></div>
+      </div>
+      <div class="field"><label>Kịch bản</label>
+        <div class="tabs"><button class="on" data-t="file">Tải file</button><button data-t="paste">Dán chữ</button></div>
+        <div id="nmFileTab"><div class="drop" id="nmDrop"><b>Kéo thả file vào đây</b> hoặc bấm để chọn<br><small>Word (.docx) · PDF · Phụ đề (.srt) · Văn bản (.txt, .md)</small><input type="file" id="nmFile" accept=".docx,.pdf,.srt,.vtt,.txt,.md" hidden></div></div>
+        <div id="nmPasteTab" style="display:none"><textarea class="ta" id="nmText" style="min-height:180px" placeholder="Dán kịch bản vào đây.&#10;&#10;Mẹo: dòng VIẾT HOA hoặc bắt đầu bằng &quot;Cảnh 1&quot;, &quot;Phần 2&quot;, &quot;#&quot; sẽ thành tiêu đề cảnh. Dòng bắt đầu bằng &quot;-&quot; thành danh sách ý chính. Đoạn trong ngoặc kép thành trích dẫn."></textarea></div>
+        <div class="summary" id="nmSum"></div>
+      </div>
+      <div class="hint">Hình nền, chữ, chuyển cảnh và nhạc đều do app tự vẽ, tự tạo nên không vướng bản quyền. Riêng <b>nội dung kịch bản, ảnh, video và giọng bạn đưa vào</b> phải là của bạn hoặc được phép sử dụng.</div>
+    </div>
+    <footer><button class="btn" id="nmCancel">Hủy</button><button class="btn primary" id="nmCreate" disabled>Tạo dự án</button></footer>
+  </div>
+</div>
+<input type="file" id="fMedia" accept="image/*,video/*" hidden>
+<input type="file" id="fVoice" accept="audio/*" hidden>
+
 <script src="map-data.js"></script>
 <script src="engine.js"></script>
 <script src="battles.js"></script>
+<script src="lib/xuong.js"></script>
 <script>
 (function () {
   const Q = new URLSearchParams(location.search);
@@ -385,7 +509,9 @@ body.render .app{display:none}
       const k = 1080 / 1920;
       stage.style.transform = `scale(${k})`; stage.style.transformOrigin = '0 0'; stage.style.top = '640px';
       const head = document.createElement('div'); head.className = 'doc-head';
-      head.innerHTML = `<div class="k">SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH</div><div class="t">${battle.name.replace(/\s\d{3,4}$/, '').toUpperCase()}</div><div class="y">${battle.year}</div>`;
+      head.innerHTML = battle.custom
+        ? `<div class="k">${battle.who.toUpperCase()}</div><div class="t" style="font-size:${battle.name.length > 24 ? 64 : 88}px">${battle.name.toUpperCase().replace(/[<>&]/g, '')}</div>${(battle.epCount || 1) > 1 ? `<div class="y">TẬP ${battle.ep + 1}</div>` : ''}`
+        : `<div class="k">SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH</div><div class="t">${battle.name.replace(/\s\d{3,4}$/, '').toUpperCase()}</div><div class="y">${battle.year}</div>`;
       frame.appendChild(head);
       frame.appendChild(stage.querySelector('.subs'));
     }
@@ -408,20 +534,26 @@ body.render .app{display:none}
   }
 
   /* =====================================================================
-     TRÌNH BIÊN TẬP
+     XƯỞNG PHIM – TRÌNH BIÊN TẬP
      ===================================================================== */
-  const TYPES = { title: ['Tiêu đề', '--t-title'], hero: ['Nhân vật', '--t-hero'], map: ['Bản đồ', '--t-map'], forces: ['Lực lượng', '--t-forces'], diagram: ['Sơ đồ trận', '--t-diagram'], timeline: ['Mốc thời gian', '--t-timeline'], quote: ['Trích dẫn', '--t-quote'], points: ['Ý nghĩa', '--t-points'], end: ['Kết', '--t-end'] };
+  const TYPES = { title: ['Tiêu đề', '--t-title'], hero: ['Nhân vật', '--t-hero'], map: ['Bản đồ', '--t-map'], forces: ['Lực lượng', '--t-forces'], diagram: ['Sơ đồ trận', '--t-diagram'], timeline: ['Mốc thời gian', '--t-timeline'], quote: ['Trích dẫn', '--t-quote'], points: ['Ý chính', '--t-points'], end: ['Kết', '--t-end'], card: ['Thẻ nội dung', '--t-map'] };
   const tcol = ty => `var(${(TYPES[ty] || TYPES.end)[1]})`;
   const tname = ty => (TYPES[ty] || [ty])[0];
+  const esc = x => String(x == null ? '' : x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
   const app = $('app'), frame = $('frame'), view = $('view'), vsel = $('voiceSel');
   const store = { get(k, d) { try { const v = localStorage.getItem('ls-' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem('ls-' + k, JSON.stringify(v)); } catch (e) {} } };
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const slug = t => (t || 'video').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase().slice(0, 40) || 'video';
 
-  let B = null, film = null, FW = 1920, FH = 1080, t = 0, playing = false, last = 0, curScene = -1, loadId = 0;
+  let P = null;          // dự án đang mở: trận mẫu (BATTLES) hoặc dự án của bạn
+  let B = null, epIdx = 0, mine = [];
+  let film = null, FW = 1920, FH = 1080, t = 0, playing = false, last = 0, curScene = -1, loadId = 0;
   let format = 'ngang', musicOn = store.get('music', true), actx = null, mgain = null, vgain = null, mnode = null, vsrcs = [];
   let voiceMode = 'pack', sysVoice = null, sysPitch = 1, sysRate = 1, packBufs = null, aBase = 0, tBase = 0;
   let volV = store.get('volV', 100), volM = store.get('volM', 100);
   let recorder = null;
+  const mediaURLs = {}, voiceBufs = {};
 
   function ensureCtx() {
     if (!actx) {
@@ -442,7 +574,7 @@ body.render .app{display:none}
   function fillVoices() {
     const keep = vsel.value || store.get('voice', 'pack');
     const sys = ('speechSynthesis' in window) ? speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang)) : [];
-    let html = '<option value="pack">🎙 Giọng dẫn chuyện (có sẵn)</option>';
+    let html = `<option value="pack">${P && P.custom ? '🎙 Giọng thu của bạn (tải lên từng cảnh)' : '🎙 Giọng dẫn chuyện (có sẵn)'}</option>`;
     sys.forEach((v, i) => {
       const n = v.name.replace(/^Microsoft\s*/, '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
       html += `<option value="sys:${i}:1:1">🗣 ${n}</option><option value="sys:${i}:0.8:0.95">🗣 ${n} – trầm</option>`;
@@ -457,7 +589,7 @@ body.render .app{display:none}
     if (v.startsWith('sys:')) { const [, i, p, r] = v.split(':'); sysVoice = vsel._sys[+i]; sysPitch = +p; sysRate = +r; voiceMode = sysVoice ? 'sys' : 'pack'; }
     else voiceMode = v;
   }
-  if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { const before = vsel.value; fillVoices(); if (vsel.value !== before && B) reload(); };
+  if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { const before = vsel.value; fillVoices(); if (vsel.value !== before && P) reload(true); };
   fillVoices();
 
   function note(msg, ms = 4000) { const n = $('notice'); n.textContent = msg; n.style.display = 'block'; clearTimeout(note._t); note._t = setTimeout(() => n.style.display = 'none', ms); }
@@ -468,9 +600,35 @@ body.render .app{display:none}
   }
   new ResizeObserver(fit).observe(view);
 
+  /* ---------- tài nguyên của dự án tự tạo ---------- */
+  async function mediaURL(id) {
+    if (!id) return null;
+    if (!mediaURLs[id]) { const b = await Xuong.store.getAsset(id); if (b) mediaURLs[id] = URL.createObjectURL(b); }
+    return mediaURLs[id] || null;
+  }
+  async function voiceBuf(id) {
+    if (!id) return null;
+    if (!(id in voiceBufs)) {
+      voiceBufs[id] = null;
+      try { const b = await Xuong.store.getAsset(id); if (b) { ensureCtx(); voiceBufs[id] = await actx.decodeAudioData(await b.arrayBuffer()); } } catch (e) { note('Không đọc được file giọng: ' + e.message); }
+    }
+    return voiceBufs[id];
+  }
+  async function prepareCustom(p) {
+    for (const sc of p.scenes) {
+      if (sc.mediaId) await mediaURL(sc.mediaId);
+      sc._dur = 0;
+      if (sc.voiceId && voiceMode === 'pack') { const b = await voiceBuf(sc.voiceId); if (b) sc._dur = b.duration + 1; }
+    }
+  }
+
   /* ---------- nạp dự án ---------- */
   async function loadPack(b) {
     ensureCtx();
+    if (b.custom) {
+      const bufs = await Promise.all(b.scenes.map(sc => sc.voiceId ? voiceBuf(sc.voiceId) : null));
+      return bufs.some(Boolean) ? bufs : null;
+    }
     const bufs = await Promise.all(b.scenes.map(async (_, i) => {
       try { const r = await fetch(`loi-dan/${b.id}/${String(i + 1).padStart(2, '0')}.mp3`); if (!r.ok) return null; return await actx.decodeAudioData(await r.arrayBuffer()); } catch (e) { return null; }
     }));
@@ -479,38 +637,138 @@ body.render .app{display:none}
   async function reload(keepT) {
     const my = ++loadId; const was = playing;
     pause(); packBufs = null;
-    if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs) note('Trận này chưa có giọng dẫn chuyện – đang dùng phụ đề.'); }
+    if (P.custom) {
+      await prepareCustom(P); if (my !== loadId) return;
+      B = Xuong.filmSource(P, epIdx, id => mediaURLs[id]); epIdx = B.ep;
+    } else B = P;
+    if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này chưa có giọng dẫn chuyện – đang dùng phụ đề.'); }
     const durs = packBufs ? packBufs.map(b => b ? b.duration + 1.0 : 0) : [];
     ({ film, FW, FH } = mount(frame, B, format, durs));
     frame.classList.toggle('nosubs', !$('swSubs').checked); frame.classList.toggle('nograin', !$('swGrain').checked);
     view.classList.toggle('doc', format === 'doc');
     t = keepT ? Math.min(t, film.total - .01) : 0; curScene = -1;
-    applyVol(); film.seek(t > 0 ? t : Math.min(3, film.scenes[0].d * .6)); fit(); buildScenes(); buildTimeline(); ui(true);
+    applyVol(); { const S = film.scenes[sceneAt(t)]; film.seek(t - S.start < .5 ? S.start + Math.min(t > 0 ? 2.2 : 3, S.d * .5) : t); } fit();
+    buildEpisodes(); buildScenes(); buildProjPanel(); buildTimeline(); ui(true);
     if (was) play();
   }
-  async function open(id) {
-    const b = BATTLES.find(x => x.id === id); if (!b) return;
-    B = b; store.set('last', id);
+  async function open(id, opt = {}) {
+    const p = id.startsWith('u-') ? mine.find(x => x.id === id) : BATTLES.find(x => x.id === id);
+    if (!p) return false;
+    P = p; epIdx = opt.ep || 0; store.set('last', id);
+    if (opt.format) setFormat(opt.format, true);
     history.replaceState(null, '', '?tran=' + id);
-    document.querySelectorAll('.proj').forEach(p => p.classList.toggle('on', p.dataset.id === id));
-    $('crumb').innerHTML = `Dự án › <b>${b.name}</b>`;
+    document.querySelectorAll('.proj').forEach(e => e.classList.toggle('on', e.dataset.id === id));
+    $('crumb').innerHTML = `${p.custom ? 'Dự án của bạn' : 'Mẫu'} › <b>${esc(p.name)}</b>`;
     $('bigplay').style.display = 'flex';
+    fillVoices();
     await reload(false);
+    return true;
   }
 
   /* ---------- cột trái ---------- */
   function buildProjects() {
     $('projs').innerHTML = BATTLES.map(b => `<button class="proj" data-id="${b.id}"><span class="y">${b.year}</span><span><b>${b.name.replace(/\s\d{3,4}$/, '')}</b><small>${b.who} · quân ${b.vs}</small></span></button>`).join('');
-    document.querySelectorAll('.proj').forEach(p => p.onclick = () => open(p.dataset.id));
+    $('myCount').textContent = mine.length ? mine.length + ' dự án' : '';
+    $('myProjs').innerHTML = mine.length ? mine.map(p => `<button class="proj" data-id="${p.id}"><span class="y u">${{ tailieu: '🎞', vientuong: '🚀', hoathinh: '🎨' }[p.style] || '🎞'}</span><span><b>${esc(p.name)}</b><small>${Xuong.STYLES[p.style]} · ${p.scenes.length} cảnh${+p.epLen ? ' · chia tập' : ''}</small></span></button>`).join('')
+      : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
+    document.querySelectorAll('.proj').forEach(e => { e.onclick = () => open(e.dataset.id); e.classList.toggle('on', P && e.dataset.id === P.id); });
   }
   function buildScenes() {
     $('scnCount').textContent = film.scenes.length + ' cảnh';
-    $('scns').innerHTML = film.scenes.map((S, i) => `<button class="scn" data-i="${i}"><span class="n">${i + 1}</span><span class="c" style="background:${tcol(S.sc.type)}"></span><span class="tx"><b>${tname(S.sc.type)}</b><small>${(S.sc.say || '').slice(0, 60)}</small></span><span class="d">${fmtT(S.d)}</span></button>`).join('');
-    document.querySelectorAll('.scn').forEach(el => el.onclick = () => seekTo(film.scenes[+el.dataset.i].start + .01));
-    const p = $('projInfo');
-    p.innerHTML = `<dt>Trận</dt><dd>${B.name}</dd><dt>Chỉ huy</dt><dd>${B.who}</dd><dt>Đối phương</dt><dd>${B.vs}</dd><dt>Thời lượng</dt><dd>${fmtT(film.total)}</dd><dt>Khung hình</dt><dd>${FW}×${FH}</dd>`;
+    $('scns').innerHTML = film.scenes.map((S, i) => `<button class="scn" data-i="${i}"><span class="n">${i + 1}</span><span class="c" style="background:${tcol(S.sc.type)}"></span><span class="tx"><b>${tname(S.sc.type)}${S.sc.heading ? ' · ' + esc(S.sc.heading) : ''}</b><small>${esc((S.sc.say || '').slice(0, 60))}</small></span><span class="d">${fmtT(S.d)}</span></button>`).join('');
+    document.querySelectorAll('.scn').forEach(el => el.onclick = () => seekScene(+el.dataset.i));
     $('tlInfo').textContent = `${film.scenes.length} cảnh · ${fmtT(film.total)} · ${FW}×${FH}`;
   }
+  function buildEpisodes() {
+    const n = B.epCount || 1, sel = $('epSel');
+    sel.style.display = n > 1 ? '' : 'none';
+    sel.innerHTML = Array.from({ length: n }, (_, i) => `<option value="${i}">Tập ${i + 1} / ${n}</option>`).join('');
+    sel.value = epIdx;
+  }
+  $('epSel').onchange = e => { epIdx = +e.target.value; reload(false); };
+
+  /* ---------- bảng Dự án (cột phải) ---------- */
+  function buildProjPanel() {
+    const el = $('projPanel');
+    if (!P.custom) {
+      el.innerHTML = `<dl class="kv"><dt>Trận</dt><dd>${P.name}</dd><dt>Chỉ huy</dt><dd>${P.who}</dd><dt>Đối phương</dt><dd>${P.vs}</dd><dt>Thời lượng</dt><dd>${fmtT(film.total)}</dd><dt>Khung hình</dt><dd>${FW}×${FH}</dd></dl>
+        <div class="hint">Đây là dự án mẫu (chỉ xem). Muốn tự làm video, bấm <b>＋ Dự án mới từ kịch bản</b> ở cột trái.</div>`;
+      return;
+    }
+    el.innerHTML = `
+      <div class="field"><label>Tên dự án</label><input class="inp" id="pName" value="${esc(P.name)}"></div>
+      <div class="grid2">
+        <div class="field"><label>Phong cách</label><select class="sel" id="pStyle">${Object.entries(Xuong.STYLES).map(([k, v]) => `<option value="${k}"${k === P.style ? ' selected' : ''}>${v}</option>`).join('')}</select></div>
+        <div class="field"><label>Chia tập</label><select class="sel" id="pEp">${[[0, 'Không chia'], [60, '~60 giây'], [90, '~90 giây'], [180, '~3 phút'], [600, '~10 phút']].map(([v, l]) => `<option value="${v}"${+P.epLen === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
+      </div>
+      <dl class="kv" style="margin-bottom:10px"><dt>Tổng số cảnh</dt><dd>${P.scenes.length}</dd><dt>Số tập</dt><dd>${B.epCount}</dd><dt>Tập này</dt><dd>${fmtT(film.total)} · ${FW}×${FH}</dd></dl>
+      <div class="btnrow"><button class="btn" id="pAdd">＋ Thêm cảnh</button><button class="btn danger" id="pDel">Xóa dự án</button></div>`;
+    $('pName').onchange = e => { P.name = e.target.value.trim() || 'Dự án'; saveP(); buildProjects(); $('crumb').innerHTML = `Dự án của bạn › <b>${esc(P.name)}</b>`; };
+    $('pStyle').onchange = e => { P.style = e.target.value; saveP(true); buildProjects(); };
+    $('pEp').onchange = e => { P.epLen = +e.target.value; epIdx = 0; saveP(true); buildProjects(); };
+    $('pAdd').onclick = () => { const i = curContentIndex(); P.scenes.splice(i < 0 ? P.scenes.length : i + 1, 0, { uid: Xuong.uid(), type: 'card', heading: '', say: 'Nội dung cảnh mới. Bấm vào đây để sửa lời dẫn.' }); saveP(true); buildProjects(); };
+    $('pDel').onclick = async () => { if (!confirm(`Xóa dự án "${P.name}"? Ảnh, video, giọng đã tải lên cũng bị xóa.`)) return; await Xuong.store.remove(P); mine = mine.filter(x => x !== P); buildProjects(); open(mine[0] ? mine[0].id : BATTLES[0].id); };
+  }
+  let saveTimer = null;
+  function saveP(rebuild) {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => Xuong.store.save(P).catch(e => note('Không lưu được: ' + e.message)), 300);
+    if (rebuild) reload(true);
+  }
+  function curContentIndex() {
+    const S = film && film.scenes[sceneAt(t)]; if (!S || !S.sc._uid) return -1;
+    return P.scenes.findIndex(x => x.uid === S.sc._uid);
+  }
+
+  /* ---------- bảng Cảnh hiện tại ---------- */
+  function buildScenePanel(i) {
+    const S = film.scenes[i], el = $('scenePanel');
+    $('curTag').innerHTML = `<span class="tag" style="background:${tcol(S.sc.type)}">${tname(S.sc.type)}</span>`;
+    $('curInfo').innerHTML = `<dt>Cảnh</dt><dd>${i + 1} / ${film.scenes.length}</dd><dt>Thời điểm</dt><dd>${fmtT(S.start)} – ${fmtT(S.start + S.d)}</dd>`;
+    const ci = P.custom && S.sc._uid ? P.scenes.findIndex(x => x.uid === S.sc._uid) : -1;
+    if (ci < 0) {
+      el.innerHTML = `<div class="say">${esc(S.sc.say || '')}</div><button class="btn ghost wide" id="bCopy" style="margin-top:8px">Sao chép lời dẫn</button>` +
+        (P.custom ? '<div class="hint">Cảnh mở đầu / kết được tạo tự động theo tên dự án và số tập.</div>' : '');
+      $('bCopy').onclick = () => copy(S.sc.say);
+      return;
+    }
+    const sc = P.scenes[ci];
+    const typeSel = `<select class="sel" id="sType"><option value="card"${sc.type === 'card' ? ' selected' : ''}>Thẻ nội dung</option><option value="quote"${sc.type === 'quote' ? ' selected' : ''}>Trích dẫn</option><option value="points"${sc.type === 'points' ? ' selected' : ''}>Ý chính (danh sách)</option></select>`;
+    let fields = '';
+    if (sc.type === 'card') fields = `<div class="field"><label>Tiêu đề trên hình (có thể để trống)</label><input class="inp" id="sHead" value="${esc(sc.heading)}"></div>`;
+    if (sc.type === 'quote') fields = `<div class="field"><label>Câu trích dẫn</label><textarea class="ta" id="sQuote" style="min-height:70px">${esc(sc.quote)}</textarea></div><div class="field"><label>Tác giả / nguồn</label><input class="inp" id="sBy" value="${esc(sc.by)}"></div>`;
+    if (sc.type === 'points') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các ý (mỗi dòng một ý, tối đa 5)</label><textarea class="ta" id="sItems" style="min-height:90px">${esc((sc.items || []).join('\n'))}</textarea></div>`;
+    el.innerHTML = `
+      <div class="field"><label>Loại cảnh</label>${typeSel}</div>${fields}
+      <div class="field"><label>Lời dẫn (phụ đề + giọng đọc)</label><textarea class="ta" id="sSay">${esc(sc.say)}</textarea></div>
+      ${sc.type === 'card' ? `<div class="field"><label>Ảnh / video minh họa</label><div class="mfile">${sc.mediaId ? `<span>${sc.mediaKind === 'video' ? '🎬' : '🖼'}</span><b>${esc(sc.mediaName || 'đã thêm')}</b>` : 'Chưa có – dùng hình nền tự vẽ'}</div><div class="btnrow"><button class="btn" id="sMedia">${sc.mediaId ? 'Đổi' : '＋ Thêm'} ảnh/video</button>${sc.mediaId ? '<button class="btn danger" id="sMediaX">Gỡ</button>' : ''}</div></div>` : ''}
+      <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
+      <div class="btnrow"><button class="btn" id="sUp" title="Đưa lên">↑ Lên</button><button class="btn" id="sDown" title="Đưa xuống">↓ Xuống</button><button class="btn" id="sDup">⧉ Nhân đôi</button><button class="btn danger" id="sDel">Xóa</button></div>`;
+    const deb = (fn) => { let tm; return e => { clearTimeout(tm); tm = setTimeout(() => fn(e), 700); }; };
+    $('sType').onchange = e => {
+      const ty = e.target.value;
+      if (ty === 'quote' && !sc.quote) sc.quote = (sc.say || '').slice(0, 200);
+      if (ty === 'points' && !(sc.items && sc.items.length)) { sc.items = (sc.say || '').split(/(?<=[.!?…])\s+/).filter(Boolean).slice(0, 5); sc.title = sc.title || (sc.heading || 'Ý CHÍNH').toUpperCase(); }
+      sc.type = ty; saveP(true);
+    };
+    if ($('sHead')) $('sHead').oninput = deb(e => { sc.heading = e.target.value; saveP(true); });
+    if ($('sQuote')) $('sQuote').oninput = deb(e => { sc.quote = e.target.value; saveP(true); });
+    if ($('sBy')) $('sBy').oninput = deb(e => { sc.by = e.target.value; saveP(true); });
+    if ($('sTitle')) $('sTitle').oninput = deb(e => { sc.title = e.target.value; saveP(true); });
+    if ($('sItems')) $('sItems').oninput = deb(e => { sc.items = e.target.value.split('\n').map(x => x.trim()).filter(Boolean).slice(0, 5); saveP(true); });
+    $('sSay').oninput = deb(e => { sc.say = e.target.value; saveP(true); });
+    const move = d => { const j = ci + d; if (j < 0 || j >= P.scenes.length) return; P.scenes.splice(j, 0, P.scenes.splice(ci, 1)[0]); saveP(true); setTimeout(() => jumpToUid(sc.uid), 400); };
+    $('sUp').onclick = () => move(-1); $('sDown').onclick = () => move(1);
+    $('sDup').onclick = () => { const c = JSON.parse(JSON.stringify(sc, (k, v) => k.startsWith('_') ? undefined : v)); c.uid = Xuong.uid(); delete c.voiceId; delete c.voiceName; P.scenes.splice(ci + 1, 0, c); saveP(true); buildProjects(); };
+    $('sDel').onclick = () => { if (P.scenes.length <= 1) return note('Dự án cần ít nhất một cảnh.'); if (!confirm('Xóa cảnh này?')) return; P.scenes.splice(ci, 1); if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); saveP(true); buildProjects(); };
+    if ($('sMedia')) $('sMedia').onclick = () => pickFile('fMedia', async f => { if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); sc.mediaId = await Xuong.store.putAsset(f); sc.mediaKind = f.type.startsWith('video') ? 'video' : 'image'; sc.mediaName = f.name; saveP(true); });
+    if ($('sMediaX')) $('sMediaX').onclick = () => { Xuong.store.delAsset(sc.mediaId); delete sc.mediaId; delete sc.mediaKind; delete sc.mediaName; saveP(true); };
+    $('sVoice').onclick = () => pickFile('fVoice', async f => { if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); sc.voiceId = await Xuong.store.putAsset(f); sc.voiceName = f.name; if (voiceMode !== 'pack') { vsel.value = 'pack'; store.set('voice', 'pack'); readVoice(); } saveP(true); });
+    if ($('sVoiceX')) $('sVoiceX').onclick = () => { Xuong.store.delAsset(sc.voiceId); delete sc.voiceId; delete sc.voiceName; saveP(true); };
+  }
+  function pickFile(id, fn) { const inp = $(id); inp.value = ''; inp.onchange = () => inp.files[0] && fn(inp.files[0]); inp.click(); }
+  function jumpToUid(u) { const i = film.scenes.findIndex(S => S.sc._uid === u); if (i >= 0) seekScene(i); }
+  async function copy(txt) { try { await navigator.clipboard.writeText(txt || ''); note('Đã sao chép lời dẫn.', 1500); } catch (e) { note('Không sao chép được.'); } }
 
   /* ---------- dòng thời gian ---------- */
   let pxs = 10;
@@ -525,7 +783,7 @@ body.render .app{display:none}
       const d = packBufs && packBufs[i] ? packBufs[i].duration : (voiceMode === 'sys' ? S.d - .8 : 0); if (!d) return '';
       return `<div class="clip voice" style="left:${(S.start + .4) * pxs}px;width:${Math.max(4, d * pxs)}px"><i></i></div>`;
     }).join('');
-    $('trM').innerHTML = musicOn ? `<div class="clip music" style="left:1px;width:${W - 2}px">Nhạc trống trận · tự tổng hợp</div>` : '';
+    $('trM').innerHTML = musicOn ? `<div class="clip music" style="left:1px;width:${W - 2}px">Nhạc nền tự tổng hợp · ${B.style ? Xuong.STYLES[B.style] : 'trống trận'}</div>` : '';
   }
   (function () {
     const sc = $('tlScroll'); let drag = false;
@@ -535,7 +793,6 @@ body.render .app{display:none}
     sc.addEventListener('pointerup', () => drag = false);
     addEventListener('resize', () => film && buildTimeline());
   })();
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
   /* ---------- giọng của máy ---------- */
   function stopSpeech() { if ('speechSynthesis' in window) speechSynthesis.cancel(); }
@@ -573,6 +830,8 @@ body.render .app{display:none}
   }
   function pause() { playing = false; stopSpeech(); stopAudio(); ui(); }
   function seekTo(x) { t = clamp(x, 0, film.total - .01); film.seek(t); curScene = -1; stopSpeech(); $('bigplay').style.display = 'none'; if (playing) startAudio(); ui(); }
+  /* nhảy tới đầu cảnh; khi đang dừng thì hiện sẵn khung hình đã lên (không phải màn đen chuyển cảnh) */
+  function seekScene(i) { const S = film.scenes[i]; seekTo(S.start + .01); if (!playing) film.seek(S.start + Math.min(2.2, S.d * .45)); }
   function sceneAt(x) { const i = film.scenes.findIndex(S => x < S.start + S.d); return i < 0 ? film.scenes.length - 1 : i; }
   function ui(force) {
     $('icPlay').innerHTML = playing ? '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>' : '<path d="M7 4l13 8-13 8z"/>';
@@ -581,12 +840,11 @@ body.render .app{display:none}
     $('ph').style.left = (t * pxs) + 'px';
     const i = sceneAt(t);
     if (i !== ui._i || force) {
-      ui._i = i; const S = film.scenes[i];
+      const editing = $('scenePanel').contains(document.activeElement);
+      ui._i = i;
       document.querySelectorAll('.scn').forEach(e => e.classList.toggle('on', +e.dataset.i === i));
       document.querySelectorAll('#trV .clip').forEach(e => e.classList.toggle('cur', +e.dataset.i === i));
-      $('curTag').innerHTML = `<span class="tag" style="background:${tcol(S.sc.type)}">${tname(S.sc.type)}</span>`;
-      $('curInfo').innerHTML = `<dt>Cảnh</dt><dd>${i + 1} / ${film.scenes.length}</dd><dt>Thời điểm</dt><dd>${fmtT(S.start)} – ${fmtT(S.start + S.d)}</dd>`;
-      $('curSay').textContent = S.sc.say || '';
+      if (!editing || force) buildScenePanel(i);
       const el = document.querySelector('.scn.on'); if (el && playing) el.scrollIntoView({ block: 'nearest' });
     }
     if (playing) { const sc = $('tlScroll'), x = t * pxs; if (x < sc.scrollLeft || x > sc.scrollLeft + sc.clientWidth - 30) sc.scrollLeft = x - 40; }
@@ -613,8 +871,8 @@ body.render .app{display:none}
   /* ---------- điều khiển ---------- */
   $('bPlay').onclick = () => playing ? pause() : play();
   $('bigplay').onclick = () => { if (app.classList.contains('rec') && !recorder && playing) return; play(); };
-  $('bPrev').onclick = () => { const i = sceneAt(t), S = film.scenes[i]; seekTo(t - S.start > 1.5 || i === 0 ? S.start + .01 : film.scenes[i - 1].start + .01); };
-  $('bNext').onclick = () => { const i = sceneAt(t); if (i < film.scenes.length - 1) seekTo(film.scenes[i + 1].start + .01); };
+  $('bPrev').onclick = () => { const i = sceneAt(t), S = film.scenes[i]; seekScene(t - S.start > 1.5 || i === 0 ? i : i - 1); };
+  $('bNext').onclick = () => { const i = sceneAt(t); if (i < film.scenes.length - 1) seekScene(i + 1); };
   vsel.onchange = () => { store.set('voice', vsel.value); readVoice(); reload(true); };
   $('volV').value = volV; $('volM').value = volM;
   const vt = () => { $('volVt').textContent = volV + '%'; $('volMt').textContent = volM + '%'; };
@@ -625,19 +883,63 @@ body.render .app{display:none}
   $('swMusic').onchange = e => { musicOn = e.target.checked; store.set('music', musicOn); if (playing) startAudio(); buildTimeline(); ui(true); };
   $('swSubs').onchange = e => frame.classList.toggle('nosubs', !e.target.checked);
   $('swGrain').onchange = e => frame.classList.toggle('nograin', !e.target.checked);
-  document.querySelectorAll('#fmtSeg button').forEach(b => b.onclick = () => {
-    if (format === b.dataset.f) return; format = b.dataset.f;
-    document.querySelectorAll('#fmtSeg button').forEach(x => x.classList.toggle('on', x === b)); reload(true);
-  });
-  $('bCopy').onclick = async () => { try { await navigator.clipboard.writeText($('curSay').textContent); note('Đã sao chép lời dẫn.', 1500); } catch (e) { note('Không sao chép được.'); } };
+  function setFormat(f, silent) {
+    format = f; document.querySelectorAll('#fmtSeg button').forEach(x => x.classList.toggle('on', x.dataset.f === f));
+    if (!silent) reload(true);
+  }
+  document.querySelectorAll('#fmtSeg button').forEach(b => b.onclick = () => { if (format !== b.dataset.f) setFormat(b.dataset.f); });
   $('bFull').onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else view.requestFullscreen().catch(() => {}); };
   document.addEventListener('fullscreenchange', () => setTimeout(fit, 150));
   addEventListener('keydown', e => {
-    if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || !film) return;
+    if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || !film || $('newModal').classList.contains('on')) return;
     if (e.code === 'Space') { e.preventDefault(); playing ? pause() : play(); }
     else if (e.code === 'ArrowLeft') seekTo(t - 5); else if (e.code === 'ArrowRight') seekTo(t + 5);
     else if (e.code === 'Home') seekTo(0);
   });
+
+  /* ---------- hộp thoại DỰ ÁN MỚI ---------- */
+  let nmStyle = 'tailieu', nmBlocks = null, nmFileName = '';
+  const nmSum = () => {
+    const btn = $('nmCreate');
+    if (!nmBlocks || !nmBlocks.length) { btn.disabled = true; return; }
+    const sc = Xuong.scenesFromBlocks(nmBlocks), sec = sc.reduce((a, x) => a + Studio.sceneDur(x), 0) + 9;
+    const ep = +$('nmEp').value, n = ep ? Math.max(1, Math.ceil(sec / Math.max(20, ep - 12))) : 1;
+    $('nmSum').innerHTML = `Nhận diện: <b>${nmBlocks.filter(b => b.kind === 'heading').length}</b> tiêu đề · <b>${sc.length}</b> cảnh · khoảng <b>${fmtT(sec)}</b>${ep ? ` → khoảng <b>${n}</b> tập` : ''}${nmFileName ? ` · từ file <b>${esc(nmFileName)}</b>` : ''}`;
+    btn.disabled = false;
+  };
+  function openNew() {
+    nmBlocks = null; nmFileName = ''; $('nmName').value = ''; $('nmText').value = ''; $('nmSum').textContent = ''; $('nmCreate').disabled = true;
+    $('nmFmt').value = format === 'doc' ? 'doc' : 'doc';
+    $('newModal').classList.add('on');
+  }
+  const closeNew = () => $('newModal').classList.remove('on');
+  $('bNew').onclick = openNew; $('nmClose').onclick = closeNew; $('nmCancel').onclick = closeNew;
+  document.querySelectorAll('#nmStyles .stc').forEach(b => b.onclick = () => { nmStyle = b.dataset.s; document.querySelectorAll('#nmStyles .stc').forEach(x => x.classList.toggle('on', x === b)); });
+  document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+    $('nmFileTab').style.display = b.dataset.t === 'file' ? '' : 'none'; $('nmPasteTab').style.display = b.dataset.t === 'paste' ? '' : 'none';
+  });
+  $('nmEp').onchange = nmSum;
+  $('nmText').oninput = () => { nmFileName = ''; nmBlocks = Xuong.parseText($('nmText').value); nmSum(); };
+  async function takeFile(f) {
+    $('nmSum').textContent = 'Đang đọc file…';
+    try { const r = await Xuong.parseFile(f); nmBlocks = r.blocks; nmFileName = f.name; if (!$('nmName').value) $('nmName').placeholder = r.name; nmSum(); if (!nmBlocks.length) $('nmSum').textContent = 'Không tìm thấy chữ trong file (PDF dạng ảnh chụp sẽ không đọc được).'; }
+    catch (e) { nmBlocks = null; $('nmSum').textContent = 'Không đọc được file: ' + e.message; $('nmCreate').disabled = true; }
+  }
+  const drop = $('nmDrop');
+  drop.onclick = () => $('nmFile').click();
+  $('nmFile').onchange = e => e.target.files[0] && takeFile(e.target.files[0]);
+  drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+  drop.ondragleave = () => drop.classList.remove('over');
+  drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); e.dataTransfer.files[0] && takeFile(e.dataTransfer.files[0]); };
+  $('nmCreate').onclick = async () => {
+    const p = Xuong.newProject({ name: $('nmName').value || (nmFileName ? '' : ''), style: nmStyle, epLen: +$('nmEp').value, blocks: nmBlocks });
+    if (!$('nmName').value && $('nmName').placeholder && nmFileName && p.name === 'Dự án mới') p.name = $('nmName').placeholder;
+    if (!p.scenes.length) return note('Kịch bản chưa có nội dung.');
+    await Xuong.store.save(p); mine.unshift(p); buildProjects(); closeNew();
+    await open(p.id, { format: $('nmFmt').value });
+    note(`Đã tạo "${p.name}" – ${p.scenes.length} cảnh. Bấm vào từng cảnh để sửa, thêm ảnh/video hoặc giọng.`, 6000);
+  };
 
   /* ---------- chế độ quay (điện thoại) ---------- */
   function exitRec() { app.classList.remove('rec'); setTimeout(() => { fit(); buildTimeline(); ui(true); }, 100); }
@@ -656,13 +958,14 @@ body.render .app{display:none}
   /* ---------- xuất video (máy tính: Chrome / Edge) ---------- */
   const canExport = !!(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia && window.MediaRecorder) && !isMobile;
   if (!canExport) { $('bExport').style.display = 'none'; $('bRec').style.display = 'inline-flex'; }
-  $('exportHint').innerHTML = canExport
-    ? '<b>Xuất video:</b> bấm nút đỏ ở góc trên → chọn <b>Thẻ này</b> và bật <b>Chia sẻ âm thanh của thẻ</b>. App tự phát từ đầu đến cuối rồi lưu file vào thư mục <i>Tải xuống</i>. Phóng to cửa sổ (hoặc màn hình 2K/4K) để video nét hơn.'
-    : '<b>Làm video trên điện thoại:</b> bấm <b>Chế độ quay</b> → bật trình ghi màn hình (ghi <i>âm thanh nội bộ</i>) → chạm ▶. Chạm màn hình để thoát.';
+  $('exportHint').innerHTML = (canExport
+    ? '<b>Xuất video:</b> bấm nút đỏ ở góc trên → chọn <b>Thẻ này</b> và bật <b>Chia sẻ âm thanh của thẻ</b>. App tự phát từ đầu đến cuối rồi lưu file vào thư mục <i>Tải xuống</i>. Phóng to cửa sổ để video nét hơn.'
+    : '<b>Làm video trên điện thoại:</b> bấm <b>Chế độ quay</b> → bật trình ghi màn hình (ghi <i>âm thanh nội bộ</i>) → chạm ▶. Chạm màn hình để thoát.')
+    + '<br><b>Nhiều tập:</b> chọn tập ở thanh trên rồi xuất lần lượt từng tập.';
   let recChunks = [], recStream = null, recMime = '';
   $('bExport').onclick = async () => {
     if (recorder) { stopRecording(); return; }
-    if (voiceMode === 'sys') note('Lưu ý: giọng của máy có thể không được ghi vào video. Nên chọn "Giọng dẫn chuyện (có sẵn)".', 6000);
+    if (voiceMode === 'sys') note('Lưu ý: giọng của máy có thể không được ghi vào video. Nên dùng giọng thu (file mp3).', 6000);
     pause(); seekTo(0);
     try {
       recStream = await navigator.mediaDevices.getDisplayMedia({
@@ -693,7 +996,8 @@ body.render .app{display:none}
     const ext = /mp4/.test(recMime) ? 'mp4' : 'webm';
     const blob = new Blob(recChunks, { type: recMime || 'video/webm' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-    a.download = `${B.id}${format === 'doc' ? '-doc' : ''}.${ext}`; document.body.appendChild(a); a.click();
+    const base = P.custom ? slug(P.name) + ((B.epCount || 1) > 1 ? `-tap${epIdx + 1}` : '') : P.id;
+    a.download = `${base}${format === 'doc' ? '-doc' : ''}.${ext}`; document.body.appendChild(a); a.click();
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
     recorder = null; recStream = null; $('bExport').querySelector('span').textContent = 'Xuất video';
     app.classList.remove('recording'); exitRec(); note(`Đã lưu ${a.download} vào thư mục Tải xuống.`, 6000);
@@ -706,8 +1010,14 @@ body.render .app{display:none}
   $('bInstall').onclick = async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; $('bInstall').style.display = 'none'; };
   addEventListener('appinstalled', () => { $('bInstall').style.display = 'none'; });
 
-  buildProjects();
-  document.fonts.ready.then(() => open(Q.get('tran') || store.get('last', BATTLES[0].id)));
+  /* ---------- khởi động ---------- */
+  (async () => {
+    try { mine = await Xuong.store.list(); } catch (e) { mine = []; note('Trình duyệt không cho lưu dự án (chế độ ẩn danh?).'); }
+    buildProjects();
+    await document.fonts.ready;
+    const want = Q.get('tran') || store.get('last', BATTLES[0].id);
+    if (!(await open(want))) await open(BATTLES[0].id);
+  })();
 })();
 </script>
 </body>

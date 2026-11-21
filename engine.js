@@ -147,6 +147,72 @@
     return g;
   }
 
+
+  /* ======================================================================
+     PHONG CÁCH HÌNH NỀN cho dự án tự tạo: tailieu | vientuong | hoathinh
+     Trả về { update(t) } để chuyển động theo thời gian.
+     ====================================================================== */
+  function styleBG(svg, style, seed, opts = {}) {
+    const r = rng(seed || 1);
+    if (style === 'vientuong') {
+      const defs = s('defs', null, svg);
+      const g1 = s('radialGradient', { id: 'neb' + seed, cx: '70%', cy: '30%', r: '80%' }, defs);
+      s('stop', { offset: 0, 'stop-color': '#3a1d6e' }, g1); s('stop', { offset: .5, 'stop-color': '#120b2e' }, g1); s('stop', { offset: 1, 'stop-color': '#05040d' }, g1);
+      const bl = s('filter', { id: 'blur' + seed, x: '-50%', y: '-50%', width: '200%', height: '200%' }, defs); s('feGaussianBlur', { stdDeviation: 60 }, bl);
+      s('rect', { width: W, height: H, fill: `url(#neb${seed})` }, svg);
+      const neb = s('g', { filter: `url(#blur${seed})`, opacity: .55 }, svg);
+      [['#6a2c91', 1300, 300, 380, 200], ['#1f4fa8', 500, 250, 420, 180], ['#a8326f', 900, 520, 300, 140]].forEach(([c, x, y, rx, ry]) => s('ellipse', { cx: x, cy: y, rx, ry, fill: c }, neb));
+      const stars = [];
+      for (let i = 0; i < 220; i++) stars.push([s('circle', { cx: r() * W, cy: r() * H * .8, r: r() < .1 ? 2.4 : 1.1 + r(), fill: '#fff' }, svg), r() * 6, .4 + r() * .6]);
+      const pl = s('g', null, svg);
+      const pg = s('radialGradient', { id: 'pl' + seed, cx: '35%', cy: '35%', r: '70%' }, defs);
+      s('stop', { offset: 0, 'stop-color': '#7fd3ff' }, pg); s('stop', { offset: .6, 'stop-color': '#2a5c9e' }, pg); s('stop', { offset: 1, 'stop-color': '#0b1a3a' }, pg);
+      s('circle', { cx: 1580, cy: 250, r: 150, fill: `url(#pl${seed})` }, pl);
+      s('ellipse', { cx: 1580, cy: 250, rx: 260, ry: 46, fill: 'none', stroke: '#9fe7ff', 'stroke-width': 6, opacity: .55, transform: 'rotate(-18 1580 250)' }, pl);
+      const grid = s('g', { stroke: '#38e1ff', 'stroke-width': 2, opacity: .55 }, svg);
+      for (let i = -12; i <= 12; i++) s('line', { x1: W / 2 + i * 40, y1: 760, x2: W / 2 + i * 260, y2: H }, grid);
+      const hz = []; for (let i = 0; i < 9; i++) hz.push(s('line', { x1: 0, x2: W, y1: 760, y2: 760 }, grid));
+      s('rect', { x: 0, y: 740, width: W, height: 24, fill: '#38e1ff', opacity: .12 }, svg);
+      return { update(t) {
+        stars.forEach(([c, ph, b]) => c.setAttribute('opacity', b * (.6 + .4 * Math.sin(t * 2 + ph))));
+        pl.setAttribute('transform', `translate(${-t * 6},${Math.sin(t * .4) * 8})`);
+        hz.forEach((l, i) => { const k = ((i / 9) + t * .12) % 1, y = 760 + Math.pow(k, 2.2) * (H - 760); l.setAttribute('y1', y); l.setAttribute('y2', y); l.setAttribute('opacity', k); });
+      } };
+    }
+    if (style === 'hoathinh') {
+      const defs = s('defs', null, svg);
+      const sky = s('linearGradient', { id: 'sky' + seed, x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+      s('stop', { offset: 0, 'stop-color': '#5fc3ff' }, sky); s('stop', { offset: .7, 'stop-color': '#bfe9ff' }, sky); s('stop', { offset: 1, 'stop-color': '#fff4d6' }, sky);
+      s('rect', { width: W, height: H, fill: `url(#sky${seed})` }, svg);
+      const sun = s('g', { transform: 'translate(1620,180)' }, svg);
+      const rays = s('g', null, sun);
+      for (let i = 0; i < 12; i++) s('rect', { x: -8, y: -150, width: 16, height: 46, rx: 8, fill: '#ffd23f', transform: `rotate(${i * 30})` }, rays);
+      s('circle', { r: 90, fill: '#ffd23f', stroke: '#f5a300', 'stroke-width': 8 }, sun);
+      const clouds = [];
+      for (let i = 0; i < 6; i++) {
+        const g = s('g', null, svg), k = .6 + r() * .8;
+        [[0, 0, 70], [60, -25, 60], [120, 0, 65], [60, 15, 70]].forEach(([x, y, rr]) => s('circle', { cx: x * k, cy: y * k, r: rr * k, fill: '#fff' }, g));
+        clouds.push([g, r() * W, 80 + r() * 300, 10 + r() * 25]);
+      }
+      [['#7ed957', 720, 160], ['#4cb648', 820, 120], ['#2f8f3a', 920, 90]].forEach(([c, y, a], j) => {
+        let d = `M0,${H} L0,${y}`; for (let x = 0; x <= W; x += 240) d += ` Q${x + 120},${y - a * (j % 2 ? .6 : 1) * (r() + .4)} ${x + 240},${y}`; d += ` L${W},${H}Z`;
+        s('path', { d, fill: c, stroke: '#1d5c25', 'stroke-width': 5 }, svg);
+      });
+      for (let i = 0; i < 7; i++) {
+        const x = 100 + r() * (W - 200), y = 820 + r() * 120, k = .7 + r() * .6;
+        const tg = s('g', { transform: `translate(${x},${y}) scale(${k})` }, svg);
+        s('rect', { x: -8, y: -40, width: 16, height: 50, rx: 4, fill: '#8a5a2b', stroke: '#4a2e12', 'stroke-width': 4 }, tg);
+        s('circle', { cy: -70, r: 46, fill: '#3fae49', stroke: '#1d5c25', 'stroke-width': 5 }, tg);
+      }
+      return { update(t) {
+        rays.setAttribute('transform', `rotate(${t * 12})`);
+        clouds.forEach(([g, x, y, v]) => g.setAttribute('transform', `translate(${((x + t * v) % (W + 300)) - 150},${y})`));
+      } };
+    }
+    paintedBG(svg, seed, opts);
+    return { update() {} };
+  }
+
   /* ======================================================================
      CÁC LOẠI CẢNH – mỗi loại trả về {root, update(lt, dur)}
      ====================================================================== */
@@ -156,17 +222,18 @@
   SCENES.title = function (sc, B) {
     const root = h('div', { class: 'sc sc-title' });
     const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
-    paintedBG(bg, B.seed || 7, { stakes: sc.stakes, ships: sc.ships });
+    const bgu = styleBG(bg, B.style, B.seed || 7, { stakes: sc.stakes, ships: sc.ships });
     h('div', { class: 'shade' }, root);
     const box = h('div', { class: 'title-box' }, root);
     const big = h('div', { class: 'title-big' }, box);
+    if (sc.size) { big.style.fontSize = sc.size + 'px'; big.style.lineHeight = '1.05'; big.style.padding = '0 80px'; }
     const letters = [...sc.title].map(ch => h('span', null, big, ch === ' ' ? '&nbsp;' : esc(ch)));
     const sub = h('div', { class: 'title-sub' }, box, esc(sc.sub || ''));
     const line = h('div', { class: 'title-line' }, box, esc(sc.line || ''));
     const stamp = sc.stamp ? h('div', { class: 'stamp' }, root, esc(sc.stamp)) : null;
     return {
       root, update(t, d) {
-        bg.style.transform = `scale(${1.04 + t / d * .08}) translate(${-t * 4}px,0)`;
+        bg.style.transform = `scale(${1.04 + t / d * .08}) translate(${-t * 4}px,0)`; bgu.update(t);
         letters.forEach((l, i) => {
           const k = eout(ramp(t, .3 + i * .06, .9 + i * .06));
           l.style.opacity = k; l.style.transform = `translateY(${(1 - k) * 40}px)`;
@@ -383,7 +450,7 @@
     h('div', { class: 'q-mark' }, root, '“');
     const q = h('div', { class: 'q-text' }, root);
     const ws = sc.quote.split(' ').map(w => h('span', null, q, esc(w) + ' '));
-    const by = h('div', { class: 'q-by' }, root, '— ' + esc(sc.by));
+    const by = h('div', { class: 'q-by' }, root, sc.by ? '— ' + esc(sc.by) : '');
     return {
       root, update(t, d) {
         svg.style.transform = `translate(-50%,-50%) rotate(${t * 3}deg)`;
@@ -411,10 +478,53 @@
     };
   };
 
+
+  /* ----- Thẻ nội dung (dự án tự tạo): nền theo phong cách + ảnh/video + tiêu đề + câu nổi bật ----- */
+  SCENES.card = function (sc, B) {
+    const root = h('div', { class: 'sc sc-card' });
+    const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
+    const bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 13, { ships: 2 });
+    let media = null;
+    if (sc.media && sc.media.url) {
+      media = sc.media.kind === 'video'
+        ? h('video', { class: 'card-media', src: sc.media.url, muted: '', playsinline: '', preload: 'auto' }, root)
+        : h('img', { class: 'card-media', src: sc.media.url }, root);
+      if (media.tagName === 'VIDEO') media.muted = true;
+    }
+    h('div', { class: 'shade card-shade' + (media ? ' has-media' : '') }, root);
+    const box = h('div', { class: 'card-box' }, root);
+    const kick = sc.kicker ? h('div', { class: 'card-kick' }, box, esc(sc.kicker)) : null;
+    const head = sc.heading ? h('div', { class: 'card-head' }, box, esc(sc.heading)) : null;
+    const bar = h('div', { class: 'card-bar' }, box);
+    let pull = (sc.pull != null ? sc.pull : (sc.say || '').split(/(?<=[.!?…])\s+/)[0] || '');
+    if (pull.length > 110) pull = pull.slice(0, 107).replace(/\s+\S*$/, '') + '…';
+    const pw = sc.heading && !sc.pull ? [] : pull.split(' ').map(w => h('span', null, null, esc(w) + ' '));
+    const pd = pw.length ? h('div', { class: 'card-pull' }, box) : null;
+    pw.forEach(w => pd.appendChild(w));
+    return {
+      root, update(t, d) {
+        bg.style.transform = `scale(${1.05 + t / d * .07})`; bgu.update(t);
+        if (media) {
+          media.style.transform = `scale(${1.04 + t / d * .1}) translate(${-t * 3}px,${-t * 1.5}px)`;
+          media.style.opacity = eout(ramp(t, 0, .6));
+          if (media.tagName === 'VIDEO' && media.readyState >= 1 && media.duration) {
+            const want = t % media.duration;
+            if (Math.abs(media.currentTime - want) > .3) media.currentTime = want;
+          }
+        }
+        if (kick) kick.style.opacity = eout(ramp(t, .2, .7));
+        if (head) { const k = eout(ramp(t, .35, 1)); head.style.opacity = k; head.style.transform = `translateY(${(1 - k) * 30}px)`; }
+        bar.style.width = eout(ramp(t, .8, 1.6)) * 260 + 'px';
+        if (pd) { const k = eout(ramp(t, .8, 1.2)); pd.style.opacity = k; pd.style.transform = `scale(${.92 + k * .08})`; pd.style.transformOrigin = '0 50%'; }
+        pw.forEach((w, i) => { const a = 1 + i * .09; w.style.opacity = eout(ramp(t, a, a + .4)); });
+      }
+    };
+  };
+
   SCENES.end = function (sc, B) {
     const root = h('div', { class: 'sc sc-end' });
     const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
-    paintedBG(bg, (B.seed || 7) + 3, { ships: 3 });
+    const bgu = styleBG(bg, B.style, (B.seed || 7) + 3, { ships: 3 });
     h('div', { class: 'shade' }, root);
     const box = h('div', { class: 'end-box' }, root);
     h('div', { class: 'end-big' }, box, esc(sc.title || 'GHI NHỚ CÔNG ƠN TIỀN NHÂN'));
@@ -422,7 +532,7 @@
     if (sc.next) h('div', { class: 'end-next' }, box, 'Tập tiếp theo: <b>' + esc(sc.next) + '</b>');
     return {
       root, update(t, d) {
-        bg.style.transform = `scale(${1.1 - t / d * .06})`;
+        bg.style.transform = `scale(${1.1 - t / d * .06})`; bgu.update(t);
         box.style.opacity = eout(ramp(t, .3, 1.3)); box.style.transform = `translateY(${(1 - eout(ramp(t, .3, 1.3))) * 30}px)`;
       }
     };
@@ -610,7 +720,7 @@
   /* ======================================================================
      NHẠC NỀN – tổng hợp bằng WebAudio (trống trận, nền trầm, gảy ngũ cung)
      ====================================================================== */
-  function scheduleMusic(ctx, dest, total, sceneStarts, offset = 0) {
+  function scheduleMusic(ctx, dest, total, sceneStarts, offset = 0, style = '') {
     const master = ctx.createGain(); master.gain.value = 0; master.connect(dest);
     const t0 = ctx.currentTime;
     const at = x => t0 + x - offset;
@@ -621,8 +731,10 @@
     const noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 1, ctx.sampleRate);
     const nd = noiseBuf.getChannelData(0); const rr = rng(42); for (let i = 0; i < nd.length; i++) nd[i] = rr() * 2 - 1;
     const live = x => x >= offset - .05;
-    // nền trầm: Rê thứ ngũ cung
-    const chords = [[50, 57, 62], [48, 55, 60], [46, 53, 58], [45, 52, 57]];
+    // nền trầm: Rê thứ ngũ cung (viễn tưởng: hợp âm mở; hoạt hình: Đô trưởng)
+    const chords = style === 'vientuong' ? [[50, 57, 64], [46, 53, 60], [48, 55, 62], [43, 50, 57]]
+      : style === 'hoathinh' ? [[60, 64, 67], [57, 60, 64], [53, 57, 60], [55, 59, 62]]
+      : [[50, 57, 62], [48, 55, 60], [46, 53, 58], [45, 52, 57]];
     const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
     const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 520; lp.connect(master);
     for (let c = 0, x = 0; x < total; c++, x += 8) {
@@ -638,15 +750,15 @@
       });
     }
     // trống trận
-    const bpm = 76, beat = 60 / bpm;
-    const pattern = [1, 0, .4, 0, .8, .3, .5, 0];
+    const bpm = style === 'hoathinh' ? 108 : style === 'vientuong' ? 92 : 76, beat = 60 / bpm;
+    const pattern = style === 'vientuong' ? [.7, 0, .25, 0, .5, 0, .25, 0] : style === 'hoathinh' ? [.5, 0, .3, .3, .5, 0, .3, 0] : [1, 0, .4, 0, .8, .3, .5, 0];
     for (let i = 0, x = 4; x < total - 2; i++, x += beat / 2) {
       const v = pattern[i % 8] * (x < 10 ? .5 : 1); if (!v || !live(x)) continue;
       const o = ctx.createOscillator(); o.type = 'sine';
       o.frequency.setValueAtTime(95, at(x)); o.frequency.exponentialRampToValueAtTime(42, at(x + .25));
       const g = ctx.createGain(); g.gain.setValueAtTime(.0001, at(x)); g.gain.exponentialRampToValueAtTime(.55 * v, at(x + .008)); g.gain.exponentialRampToValueAtTime(.001, at(x + .5));
       o.connect(g); g.connect(master); o.start(at(x)); o.stop(at(x + .55));
-      if (v > .7) {
+      if (v > .7 && !style) {
         const n = ctx.createBufferSource(); n.buffer = noiseBuf;
         const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 900; bp.Q.value = 1.2;
         const g2 = ctx.createGain(); g2.gain.setValueAtTime(.18 * v, at(x)); g2.gain.exponentialRampToValueAtTime(.001, at(x + .12));
@@ -654,12 +766,12 @@
       }
     }
     // đàn gảy ngũ cung (gợi đàn tranh)
-    const penta = [62, 65, 67, 69, 72, 74, 77];
-    const pr = rng(7);
-    for (let x = 6; x < total - 3; x += beat) {
-      if (pr() > .42 || !live(x)) continue;
+    const penta = style === 'hoathinh' ? [72, 74, 76, 79, 81, 84] : style === 'vientuong' ? [62, 64, 69, 71, 74, 76] : [62, 65, 67, 69, 72, 74, 77];
+    const pr = rng(7), step = style === 'vientuong' ? beat / 2 : beat, prob = style === 'vientuong' ? .7 : style === 'hoathinh' ? .55 : .42;
+    for (let x = 6; x < total - 3; x += step) {
+      if (pr() > prob || !live(x)) continue;
       const m = penta[Math.floor(pr() * penta.length)];
-      const o = ctx.createOscillator(); o.type = 'triangle'; o.frequency.value = mtof(m);
+      const o = ctx.createOscillator(); o.type = style === 'hoathinh' ? 'sine' : 'triangle'; o.frequency.value = mtof(m);
       const g = ctx.createGain(); g.gain.setValueAtTime(.0001, at(x)); g.gain.exponentialRampToValueAtTime(.09, at(x + .01)); g.gain.exponentialRampToValueAtTime(.001, at(x + 1.6));
       o.connect(g); g.connect(master); o.start(at(x)); o.stop(at(x + 1.7));
     }
@@ -688,6 +800,7 @@
     });
     let acc = 0; scenes.forEach(S => { S.start = acc; acc += S.d; });
     const total = acc;
+    stage.classList.remove('st-tailieu', 'st-vientuong', 'st-hoathinh'); if (battle.style) stage.classList.add('st-' + battle.style);
     const layer = h('div', { class: 'layer' }, stage);
     const subs = h('div', { class: 'subs' }, stage);
     const grain = h('canvas', { class: 'grain', width: 384, height: 216 }, stage);
@@ -724,8 +837,8 @@
       }
       return i;
     }
-    const gongs = scenes.filter(S => ['title', 'map', 'diagram', 'end'].includes(S.sc.type)).map(S => S.start + .05);
-    return { scenes, total, seek, gongs, music: (ctx, dest, off) => scheduleMusic(ctx, dest, total, gongs, off) };
+    const gongs = scenes.filter(S => ['title', 'map', 'diagram', 'end'].includes(S.sc.type) || S.sc.big).map(S => S.start + .05);
+    return { scenes, total, seek, gongs, music: (ctx, dest, off) => scheduleMusic(ctx, dest, total, gongs, off, battle.style || '') };
   }
 
   /* xuất WAV nhạc nền (dùng khi render MP4) */
