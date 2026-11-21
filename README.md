@@ -26,6 +26,20 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Làm video THẬT HƠN bằng AI và Blender
+### 1. Clip AI (Google Flow / Veo 3.1, Gemini, Kling, Runway)
+- Trong app: bấm cảnh → **✨ Prompt AI** → chép *prompt video* (dán vào Flow), *prompt ảnh* (tạo khung đầu bằng Gemini rồi dùng Frames to Video) hoặc *yêu cầu gửi Gemini* (nhờ Gemini viết prompt).
+- Bộ prompt cả phim cho 6 trận: thư mục `prompt-ai/` (hoặc nút **Tải bộ prompt AI cả phim**).
+- Prompt theo cấu trúc Veo: khung hình → chủ thể & hành động → bối cảnh → máy quay → phong cách & ánh sáng; mỗi clip 8 giây; có phần *Negative* để tránh đồ vật hiện đại, chữ, máu me.
+- Ghép clip: trận mẫu → **Dùng mẫu này làm dự án của bạn** (giữ giọng đọc) → bấm cảnh → **Thêm ảnh/video** → clip tự phủ toàn khung; phụ đề, giọng, nhạc, chuyển cảnh vẫn giữ.
+- Trang phục trong prompt là tái hiện ước lượng theo sử liệu (VD lính Trần thích chữ "Sát Thát" trên tay); nên đối chiếu tư liệu bảo tàng khi cần chính xác.
+
+### 2. Blender
+- `tools/blender/bach_dang_1288.py`: dựng cảnh Bạch Đằng 1288 (địa hình núi đá vôi, mặt nước Ocean, trời vật lý, sương thể tích, bãi cọc, hạm đội, lửa, khói, phục binh) và render Cycles:
+  `blender -b -P tools/blender/bach_dang_1288.py -- --shot 2 --res 1920x1080 --samples 128 --gpu --out bachdang.png`
+  (`--anim --frames 120` để xuất 5 giây hoạt cảnh). Ảnh mẫu: `tools/blender/mau-shot2.png`.
+- Muốn chân thực hơn: cài **Blender MCP** (github.com/ahujasid/blender-mcp) để Claude điều khiển Blender trên máy bạn, tải mô hình thuyền/người từ Sketchfab hoặc tạo bằng Hunyuan3D, thêm HDRI bầu trời.
+
 ## Phim 3D: Bạch Đằng 1288
 Trang `phim3d.html` dựng lại trận Bạch Đằng 1288 bằng 3D (three.js): sông núi, thủy triều lên xuống, bãi cọc, hạm đội Nguyên rút từ thượng nguồn ra biển, thuyền nhẹ nhử địch, phục binh hai bờ, tên lửa, thuyền cháy. Dùng giọng dẫn chuyện trong `loi-dan/bach-dang-1288/`.
 Xuất MP4: `node tools/render-video.mjs bach-dang-1288 --page phim3d.html --fps 24`

@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Rạch Gầm – Xoài Mút 1785
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Đầu năm 1785, trên sông Tiền, nghĩa quân Tây Sơn do Nguyễn Huệ chỉ huy đã tiêu diệt gần như toàn bộ đạo quân xâm lược Xiêm.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho at the edge of a historic battle, with Siamese (Thai) army of the 1780s visible far away as tiny silhouettes. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho at the edge of a historic battle, with Siamese (Thai) army of the 1780s visible far away as tiny silhouettes. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Nguyễn Huệ là một trong ba anh em Tây Sơn, nổi tiếng với lối hành quân thần tốc và cách đánh bất ngờ, táo bạo.
+
+▶ Nhân vật – Nguyễn Huệ (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Nguyễn Huệ, the Vietnamese commander (Tướng Tây Sơn, sau là Hoàng đế Quang Trung), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn Huệ, the Vietnamese commander (Tướng Tây Sơn, sau là Hoàng đế Quang Trung), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Nguyễn Ánh cầu viện Xiêm. Vua Xiêm sai hàng vạn quân thủy bộ sang chiếm miền Tây Gia Định. Nguyễn Huệ được lệnh đem quân từ Quy Nhơn vào Nam đánh giặc.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho seen from above, a winding river among mountains, with a long column of Siamese (Thai) army of the 1780s moving along it like an armada. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho seen from above, a winding river among mountains, with a long column of Siamese (Thai) army of the 1780s moving along it like an armada. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Quân Xiêm gồm năm vạn quân thủy bộ và ba trăm chiến thuyền, đi đến đâu cũng cướp phá, khiến nhân dân căm ghét. Nguyễn Huệ đóng quân ở Mỹ Tho, chọn khúc sông Rạch Gầm – Xoài Mút làm trận địa.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Siamese (Thai) army of the 1780s in white and red uniforms with pointed helmets aboard large river war boats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Tây Sơn soldiers in red tunics and turbans with spears, swords and bows, small fast war boats with oars watching silently from cover. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Siamese (Thai) army of the 1780s in white and red uniforms with pointed helmets aboard large river war boats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Tây Sơn soldiers in red tunics and turbans with spears, swords and bows, small fast war boats with oars watching silently from cover. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Đêm 18 rạng sáng ngày 19 tháng 1 năm 1785, Nguyễn Huệ nhử thủy binh Xiêm tiến vào khúc sông Rạch Gầm – Xoài Mút. Bộ binh và thủy binh Tây Sơn mai phục trên bờ, trên các cù lao bất ngờ đổ ra đánh tạt sườn, chặn đầu khóa đuôi. Thuyền giặc bị đánh tan, bốc cháy giữa dòng.
+
+▶ Diễn biến 1: Bố trí trận địa mai phục trên khúc sông dài khoảng 6 km (8s)
+VIDEO PROMPT:
+Wide shot at water level. A large enemy river fleet sails into a stretch of river where Tây Sơn boats and soldiers lie hidden among palms and islets. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A large enemy river fleet sails into a stretch of river where Tây Sơn boats and soldiers lie hidden among palms and islets. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Thủy binh Xiêm xuôi dòng tiến vào trận địa (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. A large enemy river fleet sails into a stretch of river where Tây Sơn boats and soldiers lie hidden among palms and islets. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A large enemy river fleet sails into a stretch of river where Tây Sơn boats and soldiers lie hidden among palms and islets. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Quân Tây Sơn đồng loạt tấn công từ bờ, cù lao và mặt sông (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. As the tide falls, hundreds of Tây Sơn soldiers in red tunics and turbans with spears rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. As the tide falls, hundreds of Tây Sơn soldiers in red tunics and turbans with spears rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Quân Xiêm gần như bị tiêu diệt hoàn toàn (8s)
+VIDEO PROMPT:
+Wide aerial shot. Tây Sơn soldiers in red tunics and turbans with spears fight Siamese (Thai) army of the 1780s: Quân Xiêm gần như bị tiêu diệt hoàn toàn. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and turbans with spears fight Siamese (Thai) army of the 1780s: Quân Xiêm gần như bị tiêu diệt hoàn toàn. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Phần lớn quân Xiêm bị tiêu diệt, chỉ còn vài nghìn tên sống sót, theo đường bộ chạy về nước.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Phần lớn quân Xiêm bị tiêu diệt, chỉ còn vài nghìn tên sống sót, theo đường bộ chạy về nước. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Phần lớn quân Xiêm bị tiêu diệt, chỉ còn vài nghìn tên sống sót, theo đường bộ chạy về nước. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Trận Rạch Gầm – Xoài Mút đập tan mộng xâm lược của quân Xiêm, trở thành một trong những trận thủy chiến lẫy lừng nhất lịch sử dân tộc.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Tây Sơn soldiers in red tunics and turbans with spears raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Tây Sơn soldiers in red tunics and turbans with spears raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the wide Mekong (Tiền Giang) river in southern Vietnam near Mỹ Tho, with coconut palms, nipa palms and river islets, 18th-century Vietnam, Tây Sơn army (January 1785), pre-dawn blue hour turning to sunrise. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

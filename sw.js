@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v10';
+const VERSION = 'v11';
 const CORE = [
   './',
   'index.html',
@@ -12,6 +12,7 @@ const CORE = [
   'icons/icon-512.png',
   'lib/xuong.js',
   'lib/nhac.js',
+  'lib/aiprompt.js',
   'lib/jszip.min.js',
   'fonts/be-vietnam-pro-latin-400-normal.woff2',
   'fonts/be-vietnam-pro-latin-600-normal.woff2',

@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Chi Lăng – Xương Giang 1427
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Mùa thu năm 1427, nghĩa quân Lam Sơn tiêu diệt hơn mười vạn viện binh nhà Minh tại ải Chi Lăng và thành Xương Giang, kết thúc hai mươi năm đô hộ.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast the narrow Chi Lăng mountain pass in Lạng Sơn at the edge of a historic battle, with Ming dynasty Chinese cavalry and infantry visible far away as tiny silhouettes. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast the narrow Chi Lăng mountain pass in Lạng Sơn at the edge of a historic battle, with Ming dynasty Chinese cavalry and infantry visible far away as tiny silhouettes. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Lê Lợi dựng cờ khởi nghĩa ở Lam Sơn năm 1418. Sau mười năm gian khổ, nghĩa quân đã vây chặt quân Minh trong thành Đông Quan.
+
+▶ Nhân vật – Lê Lợi (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Lê Lợi, the Vietnamese commander (Bình Định Vương, sau là vua Lê Thái Tổ), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lê Lợi, the Vietnamese commander (Bình Định Vương, sau là vua Lê Thái Tổ), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Tháng 10 năm 1427, nhà Minh cử hai đạo viện binh: Liễu Thăng theo đường Lạng Sơn, Mộc Thạnh theo đường Vân Nam, hòng giải vây cho Đông Quan.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The the narrow Chi Lăng mountain pass in Lạng Sơn seen from above, a winding river among mountains, with a long column of Ming dynasty Chinese cavalry and infantry moving along it like an armada. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The the narrow Chi Lăng mountain pass in Lạng Sơn seen from above, a winding river among mountains, with a long column of Ming dynasty Chinese cavalry and infantry moving along it like an armada. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Đạo quân của Liễu Thăng có mười vạn người, Mộc Thạnh có năm vạn. Lê Lợi và Nguyễn Trãi quyết định tập trung lực lượng tiêu diệt viện binh trước.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Ming dynasty Chinese cavalry and infantry in red cloth-covered brigandine armor and iron helmets with plumes, carrying yellow Ming banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lam Sơn insurgent soldiers in dark brown and black cotton clothes, conical hats, bamboo shields, spears, crossbows and war elephants hidden in the forest watching silently from cover. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Ming dynasty Chinese cavalry and infantry in red cloth-covered brigandine armor and iron helmets with plumes, carrying yellow Ming banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lam Sơn insurgent soldiers in dark brown and black cotton clothes, conical hats, bamboo shields, spears, crossbows and war elephants hidden in the forest watching silently from cover. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Tướng Trần Lựu giao chiến rồi giả thua, nhử Liễu Thăng đuổi theo vào ải Chi Lăng. Phục binh hai bên sườn núi đổ ra, Liễu Thăng bị chém ở núi Mã Yên. Tàn quân cố chạy về thành Xương Giang thì bị bao vây và tiêu diệt. Hay tin, Mộc Thạnh hoảng sợ rút chạy về nước.
+
+▶ Diễn biến 1: Liễu Thăng dẫn quân tràn qua biên giới (8s)
+VIDEO PROMPT:
+Wide shot at water level. Lam Sơn insurgent soldiers in dark brown and black cotton clothes fight Ming dynasty Chinese cavalry and infantry: Liễu Thăng dẫn quân tràn qua biên giới. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lam Sơn insurgent soldiers in dark brown and black cotton clothes fight Ming dynasty Chinese cavalry and infantry: Liễu Thăng dẫn quân tràn qua biên giới. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Quân ta giả thua, nhử địch vào ải Chi Lăng (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. At high tide the stakes disappear under the water; small Vietnamese boats with red flags provoke the Ming dynasty Chinese cavalry and infantry and then flee, luring the huge enemy fleet deeper into the river. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. At high tide the stakes disappear under the water; small Vietnamese boats with red flags provoke the Ming dynasty Chinese cavalry and infantry and then flee, luring the huge enemy fleet deeper into the river. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Phục binh hai bên núi đổ ra – Liễu Thăng bị chém (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. As the tide falls, hundreds of Lam Sơn insurgent soldiers in dark brown and black cotton clothes rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. As the tide falls, hundreds of Lam Sơn insurgent soldiers in dark brown and black cotton clothes rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Truy kích, vây diệt tàn quân ở Xương Giang (8s)
+VIDEO PROMPT:
+Wide aerial shot. Lam Sơn insurgent soldiers in dark brown and black cotton clothes fight Ming dynasty Chinese cavalry and infantry: Truy kích, vây diệt tàn quân ở Xương Giang. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lam Sơn insurgent soldiers in dark brown and black cotton clothes fight Ming dynasty Chinese cavalry and infantry: Truy kích, vây diệt tàn quân ở Xương Giang. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · QUOTE ════════
+Lời dẫn: Tuyệt vọng, Vương Thông xin hòa, rút quân về nước. Nguyễn Trãi thay lời Lê Lợi viết Bình Ngô đại cáo, áng thiên cổ hùng văn tuyên bố độc lập.
+
+▶ Trích dẫn – không khí (8s)
+VIDEO PROMPT:
+Slow-motion medium close-up. Lam Sơn insurgent soldiers in dark brown and black cotton clothes standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Very slow dolly in, 48fps slow-motion feel. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Như nước Đại Việt ta từ trước, vốn xưng nền văn hiến đã lâu. Núi sông bờ cõi đã chia, phong tục Bắc Nam cũng khác.".
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lam Sơn insurgent soldiers in dark brown and black cotton clothes standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Như nước Đại Việt ta từ trước, vốn xưng nền văn hiến đã lâu. Núi sông bờ cõi đã chia, phong tục Bắc Nam cũng khác.".
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Thắng lợi Chi Lăng – Xương Giang kết thúc hai mươi năm đô hộ của nhà Minh, mở ra triều Hậu Lê với gần một trăm năm phát triển rực rỡ.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Lam Sơn insurgent soldiers in dark brown and black cotton clothes raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Lam Sơn insurgent soldiers in dark brown and black cotton clothes raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful the narrow Chi Lăng mountain pass in Lạng Sơn today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful the narrow Chi Lăng mountain pass in Lạng Sơn today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the narrow Chi Lăng mountain pass in Lạng Sơn, northern Vietnam, a muddy road between jagged forested limestone cliffs, 15th-century Đại Việt, Lam Sơn uprising (autumn 1427), autumn, overcast sky, mist in the valley. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

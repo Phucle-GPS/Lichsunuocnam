@@ -20,7 +20,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:13px;-webkit-tap-highlight-color:transparent}
-button,select,input{font:inherit;color:inherit}
+button,select,input,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#38322b;border-radius:8px}::-webkit-scrollbar-track{background:transparent}
 
@@ -110,6 +110,12 @@ button{cursor:pointer}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:12.5px}
 .kv dt{color:var(--muted)}.kv dd{margin:0;font-weight:600}
 .say{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;line-height:1.55;max-height:180px;overflow:auto}
+.aip{margin-top:12px;border:1px solid var(--line2);border-radius:9px;background:var(--panel2)}
+.aip summary{cursor:pointer;padding:9px 11px;font-weight:700;color:var(--gold);list-style:none}
+.aip summary::-webkit-details-marker{display:none}
+.aip .ai-item{border-top:1px solid var(--line);padding:9px 11px}
+.aip .ai-item b{display:block;font-size:12px;margin-bottom:6px}
+.aip pre{white-space:pre-wrap;font:12px/1.45 'Be Vietnam Pro',sans-serif;color:#cfc4ad;max-height:110px;overflow:auto;margin:0 0 6px;background:#14120f;border-radius:6px;padding:7px}
 .tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;color:#fff}
 .hint{font-size:11.5px;color:var(--dim);line-height:1.5;margin-top:8px}
 .wide{width:100%;justify-content:center;height:38px}
@@ -349,6 +355,10 @@ button{cursor:pointer}
 .card-shade.has-media{background:linear-gradient(90deg,rgba(10,8,6,.96) 30%,rgba(10,8,6,.55) 55%,rgba(0,0,0,.1) 80%),linear-gradient(180deg,transparent 60%,rgba(0,0,0,.55))}
 .card-box{position:absolute;left:140px;top:230px;width:1500px}
 .card-shade.has-media+.card-box{width:900px}
+.card-media.full{width:100%;transform-origin:50% 50%}
+.card-shade.has-media.full{background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 62%,rgba(0,0,0,.6))}
+.card-shade.has-media.full+.card-box{top:140px;left:110px;width:1300px}
+.card-shade.has-media.full+.card-box .card-head{font-size:76px}
 .card-kick{font-family:Oswald;font-weight:500;font-size:30px;letter-spacing:8px;color:var(--gold)}
 .card-head{font-family:Oswald;font-weight:700;font-size:104px;line-height:1.05;color:#fff;margin-top:8px;text-shadow:0 6px 24px rgba(0,0,0,.6)}
 .card-bar{height:8px;background:var(--red);width:0;margin:26px 0 30px}
@@ -572,6 +582,7 @@ body.render .app{display:none}
 <script src="battles.js"></script>
 <script src="lib/xuong.js"></script>
 <script src="lib/nhac.js"></script>
+<script src="lib/aiprompt.js"></script>
 <script>
 (function () {
   const Q = new URLSearchParams(location.search);
@@ -776,7 +787,10 @@ body.render .app{display:none}
     if (!P.custom) {
       el.innerHTML = `<dl class="kv"><dt>Trận</dt><dd>${P.name}</dd><dt>Chỉ huy</dt><dd>${P.who}</dd><dt>Đối phương</dt><dd>${P.vs}</dd><dt>Thời lượng</dt><dd>${fmtT(film.total)}</dd><dt>Khung hình</dt><dd>${FW}×${FH}</dd></dl>
         ${P.id === 'bach-dang-1288' ? '<a class="btn primary wide" href="phim3d.html" style="margin-top:10px;text-decoration:none">🎬 Xem phiên bản PHIM 3D</a>' : ''}
-        <div class="hint">Đây là dự án mẫu (chỉ xem). Muốn tự làm video, bấm <b>＋ Dự án mới từ kịch bản</b> ở cột trái.</div>`;
+        <button class="btn wide" id="pClone" style="margin-top:8px">📋 Dùng mẫu này làm dự án của bạn</button>
+        <button class="btn ghost wide" id="pPack" style="margin-top:8px">✨ Tải bộ prompt AI cả phim (.txt)</button>
+        <div class="hint">Đây là dự án mẫu (chỉ xem). Bấm <b>Dùng mẫu này làm dự án của bạn</b> để thay hình bằng clip AI (Veo/Flow) mà vẫn giữ giọng đọc, phụ đề, nhạc.</div>`;
+      $('pClone').onclick = cloneTemplate; $('pPack').onclick = downloadPack;
       return;
     }
     el.innerHTML = `
@@ -786,12 +800,50 @@ body.render .app{display:none}
         <div class="field"><label>Chia tập</label><select class="sel" id="pEp">${[[0, 'Không chia'], [60, '~60 giây'], [90, '~90 giây'], [180, '~3 phút'], [600, '~10 phút']].map(([v, l]) => `<option value="${v}"${+P.epLen === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
       </div>
       <dl class="kv" style="margin-bottom:10px"><dt>Tổng số cảnh</dt><dd>${P.scenes.length}</dd><dt>Số tập</dt><dd>${B.epCount}</dd><dt>Tập này</dt><dd>${fmtT(film.total)} · ${FW}×${FH}</dd></dl>
-      <div class="btnrow"><button class="btn" id="pAdd">＋ Thêm cảnh</button><button class="btn danger" id="pDel">Xóa dự án</button></div>`;
+      <div class="btnrow"><button class="btn" id="pAdd">＋ Thêm cảnh</button><button class="btn danger" id="pDel">Xóa dự án</button></div>
+      <button class="btn ghost wide" id="pPack" style="margin-top:8px">✨ Tải bộ prompt AI cả phim (.txt)</button>`;
+    $('pPack').onclick = downloadPack;
     $('pName').onchange = e => { P.name = e.target.value.trim() || 'Dự án'; saveP(); buildProjects(); $('crumb').innerHTML = `Dự án của bạn › <b>${esc(P.name)}</b>`; };
     $('pStyle').onchange = e => { P.style = e.target.value; saveP(true); buildProjects(); };
     $('pEp').onchange = e => { P.epLen = +e.target.value; epIdx = 0; saveP(true); buildProjects(); };
     $('pAdd').onclick = () => { const i = curContentIndex(); P.scenes.splice(i < 0 ? P.scenes.length : i + 1, 0, { uid: Xuong.uid(), type: 'card', heading: '', say: 'Nội dung cảnh mới. Bấm vào đây để sửa lời dẫn.' }); saveP(true); buildProjects(); };
     $('pDel').onclick = async () => { if (!confirm(`Xóa dự án "${P.name}"? Ảnh, video, giọng đã tải lên cũng bị xóa.`)) return; await Xuong.store.remove(P); mine = mine.filter(x => x !== P); buildProjects(); open(mine[0] ? mine[0].id : BATTLES[0].id); };
+  }
+  function eraSource() { return P.custom ? Object.assign({}, B, { id: P.from || P.id }) : P; }
+  function downloadPack() {
+    const src = eraSource(), b = { id: src.id, name: P.name, scenes: B.scenes };
+    const blob = new Blob([AIPrompt.filmPack(b)], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'prompt-ai-' + slug(P.name) + '.txt'; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 3000);
+  }
+  async function cloneTemplate() {
+    const T = P; note('Đang sao chép mẫu và giọng đọc…', 3000);
+    const map = sc => {
+      const base = { uid: Xuong.uid(), say: sc.say, srcIdx: T.scenes.indexOf(sc) };
+      if (sc.type === 'quote') return Object.assign(base, { type: 'quote', quote: sc.quote, by: sc.by });
+      if (sc.type === 'points') return Object.assign(base, { type: 'points', title: 'Ý NGHĨA LỊCH SỬ', items: sc.items });
+      if (sc.type === 'timeline') return Object.assign(base, { type: 'timeline', title: sc.title || 'DIỄN BIẾN', items: sc.items });
+      const head = { title: sc.title, hero: sc.name, map: 'Bối cảnh', forces: sc.title || 'Tương quan lực lượng', diagram: sc.title, end: sc.title || 'Ghi nhớ công ơn tiền nhân' }[sc.type] || '';
+      const kick = { title: sc.sub, hero: sc.kicker, map: sc.date, end: sc.sub }[sc.type] || '';
+      return Object.assign(base, { type: 'card', heading: head || '', kicker: kick || '', full: true });
+    };
+    const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, name: T.name + ' (bản AI)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes: T.scenes.map(map) };
+    for (let i = 0; i < p.scenes.length; i++) {
+      try { const r = await fetch(`loi-dan/${T.id}/${String(i + 1).padStart(2, '0')}.mp3`); if (r.ok) { p.scenes[i].voiceId = await Xuong.store.putAsset(await r.blob()); p.scenes[i].voiceName = `${T.id}/${String(i + 1).padStart(2, '0')}.mp3`; } } catch (e) {}
+    }
+    await Xuong.store.save(p); mine.unshift(p); buildProjects();
+    vsel.value = 'pack'; store.set('voice', 'pack'); readVoice();
+    await open(p.id);
+    note('Đã tạo bản sao. Bấm từng cảnh → ✨ Prompt AI để lấy prompt, rồi Thêm ảnh/video để gắn clip AI.', 7000);
+  }
+  function tplScene(sc) { const T = P.from && BATTLES.find(x => x.id === P.from); return T && sc.srcIdx != null && T.scenes[sc.srcIdx] ? T.scenes[sc.srcIdx] : sc; }
+  function promptPanel(sc, i) {
+    sc = tplScene(sc); const src = eraSource(), list = AIPrompt.forScene(src, sc, i);
+    return `<details class="aip"><summary>✨ Prompt AI cho cảnh này (Veo / Flow / Gemini)</summary>` + list.map((p, k) => `<div class="ai-item"><b>${esc(p.label)} · clip ${p.seconds}s</b><pre>${esc(p.video)}</pre><div class="btnrow"><button class="btn" data-cp="v${k}">Chép prompt video</button><button class="btn" data-cp="i${k}">Chép prompt ảnh</button></div></div>`).join('') +
+      `<div class="ai-item"><b>Nhờ Gemini viết prompt từ lời dẫn</b><div class="btnrow"><button class="btn" data-cp="g">Chép yêu cầu gửi Gemini</button></div><div class="hint">Phủ định (negative): ${esc(AIPrompt.NEG)}</div></div></details>`;
+  }
+  function bindPrompt(sc, i) {
+    sc = tplScene(sc); const src = eraSource(), list = AIPrompt.forScene(src, sc, i);
+    document.querySelectorAll('[data-cp]').forEach(b => b.onclick = () => { const k = b.dataset.cp; const txt = k === 'g' ? AIPrompt.geminiMeta(src, sc) : k[0] === 'v' ? list[+k.slice(1)].video + '\n\nNegative: ' + AIPrompt.NEG : list[+k.slice(1)].image + '\n\nNegative: ' + AIPrompt.NEG; copy(txt); });
   }
   let saveTimer = null;
   function saveP(rebuild) {
@@ -812,8 +864,8 @@ body.render .app{display:none}
     const ci = P.custom && S.sc._uid ? P.scenes.findIndex(x => x.uid === S.sc._uid) : -1;
     if (ci < 0) {
       el.innerHTML = `<div class="say">${esc(S.sc.say || '')}</div><button class="btn ghost wide" id="bCopy" style="margin-top:8px">Sao chép lời dẫn</button>` +
-        (P.custom ? '<div class="hint">Cảnh mở đầu / kết được tạo tự động theo tên dự án và số tập.</div>' : '');
-      $('bCopy').onclick = () => copy(S.sc.say);
+        (P.custom ? '<div class="hint">Cảnh mở đầu / kết được tạo tự động theo tên dự án và số tập.</div>' : '') + promptPanel(S.sc, i);
+      $('bCopy').onclick = () => copy(S.sc.say); bindPrompt(S.sc, i);
       return;
     }
     const sc = P.scenes[ci];
@@ -830,7 +882,10 @@ body.render .app{display:none}
       <div class="field"><label>Chuyển vào cảnh này bằng</label><select class="sel" id="sTr">${[['', 'Theo cài đặt chung'], ['zoom', 'Phóng xuyên cảnh'], ['flash', 'Chớp sáng'], ['whip', 'Lia máy'], ['wipe', 'Quét lộ cảnh'], ['slide', 'Đẩy trượt'], ['iris', 'Mở tròn'], ['glitch', 'Nhiễu sóng'], ['fade', 'Hòa mờ'], ['black', 'Mờ qua đen'], ['cut', 'Cắt thẳng']].map(([v, l]) => `<option value="${v}"${(sc.tr || '') === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
       ${sc.type === 'card' ? `<div class="field"><label>Ảnh / video minh họa</label><div class="mfile">${sc.mediaId ? `<span>${sc.mediaKind === 'video' ? '🎬' : '🖼'}</span><b>${esc(sc.mediaName || 'đã thêm')}</b>` : 'Chưa có – dùng hình nền tự vẽ'}</div><div class="btnrow"><button class="btn" id="sMedia">${sc.mediaId ? 'Đổi' : '＋ Thêm'} ảnh/video</button>${sc.mediaId ? '<button class="btn danger" id="sMediaX">Gỡ</button>' : ''}</div></div>` : ''}
       <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
-      <div class="btnrow"><button class="btn" id="sUp" title="Đưa lên">↑ Lên</button><button class="btn" id="sDown" title="Đưa xuống">↓ Xuống</button><button class="btn" id="sDup">⧉ Nhân đôi</button><button class="btn danger" id="sDel">Xóa</button></div>`;
+      ${sc.type === 'card' && sc.mediaId ? `<label class="row" style="margin:-4px 0 12px"><span>Ảnh/video phủ toàn khung</span><span class="sw"><input type="checkbox" id="sFull"${sc.full ? ' checked' : ''}><i></i></span></label>` : ''}
+      <div class="btnrow"><button class="btn" id="sUp" title="Đưa lên">↑ Lên</button><button class="btn" id="sDown" title="Đưa xuống">↓ Xuống</button><button class="btn" id="sDup">⧉ Nhân đôi</button><button class="btn danger" id="sDel">Xóa</button></div>${promptPanel(sc, i)}`;
+    bindPrompt(sc, i);
+    if ($('sFull')) $('sFull').onchange = e => { sc.full = e.target.checked; saveP(true); };
     const deb = (fn) => { let tm; return e => { clearTimeout(tm); tm = setTimeout(() => fn(e), 700); }; };
     $('sType').onchange = e => {
       const ty = e.target.value;
@@ -853,14 +908,14 @@ body.render .app{display:none}
     $('sUp').onclick = () => move(-1); $('sDown').onclick = () => move(1);
     $('sDup').onclick = () => { const c = JSON.parse(JSON.stringify(sc, (k, v) => k.startsWith('_') ? undefined : v)); c.uid = Xuong.uid(); delete c.voiceId; delete c.voiceName; P.scenes.splice(ci + 1, 0, c); saveP(true); buildProjects(); };
     $('sDel').onclick = () => { if (P.scenes.length <= 1) return note('Dự án cần ít nhất một cảnh.'); if (!confirm('Xóa cảnh này?')) return; P.scenes.splice(ci, 1); if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); saveP(true); buildProjects(); };
-    if ($('sMedia')) $('sMedia').onclick = () => pickFile('fMedia', async f => { if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); sc.mediaId = await Xuong.store.putAsset(f); sc.mediaKind = f.type.startsWith('video') ? 'video' : 'image'; sc.mediaName = f.name; saveP(true); });
+    if ($('sMedia')) $('sMedia').onclick = () => pickFile('fMedia', async f => { if (sc.mediaId) Xuong.store.delAsset(sc.mediaId); sc.mediaId = await Xuong.store.putAsset(f); sc.mediaKind = f.type.startsWith('video') ? 'video' : 'image'; sc.mediaName = f.name; if (sc.mediaKind === 'video' && sc.full == null) sc.full = true; saveP(true); });
     if ($('sMediaX')) $('sMediaX').onclick = () => { Xuong.store.delAsset(sc.mediaId); delete sc.mediaId; delete sc.mediaKind; delete sc.mediaName; saveP(true); };
     $('sVoice').onclick = () => pickFile('fVoice', async f => { if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); sc.voiceId = await Xuong.store.putAsset(f); sc.voiceName = f.name; if (voiceMode !== 'pack') { vsel.value = 'pack'; store.set('voice', 'pack'); readVoice(); } saveP(true); });
     if ($('sVoiceX')) $('sVoiceX').onclick = () => { Xuong.store.delAsset(sc.voiceId); delete sc.voiceId; delete sc.voiceName; saveP(true); };
   }
   function pickFile(id, fn) { const inp = $(id); inp.value = ''; inp.onchange = () => inp.files[0] && fn(inp.files[0]); inp.click(); }
   function jumpToUid(u) { const i = film.scenes.findIndex(S => S.sc._uid === u); if (i >= 0) seekScene(i); }
-  async function copy(txt) { try { await navigator.clipboard.writeText(txt || ''); note('Đã sao chép lời dẫn.', 1500); } catch (e) { note('Không sao chép được.'); } }
+  async function copy(txt) { try { await navigator.clipboard.writeText(txt || ''); note('Đã sao chép.', 1500); } catch (e) { note('Không sao chép được.'); } }
 
   /* ---------- dòng thời gian ---------- */
   let pxs = 10;

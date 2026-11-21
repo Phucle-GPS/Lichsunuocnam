@@ -515,25 +515,25 @@
     let media = null;
     if (sc.media && sc.media.url) {
       media = sc.media.kind === 'video'
-        ? h('video', { class: 'card-media', src: sc.media.url, muted: '', playsinline: '', preload: 'auto' }, root)
-        : h('img', { class: 'card-media', src: sc.media.url }, root);
+        ? h('video', { class: 'card-media' + (sc.full ? ' full' : ''), src: sc.media.url, muted: '', playsinline: '', preload: 'auto' }, root)
+        : h('img', { class: 'card-media' + (sc.full ? ' full' : ''), src: sc.media.url }, root);
       if (media.tagName === 'VIDEO') media.muted = true;
     }
-    h('div', { class: 'shade card-shade' + (media ? ' has-media' : '') }, root);
+    h('div', { class: 'shade card-shade' + (media ? ' has-media' : '') + (media && sc.full ? ' full' : '') }, root);
     const box = h('div', { class: 'card-box' }, root);
     const kick = sc.kicker ? h('div', { class: 'card-kick' }, box, esc(sc.kicker)) : null;
     const head = sc.heading ? h('div', { class: 'card-head' }, box, esc(sc.heading)) : null;
     const bar = h('div', { class: 'card-bar' }, box);
     let pull = (sc.pull != null ? sc.pull : (sc.say || '').split(/(?<=[.!?…])\s+/)[0] || '');
     if (pull.length > 110) pull = pull.slice(0, 107).replace(/\s+\S*$/, '') + '…';
-    const pw = sc.heading && !sc.pull ? [] : pull.split(' ').map(w => h('span', null, null, esc(w) + ' '));
+    const pw = (sc.heading && !sc.pull) || (media && sc.full) ? [] : pull.split(' ').map(w => h('span', null, null, esc(w) + ' '));
     const pd = pw.length ? h('div', { class: 'card-pull' }, box) : null;
     pw.forEach(w => pd.appendChild(w));
     return {
       root, update(t, d) {
         bg.style.transform = `scale(${1.05 + t / d * .07})`; bgu.update(t);
         if (media) {
-          media.style.transform = `scale(${1.04 + t / d * .1}) translate(${-t * 3}px,${-t * 1.5}px)`;
+          media.style.transform = sc.full && media.tagName === 'VIDEO' ? '' : `scale(${1.04 + t / d * .1}) translate(${-t * 3}px,${-t * 1.5}px)`;
           media.style.opacity = eout(ramp(t, 0, .6));
           if (media.tagName === 'VIDEO' && media.readyState >= 1 && media.duration) {
             const want = t % media.duration;
@@ -792,7 +792,7 @@
   function scheduleMusic(ctx, dest, total, sceneStarts, offset = 0, style = '') {
     const master = ctx.createGain(); master.gain.value = 0; master.connect(dest);
     const t0 = ctx.currentTime;
-    const at = x => t0 + x - offset;
+    const at = x => Math.max(t0, t0 + x - offset);
     master.gain.setValueAtTime(0, at(Math.max(0, offset)));
     master.gain.linearRampToValueAtTime(.9, at(Math.max(offset + .01, 2)));
     master.gain.setValueAtTime(.9, at(Math.max(offset + .02, total - 3)));

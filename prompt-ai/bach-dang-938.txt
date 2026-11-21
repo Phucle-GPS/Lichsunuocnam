@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Bạch Đằng 938
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Năm 938, trên dòng sông Bạch Đằng, quân dân ta dưới sự chỉ huy của Ngô Quyền đã đánh tan đạo thủy quân Nam Hán, mở ra kỷ nguyên độc lập lâu dài cho dân tộc.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands at the edge of a historic battle, with Southern Han (Nam Hán) Chinese marines visible far away as tiny silhouettes. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands at the edge of a historic battle, with Southern Han (Nam Hán) Chinese marines visible far away as tiny silhouettes. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Ngô Quyền là người Đường Lâm, là tướng giỏi dưới quyền Dương Đình Nghệ. Khi Kiều Công Tiễn giết Dương Đình Nghệ rồi cầu cứu nhà Nam Hán, Ngô Quyền đem quân ra Bắc trừng trị kẻ phản bội.
+
+▶ Nhân vật – Ngô Quyền (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Ngô Quyền, the Vietnamese commander (Người khai sinh nhà Ngô, đóng đô ở Cổ Loa), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Ngô Quyền, the Vietnamese commander (Người khai sinh nhà Ngô, đóng đô ở Cổ Loa), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Vua Nam Hán sai con là Lưu Hoằng Tháo đem thủy quân theo đường biển sang xâm lược. Ngô Quyền đã giết Kiều Công Tiễn, rồi chọn cửa sông Bạch Đằng làm nơi quyết chiến.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands seen from above, a winding river among mountains, with a long column of Southern Han (Nam Hán) Chinese marines moving along it like an armada. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands seen from above, a winding river among mountains, with a long column of Southern Han (Nam Hán) Chinese marines moving along it like an armada. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Địch có thuyền lớn, quân đông. Ngô Quyền lại nắm chắc quy luật thủy triều trên sông Bạch Đằng, biến chính dòng sông thành cái bẫy khổng lồ.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Southern Han (Nam Hán) Chinese marines in red-lacquered leather armor and iron helmets aboard tall multi-deck war junks, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths, conical palm-leaf hats, round rattan shields, bronze-tipped spears and bows watching silently from cover. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Southern Han (Nam Hán) Chinese marines in red-lacquered leather armor and iron helmets aboard tall multi-deck war junks, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths, conical palm-leaf hats, round rattan shields, bronze-tipped spears and bows watching silently from cover. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Ngô Quyền cho đóng cọc gỗ đầu bịt sắt nhọn xuống lòng sông. Khi nước triều lên, cọc bị che lấp, thuyền nhẹ ra khiêu chiến rồi giả thua, nhử địch vượt qua bãi cọc. Chờ nước triều rút, quân ta từ thượng nguồn và hai bên bờ đổ ra đánh dữ dội. Thuyền giặc tháo chạy ra biển, va vào cọc nhọn, vỡ đắm vô số. Lưu Hoằng Tháo tử trận.
+
+▶ Diễn biến 1: Đóng cọc gỗ bịt sắt dưới lòng sông (8s)
+VIDEO PROMPT:
+Wide shot at water level. At low tide, Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths drive rows of sharpened iron-tipped wooden stakes into the muddy riverbed, the stakes slanting toward the sea. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. At low tide, Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths drive rows of sharpened iron-tipped wooden stakes into the muddy riverbed, the stakes slanting toward the sea. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Nước lên – nhử địch vào sâu (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. At high tide the stakes disappear under the water; small Vietnamese boats with red flags provoke the Southern Han (Nam Hán) Chinese marines and then flee, luring the huge enemy fleet deeper into the river. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. At high tide the stakes disappear under the water; small Vietnamese boats with red flags provoke the Southern Han (Nam Hán) Chinese marines and then flee, luring the huge enemy fleet deeper into the river. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Nước rút – phản công từ thượng nguồn và hai bờ (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. As the tide falls, hundreds of Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. As the tide falls, hundreds of Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Thuyền địch vướng cọc, vỡ đắm (8s)
+VIDEO PROMPT:
+Wide aerial shot. Enemy war junks are impaled on the emerging stakes, tilting and sinking, burning with tall flames and black smoke as Vietnamese boats surround them. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Enemy war junks are impaled on the emerging stakes, tilting and sinking, burning with tall flames and black smoke as Vietnamese boats surround them. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Đầu năm 939, Ngô Quyền xưng vương, đóng đô ở Cổ Loa, đặt nền móng cho một quốc gia độc lập.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DẤU MỐC – Đầu năm 939, Ngô Quyền xưng vương, đóng đô ở Cổ Loa, đặt nền móng cho một quốc gia độc lập. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DẤU MỐC – Đầu năm 939, Ngô Quyền xưng vương, đóng đô ở Cổ Loa, đặt nền móng cho một quốc gia độc lập. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Chiến thắng Bạch Đằng năm 938 chấm dứt hơn một nghìn năm Bắc thuộc, mở ra thời kỳ độc lập lâu dài, và để lại bài học dùng thủy triều, bãi cọc cho các thế hệ sau.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Vietnamese soldiers of Ngô Quyền in plain brown hemp tunics and loincloths raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: the tidal Bạch Đằng estuary in northern Vietnam with limestone karst islands, mangrove banks and misty brown water, 10th-century Vietnam (year 938), Ngô Quyền era, winter dusk, cold grey light. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
