@@ -510,9 +510,10 @@ async function exportMP4(fps, onProg, maxT) {
   output.addAudioTrack(asrc);
   await output.start();
   // âm thanh: nhạc + giọng đọc trộn sẵn
-  const sr = 48000, oc = new OfflineAudioContext(2, Math.ceil(sr * LEN), sr), mg = oc.createGain(); mg.gain.value = .45; mg.connect(oc.destination);
+  const sr = 48000, oc = new OfflineAudioContext(2, Math.ceil(sr * LEN), sr), lim = oc.createDynamicsCompressor(); lim.threshold.value = -6; lim.knee.value = 4; lim.ratio.value = 12; lim.attack.value = .003; lim.release.value = .2; lim.connect(oc.destination);
+  const mg = oc.createGain(); mg.gain.value = .4; mg.connect(lim); const vg = oc.createGain(); vg.gain.value = .85; vg.connect(lim);
   Studio.music(oc, mg, TOTAL, shots.filter((s, i) => [0, 2, 4, 7].includes(i)).map(s => s.start + .05), 0, '');
-  (window._vb || []).forEach((b, i) => { if (!b) return; const s = oc.createBufferSource(); s.buffer = b; s.connect(oc.destination); s.start(shots[i].start + .4); });
+  (window._vb || []).forEach((b, i) => { if (!b) return; const s = oc.createBufferSource(); s.buffer = b; s.connect(vg); s.start(shots[i].start + .4); });
   const mix = await oc.startRendering();
   const n = Math.ceil(LEN * fps);
   for (let k = 0; k < n; k++) {
