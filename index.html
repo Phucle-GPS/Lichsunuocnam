@@ -775,6 +775,7 @@ body.render .app{display:none}
     const el = $('projPanel');
     if (!P.custom) {
       el.innerHTML = `<dl class="kv"><dt>Trận</dt><dd>${P.name}</dd><dt>Chỉ huy</dt><dd>${P.who}</dd><dt>Đối phương</dt><dd>${P.vs}</dd><dt>Thời lượng</dt><dd>${fmtT(film.total)}</dd><dt>Khung hình</dt><dd>${FW}×${FH}</dd></dl>
+        ${P.id === 'bach-dang-1288' ? '<a class="btn primary wide" href="phim3d.html" style="margin-top:10px;text-decoration:none">🎬 Xem phiên bản PHIM 3D</a>' : ''}
         <div class="hint">Đây là dự án mẫu (chỉ xem). Muốn tự làm video, bấm <b>＋ Dự án mới từ kịch bản</b> ở cột trái.</div>`;
       return;
     }

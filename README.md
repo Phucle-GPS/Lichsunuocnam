@@ -26,6 +26,10 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Phim 3D: Bạch Đằng 1288
+Trang `phim3d.html` dựng lại trận Bạch Đằng 1288 bằng 3D (three.js): sông núi, thủy triều lên xuống, bãi cọc, hạm đội Nguyên rút từ thượng nguồn ra biển, thuyền nhẹ nhử địch, phục binh hai bờ, tên lửa, thuyền cháy. Dùng giọng dẫn chuyện trong `loi-dan/bach-dang-1288/`.
+Xuất MP4: `node tools/render-video.mjs bach-dang-1288 --page phim3d.html --fps 24`
+
 ## Chuyển cảnh kiểu After Effects
 Mục **Hiển thị → Chuyển cảnh**: Tự động theo phong cách, Phóng xuyên cảnh (zoom blur), Chớp sáng (light leak), Lia máy (whip pan), Quét lộ cảnh (wipe), Đẩy trượt, Mở tròn (iris), Nhiễu sóng (glitch), Hòa mờ, Mờ qua đen, Cắt thẳng.
 Với dự án của bạn, có thể chọn kiểu chuyển riêng cho từng cảnh.

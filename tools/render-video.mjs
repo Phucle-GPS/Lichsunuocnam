@@ -10,6 +10,7 @@
                (mặc định: thư mục loi-dan/ trong kho; --no-voice để tắt giọng)
                (thu bằng điện thoại hoặc AI giọng đọc). Cảnh sẽ tự kéo dài theo độ dài file.
    --preview   chỉ xuất ảnh PNG giữa mỗi cảnh để duyệt nhanh
+   --page F    trang dựng (mặc định index.html; phim 3D: --page phim3d.html bach-dang-1288 --fps 24)
    Ví dụ:  node tools/render-video.mjs bach-dang-1288
 */
 import { createRequire } from 'node:module';
@@ -24,7 +25,7 @@ const { chromium } = require('playwright');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const flag = (n, d) => { const i = args.indexOf(n); return i < 0 ? d : (args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : true); };
-const which = args.find(a => !a.startsWith('--')) || 'all';
+const which = args.find((a, i) => !a.startsWith('--') && !['--out', '--voice', '--fps', '--page'].includes(args[i - 1])) || 'all';
 const format = args.includes('--doc') ? 'doc' : 'ngang';
 const fps = Number(flag('--fps', 30));
 const outDir = path.resolve(flag('--out', path.join(ROOT, 'video')));
@@ -32,7 +33,8 @@ const voiceDir = args.includes('--no-voice') ? null : flag('--voice', fs.existsS
 const preview = args.includes('--preview');
 fs.mkdirSync(outDir, { recursive: true });
 
-const page_url = id => pathToFileURL(path.join(ROOT, 'index.html')).href + `?render=${id}&format=${format}`;
+const pageFile = flag('--page', 'index.html');
+const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}`;
 
 function probe(f) { return Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim()); }
 
@@ -52,7 +54,7 @@ async function renderOne(browser, id) {
   await page.goto(url);
   await page.waitForFunction(() => window.STUDIO);
   const info = await page.evaluate(() => ({ total: window.STUDIO.total, starts: window.STUDIO.starts }));
-  const base = path.join(outDir, `${id}${format === 'doc' ? '-doc' : ''}`);
+  const base = path.join(outDir, `${id}${pageFile !== 'index.html' ? '-' + path.basename(pageFile, '.html') : ''}${format === 'doc' ? '-doc' : ''}`);
 
   if (preview) {
     const ends = [...info.starts.slice(1), info.total];

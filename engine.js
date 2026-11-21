@@ -984,5 +984,5 @@
     return btoa(bin);
   }
 
-  window.Studio = { build, renderAudio, sceneDur, W, H };
+  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks };
 })();
