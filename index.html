@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sử Việt – Trận đánh lừng danh</title>
+<meta name="description" content="Video hoạt cảnh về các trận đánh lừng danh trong lịch sử Việt Nam: Bạch Đằng, Như Nguyệt, Chi Lăng, Rạch Gầm, Đống Đa.">
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{
+  --bg:#14110d; --panel:#201b15; --line:#3a3125; --ink:#efe4cc; --muted:#a8987a;
+  --gold:#e2c27a; --red:#c8352b; --ta:#e8442f; --dich:#4fa3f7;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer}
+
+/* ---------- thư viện ---------- */
+.lib{max-width:980px;margin:0 auto;padding:22px 16px 60px}
+.lib h1{font-family:Oswald;font-weight:700;font-size:30px;letter-spacing:1px;margin:6px 0 2px;color:var(--gold)}
+.lib .lead{color:var(--muted);margin:0 0 18px;font-size:14px;line-height:1.55}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left;display:flex;gap:14px;align-items:center;transition:border-color .2s}
+.card:hover{border-color:var(--gold)}
+.card .yr{font-family:Oswald;font-size:30px;font-weight:700;color:var(--red);min-width:76px;text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.card b{display:block;font-family:Oswald;font-weight:500;font-size:20px;letter-spacing:.5px}
+.card small{color:var(--muted);font-size:13px}
+.tips{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.6;color:var(--muted)}
+.tips b{color:var(--ink)}
+
+/* ---------- trình phát ---------- */
+.player{position:fixed;inset:0;background:#000;display:none;flex-direction:column}
+.player.on{display:flex}
+.view{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.frame{position:absolute;left:0;top:0;transform-origin:0 0;background:#000;overflow:hidden}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#0d0b08;border-top:1px solid #2a241b;flex-wrap:wrap}
+.bar button{background:#231d16;border:1px solid #3a3125;border-radius:10px;padding:8px 12px;font-size:14px;min-height:40px}
+.bar button.on{border-color:var(--gold);color:var(--gold)}
+.bar .seek{flex:1 1 160px;accent-color:var(--red)}
+.bar .time{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted);min-width:86px;text-align:center}
+.player.rec .bar{display:none}
+.notice{position:absolute;left:50%;top:12px;transform:translateX(-50%);background:rgba(20,17,13,.92);border:1px solid var(--gold);color:var(--ink);padding:8px 14px;border-radius:10px;font-size:13px;max-width:92%;text-align:center;display:none;z-index:5}
+.bigplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);z-index:4}
+.bigplay span{width:96px;height:96px;border-radius:50%;background:rgba(200,53,43,.92);display:flex;align-items:center;justify-content:center;font-size:40px;padding-left:8px;box-shadow:0 0 0 8px rgba(226,194,122,.25)}
+
+/* ---------- khung dọc 9:16 ---------- */
+.frame.doc{background:radial-gradient(ellipse at 50% 40%,#2a2219,#0b0907 70%)}
+.doc-head{position:absolute;left:0;right:0;top:150px;text-align:center}
+.doc-head .k{font-family:Oswald;font-weight:500;color:var(--gold);font-size:34px;letter-spacing:8px}
+.doc-head .t{font-family:Oswald;font-weight:700;color:#fff;font-size:92px;line-height:1.05;margin-top:16px;padding:0 40px}
+.doc-head .y{display:inline-block;margin-top:20px;background:var(--red);color:#fff;font-family:Oswald;font-weight:700;font-size:38px;padding:4px 22px;letter-spacing:3px}
+.frame.doc .subs{position:absolute;left:60px;right:60px;top:1290px;bottom:auto;font-size:52px}
+.frame.doc .subs span{background:none;box-shadow:none;padding:0}
+
+/* ---------- SÂN KHẤU 1920×1080 ---------- */
+.stage{position:absolute;width:1920px;height:1080px;overflow:hidden;background:#000;color:#fff}
+.layer,.sc{position:absolute;inset:0}
+.sc{overflow:hidden}
+.grain{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:overlay;pointer-events:none;image-rendering:pixelated}
+.vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55))}
+.fade{position:absolute;inset:0;background:#000;pointer-events:none}
+.brand{position:absolute;right:40px;top:30px;font-family:Oswald;font-weight:500;font-size:22px;letter-spacing:3px;color:var(--gold);text-shadow:0 2px 6px #000}
+.subs{position:absolute;left:160px;right:160px;bottom:56px;text-align:center;font-weight:600;font-size:40px;line-height:1.35;color:#fff;text-shadow:0 2px 3px #000,0 0 14px rgba(0,0,0,.9)}
+.subs span{background:rgba(0,0,0,.35);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 14px;border-radius:6px}
+
+.bgsvg{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);transform-origin:50% 60%;filter:sepia(.35) contrast(1.05)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.25) 40%,rgba(0,0,0,.7))}
+.title-box{position:absolute;left:0;right:0;top:300px;text-align:center}
+.title-big{font-family:Oswald;font-weight:700;font-size:230px;line-height:1;letter-spacing:6px;color:#f4ead3;text-shadow:0 8px 30px rgba(0,0,0,.8),0 2px 0 #6b5636}
+.title-big span{display:inline-block}
+.title-sub{font-family:Oswald;font-weight:700;font-size:44px;color:var(--gold);margin-top:18px;letter-spacing:8px;text-shadow:0 2px 10px #000}
+.title-line{font-weight:600;font-size:26px;color:#e8dcc0;letter-spacing:4px;margin-top:16px;text-shadow:0 2px 8px #000}
+.stamp{position:absolute;right:250px;top:640px;border:5px solid var(--gold);color:var(--gold);font-family:Oswald;font-weight:700;font-size:40px;letter-spacing:3px;padding:6px 22px;background:rgba(80,20,10,.55)}
+
+.sc-hero{background:radial-gradient(ellipse at 70% 40%,#3a2d1f,#15110c 75%)}
+.hero-frame{position:absolute;left:170px;top:120px;width:600px;height:760px;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 14px #efe4cc,0 0 0 16px #8a7350}
+.hero-frame svg{width:100%;height:100%;display:block}
+.hero-info{position:absolute;left:900px;top:300px;right:120px}
+.kicker{font-family:Oswald;font-weight:500;color:var(--gold);font-size:32px;letter-spacing:8px}
+.hero-name{font-family:Oswald;font-weight:700;font-size:130px;line-height:1.05;color:#fff;margin-top:8px;text-shadow:0 6px 20px rgba(0,0,0,.6)}
+.redbar{height:8px;background:var(--red);margin:22px 0 26px;width:0}
+.hero-alt{font-family:'Playfair Display';font-style:italic;font-weight:400;font-size:50px;color:var(--gold)}
+.hero-role{font-size:30px;color:#d9ccb0;margin-top:14px}
+
+.mapsvg,.mapov{position:absolute;inset:0;width:100%;height:100%}
+.enemy-land{fill:#a6b4c6 !important}
+.map-lab{font-family:Oswald;font-weight:700;letter-spacing:4px;paint-order:stroke;stroke:#1b2838;stroke-width:6px}
+.map-lab.enemy{font-size:46px;fill:#1f4f86;stroke:#dfe7f0}
+.map-lab.ours{font-size:46px;fill:#fff3d6;stroke:#7d1d17}
+.map-lab.place{font-family:'Be Vietnam Pro';font-weight:700;letter-spacing:0;font-size:28px;fill:#1b1610;stroke:#efe4cc}
+.map-dot{fill:#1b1610;stroke:#efe4cc;stroke-width:3}
+.map-isl{font-family:'Be Vietnam Pro';font-weight:700;font-size:20px;fill:#e3d6b6;letter-spacing:1px}
+.route{stroke-width:9;stroke-linecap:round}
+.route.dich{stroke:var(--dich)}.route.ta{stroke:var(--ta)}
+.rhead.dich{fill:var(--dich)}.rhead.ta{fill:var(--ta)}
+.map-mk{font-family:Oswald;font-weight:700;font-size:40px;fill:#ffd36b;paint-order:stroke;stroke:#000;stroke-width:6px;letter-spacing:1px}
+.map-date{position:absolute;left:40px;top:30px;background:rgba(10,14,20,.85);border:2px solid #ffd36b;color:#ffd36b;font-family:Oswald;font-weight:700;font-size:34px;padding:6px 18px;letter-spacing:3px}
+.map-legend{position:absolute;left:40px;top:100px;background:rgba(10,14,20,.85);border:1px solid #3a4b60;padding:12px 18px;font-size:22px;line-height:1.7}
+.map-legend i{display:inline-block;width:20px;height:14px;margin-right:10px;vertical-align:middle}
+.map-legend i.o{width:16px;height:16px;border-radius:50%;background:#ffd36b}
+.map-note{position:absolute;left:40px;bottom:24px;font-size:16px;color:#8b9bb0;opacity:.8}
+
+.sec-title{position:absolute;left:0;right:0;top:70px;text-align:center;font-family:Oswald;font-weight:700;font-size:62px;letter-spacing:8px;color:var(--gold)}
+.sc-forces,.sc-tl,.sc-quote,.sc-points{background:radial-gradient(ellipse at 50% 30%,#2d2419,#110e0a 75%)}
+.f-wrap{position:absolute;left:150px;right:150px;top:210px;bottom:170px;display:flex;gap:120px}
+.f-col{flex:1;border:2px solid;padding:30px 40px;background:rgba(0,0,0,.25)}
+.f-col.ours{border-color:var(--ta)}.f-col.enemy{border-color:var(--dich)}
+.f-head{font-family:Oswald;font-weight:700;font-size:48px;letter-spacing:3px;margin-bottom:22px}
+.ours .f-head{color:#ff6a55}.enemy .f-head{color:#7cc0ff}
+.f-row{border-top:1px solid rgba(255,255,255,.12);padding:16px 0}
+.f-k{font-size:24px;color:#bfae8c;text-transform:uppercase;letter-spacing:2px}
+.f-v{font-size:38px;font-weight:700;margin-top:4px}
+.f-vs{position:absolute;left:50%;top:50%;font-family:Oswald;font-weight:700;font-size:80px;color:var(--gold);text-shadow:0 0 30px rgba(0,0,0,.9)}
+
+.tl-line{position:absolute;left:8%;right:8%;top:560px;height:6px;background:#3d3326}
+.tl-fill{height:100%;background:var(--red);width:0}
+.tl-item{position:absolute;top:563px;width:330px;text-align:center}
+.tl-dot{position:absolute;left:50%;top:-14px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(226,194,122,.25)}
+.tl-item.up .tl-when{position:absolute;bottom:40px;left:0;right:0}.tl-item.up .tl-what{position:absolute;bottom:110px;left:0;right:0}
+.tl-item.dn .tl-when{position:absolute;top:40px;left:0;right:0}.tl-item.dn .tl-what{position:absolute;top:110px;left:0;right:0}
+.tl-when{font-family:Oswald;font-weight:700;font-size:52px;color:#ff6a55}
+.tl-what{font-size:30px;line-height:1.35;color:#efe4cc}
+
+.q-drum{position:absolute;left:50%;top:50%;width:1100px;height:1100px;opacity:.09}
+.q-mark{position:absolute;left:220px;top:120px;font-family:'Playfair Display';font-weight:700;font-size:300px;color:var(--red);line-height:1}
+.q-text{position:absolute;left:300px;right:260px;top:300px;font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:62px;line-height:1.4;color:#f4ead3}
+.q-by{position:absolute;right:260px;bottom:200px;font-size:34px;color:var(--gold);font-weight:600}
+
+.p-drum{position:absolute;right:-260px;top:50%;width:900px;height:900px;opacity:.1}
+.p-list{position:absolute;left:200px;right:420px;top:230px}
+.p-item{display:flex;gap:30px;align-items:baseline;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.p-item b{font-family:Oswald;font-size:64px;color:var(--red);min-width:90px}
+.p-item span{font-size:44px;font-weight:600;line-height:1.3}
+
+.end-box{position:absolute;left:0;right:0;top:360px;text-align:center}
+.end-big{font-family:Oswald;font-weight:700;font-size:96px;letter-spacing:4px;color:#f4ead3;text-shadow:0 6px 24px #000}
+.end-sub{font-size:36px;color:var(--gold);margin-top:16px;letter-spacing:2px;font-weight:600}
+.end-next{display:inline-block;margin-top:50px;font-size:32px;border:2px solid var(--gold);padding:10px 28px;background:rgba(0,0,0,.45)}
+
+.diagsvg{position:absolute;inset:0;width:100%;height:100%}
+.water{stroke:#7d95a8;stroke-width:3}
+.wave{stroke:#9fb6c8;stroke-width:2;fill:none;opacity:.45}
+.isle{fill:#3a3124;stroke:#6b5a42;stroke-width:3}
+.fort path{stroke-width:3}
+.fort.dich path{fill:#1f3c5c;stroke:var(--dich)}.fort.ta path{fill:#5c1f17;stroke:var(--ta)}
+.fort.fallen path{fill:#3a3a3a;stroke:#777}
+.defline{fill:none;stroke-width:10;stroke-dasharray:4 10;stroke-linecap:round}
+.defline.ta{stroke:var(--ta)}
+.defline.road{stroke:#a8936c;stroke-width:14;stroke-dasharray:none;opacity:.6}
+.bridge line{stroke:#c9b48a;stroke-width:12;stroke-dasharray:6 6}
+.d-lab{font-family:'Be Vietnam Pro';font-weight:700;font-size:30px;fill:#efe4cc;paint-order:stroke;stroke:#1d1913;stroke-width:6px}
+.d-lab.river{fill:#bcd3e4;font-style:italic;letter-spacing:4px;font-size:30px;stroke:#2a4357}
+.d-lab.warn{fill:#ffd36b}
+.d-arrow{fill:none;stroke-width:10;stroke-linecap:round}
+.d-arrow.ta{stroke:var(--ta)}.d-arrow.dich{stroke:var(--dich);stroke-dasharray:22 12}
+.d-head.ta{fill:var(--ta)}.d-head.dich{fill:var(--dich)}
+.u-body{stroke:#111;stroke-width:2.5}
+.u-body.ta{fill:var(--ta)}.u-body.dich{fill:var(--dich)}
+.u-sail{stroke:#111;stroke-width:2}
+.u-sail.ta{fill:#ffd9a0}.u-sail.dich{fill:#d6e8fb}
+.u-x{stroke:#111;stroke-width:2.5}
+.u-lab{font-family:Oswald;font-weight:700;font-size:30px;letter-spacing:1px;paint-order:stroke;stroke:#000;stroke-width:6px}
+.u-lab.ta{fill:#ff8a75}.u-lab.dich{fill:#9fd0ff}
+.d-title{position:absolute;left:40px;top:28px;font-family:Oswald;font-weight:700;font-size:44px;letter-spacing:2px;color:#fff;text-shadow:0 2px 8px #000}
+.d-title small{display:block;font-size:20px;letter-spacing:6px;color:var(--gold)}
+.d-phase{position:absolute;left:50%;transform:translateX(-50%);top:150px;background:rgba(15,12,9,.88);border-left:8px solid var(--red);padding:12px 26px;font-size:32px;font-weight:700;white-space:nowrap}
+.d-legend{position:absolute;right:40px;top:30px;background:rgba(15,12,9,.85);border:1px solid #4a3f30;padding:10px 18px;font-size:22px;line-height:1.7}
+.d-legend i{display:inline-block;width:26px;height:14px;margin-right:10px;vertical-align:middle;border:1px solid #000}
+.d-legend i.ta{background:var(--ta)}.d-legend i.dich{background:var(--dich)}
+.tide{position:absolute;right:40px;top:150px;width:150px;background:rgba(15,12,9,.88);border:1px solid #4a3f30;padding:10px;text-align:center;font-size:18px;font-weight:700}
+.tide-bar{height:120px;margin:8px auto;width:40px;border:2px solid #9fb6c8;position:relative}
+.tide-bar i{position:absolute;left:0;right:0;bottom:0;background:#4f86b0}
+.tide-s{color:#ffd36b}
+
+/* ---------- chế độ render ---------- */
+body.render{background:#000;overflow:hidden}
+body.render .lib,body.render .player{display:none}
+</style>
+</head>
+<body>
+<div class="lib" id="lib">
+  <h1>SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH</h1>
+  <p class="lead">Video hoạt cảnh về những trận đánh của ông cha ta: tiêu đề, nhân vật, bản đồ, sơ đồ diễn biến và lời dẫn. Chọn một trận để xem.</p>
+  <div class="cards" id="cards"></div>
+  <div class="tips">
+    <b>Cách làm video từ điện thoại:</b> mở một trận → bật <b>Giọng đọc</b> → bấm <b>Chế độ quay</b> (ẩn nút, toàn màn hình) → bật trình ghi màn hình của máy (chọn ghi <i>âm thanh nội bộ</i>) → bấm Phát. Chạm màn hình để hiện lại nút.<br>
+    <b>Khung dọc 9:16</b> cho TikTok/Reels: bấm nút <b>Dọc</b>. Xuất MP4 chất lượng cao bằng máy tính: xem <code>tools/render-video.mjs</code>.
+  </div>
+</div>
+
+<div class="player" id="player">
+  <div class="view" id="view">
+    <div class="frame" id="frame"></div>
+    <div class="notice" id="notice"></div>
+    <div class="bigplay" id="bigplay"><span>▶</span></div>
+  </div>
+  <div class="bar">
+    <button id="bBack">✕</button>
+    <button id="bPlay">▶</button>
+    <input class="seek" id="seek" type="range" min="0" max="1000" value="0">
+    <span class="time" id="time">0:00 / 0:00</span>
+    <button id="bVoice" class="on">🗣 Giọng đọc</button>
+    <button id="bMusic" class="on">🥁 Nhạc</button>
+    <button id="bFmt">▯ Dọc</button>
+    <button id="bRec">⏺ Chế độ quay</button>
+  </div>
+</div>
+
+<script src="map-data.js"></script>
+<script src="engine.js"></script>
+<script src="battles.js"></script>
+<script>
+(function () {
+  const Q = new URLSearchParams(location.search);
+  const $ = id => document.getElementById(id);
+  const fmtT = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+
+  /* Dựng khung (ngang 1920×1080 hoặc dọc 1080×1920) và nạp phim */
+  function mount(frame, battle, format, durs) {
+    frame.innerHTML = '';
+    frame.className = 'frame' + (format === 'doc' ? ' doc' : '');
+    const FW = format === 'doc' ? 1080 : 1920, FH = format === 'doc' ? 1920 : 1080;
+    frame.style.width = FW + 'px'; frame.style.height = FH + 'px';
+    const stage = document.createElement('div'); stage.className = 'stage';
+    frame.appendChild(stage);
+    const film = Studio.build(battle, stage, { durs });
+    if (format === 'doc') {
+      const k = 1080 / 1920;
+      stage.style.transform = `scale(${k})`; stage.style.transformOrigin = '0 0'; stage.style.top = '640px';
+      const head = document.createElement('div'); head.className = 'doc-head';
+      head.innerHTML = `<div class="k">SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH</div><div class="t">${battle.name.replace(/\s\d{3,4}$/, '').toUpperCase()}</div><div class="y">${battle.year}</div>`;
+      frame.appendChild(head);
+      frame.appendChild(stage.querySelector('.subs'));
+    }
+    return { film, FW, FH };
+  }
+
+  /* ---------------- CHẾ ĐỘ RENDER (dùng bởi tools/render-video.mjs) ---------------- */
+  if (Q.get('render')) {
+    document.body.classList.add('render');
+    const b = BATTLES.find(x => x.id === Q.get('render'));
+    const frame = document.createElement('div'); document.body.appendChild(frame);
+    const durs = (Q.get('durs') || '').split(',').filter(Boolean).map(Number);
+    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs);
+    frame.style.position = 'absolute';
+    document.fonts.ready.then(() => {
+      film.seek(0);
+      window.STUDIO = { total: film.total, W: FW, H: FH, seek: t => film.seek(t), starts: film.scenes.map(s => s.start), audio: () => Studio.renderAudio(film) };
+    });
+    return;
+  }
+
+  /* ---------------- THƯ VIỆN ---------------- */
+  const cards = $('cards');
+  BATTLES.forEach(b => {
+    const tot = b.scenes.reduce((a, s) => a + Studio.sceneDur(s), 0);
+    const c = document.createElement('button'); c.className = 'card';
+    c.innerHTML = `<div class="yr">${b.year}</div><div><b>${b.name}</b><small>${b.who} · đánh tan quân ${b.vs} · ~${Math.round(tot)} giây</small></div>`;
+    c.onclick = () => open(b.id);
+    cards.appendChild(c);
+  });
+
+  /* ---------------- TRÌNH PHÁT ---------------- */
+  let B = null, film = null, FW = 1920, FH = 1080, t = 0, playing = false, last = 0, curScene = -1;
+  let format = 'ngang', voiceOn = true, musicOn = true, actx = null, mgain = null, mnode = null, viVoice = null;
+  const frame = $('frame'), view = $('view'), seekEl = $('seek');
+
+  function pickVoice() {
+    const vs = speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang));
+    viVoice = vs.find(v => /google|natural|online|hoai|nam/i.test(v.name)) || vs[0] || null;
+  }
+  if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+
+  function note(msg, ms = 4000) { const n = $('notice'); n.textContent = msg; n.style.display = 'block'; clearTimeout(note._t); note._t = setTimeout(() => n.style.display = 'none', ms); }
+  function fit() {
+    const k = Math.min(view.clientWidth / FW, view.clientHeight / FH);
+    frame.style.transform = `translate(${(view.clientWidth - FW * k) / 2}px,${(view.clientHeight - FH * k) / 2}px) scale(${k})`;
+  }
+  addEventListener('resize', fit);
+
+  function load() {
+    stopAudio(); stopSpeech();
+    ({ film, FW, FH } = mount(frame, B, format));
+    t = Math.min(t, film.total - .01); curScene = -1; film.seek(t); fit(); ui();
+  }
+  function open(id) {
+    B = BATTLES.find(x => x.id === id); if (!B) return;
+    history.replaceState(null, '', '?tran=' + id);
+    $('player').classList.add('on'); document.body.style.overflow = 'hidden';
+    t = 0; playing = false; load(); $('bigplay').style.display = 'flex';
+  }
+  function close() {
+    pause(); $('player').classList.remove('on'); document.body.style.overflow = ''; history.replaceState(null, '', location.pathname);
+    if (document.fullscreenElement) document.exitFullscreen();
+  }
+
+  /* lời đọc */
+  function stopSpeech() { if ('speechSynthesis' in window) speechSynthesis.cancel(); }
+  function speakScene(i) {
+    stopSpeech();
+    if (!voiceOn || !('speechSynthesis' in window)) return;
+    if (!viVoice) { pickVoice(); }
+    if (!viVoice) { note('Máy chưa có giọng đọc tiếng Việt. Vào Cài đặt › Ngôn ngữ › Chuyển văn bản thành giọng nói để tải giọng Việt.', 6000); return; }
+    const S = film.scenes[i]; const lt = t - S.start;
+    if (lt > S.d * .5) return; // tua vào giữa cảnh thì bỏ qua lời đọc
+    const u = new SpeechSynthesisUtterance(S.sc.say); u.voice = viVoice; u.lang = viVoice.lang; u.rate = 1.0;
+    speechSynthesis.speak(u);
+  }
+  /* nhạc */
+  function stopAudio() { if (mnode) { try { mnode.disconnect(); } catch (e) {} mnode = null; } }
+  function startAudio() {
+    if (!musicOn) return;
+    if (!actx) { actx = new (window.AudioContext || window.webkitAudioContext)(); mgain = actx.createGain(); mgain.gain.value = .8; mgain.connect(actx.destination); }
+    actx.resume(); stopAudio();
+    mnode = Studio && film.music(actx, mgain, t);
+  }
+
+  function play() {
+    if (t >= film.total - .05) { t = 0; curScene = -1; }
+    playing = true; last = performance.now(); $('bigplay').style.display = 'none';
+    curScene = -1; startAudio(); ui();
+  }
+  function pause() { playing = false; stopSpeech(); stopAudio(); ui(); }
+  function ui() {
+    $('bPlay').textContent = playing ? '❚❚' : '▶';
+    $('bVoice').classList.toggle('on', voiceOn); $('bMusic').classList.toggle('on', musicOn);
+    $('bFmt').textContent = format === 'doc' ? '▭ Ngang' : '▯ Dọc';
+    if (film) { seekEl.value = Math.round(t / film.total * 1000); $('time').textContent = fmtT(t) + ' / ' + fmtT(film.total); }
+  }
+  function loop(now) {
+    if (playing && film) {
+      const dt = Math.min(.1, (now - last) / 1000); last = now;
+      const i = film.scenes.findIndex(S => t < S.start + S.d);
+      const S = film.scenes[Math.max(0, i)];
+      const speaking = voiceOn && viVoice && speechSynthesis.speaking;
+      // nếu giọng đọc chưa xong thì giữ cảnh lại
+      if (!(speaking && t + dt > S.start + S.d - .32)) t += dt;
+      if (t >= film.total) { t = film.total - .01; film.seek(t); pause(); $('bigplay').style.display = 'flex'; if (document.body.classList.contains('recmode')) exitRec(); }
+      const idx = film.seek(t);
+      if (idx !== curScene) { curScene = idx; speakScene(idx); }
+      if (Math.round(now / 250) !== loop._u) { loop._u = Math.round(now / 250); ui(); }
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  $('bPlay').onclick = () => playing ? pause() : play();
+  $('bigplay').onclick = play;
+  $('bBack').onclick = close;
+  seekEl.oninput = () => { t = seekEl.value / 1000 * film.total; film.seek(t); curScene = -1; stopSpeech(); if (playing) startAudio(); ui(); };
+  $('bVoice').onclick = () => { voiceOn = !voiceOn; if (!voiceOn) stopSpeech(); ui(); };
+  $('bMusic').onclick = () => { musicOn = !musicOn; musicOn && playing ? startAudio() : stopAudio(); ui(); };
+  $('bFmt').onclick = () => { format = format === 'doc' ? 'ngang' : 'doc'; const p = playing; pause(); load(); if (p) play(); };
+  function exitRec() { $('player').classList.remove('rec'); document.body.classList.remove('recmode'); fit(); }
+  $('bRec').onclick = async () => {
+    $('player').classList.add('rec'); document.body.classList.add('recmode');
+    try { await $('player').requestFullscreen(); } catch (e) {}
+    setTimeout(fit, 300);
+    note('Bật trình ghi màn hình rồi chạm ▶ để bắt đầu. Chạm màn hình để hiện lại nút.', 3500);
+    t = 0; curScene = -1; film.seek(0); pause(); $('bigplay').style.display = 'flex';
+  };
+  view.addEventListener('click', e => { if ($('player').classList.contains('rec') && !playing && e.target.closest('#bigplay') == null) exitRec(); else if ($('player').classList.contains('rec') && playing) { pause(); exitRec(); } });
+  document.addEventListener('fullscreenchange', () => setTimeout(fit, 200));
+
+  const start = Q.get('tran'); if (start) open(start);
+})();
+</script>
+</body>
+</html>
