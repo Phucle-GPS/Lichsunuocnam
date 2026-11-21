@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v7';
+const VERSION = 'v8';
 const CORE = [
   './',
   'index.html',
