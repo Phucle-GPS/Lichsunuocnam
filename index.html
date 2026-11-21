@@ -247,6 +247,7 @@ button{cursor:pointer}
 .end-box{position:absolute;left:0;right:0;top:360px;text-align:center}
 .end-big{font-family:Oswald;font-weight:700;font-size:96px;letter-spacing:4px;color:#f4ead3;text-shadow:0 6px 24px #000}
 .end-sub{font-size:36px;color:var(--gold);margin-top:16px;letter-spacing:2px;font-weight:600}
+.end-src{margin:44px auto 0;max-width:1300px;font-size:22px;line-height:1.5;color:#c9b996;text-shadow:0 2px 6px #000}.end-src small{font-size:18px;color:#a8987a}
 .end-next{display:inline-block;margin-top:50px;font-size:32px;border:2px solid var(--gold);padding:10px 28px;background:rgba(0,0,0,.45)}
 
 .diagsvg{position:absolute;inset:0;width:100%;height:100%}
@@ -271,6 +272,15 @@ button{cursor:pointer}
 .u-sail{stroke:#111;stroke-width:2}
 .u-sail.ta{fill:#ffd9a0}.u-sail.dich{fill:#d6e8fb}
 .u-x{stroke:#111;stroke-width:2.5}
+.u-shaft{stroke:#4a3420;stroke-width:2.5}.u-tip{fill:#d7dde4;stroke:#111;stroke-width:1}
+.u-leg{stroke:#1a1410;stroke-width:3.2;stroke-linecap:round;fill:none}.u-belt{stroke:#1a1410;stroke-width:2}
+.u-skin{fill:#e3b98a;stroke:#1a1410;stroke-width:1.5}
+.u-hat{fill:#e0bd72;stroke:#1a1410;stroke-width:1.5}
+.u-helm{fill:#2c5d93;stroke:#0d1b2b;stroke-width:1.5}.u-plume{stroke:#e8442f;stroke-width:3;stroke-linecap:round}
+.u-shield{stroke:#1a1410;stroke-width:1.5}.u-shield.ta{fill:#8a4a24}.u-shield.dich{fill:#1f4f86}.u-boss{fill:#e0bd72}
+.u-horse{fill:#7a5532;stroke:#1a1410;stroke-width:1.8}.u-tail{stroke:#3a2412;stroke-width:3;fill:none;stroke-linecap:round}
+.u-pole{stroke:#3a2a1a;stroke-width:2.5}
+.u-flag{stroke-width:1.5}.u-flag.ta{fill:#e8442f;stroke:#ffd36b}.u-flag.dich{fill:#4fa3f7;stroke:#e8f2ff}
 .u-lab{font-family:Oswald;font-weight:700;font-size:30px;letter-spacing:1px;paint-order:stroke;stroke:#000;stroke-width:6px}
 .u-lab.ta{fill:#ff8a75}.u-lab.dich{fill:#9fd0ff}
 .d-title{position:absolute;left:40px;top:28px;font-family:Oswald;font-weight:700;font-size:44px;letter-spacing:2px;color:#fff;text-shadow:0 2px 8px #000}
@@ -383,6 +393,28 @@ button{cursor:pointer}
 .st-hoathinh .end-next{border-color:#1d3557;background:#fff;color:#1d3557}
 .st-hoathinh .card-shade.has-media{background:linear-gradient(90deg,rgba(255,244,214,.97) 30%,rgba(255,244,214,.6) 55%,transparent 80%)}
 .st-hoathinh .card-shade.has-media+.card-box .card-head{color:#fff}
+
+/* ---------- cảnh thống kê ---------- */
+.sc-stat{background:radial-gradient(ellipse at 50% 30%,#2d2419,#110e0a 75%)}
+.stat-shade{background:rgba(0,0,0,.45)}
+.stat-head{position:absolute;left:0;right:0;top:120px;text-align:center;font-family:Oswald;font-weight:700;font-size:64px;letter-spacing:3px;color:#f4ead3;padding:0 120px}
+.stat-head small{display:block;font-size:28px;letter-spacing:8px;color:var(--gold);margin-bottom:8px}
+.stat-row{position:absolute;left:120px;right:120px;top:330px;display:flex;justify-content:center;gap:90px}
+.stat{flex:1;min-width:0;text-align:center}
+.stat-pre{font-family:Oswald;font-weight:500;font-size:30px;letter-spacing:6px;color:var(--gold)}
+.stat-num{font-family:Oswald;font-weight:700;font-size:190px;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 8px 30px rgba(0,0,0,.6)}
+.stat-row.n3 .stat-num{font-size:150px}
+.stat-num em{font-style:normal;font-size:.42em;color:var(--gold);margin-left:6px}
+.stat-bar{height:8px;background:var(--red);margin:14px auto 18px;width:0}
+.stat-unit{font-size:40px;font-weight:700;color:#efe4cc;line-height:1.25}
+.st-vientuong .sc-stat{background:radial-gradient(ellipse at 70% 20%,#2a1758,#0b0720 60%,#05040d)}
+.st-vientuong .stat-num{color:#eafcff;text-shadow:0 0 30px #38e1ff}.st-vientuong .stat-num em,.st-vientuong .stat-pre,.st-vientuong .stat-head small{color:#38e1ff}
+.st-vientuong .stat-bar{background:#38e1ff;box-shadow:0 0 18px #38e1ff}
+.st-hoathinh .stat-shade{background:rgba(255,255,255,.15)}
+.st-hoathinh .stat-num,.st-hoathinh .stat-head{color:#fff;-webkit-text-stroke:5px #1d3557;paint-order:stroke fill;text-shadow:0 8px 0 #1d3557}
+.st-hoathinh .stat-num em,.st-hoathinh .stat-pre,.st-hoathinh .stat-head small{color:#ff6b35;-webkit-text-stroke:0;text-shadow:none}
+.st-hoathinh .stat-bar{background:#ff6b35;height:12px;border-radius:12px}
+.st-hoathinh .stat-unit{display:inline-block;background:#fff;border:5px solid #1d3557;border-radius:30px;padding:8px 26px;color:#1d3557}
 /* ---------- chế độ render ---------- */
 body.render{background:#000;overflow:hidden}
 body.render .app{display:none}
@@ -585,7 +617,7 @@ body.render .app{display:none}
   /* =====================================================================
      XƯỞNG PHIM – TRÌNH BIÊN TẬP
      ===================================================================== */
-  const TYPES = { title: ['Tiêu đề', '--t-title'], hero: ['Nhân vật', '--t-hero'], map: ['Bản đồ', '--t-map'], forces: ['Lực lượng', '--t-forces'], diagram: ['Sơ đồ trận', '--t-diagram'], timeline: ['Mốc thời gian', '--t-timeline'], quote: ['Trích dẫn', '--t-quote'], points: ['Ý chính', '--t-points'], end: ['Kết', '--t-end'], card: ['Thẻ nội dung', '--t-map'] };
+  const TYPES = { title: ['Tiêu đề', '--t-title'], hero: ['Nhân vật', '--t-hero'], map: ['Bản đồ', '--t-map'], forces: ['Lực lượng', '--t-forces'], diagram: ['Sơ đồ trận', '--t-diagram'], timeline: ['Mốc thời gian', '--t-timeline'], quote: ['Trích dẫn', '--t-quote'], points: ['Ý chính', '--t-points'], end: ['Kết', '--t-end'], card: ['Thẻ nội dung', '--t-map'], stat: ['Số liệu', '--t-forces'] };
   const tcol = ty => `var(${(TYPES[ty] || TYPES.end)[1]})`;
   const tname = ty => (TYPES[ty] || [ty])[0];
   const esc = x => String(x == null ? '' : x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -783,10 +815,12 @@ body.render .app{display:none}
       return;
     }
     const sc = P.scenes[ci];
-    const typeSel = `<select class="sel" id="sType"><option value="card"${sc.type === 'card' ? ' selected' : ''}>Thẻ nội dung</option><option value="quote"${sc.type === 'quote' ? ' selected' : ''}>Trích dẫn</option><option value="points"${sc.type === 'points' ? ' selected' : ''}>Ý chính (danh sách)</option></select>`;
+    const typeSel = `<select class="sel" id="sType"><option value="card"${sc.type === 'card' ? ' selected' : ''}>Thẻ nội dung</option><option value="quote"${sc.type === 'quote' ? ' selected' : ''}>Trích dẫn</option><option value="points"${sc.type === 'points' ? ' selected' : ''}>Ý chính (danh sách)</option><option value="stat"${sc.type === 'stat' ? ' selected' : ''}>Số liệu (số chạy)</option><option value="timeline"${sc.type === 'timeline' ? ' selected' : ''}>Dòng thời gian</option></select>`;
     let fields = '';
     if (sc.type === 'card') fields = `<div class="field"><label>Tiêu đề trên hình (có thể để trống)</label><input class="inp" id="sHead" value="${esc(sc.heading)}"></div>`;
     if (sc.type === 'quote') fields = `<div class="field"><label>Câu trích dẫn</label><textarea class="txa" id="sQuote" style="min-height:70px">${esc(sc.quote)}</textarea></div><div class="field"><label>Tác giả / nguồn</label><input class="inp" id="sBy" value="${esc(sc.by)}"></div>`;
+    if (sc.type === 'stat') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sHead" value="${esc(sc.heading)}"></div><div class="field"><label>Số liệu (mỗi dòng: số | đơn vị, tối đa 3). VD: hơn 10 vạn | quân Tống</label><textarea class="txa" id="sStats" style="min-height:80px">${esc((sc.stats || []).map(x => `${x.pre ? x.pre + ' ' : ''}${String(x.shown).replace('.', ',')}${x.pct ? '%' : x.scale ? ' ' + x.scale : ''} | ${x.unit}`).join('\n'))}</textarea></div>`;
+    if (sc.type === 'timeline') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các mốc (mỗi dòng: mốc | sự kiện, tối đa 5)</label><textarea class="txa" id="sTl" style="min-height:90px">${esc((sc.items || []).map(x => x[0] + ' | ' + x[1]).join('\n'))}</textarea></div>`;
     if (sc.type === 'points') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các ý (mỗi dòng một ý, tối đa 5)</label><textarea class="txa" id="sItems" style="min-height:90px">${esc((sc.items || []).join('\n'))}</textarea></div>`;
     el.innerHTML = `
       <div class="field"><label>Loại cảnh</label>${typeSel}</div>${fields}
@@ -799,13 +833,17 @@ body.render .app{display:none}
     $('sType').onchange = e => {
       const ty = e.target.value;
       if (ty === 'quote' && !sc.quote) sc.quote = (sc.say || '').slice(0, 200);
-      if (ty === 'points' && !(sc.items && sc.items.length)) { sc.items = (sc.say || '').split(/(?<=[.!?…])\s+/).filter(Boolean).slice(0, 5); sc.title = sc.title || (sc.heading || 'Ý CHÍNH').toUpperCase(); }
+      if (ty === 'points' && !(sc.items && sc.items.length && typeof sc.items[0] === 'string')) { sc.items = (sc.say || '').split(/(?<=[.!?…])\s+/).filter(Boolean).slice(0, 5); sc.title = sc.title || (sc.heading || 'Ý CHÍNH').toUpperCase(); }
+      if (ty === 'stat' && !(sc.stats && sc.stats.length)) sc.stats = Xuong.extractStats(sc.say || '');
+      if (ty === 'timeline' && !(sc.items && sc.items.length && Array.isArray(sc.items[0]))) { sc.items = Xuong.timelineFrom(sc.say || ''); sc.title = sc.title || (sc.heading || 'DIỄN BIẾN').toUpperCase(); }
       sc.type = ty; saveP(true);
     };
     if ($('sHead')) $('sHead').oninput = deb(e => { sc.heading = e.target.value; saveP(true); });
     if ($('sQuote')) $('sQuote').oninput = deb(e => { sc.quote = e.target.value; saveP(true); });
     if ($('sBy')) $('sBy').oninput = deb(e => { sc.by = e.target.value; saveP(true); });
     if ($('sTitle')) $('sTitle').oninput = deb(e => { sc.title = e.target.value; saveP(true); });
+    if ($('sStats')) $('sStats').oninput = deb(e => { sc.stats = e.target.value.split('\n').map(l => { const [a, u] = l.split('|'); if (!a || !a.trim()) return null; const r = Xuong.extractStats(a.trim() + ' ' + ((u || '').trim() || 'x'))[0]; if (r) { r.unit = (u || '').trim(); return r; } const v = parseFloat(a.replace(',', '.')); return isNaN(v) ? null : { pre: '', value: v, shown: v, scale: '', pct: /%/.test(a), unit: (u || '').trim() }; }).filter(Boolean).slice(0, 3); saveP(true); });
+    if ($('sTl')) $('sTl').oninput = deb(e => { sc.items = e.target.value.split('\n').map(l => l.split('|').map(x => x.trim())).filter(x => x[0]).map(x => [x[0], x[1] || '']).slice(0, 5); saveP(true); });
     if ($('sItems')) $('sItems').oninput = deb(e => { sc.items = e.target.value.split('\n').map(x => x.trim()).filter(Boolean).slice(0, 5); saveP(true); });
     $('sSay').oninput = deb(e => { sc.say = e.target.value; saveP(true); });
     $('sTr').onchange = e => { if (e.target.value) sc.tr = e.target.value; else delete sc.tr; saveP(true); };

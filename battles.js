@@ -26,10 +26,10 @@
       ],
       units: [
         { kind: 'ship', side: 'ta', n: 4, spread: 60, label: o.lureLabel || 'Thuyền nhẹ nhử địch', path: [[.06, 1520, 860], [.2, 1250, 720], [.4, 650, 420]], until: .5 },
-        { kind: 'ship', side: 'dich', big: 1, n: 11, spread: 150, label: o.enemyFleet, path: [[.1, 1880, 990], [.26, 1380, 780], [.44, 840, 520], [.5, 820, 510], [.66, 1130, 680]], sink: .74, burn: .7, ly: -95 },
+        { kind: 'ship', side: 'dich', big: 1, n: 11, spread: 150, cmd: 1, label: o.enemyFleet, path: [[.1, 1880, 990], [.26, 1380, 780], [.44, 840, 520], [.5, 820, 510], [.66, 1130, 680]], sink: .74, burn: .7, ly: -95 },
         { kind: 'troop', side: 'ta', n: 5, spread: 90, label: 'Phục binh', path: [[0, 1000, 330]], at: .44 },
         { kind: 'troop', side: 'ta', n: 5, spread: 90, label: 'Phục binh', path: [[0, 820, 760]], at: .46, ly: 70 },
-        { kind: 'ship', side: 'ta', n: 7, spread: 110, label: o.mainFleet, path: [[.46, 120, 270], [.62, 620, 430], [.8, 930, 560]], at: .46 }
+        { kind: 'ship', side: 'ta', n: 7, spread: 110, cmd: 1, label: o.mainFleet, path: [[.46, 120, 270], [.62, 620, 430], [.8, 930, 560]], at: .46 }
       ],
       arrows: [
         { side: 'dich', d: 'M1860,960 C1600,840 1250,700 880,520', at: .1, len: .3, until: .5 },
@@ -46,7 +46,7 @@
   window.BATTLES = [
     /* =================================================================== */
     {
-      id: 'bach-dang-938', year: '938', name: 'Bạch Đằng 938', who: 'Ngô Quyền', vs: 'Nam Hán', seed: 3,
+      id: 'bach-dang-938', year: '938', name: 'Bạch Đằng 938', who: 'Ngô Quyền', vs: 'Nam Hán', seed: 3, sources: ['Đại Việt sử ký toàn thư', 'Wikipedia – Trận Bạch Đằng (938)', 'Báo Nhân Dân', 'Báo Giáo dục Việt Nam'],
       scenes: [
         { type: 'title', title: 'BẠCH ĐẰNG', sub: 'TRẬN THỦY CHIẾN NĂM 938', line: 'NGÔ QUYỀN · KẾT THÚC HƠN MỘT NGHÌN NĂM BẮC THUỘC', stamp: 'CHIẾN THẮNG LỊCH SỬ', stakes: 1,
           say: 'Năm 938, trên dòng sông Bạch Đằng, quân dân ta dưới sự chỉ huy của Ngô Quyền đã đánh tan đạo thủy quân Nam Hán, mở ra kỷ nguyên độc lập lâu dài cho dân tộc.' },
@@ -73,7 +73,7 @@
     },
     /* =================================================================== */
     {
-      id: 'nhu-nguyet-1077', year: '1077', name: 'Như Nguyệt 1077', who: 'Lý Thường Kiệt', vs: 'Tống', seed: 11,
+      id: 'nhu-nguyet-1077', year: '1077', name: 'Như Nguyệt 1077', who: 'Lý Thường Kiệt', vs: 'Tống', seed: 11, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Wikipedia – Trận Như Nguyệt', 'Tạp chí Quản lý Nhà nước'],
       scenes: [
         { type: 'title', title: 'NHƯ NGUYỆT', sub: 'PHÒNG TUYẾN SÔNG CẦU NĂM 1077', line: 'LÝ THƯỜNG KIỆT · ĐẠI PHÁ QUÂN TỐNG', stamp: 'NAM QUỐC SƠN HÀ', ships: 4,
           say: 'Năm 1077, bên bờ sông Như Nguyệt, quân dân Đại Việt thời Lý đã chặn đứng mười vạn quân Tống, buộc kẻ thù phải rút về nước.' },
@@ -87,9 +87,9 @@
           routes: [{ pts: [[106.3, 21.0], [107.3, 21.6], [108.2, 22.6]], side: 'ta', at: .15, len: .25 },
             { pts: [[108.3, 22.9], [107.2, 22.4], [106.5, 21.6], [106.05, 21.3]], side: 'dich', at: .45, len: .3 }],
           marker: { lon: 106.03, lat: 21.2, text: 'Sông Như Nguyệt', at: .78 },
-          say: 'Cuối năm 1075, quân Lý bất ngờ đánh sang Khâm Châu, Liêm Châu, hạ thành Ung Châu rồi rút về. Đầu năm 1077, quân Tống kéo sang báo thù, nhưng bị chặn lại ở sông Như Nguyệt.' },
-        { type: 'forces', ours: { name: 'ĐẠI VIỆT – NHÀ LÝ', rows: [['Chỉ huy', 'Lý Thường Kiệt'], ['Lực lượng', 'Khoảng # vạn quân', 10], ['Thế trận', 'Phòng tuyến dọc bờ nam sông']] },
-          enemy: { name: 'NHÀ TỐNG', rows: [['Chỉ huy', 'Quách Quỳ, Triệu Tiết'], ['Lực lượng', '# vạn quân, 1 vạn ngựa', 10], ['Hậu cần', '20 vạn dân phu']] },
+          say: 'Cuối năm 1075, quân Lý bất ngờ đánh sang Khâm Châu, Liêm Châu. Đầu năm 1076, sau hơn bốn mươi ngày vây hãm, thành Ung Châu thất thủ. Đầu năm 1077, quân Tống kéo sang báo thù, nhưng bị chặn lại ở sông Như Nguyệt.' },
+        { type: 'forces', ours: { name: 'ĐẠI VIỆT – NHÀ LÝ', rows: [['Chỉ huy', 'Lý Thường Kiệt'], ['Chủ lực', 'Khoảng # vạn quân', 6], ['Thế trận', 'Phòng tuyến dọc bờ nam sông']] },
+          enemy: { name: 'NHÀ TỐNG', rows: [['Chỉ huy', 'Quách Quỳ, Triệu Tiết'], ['Lực lượng', '# vạn quân (theo SGK)', 10], ['Hậu cần', 'Khoảng 20 vạn dân phu']] },
           say: 'Quân Tống do Quách Quỳ và Triệu Tiết chỉ huy, gồm mười vạn quân, một vạn ngựa cùng hai mươi vạn dân phu. Lý Thường Kiệt cho đắp lũy, đóng cọc tre dày đặc dọc bờ nam sông Như Nguyệt.' },
         { type: 'diagram', title: 'PHÒNG TUYẾN NHƯ NGUYỆT 1077', oursName: 'Quân nhà Lý', enemyName: 'Quân Tống',
           water: ['M0,470 C400,430 800,520 1200,480 C1500,450 1700,500 1920,470 L1920,580 C1700,610 1500,560 1200,590 C800,630 400,540 0,580Z'],
@@ -101,15 +101,15 @@
           labels: [{ x: 1500, y: 545, text: 'SÔNG NHƯ NGUYỆT (SÔNG CẦU)', style: 'river' }, { x: 1780, y: 720, text: '▼ THĂNG LONG', style: 'warn' }],
           units: [
             { kind: 'ship', side: 'dich', n: 7, spread: 140, label: 'Quân Tống vượt sông', path: [[.12, 980, 360], [.3, 980, 530]], sink: .4, at: .12 },
-            { kind: 'troop', side: 'dich', n: 6, spread: 140, path: [[0, 1250, 380]] },
+            { kind: 'troop', side: 'dich', n: 6, spread: 140, path: [[0, 1250, 400]] },
             { kind: 'troop', side: 'ta', n: 6, spread: 150, label: 'Quân giữ lũy', path: [[0, 980, 700]], ly: 70 },
-            { kind: 'troop', side: 'ta', n: 6, spread: 100, label: 'Lý Thường Kiệt', path: [[.52, 260, 760], [.64, 260, 530], [.8, 470, 330]], at: .52, until: .98 }
+            { kind: 'troop', side: 'ta', n: 6, spread: 100, cmd: 1, label: 'Lý Thường Kiệt', path: [[.52, 260, 760], [.64, 260, 540], [.8, 330, 360]], at: .52, until: .98, lx: -10, ly: 70 }
           ],
           arrows: [
             { side: 'dich', d: 'M980,330 L980,480', at: .12, len: .12, until: .42 },
             { side: 'ta', d: 'M900,680 Q930,600 960,540', at: .3, len: .06, until: .5 },
             { side: 'ta', d: 'M1060,680 Q1030,600 1000,540', at: .31, len: .06, until: .5 },
-            { side: 'ta', d: 'M260,780 C200,600 300,420 470,330', at: .54, len: .22, w: 14 }
+            { side: 'ta', d: 'M260,780 C200,600 300,420 455,320', at: .54, len: .22, w: 14 }
           ],
           fx: [{ x: 980, y: 540, at: .36, len: .1 }, { x: 520, y: 290, at: .78, len: .22, s: 1.5 }],
           phases: [[0, '1 · Lập phòng tuyến dọc bờ nam sông Như Nguyệt'], [.12, '2 · Quân Tống nhiều lần vượt sông – đều bị đánh bật'], [.52, '3 · Quân ta bất ngờ vượt sông, đánh úp doanh trại địch'], [.82, '4 · Quân Tống kiệt quệ, phải rút về nước']],
@@ -123,7 +123,7 @@
     },
     /* =================================================================== */
     {
-      id: 'bach-dang-1288', year: '1288', name: 'Bạch Đằng 1288', who: 'Trần Hưng Đạo', vs: 'Nguyên Mông', seed: 7,
+      id: 'bach-dang-1288', year: '1288', name: 'Bạch Đằng 1288', who: 'Trần Hưng Đạo', vs: 'Nguyên Mông', seed: 7, sources: ['Đại Việt sử ký toàn thư', 'Wikipedia – Trận Bạch Đằng (1288)', 'Báo Giáo dục Việt Nam'],
       scenes: [
         { type: 'title', title: 'BẠCH ĐẰNG', sub: 'TRẬN THỦY CHIẾN NĂM 1288', line: 'BA LẦN ĐẠI THẮNG QUÂN NGUYÊN MÔNG', stamp: 'CHIẾN THẮNG VĨ ĐẠI', stakes: 1, ships: 7,
           say: 'Trận chiến Bạch Đằng năm 1288 là một trong những chiến thắng quân sự vĩ đại nhất trong lịch sử dân tộc Việt Nam.' },
@@ -151,7 +151,7 @@
     },
     /* =================================================================== */
     {
-      id: 'chi-lang-1427', year: '1427', name: 'Chi Lăng – Xương Giang 1427', who: 'Lê Lợi', vs: 'Minh', seed: 19,
+      id: 'chi-lang-1427', year: '1427', name: 'Chi Lăng – Xương Giang 1427', who: 'Lê Lợi', vs: 'Minh', seed: 19, sources: ['Đại Việt sử ký toàn thư', 'Lam Sơn thực lục', 'Tạp chí Quốc phòng toàn dân', 'Wikipedia – Trận Chi Lăng'],
       scenes: [
         { type: 'title', title: 'CHI LĂNG', sub: 'CHI LĂNG – XƯƠNG GIANG NĂM 1427', line: 'KHỞI NGHĨA LAM SƠN · KẾT THÚC 20 NĂM ĐÔ HỘ CỦA NHÀ MINH', stamp: 'BÌNH NGÔ', ships: 2,
           say: 'Mùa thu năm 1427, nghĩa quân Lam Sơn tiêu diệt hơn mười vạn viện binh nhà Minh tại ải Chi Lăng và thành Xương Giang, kết thúc hai mươi năm đô hộ.' },
@@ -176,8 +176,8 @@
           labels: [{ x: 960, y: 40, text: '▲ LẠNG SƠN', style: 'warn' }, { x: 1140, y: 360, text: 'ẢI CHI LĂNG', style: 'warn' }, { x: 1180, y: 640, text: 'Núi Mã Yên', style: '' },
             { x: 690, y: 610, text: '✕ Liễu Thăng tử trận', style: 'warn', at: .56 }],
           units: [
-            { kind: 'troop', side: 'ta', n: 3, spread: 50, label: 'Trần Lựu giả thua', path: [[.04, 960, 200], [.36, 960, 600]], until: .45, lx: 170, ly: 0 },
-            { kind: 'horse', side: 'dich', n: 9, spread: 110, label: 'Liễu Thăng', path: [[.04, 960, 30], [.36, 960, 430], [.42, 960, 530]], sink: .55, lx: 150, ly: 0 },
+            { kind: 'troop', side: 'ta', n: 3, spread: 50, cmd: 1, label: 'Trần Lựu giả thua', path: [[.04, 960, 200], [.36, 960, 600]], until: .45, lx: 170, ly: 0 },
+            { kind: 'horse', side: 'dich', n: 9, spread: 110, cmd: 1, label: 'Liễu Thăng', path: [[.04, 960, 30], [.36, 960, 430], [.42, 960, 530]], sink: .55, lx: 150, ly: 0 },
             { kind: 'troop', side: 'ta', n: 6, spread: 110, label: 'Phục binh', path: [[0, 660, 520]], at: .38 },
             { kind: 'troop', side: 'ta', n: 6, spread: 110, label: 'Phục binh', path: [[0, 1270, 520]], at: .38 },
             { kind: 'troop', side: 'dich', n: 7, spread: 120, label: 'Tàn quân Minh', path: [[.58, 960, 600], [.72, 960, 760]], at: .58, sink: .9, lx: 180, ly: 0 },
@@ -203,7 +203,7 @@
     },
     /* =================================================================== */
     {
-      id: 'rach-gam-1785', year: '1785', name: 'Rạch Gầm – Xoài Mút 1785', who: 'Nguyễn Huệ', vs: 'Xiêm', seed: 23,
+      id: 'rach-gam-1785', year: '1785', name: 'Rạch Gầm – Xoài Mút 1785', who: 'Nguyễn Huệ', vs: 'Xiêm', seed: 23, sources: ['SGK Lịch sử 7', 'Báo Giáo dục Việt Nam', 'Wikipedia – Trận Rạch Gầm – Xoài Mút'],
       scenes: [
         { type: 'title', title: 'RẠCH GẦM', sub: 'RẠCH GẦM – XOÀI MÚT NĂM 1785', line: 'NGUYỄN HUỆ · TRẬN THỦY CHIẾN TRÊN SÔNG TIỀN', stamp: 'ĐẠI PHÁ QUÂN XIÊM', ships: 8,
           say: 'Đầu năm 1785, trên sông Tiền, nghĩa quân Tây Sơn do Nguyễn Huệ chỉ huy đã tiêu diệt gần như toàn bộ đạo quân xâm lược Xiêm.' },
@@ -217,7 +217,7 @@
             { pts: [[109.1, 13.6], [108.6, 11.4], [107.2, 10.1], [106.4, 10.3]], side: 'ta', at: .35, len: .3, bend: -1 }],
           marker: { lon: 106.25, lat: 10.33, text: 'Rạch Gầm – Xoài Mút', at: .7 },
           say: 'Nguyễn Ánh cầu viện Xiêm. Vua Xiêm sai hàng vạn quân thủy bộ sang chiếm miền Tây Gia Định. Nguyễn Huệ được lệnh đem quân từ Quy Nhơn vào Nam đánh giặc.' },
-        { type: 'forces', ours: { name: 'NGHĨA QUÂN TÂY SƠN', rows: [['Chỉ huy', 'Nguyễn Huệ'], ['Căn cứ', 'Mỹ Tho'], ['Kế sách', 'Mai phục trên sông Tiền']] },
+        { type: 'forces', ours: { name: 'NGHĨA QUÂN TÂY SƠN', rows: [['Chỉ huy', 'Nguyễn Huệ'], ['Lực lượng', 'Khoảng # vạn quân', 2], ['Kế sách', 'Mai phục trên sông Tiền']] },
           enemy: { name: 'QUÂN XIÊM', rows: [['Lực lượng', '# vạn quân thủy bộ', 5], ['Chiến thuyền', '# chiếc', 300], ['Hành vi', 'Cướp bóc, gây oán hận trong dân']] },
           say: 'Quân Xiêm gồm năm vạn quân thủy bộ và ba trăm chiến thuyền, đi đến đâu cũng cướp phá, khiến nhân dân căm ghét. Nguyễn Huệ đóng quân ở Mỹ Tho, chọn khúc sông Rạch Gầm – Xoài Mút làm trận địa.' },
         { type: 'diagram', title: 'RẠCH GẦM – XOÀI MÚT 1785', oursName: 'Quân Tây Sơn', enemyName: 'Quân Xiêm',
@@ -233,7 +233,7 @@
             { kind: 'troop', side: 'ta', n: 4, spread: 80, path: [[0, 900, 470]], at: .02 },
             { kind: 'troop', side: 'ta', n: 6, spread: 140, label: 'Bộ binh trên bờ', path: [[0, 1050, 300]], at: .02 },
             { kind: 'troop', side: 'ta', n: 6, spread: 140, path: [[0, 820, 790]], at: .02 },
-            { kind: 'ship', side: 'ta', big: 1, n: 6, spread: 90, label: 'Nguyễn Huệ', path: [[.42, 1880, 540], [.58, 1320, 540]], at: .42 }
+            { kind: 'ship', side: 'ta', big: 1, n: 6, spread: 90, cmd: 1, label: 'Nguyễn Huệ', path: [[.42, 1880, 540], [.58, 1320, 540]], at: .42 }
           ],
           arrows: [
             { side: 'dich', d: 'M30,540 C300,530 600,550 900,545', at: .06, len: .32, until: .5 },
@@ -243,7 +243,7 @@
           ],
           fx: [{ x: 1000, y: 540, at: .6, len: .3, s: 1.5 }, { x: 860, y: 520, at: .63, len: .25 }],
           phases: [[0, '1 · Bố trí trận địa mai phục trên khúc sông dài khoảng 6 km'], [.06, '2 · Thủy binh Xiêm xuôi dòng tiến vào trận địa'], [.46, '3 · Quân Tây Sơn đồng loạt tấn công từ bờ, cù lao và mặt sông'], [.7, '4 · Quân Xiêm gần như bị tiêu diệt hoàn toàn']],
-          say: 'Rạng sáng ngày 19 tháng 1 năm 1785, Nguyễn Huệ nhử thủy binh Xiêm tiến vào khúc sông Rạch Gầm – Xoài Mút. Bộ binh và thủy binh Tây Sơn mai phục trên bờ, trên các cù lao bất ngờ đổ ra đánh tạt sườn, chặn đầu khóa đuôi. Thuyền giặc bị đánh tan, bốc cháy giữa dòng.', min: 22 },
+          say: 'Đêm 18 rạng sáng ngày 19 tháng 1 năm 1785, Nguyễn Huệ nhử thủy binh Xiêm tiến vào khúc sông Rạch Gầm – Xoài Mút. Bộ binh và thủy binh Tây Sơn mai phục trên bờ, trên các cù lao bất ngờ đổ ra đánh tạt sườn, chặn đầu khóa đuôi. Thuyền giặc bị đánh tan, bốc cháy giữa dòng.', min: 22 },
         { type: 'timeline', title: 'DIỄN BIẾN', items: [['1784', 'Quân Xiêm kéo vào Gia Định'], ['Cuối 1784', 'Nguyễn Huệ vào Nam, đóng ở Mỹ Tho'], ['19.01.1785', 'Đại thắng Rạch Gầm – Xoài Mút'], ['Sau trận', 'Chỉ vài nghìn quân Xiêm thoát về nước']],
           say: 'Phần lớn quân Xiêm bị tiêu diệt, chỉ còn vài nghìn tên sống sót, theo đường bộ chạy về nước.' },
         { type: 'points', items: ['Đập tan âm mưu xâm lược của quân Xiêm', 'Một trong những trận thủy chiến lớn nhất lịch sử Việt Nam', 'Khẳng định tài cầm quân kiệt xuất của Nguyễn Huệ'],
@@ -253,7 +253,7 @@
     },
     /* =================================================================== */
     {
-      id: 'dong-da-1789', year: '1789', name: 'Ngọc Hồi – Đống Đa 1789', who: 'Quang Trung', vs: 'Thanh', seed: 29,
+      id: 'dong-da-1789', year: '1789', name: 'Ngọc Hồi – Đống Đa 1789', who: 'Quang Trung', vs: 'Thanh', seed: 29, sources: ['SGK Lịch sử 7', 'Báo Giáo dục Việt Nam', 'Znews', 'Wikipedia – Trận Ngọc Hồi – Đống Đa'],
       scenes: [
         { type: 'title', title: 'ĐỐNG ĐA', sub: 'NGỌC HỒI – ĐỐNG ĐA XUÂN KỶ DẬU 1789', line: 'QUANG TRUNG · ĐẠI PHÁ 29 VẠN QUÂN THANH', stamp: 'THẦN TỐC', ships: 2,
           say: 'Mùa xuân Kỷ Dậu năm 1789, chỉ trong vài ngày Tết, vua Quang Trung đã đại phá hai mươi chín vạn quân Thanh, giải phóng Thăng Long.' },
@@ -267,9 +267,9 @@
             { pts: [[108.3, 22.9], [107, 22.2], [106.2, 21.4], [105.9, 21.1]], side: 'dich', at: .05, len: .25 }],
           marker: { lon: 105.84, lat: 21.0, text: 'Thăng Long', at: .72 },
           say: 'Từ Phú Xuân, đại quân hành quân thần tốc, vừa đi vừa tuyển thêm quân ở Nghệ An, Thanh Hóa. Đến Tam Điệp, Quang Trung cho quân ăn Tết trước, hẹn ngày mùng 7 vào Thăng Long mở tiệc ăn mừng.' },
-        { type: 'forces', ours: { name: 'QUÂN TÂY SƠN', rows: [['Tổng chỉ huy', 'Vua Quang Trung'], ['Lực lượng', 'Hơn # vạn quân', 10], ['Voi chiến', 'Vài trăm thớt']] },
+        { type: 'forces', ours: { name: 'QUÂN TÂY SƠN', rows: [['Tổng chỉ huy', 'Vua Quang Trung'], ['Lực lượng', 'Khoảng # vạn quân', 10], ['Voi chiến', 'Vua cưỡi voi chỉ huy']] },
           enemy: { name: 'NHÀ THANH', rows: [['Chỉ huy', 'Tôn Sĩ Nghị'], ['Lực lượng', '# vạn quân', 29], ['Tâm lý', 'Chủ quan, mải ăn Tết']] },
-          say: 'Tôn Sĩ Nghị cầm đầu hai mươi chín vạn quân Thanh, kiêu căng, chủ quan, mải mê ăn Tết. Quân Tây Sơn có hơn mười vạn người cùng hàng trăm voi chiến.' },
+          say: 'Tôn Sĩ Nghị cầm đầu hai mươi chín vạn quân Thanh, kiêu căng, chủ quan, mải mê ăn Tết. Quân Tây Sơn khoảng mười vạn người, có cả voi chiến; vua Quang Trung trực tiếp cưỡi voi chỉ huy.' },
         { type: 'diagram', title: 'NGỌC HỒI – ĐỐNG ĐA 1789', oursName: 'Quân Tây Sơn', enemyName: 'Quân Thanh',
           water: ['M1480,0 C1430,300 1590,600 1490,1080 L1630,1080 C1730,600 1570,300 1620,0Z'],
           forest: [[300, 300, 300, 200, 12], [1200, 600, 200, 300, 10]],
@@ -279,12 +279,12 @@
           labels: [{ x: 1700, y: 860, text: 'SÔNG NHỊ HÀ', style: 'river' }, { x: 1560, y: 200, text: 'Cầu phao', style: 'warn' }, { x: 1300, y: 700, text: 'Mộc ván bọc rơm ướt', style: 'warn', at: .3 },
             { x: 600, y: 520, text: '✕ Sầm Nghi Đống tự tử', style: 'warn', at: .62 }],
           units: [
-            { kind: 'troop', side: 'ta', n: 6, spread: 110, label: 'Quang Trung', path: [[.02, 960, 1060], [.16, 960, 930], [.32, 960, 800], [.48, 960, 740], [.8, 960, 270]], lx: -175, ly: 8 },
-            { kind: 'troop', side: 'ta', n: 4, spread: 80, label: 'Đô đốc Long', path: [[.3, 240, 1000], [.56, 560, 520], [.78, 820, 250]], at: .3, lx: -160, ly: 0 },
+            { kind: 'troop', side: 'ta', n: 6, spread: 110, cmd: 1, label: 'Quang Trung', path: [[.02, 960, 1060], [.16, 960, 930], [.32, 960, 800], [.48, 960, 740], [.8, 960, 270]], lx: 0, ly: 72 },
+            { kind: 'troop', side: 'ta', n: 4, spread: 80, cmd: 1, label: 'Đô đốc Long', path: [[.3, 240, 1000], [.56, 560, 520], [.78, 820, 250]], at: .3, lx: -160, ly: 0 },
             { kind: 'troop', side: 'ta', n: 3, spread: 60, label: 'Chặn đường rút', path: [[.25, 1300, 1060], [.6, 1780, 380]], at: .25, lx: 0, ly: -40 },
             { kind: 'troop', side: 'dich', n: 5, spread: 80, path: [[0, 960, 640]], sink: .5 },
             { kind: 'troop', side: 'dich', n: 4, spread: 70, path: [[0, 640, 360]], sink: .6 },
-            { kind: 'troop', side: 'dich', n: 8, spread: 120, label: 'Tôn Sĩ Nghị tháo chạy', path: [[0, 1130, 330], [.62, 1130, 330], [.8, 1500, 240], [.84, 1560, 240]], sink: .84, ly: -50 }
+            { kind: 'troop', side: 'dich', n: 8, spread: 120, cmd: 1, label: 'Tôn Sĩ Nghị tháo chạy', path: [[0, 1130, 330], [.62, 1130, 330], [.8, 1500, 240], [.84, 1560, 240]], sink: .84, ly: -50 }
           ],
           arrows: [
             { side: 'ta', d: 'M960,1060 C950,980 970,940 960,900', at: .04, len: .1 },

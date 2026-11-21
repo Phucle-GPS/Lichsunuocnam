@@ -213,6 +213,34 @@
     return { update() {} };
   }
 
+
+  /* ---------- biểu tượng người lính (nhìn nghiêng, quay sang phải; gốc tọa độ ở chân) ---------- */
+  function drawSoldier(g, side, y0) {
+    const G = s('g', { transform: `translate(0,${y0 || 0})` }, g);
+    s('line', { x1: 10, y1: 4, x2: 10, y2: -52, class: 'u-shaft' }, G);
+    s('path', { d: 'M7,-52 L10,-63 L13,-52 Z', class: 'u-tip' }, G);
+    s('path', { d: 'M-5,0 L-3,-14 M3,-14 L6,0', class: 'u-leg' }, G);
+    s('path', { d: 'M-7,-13 L-6,-30 Q0,-33 6,-30 L7,-13 Z', class: 'u-body ' + side }, G);
+    s('line', { x1: -7, y1: -17, x2: 7, y2: -17, class: 'u-belt' }, G);
+    s('line', { x1: 3, y1: -26, x2: 10, y2: -21, class: 'u-leg' }, G);
+    s('circle', { cx: 0, cy: -36, r: 5, class: 'u-skin' }, G);
+    if (side === 'ta') {
+      s('path', { d: 'M-12,-37 L0,-48 L12,-37 Z', class: 'u-hat' }, G);
+      s('ellipse', { cx: -7, cy: -21, rx: 6.5, ry: 8.5, class: 'u-shield ta' }, G);
+      s('circle', { cx: -7, cy: -21, r: 2, class: 'u-boss' }, G);
+    } else {
+      s('path', { d: 'M-6.5,-37 Q0,-47 6.5,-37 Z', class: 'u-helm' }, G);
+      s('line', { x1: 0, y1: -45, x2: -2, y2: -52, class: 'u-plume' }, G);
+      s('rect', { x: -13, y: -30, width: 8, height: 17, rx: 1.5, class: 'u-shield dich' }, G);
+    }
+  }
+  function drawHorse(g, side) {
+    s('path', { d: 'M-14,0 L-12,-12 M-6,0 L-6,-12 M8,0 L7,-12 M14,0 L12,-12', class: 'u-leg' }, g);
+    s('path', { d: 'M-17,-14 Q-18,-24 -6,-25 L9,-25 Q15,-25 17,-30 L22,-40 L29,-37 L26,-31 L19,-20 Q16,-12 8,-12 L-12,-12 Q-17,-12 -17,-14 Z', class: 'u-horse' }, g);
+    s('path', { d: 'M-17,-20 Q-25,-16 -24,-6', class: 'u-tail' }, g);
+    drawSoldier(g, side, -18);
+  }
+
   /* ======================================================================
      CÁC LOẠI CẢNH – mỗi loại trả về {root, update(lt, dur)}
      ====================================================================== */
@@ -521,6 +549,42 @@
     };
   };
 
+
+  /* ----- Thống kê: số liệu lớn chạy đếm (tự nhận diện từ kịch bản) ----- */
+  SCENES.stat = function (sc, B) {
+    const root = h('div', { class: 'sc sc-stat' });
+    if (B.style) { const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root); root._bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 7, { ships: 1 }); h('div', { class: 'shade stat-shade' }, root); }
+    const head = h('div', { class: 'stat-head' }, root, (sc.kicker ? `<small>${esc(sc.kicker)}</small>` : '') + esc(sc.heading || ''));
+    const row = h('div', { class: 'stat-row n' + (sc.stats || []).length }, root);
+    const fmt = (v, dec) => v.toLocaleString('vi-VN', { maximumFractionDigits: dec, minimumFractionDigits: dec });
+    const items = (sc.stats || []).slice(0, 3).map(st => {
+      const it = h('div', { class: 'stat' }, row);
+      if (st.pre) h('div', { class: 'stat-pre' }, it, esc(st.pre.toUpperCase()));
+      const num = h('div', { class: 'stat-num' }, it);
+      const val = h('span', null, num, '0');
+      if (st.scale || st.pct) h('em', null, num, st.pct ? '%' : ' ' + esc(st.scale));
+      const bar = h('div', { class: 'stat-bar' }, it);
+      h('div', { class: 'stat-unit' }, it, esc(st.unit || ''));
+      const dec = Math.round(st.shown) === st.shown ? 0 : 1;
+      // co chữ theo độ dài con số để không chồng nhau
+      const n = Math.min(3, (sc.stats || []).length), chars = fmt(st.shown, dec).length + (st.pct ? 1 : st.scale ? st.scale.length * .45 + .5 : 0);
+      num.style.fontSize = Math.min(n === 3 ? 150 : 190, ((1680 - (n - 1) * 90) / n) / (chars * .62)) + 'px';
+      return { it, val, bar, st, dec };
+    });
+    return {
+      root, update(t, d) {
+        if (root._bgu) root._bgu.update(t);
+        head.style.opacity = eout(ramp(t, .1, .6));
+        items.forEach((I, i) => {
+          const a = .35 + i * .35, k = eout(ramp(t, a, a + 1.6));
+          I.it.style.opacity = eout(ramp(t, a, a + .4)); I.it.style.transform = `translateY(${(1 - eout(ramp(t, a, a + .5))) * 40}px)`;
+          I.val.textContent = fmt(I.st.shown * k, k < 1 ? 0 : I.dec);
+          I.bar.style.width = k * 100 + '%';
+        });
+      }
+    };
+  };
+
   SCENES.end = function (sc, B) {
     const root = h('div', { class: 'sc sc-end' });
     const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
@@ -530,6 +594,7 @@
     h('div', { class: 'end-big' }, box, esc(sc.title || 'GHI NHỚ CÔNG ƠN TIỀN NHÂN'));
     h('div', { class: 'end-sub' }, box, esc(sc.sub || ''));
     if (sc.next) h('div', { class: 'end-next' }, box, 'Tập tiếp theo: <b>' + esc(sc.next) + '</b>');
+    if (B.sources && B.sources.length) h('div', { class: 'end-src' }, box, 'Nguồn tham khảo: ' + B.sources.map(esc).join(' · ') + '<br><small>Số liệu cổ là ước lượng theo sử sách, các nguồn có thể chênh lệch.</small>');
     return {
       root, update(t, d) {
         bg.style.transform = `scale(${1.1 - t / d * .06})`; bgu.update(t);
@@ -605,21 +670,24 @@
         const ox = n === 1 ? 0 : (rr() - .5) * (U.spread || 120) * 1.6, oy = n === 1 ? 0 : (rr() - .5) * (U.spread || 120) * .7;
         const m = s('g', null, g);
         const inner = s('g', null, m);
-        if (U.kind === 'troop') {
-          s('rect', { x: -16, y: -12, width: 32, height: 24, rx: 3, class: 'u-body ' + U.side }, inner);
-          s('line', { x1: -16, y1: -12, x2: 16, y2: 12, class: 'u-x' }, inner);
-          s('line', { x1: 16, y1: -12, x2: -16, y2: 12, class: 'u-x' }, inner);
-        } else if (U.kind === 'horse') {
-          s('rect', { x: -16, y: -12, width: 32, height: 24, rx: 3, class: 'u-body ' + U.side }, inner);
-          s('line', { x1: -16, y1: 12, x2: 16, y2: -12, class: 'u-x' }, inner);
+        const isCmd = U.cmd && i === 0;
+        let flag = null;
+        if (U.kind === 'troop' || U.kind === 'horse') {
+          const body = s('g', { transform: isCmd ? 'scale(1.75)' : 'scale(1.3)' }, inner);
+          if (isCmd) {
+            s('line', { x1: -15, y1: 2, x2: -15, y2: -74, class: 'u-pole' }, body);
+            flag = s('path', { d: 'M-15,-74 L18,-68 L10,-62 L18,-56 L-15,-52 Z', class: 'u-flag ' + U.side }, body);
+          }
+          if (U.kind === 'horse') drawHorse(body, U.side); else drawSoldier(body, U.side, 0);
         } else {
           const sc2 = U.big ? 1.25 : .9;
           s('path', { d: `M${-26 * sc2},0 Q${-22 * sc2},${10 * sc2} ${-12 * sc2},${11 * sc2} L${14 * sc2},${11 * sc2} Q${24 * sc2},${9 * sc2} ${28 * sc2},${-3 * sc2} L${18 * sc2},1 L${-18 * sc2},1Z`, class: 'u-body ' + U.side }, inner);
           s('path', { d: `M${-10 * sc2},${-2 * sc2} L${-8 * sc2},${-30 * sc2} L${8 * sc2},${-30 * sc2} L${10 * sc2},${-2 * sc2}Z`, class: 'u-sail ' + U.side }, inner);
+          if (isCmd) { s('line', { x1: 0, y1: -30 * sc2, x2: 0, y2: -52 * sc2, class: 'u-pole' }, inner); flag = s('path', { d: `M0,${-52 * sc2} L${22 * sc2},${-48 * sc2} L${16 * sc2},${-44 * sc2} L${22 * sc2},${-40 * sc2} L0,${-38 * sc2} Z`, class: 'u-flag ' + U.side }, inner); }
         }
         const fire = s('g', { class: 'u-fire', opacity: 0 }, m);
         for (let j = 0; j < 3; j++) s('path', { d: 'M-8,0 Q-10,-18 0,-34 Q10,-18 8,0Z', fill: j ? '#ffb02e' : '#ff5a1f', transform: `translate(${(j - 1) * 9},-6) scale(${1 - j * .2})` }, fire);
-        members.push({ m, inner, fire, ox, oy, ph: rr() * 6, delay: rr() * .04 });
+        members.push({ m, inner, fire, flag, ox: isCmd ? 0 : ox, oy: isCmd ? 0 : oy, ph: rr() * 6, delay: isCmd ? 0 : rr() * .04 });
       }
       let lab = null;
       if (U.label) lab = s('text', { class: 'u-lab ' + U.side, 'text-anchor': 'middle' }, g, U.label);
@@ -692,6 +760,7 @@
             M.m.setAttribute('transform', `translate(${x + M.ox},${y + M.oy + bob + sink * 14})`);
             M.inner.setAttribute('transform', `scale(${flip},1) rotate(${sink * 28})`);
             M.inner.style.opacity = 1 - sink * .75;
+            if (M.flag) M.flag.setAttribute('transform', `skewY(${Math.sin(t * 5 + M.ph) * 5})`);
             const burn = U.burn != null ? ramp(f, U.burn + M.delay, U.burn + M.delay + .03) * (1 - ramp(f, .97, 1)) : 0;
             M.fire.setAttribute('opacity', burn);
             if (burn) M.fire.setAttribute('transform', `scale(${.9 + Math.sin(t * 13 + M.ph) * .15},${1 + Math.sin(t * 17 + M.ph) * .2})`);
