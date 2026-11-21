@@ -1,6 +1,6 @@
 # Sử Việt · Trận đánh lừng danh — Xưởng dựng video
 
-Trang web: `https://phucle-gps.github.io/tran-danh/` (kho riêng `Phucle-GPS/tran-danh`, bật GitHub Pages từ nhánh `main`)
+Trang web: `https://phucle-gps.github.io/Lichsunuocnam/` (kho riêng `Phucle-GPS/Lichsunuocnam`, bật GitHub Pages từ nhánh `main`)
 
 Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền tranh cổ → **nhân vật** (hoa văn trống đồng) →
 **bản đồ** (Đại Việt tô đỏ, đường tiến quân, có QĐ. Hoàng Sa – Trường Sa) → **tương quan lực lượng** →
