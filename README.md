@@ -1,4 +1,6 @@
-# Sử Việt · Trận đánh lừng danh — Xưởng dựng video
+# Xưởng Video
+
+Ứng dụng dựng video từ kịch bản (phim tài liệu, viễn tưởng, hoạt hình), kèm bộ mẫu *Sử Việt · Trận đánh lừng danh*.
 
 Trang web: `https://phucle-gps.github.io/Lichsunuocnam/` (kho riêng `Phucle-GPS/Lichsunuocnam`, bật GitHub Pages từ nhánh `main`)
 
