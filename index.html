@@ -6,6 +6,10 @@
 <title>Sử Việt – Trận đánh lừng danh</title>
 <meta name="description" content="Video hoạt cảnh về các trận đánh lừng danh trong lịch sử Việt Nam: Bạch Đằng, Như Nguyệt, Chi Lăng, Rạch Gầm, Đống Đa.">
 <link rel="stylesheet" href="fonts.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#14110d">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
 :root{
   --bg:#14110d; --panel:#201b15; --line:#3a3125; --ink:#efe4cc; --muted:#a8987a;
@@ -27,6 +31,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .card small{color:var(--muted);font-size:13px}
 .tips{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.6;color:var(--muted)}
 .tips b{color:var(--ink)}
+.install{display:none;align-items:center;gap:8px;margin:0 0 16px;background:var(--red);color:#fff;border:0;border-radius:12px;padding:12px 18px;font-weight:700;font-size:15px}
 
 /* ---------- trình phát ---------- */
 .player{position:fixed;inset:0;background:#000;display:none;flex-direction:column}
@@ -36,6 +41,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bar{display:flex;align-items:center;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#0d0b08;border-top:1px solid #2a241b;flex-wrap:wrap}
 .bar button{background:#231d16;border:1px solid #3a3125;border-radius:10px;padding:8px 12px;font-size:14px;min-height:40px}
 .bar button.on{border-color:var(--gold);color:var(--gold)}
+.bar .vsel{background:#231d16;border:1px solid var(--gold);color:var(--gold);border-radius:10px;padding:8px 10px;font:inherit;font-size:14px;min-height:40px;max-width:260px}
 .bar .seek{flex:1 1 160px;accent-color:var(--red)}
 .bar .time{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted);min-width:86px;text-align:center}
 .player.rec .bar{display:none}
@@ -181,10 +187,12 @@ body.render .lib,body.render .player{display:none}
 <div class="lib" id="lib">
   <h1>SỬ VIỆT · TRẬN ĐÁNH LỪNG DANH</h1>
   <p class="lead">Video hoạt cảnh về những trận đánh của ông cha ta: tiêu đề, nhân vật, bản đồ, sơ đồ diễn biến và lời dẫn. Chọn một trận để xem.</p>
+  <button class="install" id="bInstall">⬇ Cài ứng dụng vào máy</button>
   <div class="cards" id="cards"></div>
   <div class="tips">
-    <b>Cách làm video từ điện thoại:</b> mở một trận → bật <b>Giọng đọc</b> → bấm <b>Chế độ quay</b> (ẩn nút, toàn màn hình) → bật trình ghi màn hình của máy (chọn ghi <i>âm thanh nội bộ</i>) → bấm Phát. Chạm màn hình để hiện lại nút.<br>
-    <b>Khung dọc 9:16</b> cho TikTok/Reels: bấm nút <b>Dọc</b>. Xuất MP4 chất lượng cao bằng máy tính: xem <code>tools/render-video.mjs</code>.
+    <b>Trên máy tính (Chrome / Edge):</b> bấm <b>Cài ứng dụng vào máy</b> (hoặc biểu tượng ⊕ trên thanh địa chỉ) để có app riêng, chạy cả khi không có mạng. Mở một trận → chọn giọng → bấm <b>⬇ Xuất video</b> → chọn <i>thẻ này</i> và bật <i>Chia sẻ âm thanh</i> → video tự ghi và lưu vào thư mục Tải xuống. Phóng to cửa sổ để video nét hơn.<br>
+    <b>Trên điện thoại:</b> mở một trận → chọn giọng → bấm <b>Chế độ quay</b> → bật trình ghi màn hình (ghi <i>âm thanh nội bộ</i>) → chạm ▶.<br>
+    <b>Khung dọc 9:16</b> cho TikTok/Reels: bấm nút <b>Dọc</b>.
   </div>
 </div>
 
@@ -199,10 +207,11 @@ body.render .lib,body.render .player{display:none}
     <button id="bPlay">▶</button>
     <input class="seek" id="seek" type="range" min="0" max="1000" value="0">
     <span class="time" id="time">0:00 / 0:00</span>
-    <button id="bVoice" class="on">🗣 Giọng đọc</button>
+    <select id="voiceSel" class="vsel" title="Giọng đọc"></select>
     <button id="bMusic" class="on">🥁 Nhạc</button>
     <button id="bFmt">▯ Dọc</button>
     <button id="bRec">⏺ Chế độ quay</button>
+    <button id="bExport">⬇ Xuất video</button>
   </div>
 </div>
 
@@ -261,15 +270,37 @@ body.render .lib,body.render .player{display:none}
   });
 
   /* ---------------- TRÌNH PHÁT ---------------- */
-  let B = null, film = null, FW = 1920, FH = 1080, t = 0, playing = false, last = 0, curScene = -1;
-  let format = 'ngang', voiceOn = true, musicOn = true, actx = null, mgain = null, mnode = null, viVoice = null;
-  const frame = $('frame'), view = $('view'), seekEl = $('seek');
+  let B = null, film = null, FW = 1920, FH = 1080, t = 0, playing = false, last = 0, curScene = -1, loadId = 0;
+  let format = 'ngang', musicOn = true, actx = null, mgain = null, vgain = null, mnode = null, vsrcs = [];
+  let voiceMode = 'pack', sysVoice = null, sysPitch = 1, sysRate = 1, packBufs = null, aBase = 0, tBase = 0;
+  let recorder = null;
+  const frame = $('frame'), view = $('view'), seekEl = $('seek'), vsel = $('voiceSel');
 
-  function pickVoice() {
-    const vs = speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang));
-    viVoice = vs.find(v => /google|natural|online|hoai|nam/i.test(v.name)) || vs[0] || null;
+  function ensureCtx() {
+    if (!actx) {
+      actx = new (window.AudioContext || window.webkitAudioContext)();
+      mgain = actx.createGain(); mgain.connect(actx.destination);
+      vgain = actx.createGain(); vgain.gain.value = 1; vgain.connect(actx.destination);
+    }
+    return actx;
   }
-  if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+
+  /* danh sách giọng: giọng dẫn chuyện thu sẵn + giọng tiếng Việt có trong máy (bản thường và bản trầm) */
+  function fillVoices() {
+    const keep = vsel.value;
+    const sys = ('speechSynthesis' in window) ? speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang)) : [];
+    let html = '<option value="pack">🎙 Giọng dẫn chuyện (có sẵn)</option>';
+    sys.forEach((v, i) => {
+      const n = v.name.replace(/^Microsoft\s*/, '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
+      html += `<option value="sys:${i}:1:1">🗣 ${n}</option><option value="sys:${i}:0.8:0.95">🗣 ${n} – trầm</option>`;
+    });
+    html += '<option value="off">🔇 Tắt giọng</option>';
+    vsel.innerHTML = html;
+    if ([...vsel.options].some(o => o.value === keep)) vsel.value = keep;
+    vsel._sys = sys;
+  }
+  if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = fillVoices;
+  fillVoices();
 
   function note(msg, ms = 4000) { const n = $('notice'); n.textContent = msg; n.style.display = 'block'; clearTimeout(note._t); note._t = setTimeout(() => n.style.display = 'none', ms); }
   function fit() {
@@ -278,66 +309,103 @@ body.render .lib,body.render .player{display:none}
   }
   addEventListener('resize', fit);
 
-  function load() {
+  /* tải gói giọng thu sẵn: loi-dan/<id>/01.mp3 … ⇒ thời lượng cảnh theo giọng */
+  async function loadPack(b) {
+    ensureCtx();
+    const bufs = await Promise.all(b.scenes.map(async (_, i) => {
+      try {
+        const r = await fetch(`loi-dan/${b.id}/${String(i + 1).padStart(2, '0')}.mp3`);
+        if (!r.ok) return null;
+        return await actx.decodeAudioData(await r.arrayBuffer());
+      } catch (e) { return null; }
+    }));
+    return bufs.some(Boolean) ? bufs : null;
+  }
+
+  async function load() {
+    const my = ++loadId;
     stopAudio(); stopSpeech();
-    ({ film, FW, FH } = mount(frame, B, format));
+    packBufs = null;
+    if (voiceMode === 'pack') {
+      packBufs = await loadPack(B);
+      if (my !== loadId) return;
+      if (!packBufs) note('Chưa có giọng dẫn chuyện cho trận này – dùng phụ đề.', 4000);
+    }
+    const durs = packBufs ? packBufs.map(b => b ? b.duration + 1.0 : 0) : [];
+    ({ film, FW, FH } = mount(frame, B, format, durs));
     t = Math.min(t, film.total - .01); curScene = -1; film.seek(t); fit(); ui();
   }
-  function open(id) {
+  async function open(id) {
     B = BATTLES.find(x => x.id === id); if (!B) return;
     history.replaceState(null, '', '?tran=' + id);
     $('player').classList.add('on'); document.body.style.overflow = 'hidden';
-    t = 0; playing = false; load(); $('bigplay').style.display = 'flex';
+    t = 0; playing = false; $('bigplay').style.display = 'flex';
+    await load();
   }
   function close() {
     pause(); $('player').classList.remove('on'); document.body.style.overflow = ''; history.replaceState(null, '', location.pathname);
     if (document.fullscreenElement) document.exitFullscreen();
   }
 
-  /* lời đọc */
+  /* giọng của máy (đọc trực tiếp) */
   function stopSpeech() { if ('speechSynthesis' in window) speechSynthesis.cancel(); }
   function speakScene(i) {
     stopSpeech();
-    if (!voiceOn || !('speechSynthesis' in window)) return;
-    if (!viVoice) { pickVoice(); }
-    if (!viVoice) { note('Máy chưa có giọng đọc tiếng Việt. Vào Cài đặt › Ngôn ngữ › Chuyển văn bản thành giọng nói để tải giọng Việt.', 6000); return; }
-    const S = film.scenes[i]; const lt = t - S.start;
-    if (lt > S.d * .5) return; // tua vào giữa cảnh thì bỏ qua lời đọc
-    const u = new SpeechSynthesisUtterance(S.sc.say); u.voice = viVoice; u.lang = viVoice.lang; u.rate = 1.0;
+    if (voiceMode !== 'sys' || !sysVoice) return;
+    const S = film.scenes[i]; if (t - S.start > S.d * .5) return;
+    const u = new SpeechSynthesisUtterance(S.sc.say); u.voice = sysVoice; u.lang = sysVoice.lang; u.rate = sysRate; u.pitch = sysPitch;
     speechSynthesis.speak(u);
   }
-  /* nhạc */
-  function stopAudio() { if (mnode) { try { mnode.disconnect(); } catch (e) {} mnode = null; } }
+
+  /* âm thanh: nhạc + giọng thu sẵn, lên lịch theo đồng hồ AudioContext */
+  function stopAudio() {
+    if (mnode) { try { mnode.disconnect(); } catch (e) {} mnode = null; }
+    vsrcs.forEach(s => { try { s.stop(); s.disconnect(); } catch (e) {} }); vsrcs = [];
+  }
   function startAudio() {
-    if (!musicOn) return;
-    if (!actx) { actx = new (window.AudioContext || window.webkitAudioContext)(); mgain = actx.createGain(); mgain.gain.value = .8; mgain.connect(actx.destination); }
-    actx.resume(); stopAudio();
-    mnode = Studio && film.music(actx, mgain, t);
+    ensureCtx(); actx.resume(); stopAudio();
+    aBase = actx.currentTime; tBase = t;
+    if (musicOn) { mgain.gain.value = packBufs ? .45 : .8; mnode = film.music(actx, mgain, t); }
+    if (packBufs) film.scenes.forEach((S, i) => {
+      const b = packBufs[i]; if (!b) return;
+      const vs = S.start + .4; if (t >= vs + b.duration) return;
+      const src = actx.createBufferSource(); src.buffer = b; src.connect(vgain);
+      src.start(aBase + Math.max(0, vs - t), Math.max(0, t - vs)); vsrcs.push(src);
+    });
   }
 
   function play() {
-    if (t >= film.total - .05) { t = 0; curScene = -1; }
+    if (!film) return;
+    if (t >= film.total - .05) { t = 0; }
     playing = true; last = performance.now(); $('bigplay').style.display = 'none';
     curScene = -1; startAudio(); ui();
   }
   function pause() { playing = false; stopSpeech(); stopAudio(); ui(); }
   function ui() {
     $('bPlay').textContent = playing ? '❚❚' : '▶';
-    $('bVoice').classList.toggle('on', voiceOn); $('bMusic').classList.toggle('on', musicOn);
+    $('bMusic').classList.toggle('on', musicOn);
     $('bFmt').textContent = format === 'doc' ? '▭ Ngang' : '▯ Dọc';
     if (film) { seekEl.value = Math.round(t / film.total * 1000); $('time').textContent = fmtT(t) + ' / ' + fmtT(film.total); }
   }
+  function finished() {
+    t = film.total - .01; film.seek(t); pause(); $('bigplay').style.display = 'flex';
+    if (recorder) setTimeout(stopRecording, 600);
+    else if (document.body.classList.contains('recmode')) exitRec();
+  }
   function loop(now) {
     if (playing && film) {
-      const dt = Math.min(.1, (now - last) / 1000); last = now;
-      const i = film.scenes.findIndex(S => t < S.start + S.d);
-      const S = film.scenes[Math.max(0, i)];
-      const speaking = voiceOn && viVoice && speechSynthesis.speaking;
-      // nếu giọng đọc chưa xong thì giữ cảnh lại
-      if (!(speaking && t + dt > S.start + S.d - .32)) t += dt;
-      if (t >= film.total) { t = film.total - .01; film.seek(t); pause(); $('bigplay').style.display = 'flex'; if (document.body.classList.contains('recmode')) exitRec(); }
-      const idx = film.seek(t);
-      if (idx !== curScene) { curScene = idx; speakScene(idx); }
+      if (voiceMode === 'sys' && sysVoice) {
+        // giọng của máy: giữ cảnh lại nếu đọc chưa xong
+        const dt = Math.min(.1, (now - last) / 1000);
+        const i = film.scenes.findIndex(S => t < S.start + S.d), S = film.scenes[Math.max(0, i)];
+        if (!(speechSynthesis.speaking && t + dt > S.start + S.d - .32)) t += dt;
+      } else t = tBase + (actx.currentTime - aBase);
+      last = now;
+      if (t >= film.total) finished();
+      else {
+        const idx = film.seek(t);
+        if (idx !== curScene) { curScene = idx; speakScene(idx); }
+      }
       if (Math.round(now / 250) !== loop._u) { loop._u = Math.round(now / 250); ui(); }
     }
     requestAnimationFrame(loop);
@@ -348,9 +416,16 @@ body.render .lib,body.render .player{display:none}
   $('bigplay').onclick = play;
   $('bBack').onclick = close;
   seekEl.oninput = () => { t = seekEl.value / 1000 * film.total; film.seek(t); curScene = -1; stopSpeech(); if (playing) startAudio(); ui(); };
-  $('bVoice').onclick = () => { voiceOn = !voiceOn; if (!voiceOn) stopSpeech(); ui(); };
-  $('bMusic').onclick = () => { musicOn = !musicOn; musicOn && playing ? startAudio() : stopAudio(); ui(); };
-  $('bFmt').onclick = () => { format = format === 'doc' ? 'ngang' : 'doc'; const p = playing; pause(); load(); if (p) play(); };
+  vsel.onchange = async () => {
+    const v = vsel.value, was = playing; pause();
+    if (v.startsWith('sys:')) { const [, i, p, r] = v.split(':'); sysVoice = vsel._sys[+i]; sysPitch = +p; sysRate = +r; voiceMode = 'sys'; }
+    else voiceMode = v;
+    try { localStorage.setItem('ls-voice', v); } catch (e) {}
+    t = 0; await load(); if (was) play();
+  };
+  try { const v = localStorage.getItem('ls-voice'); if (v && [...vsel.options].some(o => o.value === v)) { vsel.value = v; if (v.startsWith('sys:')) { const [, i, p, r] = v.split(':'); sysVoice = vsel._sys[+i]; sysPitch = +p; sysRate = +r; voiceMode = 'sys'; } else voiceMode = v; } } catch (e) {}
+  $('bMusic').onclick = () => { musicOn = !musicOn; if (playing) startAudio(); ui(); };
+  $('bFmt').onclick = async () => { format = format === 'doc' ? 'ngang' : 'doc'; const p = playing; pause(); await load(); if (p) play(); };
   function exitRec() { $('player').classList.remove('rec'); document.body.classList.remove('recmode'); fit(); }
   $('bRec').onclick = async () => {
     $('player').classList.add('rec'); document.body.classList.add('recmode');
@@ -359,8 +434,62 @@ body.render .lib,body.render .player{display:none}
     note('Bật trình ghi màn hình rồi chạm ▶ để bắt đầu. Chạm màn hình để hiện lại nút.', 3500);
     t = 0; curScene = -1; film.seek(0); pause(); $('bigplay').style.display = 'flex';
   };
-  view.addEventListener('click', e => { if ($('player').classList.contains('rec') && !playing && e.target.closest('#bigplay') == null) exitRec(); else if ($('player').classList.contains('rec') && playing) { pause(); exitRec(); } });
+  view.addEventListener('click', e => { if (recorder) return; if ($('player').classList.contains('rec') && !playing && e.target.closest('#bigplay') == null) exitRec(); else if ($('player').classList.contains('rec') && playing) { pause(); exitRec(); } });
   document.addEventListener('fullscreenchange', () => setTimeout(fit, 200));
+
+  /* ---------------- XUẤT VIDEO (máy tính: Chrome / Edge) ---------------- */
+  const canExport = !!(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia && window.MediaRecorder) && !/Android|iPhone|iPad/i.test(navigator.userAgent);
+  if (!canExport) $('bExport').style.display = 'none';
+  let recChunks = [], recStream = null, recMime = '';
+  $('bExport').onclick = async () => {
+    if (recorder) { stopRecording(); return; }
+    if (voiceMode === 'sys') note('Lưu ý: giọng của máy có thể không được ghi vào video. Nên chọn "Giọng dẫn chuyện (có sẵn)".', 6000);
+    pause(); t = 0; curScene = -1; film.seek(0);
+    try {
+      recStream = await navigator.mediaDevices.getDisplayMedia({
+        video: { frameRate: 30, width: { ideal: 3840 }, height: { ideal: 2160 } },
+        audio: { suppressLocalAudioPlayback: false, echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+        preferCurrentTab: true, selfBrowserSurface: 'include', systemAudio: 'include'
+      });
+    } catch (e) { note(e.name === 'NotAllowedError' ? 'Đã hủy xuất video.' : 'Không ghi được video: ' + e.message, 7000); return; }
+    const vt = recStream.getVideoTracks()[0];
+    $('player').classList.add('rec'); fit();
+    await new Promise(r => setTimeout(r, 400));
+    try { if (window.CropTarget && vt.cropTo) await vt.cropTo(await CropTarget.fromElement(frame)); } catch (e) {}
+    if (!recStream.getAudioTracks().length) note('Không thu được âm thanh: khi chọn tab, hãy bật "Chia sẻ âm thanh của thẻ".', 6000);
+    recMime = ['video/mp4;codecs=avc1.640028,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm'].find(m => MediaRecorder.isTypeSupported(m)) || '';
+    recChunks = [];
+    recorder = new MediaRecorder(recStream, { mimeType: recMime, videoBitsPerSecond: 10e6, audioBitsPerSecond: 160e3 });
+    recorder.ondataavailable = e => e.data.size && recChunks.push(e.data);
+    recorder.onstop = saveRecording;
+    vt.onended = () => recorder && stopRecording();
+    $('bExport').textContent = '■ Dừng xuất';
+    recorder.start(1000);
+    await new Promise(r => setTimeout(r, 500));
+    play();
+  };
+  function stopRecording() {
+    if (!recorder) return;
+    if (recorder.state !== 'inactive') recorder.stop();
+    if (playing) pause();
+  }
+  function saveRecording() {
+    recStream && recStream.getTracks().forEach(tr => tr.stop());
+    const ext = /mp4/.test(recMime) ? 'mp4' : 'webm';
+    const blob = new Blob(recChunks, { type: recMime || 'video/webm' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = `${B.id}${format === 'doc' ? '-doc' : ''}.${ext}`; document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+    recorder = null; recStream = null; $('bExport').textContent = '⬇ Xuất video';
+    exitRec(); note(`Đã lưu video ${a.download} vào thư mục Tải xuống.`, 6000);
+  }
+
+  /* ---------------- CÀI ĐẶT ỨNG DỤNG (PWA) ---------------- */
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+  let installEvt = null;
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; $('bInstall').style.display = 'inline-flex'; });
+  $('bInstall').onclick = async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; $('bInstall').style.display = 'none'; };
+  addEventListener('appinstalled', () => { $('bInstall').style.display = 'none'; });
 
   const start = Q.get('tran'); if (start) open(start);
 })();

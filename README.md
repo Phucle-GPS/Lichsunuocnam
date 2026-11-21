@@ -7,9 +7,15 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 **sơ đồ diễn biến** (thủy triều, bãi cọc, phục binh, mũi tên tiến công; ta đỏ – địch xanh như sách giáo khoa) →
 **trích dẫn** → **ý nghĩa lịch sử** → kết. Có phụ đề, nhạc trống trận tự tổng hợp và hạt phim.
 
+## 0. Dùng như ứng dụng trên máy tính
+1. Mở trang bằng **Chrome** hoặc **Edge** trên máy tính.
+2. Bấm **⬇ Cài ứng dụng vào máy** (hoặc biểu tượng ⊕ cuối thanh địa chỉ) → app có biểu tượng trên màn hình, mở thành cửa sổ riêng, chạy cả khi không có mạng.
+3. Chọn trận → chọn giọng (mặc định: *Giọng dẫn chuyện có sẵn*) → bấm **⬇ Xuất video** → chọn **thẻ này**, bật **Chia sẻ âm thanh của thẻ** → video tự ghi đến hết và lưu vào thư mục *Tải xuống* (.mp4 hoặc .webm).
+   Phóng to cửa sổ (hoặc màn hình 2K/4K) để video nét hơn.
+
 ## 1. Làm video ngay trên điện thoại
 1. Mở trang, chọn trận.
-2. Bật **Giọng đọc** (dùng giọng tiếng Việt có sẵn của máy; nếu chưa có: Cài đặt › Ngôn ngữ › Chuyển văn bản thành giọng nói › tải tiếng Việt).
+2. Chọn giọng: **Giọng dẫn chuyện (có sẵn)** – file thu sẵn trong `loi-dan/`, hoặc giọng tiếng Việt của máy (bản thường / bản trầm).
 3. Chọn **Dọc** nếu đăng TikTok / Reels / Shorts.
 4. Bấm **Chế độ quay** → bật trình ghi màn hình (chọn ghi *âm thanh nội bộ*) → chạm ▶.
 
