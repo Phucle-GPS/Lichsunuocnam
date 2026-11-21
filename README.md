@@ -21,6 +21,8 @@ node tools/render-video.mjs bach-dang-1288          # một trận, khung ngang 
 node tools/render-video.mjs all --doc               # tất cả, khung dọc 1080×1920
 node tools/render-video.mjs dong-da-1789 --preview  # chỉ xuất ảnh duyệt nhanh
 node tools/render-video.mjs bach-dang-938 --voice loi-dan   # ghép giọng thu sẵn
+node tools/tts-google.mjs all                       # tự tạo giọng đọc tiếng Việt (Google) vào loi-dan/
+node tools/render-video.mjs all --voice loi-dan     # xuất video có lồng tiếng
 ```
 Video ra thư mục `video/`. Với `--voice loi-dan`, đặt file thu âm từng cảnh vào
 `loi-dan/<id-trận>/01.mp3, 02.mp3…` (thu bằng điện thoại hoặc AI giọng đọc); cảnh tự kéo dài theo giọng, nhạc tự hạ nhỏ.
