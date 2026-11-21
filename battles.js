@@ -174,7 +174,7 @@
           lines: [{ d: 'M960,0 C930,200 1000,350 960,500 C920,650 990,740 960,840', side: 'road' }],
           forts: [{ x: 960, y: 820, side: 'dich', label: 'Thành Xương Giang', fall: .88 }],
           labels: [{ x: 960, y: 40, text: '▲ LẠNG SƠN', style: 'warn' }, { x: 1140, y: 360, text: 'ẢI CHI LĂNG', style: 'warn' }, { x: 1180, y: 640, text: 'Núi Mã Yên', style: '' },
-            { x: 1100, y: 600, text: '✕ Liễu Thăng tử trận', style: 'warn', at: .56 }],
+            { x: 690, y: 610, text: '✕ Liễu Thăng tử trận', style: 'warn', at: .56 }],
           units: [
             { kind: 'troop', side: 'ta', n: 3, spread: 50, label: 'Trần Lựu giả thua', path: [[.04, 960, 200], [.36, 960, 600]], until: .45, lx: 170, ly: 0 },
             { kind: 'horse', side: 'dich', n: 9, spread: 110, label: 'Liễu Thăng', path: [[.04, 960, 30], [.36, 960, 430], [.42, 960, 530]], sink: .55, lx: 150, ly: 0 },
@@ -279,7 +279,7 @@
           labels: [{ x: 1700, y: 860, text: 'SÔNG NHỊ HÀ', style: 'river' }, { x: 1560, y: 200, text: 'Cầu phao', style: 'warn' }, { x: 1300, y: 700, text: 'Mộc ván bọc rơm ướt', style: 'warn', at: .3 },
             { x: 600, y: 520, text: '✕ Sầm Nghi Đống tự tử', style: 'warn', at: .62 }],
           units: [
-            { kind: 'troop', side: 'ta', n: 6, spread: 110, label: 'Quang Trung', path: [[.02, 960, 1060], [.16, 960, 930], [.32, 960, 800], [.48, 960, 740], [.8, 960, 270]], ly: 75 },
+            { kind: 'troop', side: 'ta', n: 6, spread: 110, label: 'Quang Trung', path: [[.02, 960, 1060], [.16, 960, 930], [.32, 960, 800], [.48, 960, 740], [.8, 960, 270]], lx: -175, ly: 8 },
             { kind: 'troop', side: 'ta', n: 4, spread: 80, label: 'Đô đốc Long', path: [[.3, 240, 1000], [.56, 560, 520], [.78, 820, 250]], at: .3, lx: -160, ly: 0 },
             { kind: 'troop', side: 'ta', n: 3, spread: 60, label: 'Chặn đường rút', path: [[.25, 1300, 1060], [.6, 1780, 380]], at: .25, lx: 0, ly: -40 },
             { kind: 'troop', side: 'dich', n: 5, spread: 80, path: [[0, 960, 640]], sink: .5 },

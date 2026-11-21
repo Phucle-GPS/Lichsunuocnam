@@ -7,6 +7,7 @@
 
    --doc       khung dọc 1080×1920 (TikTok / Reels / Shorts); mặc định ngang 1920×1080
    --voice D   thư mục chứa file thu âm lời dẫn cho từng cảnh: D/<id>/01.mp3, 02.mp3 ...
+               (mặc định: thư mục loi-dan/ trong kho; --no-voice để tắt giọng)
                (thu bằng điện thoại hoặc AI giọng đọc). Cảnh sẽ tự kéo dài theo độ dài file.
    --preview   chỉ xuất ảnh PNG giữa mỗi cảnh để duyệt nhanh
    Ví dụ:  node tools/render-video.mjs bach-dang-1288
@@ -27,7 +28,7 @@ const which = args.find(a => !a.startsWith('--')) || 'all';
 const format = args.includes('--doc') ? 'doc' : 'ngang';
 const fps = Number(flag('--fps', 30));
 const outDir = path.resolve(flag('--out', path.join(ROOT, 'video')));
-const voiceDir = flag('--voice', null);
+const voiceDir = args.includes('--no-voice') ? null : flag('--voice', fs.existsSync(path.join(ROOT, 'loi-dan')) ? path.join(ROOT, 'loi-dan') : null);
 const preview = args.includes('--preview');
 fs.mkdirSync(outDir, { recursive: true });
 

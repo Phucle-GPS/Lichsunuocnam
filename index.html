@@ -293,9 +293,9 @@ button{cursor:pointer}
 .frame.nograin .grain,.frame.nograin .vign{display:none}
 
 /* ---------- xưởng phim: biểu mẫu, hộp thoại ---------- */
-.inp,.ta{width:100%;border-radius:7px;border:1px solid var(--line2);background:var(--panel2);padding:7px 9px;font-size:13px}
-.ta{min-height:96px;resize:vertical;line-height:1.5}
-.inp:focus,.ta:focus,.sel:focus{outline:none;border-color:var(--gold)}
+.inp,.txa{width:100%;border-radius:7px;border:1px solid var(--line2);background:var(--panel2);padding:7px 9px;font-size:13px}
+.txa{min-height:96px;resize:vertical;line-height:1.5}
+.inp:focus,.txa:focus,.sel:focus{outline:none;border-color:var(--gold)}
 .btnrow{display:flex;gap:6px;flex-wrap:wrap}
 .btnrow .btn{flex:1;justify-content:center;height:32px;padding:0 8px}
 .btn.danger{color:#ff8a7a;border-color:#5a2a24}
@@ -494,7 +494,7 @@ body.render .app{display:none}
       <div class="field"><label>Kịch bản</label>
         <div class="tabs"><button class="on" data-t="file">Tải file</button><button data-t="paste">Dán chữ</button></div>
         <div id="nmFileTab"><div class="drop" id="nmDrop"><b>Kéo thả file vào đây</b> hoặc bấm để chọn<br><small>Word (.docx) · PDF · Phụ đề (.srt) · Văn bản (.txt, .md)</small><input type="file" id="nmFile" accept=".docx,.pdf,.srt,.vtt,.txt,.md" hidden></div></div>
-        <div id="nmPasteTab" style="display:none"><textarea class="ta" id="nmText" style="min-height:180px" placeholder="Dán kịch bản vào đây.&#10;&#10;Mẹo: dòng VIẾT HOA hoặc bắt đầu bằng &quot;Cảnh 1&quot;, &quot;Phần 2&quot;, &quot;#&quot; sẽ thành tiêu đề cảnh. Dòng bắt đầu bằng &quot;-&quot; thành danh sách ý chính. Đoạn trong ngoặc kép thành trích dẫn."></textarea></div>
+        <div id="nmPasteTab" style="display:none"><textarea class="txa" id="nmText" style="min-height:180px" placeholder="Dán kịch bản vào đây.&#10;&#10;Mẹo: dòng VIẾT HOA hoặc bắt đầu bằng &quot;Cảnh 1&quot;, &quot;Phần 2&quot;, &quot;#&quot; sẽ thành tiêu đề cảnh. Dòng bắt đầu bằng &quot;-&quot; thành danh sách ý chính. Đoạn trong ngoặc kép thành trích dẫn."></textarea></div>
         <div class="summary" id="nmSum"></div>
       </div>
       <div class="hint">Hình nền, chữ, chuyển cảnh và nhạc đều do app tự vẽ, tự tạo nên không vướng bản quyền. Riêng <b>nội dung kịch bản, ảnh, video và giọng bạn đưa vào</b> phải là của bạn hoặc được phép sử dụng.</div>
@@ -786,11 +786,11 @@ body.render .app{display:none}
     const typeSel = `<select class="sel" id="sType"><option value="card"${sc.type === 'card' ? ' selected' : ''}>Thẻ nội dung</option><option value="quote"${sc.type === 'quote' ? ' selected' : ''}>Trích dẫn</option><option value="points"${sc.type === 'points' ? ' selected' : ''}>Ý chính (danh sách)</option></select>`;
     let fields = '';
     if (sc.type === 'card') fields = `<div class="field"><label>Tiêu đề trên hình (có thể để trống)</label><input class="inp" id="sHead" value="${esc(sc.heading)}"></div>`;
-    if (sc.type === 'quote') fields = `<div class="field"><label>Câu trích dẫn</label><textarea class="ta" id="sQuote" style="min-height:70px">${esc(sc.quote)}</textarea></div><div class="field"><label>Tác giả / nguồn</label><input class="inp" id="sBy" value="${esc(sc.by)}"></div>`;
-    if (sc.type === 'points') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các ý (mỗi dòng một ý, tối đa 5)</label><textarea class="ta" id="sItems" style="min-height:90px">${esc((sc.items || []).join('\n'))}</textarea></div>`;
+    if (sc.type === 'quote') fields = `<div class="field"><label>Câu trích dẫn</label><textarea class="txa" id="sQuote" style="min-height:70px">${esc(sc.quote)}</textarea></div><div class="field"><label>Tác giả / nguồn</label><input class="inp" id="sBy" value="${esc(sc.by)}"></div>`;
+    if (sc.type === 'points') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các ý (mỗi dòng một ý, tối đa 5)</label><textarea class="txa" id="sItems" style="min-height:90px">${esc((sc.items || []).join('\n'))}</textarea></div>`;
     el.innerHTML = `
       <div class="field"><label>Loại cảnh</label>${typeSel}</div>${fields}
-      <div class="field"><label>Lời dẫn (phụ đề + giọng đọc)</label><textarea class="ta" id="sSay">${esc(sc.say)}</textarea></div>
+      <div class="field"><label>Lời dẫn (phụ đề + giọng đọc)</label><textarea class="txa" id="sSay">${esc(sc.say)}</textarea></div>
       <div class="field"><label>Chuyển vào cảnh này bằng</label><select class="sel" id="sTr">${[['', 'Theo cài đặt chung'], ['zoom', 'Phóng xuyên cảnh'], ['flash', 'Chớp sáng'], ['whip', 'Lia máy'], ['wipe', 'Quét lộ cảnh'], ['slide', 'Đẩy trượt'], ['iris', 'Mở tròn'], ['glitch', 'Nhiễu sóng'], ['fade', 'Hòa mờ'], ['black', 'Mờ qua đen'], ['cut', 'Cắt thẳng']].map(([v, l]) => `<option value="${v}"${(sc.tr || '') === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
       ${sc.type === 'card' ? `<div class="field"><label>Ảnh / video minh họa</label><div class="mfile">${sc.mediaId ? `<span>${sc.mediaKind === 'video' ? '🎬' : '🖼'}</span><b>${esc(sc.mediaName || 'đã thêm')}</b>` : 'Chưa có – dùng hình nền tự vẽ'}</div><div class="btnrow"><button class="btn" id="sMedia">${sc.mediaId ? 'Đổi' : '＋ Thêm'} ảnh/video</button>${sc.mediaId ? '<button class="btn danger" id="sMediaX">Gỡ</button>' : ''}</div></div>` : ''}
       <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
