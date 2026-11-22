@@ -465,6 +465,19 @@ button{cursor:pointer}
 .st-hoathinh .card-shade.has-media{background:linear-gradient(90deg,rgba(255,244,214,.97) 30%,rgba(255,244,214,.6) 55%,transparent 80%)}
 .st-hoathinh .card-shade.has-media+.card-box .card-head{color:#fff}
 
+/* ---------- thẻ giới thiệu góc dưới & người dẫn ở góc ---------- */
+.lt3{position:absolute;left:90px;bottom:150px;max-width:900px;background:linear-gradient(90deg,rgba(12,9,6,.92),rgba(12,9,6,.75));border-left:10px solid #c8352b;padding:22px 34px 24px;border-radius:0 18px 18px 0;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.lt3-label{font-family:Oswald;font-size:26px;letter-spacing:6px;color:#e2c27a;text-transform:uppercase}
+.lt3-title{font-family:'Playfair Display';font-weight:700;font-size:58px;line-height:1.1;color:#fff;margin-top:4px}
+.lt3-cols{display:flex;gap:46px;margin-top:14px}
+.lt3-cols small{display:block;font-size:20px;color:#bfae8a;letter-spacing:1px}
+.lt3-cols b{font-size:30px;color:#f4ead3;font-weight:700}
+.pip{position:absolute;left:40px;bottom:40px;width:250px;height:250px;opacity:0;transform-origin:0 100%;z-index:6;pointer-events:none}
+.pip svg{width:100%;height:100%;filter:drop-shadow(0 10px 30px rgba(0,0,0,.6))}
+.frame.doc .pip{display:none}
+.has-pip .subs{left:330px}
+.sc-stick .lt3{bottom:auto;top:60px}
+.fx-cur{margin-left:4px;font-weight:400;opacity:.9}
 /* ---------- thẻ thông tin (chương, cảnh báo, bước, tự kiểm tra, so sánh, chữ to) ---------- */
 .sc-info{background:radial-gradient(ellipse at 50% 30%,#22303f,#0d1218 75%)}
 .info-shade{background:rgba(6,8,12,.62)}
@@ -589,6 +602,7 @@ body.render .app{display:none}
       <h3>Hiển thị</h3>
       <div class="row"><span>Phụ đề</span><label class="sw"><input type="checkbox" id="swSubs" checked><i></i></label></div>
       <div class="row"><span>Hạt phim &amp; viền tối</span><label class="sw"><input type="checkbox" id="swGrain" checked><i></i></label></div>
+      <div class="row"><span title="Người que khăn đóng kể chuyện ở góc trái dưới trong các cảnh bản đồ, sơ đồ, số liệu">🕺 Người dẫn người que ở góc</span><label class="sw"><input type="checkbox" id="swPip"><i></i></label></div>
       <div class="field" style="margin-top:10px"><label>Chuyển cảnh</label><select class="sel" id="trSel">
         <option value="auto">✨ Tự động theo phong cách</option><option value="zoom">Phóng xuyên cảnh (zoom blur)</option><option value="flash">Chớp sáng (light leak)</option>
         <option value="whip">Lia máy (whip pan)</option><option value="wipe">Quét lộ cảnh (wipe)</option><option value="slide">Đẩy trượt (push)</option>
@@ -596,7 +610,7 @@ body.render .app{display:none}
         <option value="black">Mờ qua đen</option><option value="cut">Cắt thẳng (không hiệu ứng)</option></select></div>
       <div class="field"><label>Hiệu ứng chữ (GSAP)</label><select class="sel" id="fxSel">
         <option value="auto">✨ Tự động theo phong cách</option><option value="tach">Tách chữ bay vào 3D</option><option value="giaima">Giải mã chữ (scramble)</option>
-        <option value="nay">Bật nảy từng từ</option><option value="mo">Mờ nét hiện dần</option><option value="quet">Quét lộ chữ</option><option value="none">Không hiệu ứng</option></select></div>
+        <option value="nay">Bật nảy từng từ</option><option value="mo">Mờ nét hiện dần</option><option value="quet">Quét lộ chữ</option><option value="go">Gõ chữ từng ký tự</option><option value="none">Không hiệu ứng</option></select></div>
     </div>
     <div class="sec">
       <h3>Cảnh hiện tại <small id="curTag"></small></h3>
@@ -775,14 +789,14 @@ body.render .app{display:none}
   const fmtT = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
 
   /* Dựng khung (ngang 1920×1080 hoặc dọc 1080×1920) và nạp phim */
-  function mount(frame, battle, format, durs, tr, textFx) {
+  function mount(frame, battle, format, durs, tr, textFx, pip) {
     frame.innerHTML = '';
     frame.className = 'frame' + (format === 'doc' ? ' doc' : '');
     const FW = format === 'doc' ? 1080 : 1920, FH = format === 'doc' ? 1920 : 1080;
     frame.style.width = FW + 'px'; frame.style.height = FH + 'px';
     const stage = document.createElement('div'); stage.className = 'stage';
     frame.appendChild(stage);
-    const film = Studio.build(battle, stage, { durs, tr, textFx });
+    const film = Studio.build(battle, stage, { durs, tr, textFx, pip }); if (pip) stage.classList.add('has-pip');
     if (format === 'doc') {
       const k = 1080 / 1920;
       stage.style.transform = `scale(${k})`; stage.style.transformOrigin = '0 0'; stage.style.top = '640px';
@@ -802,7 +816,7 @@ body.render .app{display:none}
     const b = BATTLES.find(x => x.id === Q.get('render'));
     const frame = document.createElement('div'); document.body.appendChild(frame);
     const durs = (Q.get('durs') || '').split(',').filter(Boolean).map(Number);
-    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs, Q.get('tr') || 'auto', Q.get('fx') || 'auto');
+    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs, Q.get('tr') || 'auto', Q.get('fx') || 'auto', Q.get('pip') === '1');
     frame.style.position = 'absolute';
     document.fonts.ready.then(() => {
       film.seek(0);
@@ -845,7 +859,7 @@ body.render .app{display:none}
   function applyVol() {
     if (!actx) return;
     vgain.gain.value = volV / 100;
-    mgain.gain.value = (packBufs ? .45 : .8) * volM / 100;
+    mgain.gain.value = (packBufs ? .75 : .8) * volM / 100;
   }
 
   /* ---------- danh sách giọng ---------- */
@@ -926,6 +940,18 @@ body.render .app{display:none}
     });
     return d;
   }
+  const musicBufs = {};
+  async function fileMusic(sg) {
+    if (!(sg.id in musicBufs)) { musicBufs[sg.id] = null; try { const b = await Xuong.store.getAsset(sg.assetId); if (b) { ensureCtx(); musicBufs[sg.id] = await actx.decodeAudioData(await b.arrayBuffer()); } } catch (e) { note('Không đọc được file nhạc: ' + e.message); } }
+    return musicBufs[sg.id];
+  }
+  /* phát nhạc từ file: lặp theo độ dài phim, mờ vào/ra */
+  function loopMusic(ctx, dest, buf, total, off) {
+    const g = ctx.createGain(); g.connect(dest); const t0 = ctx.currentTime, at = x => Math.max(t0, t0 + x - off);
+    g.gain.setValueAtTime(off < 1.5 ? 0 : .9, t0); if (off < 1.5) g.gain.linearRampToValueAtTime(.9, at(1.5)); g.gain.setValueAtTime(.9, at(Math.max(off, total - 3))); g.gain.linearRampToValueAtTime(0, at(total));
+    const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true; src.connect(g); src.start(t0, off % buf.duration); src.stop(at(total) + .1);
+    return g;
+  }
   async function reload(keepT) {
     const my = ++loadId; const was = playing;
     pause(); packBufs = null;
@@ -935,8 +961,13 @@ body.render .app{display:none}
     } else B = P;
     if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này đang chờ giọng dẫn chuyện Manus – tạm thời chỉ có phụ đề.', 6000); }
     const durs = groupDurs(B, packBufs);
-    ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value, $('fxSel').value));
-    if (P.custom && P.musicId && Nhac.lib.get(P.musicId)) { const song = Nhac.lib.get(P.musicId), tot = film.total; film.music = (ctx, dest, off) => Nhac.schedule(ctx, dest, song, tot, off); film.songName = song.name; }
+    ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value, $('fxSel').value, $('swPip').checked));
+    { const sg = Nhac.lib.get(musicIdOf()), tot = film.total;
+      if (sg && sg.style === 'file') { const buf = await fileMusic(sg); if (my !== loadId) return; if (buf) { film.music = (ctx, dest, off) => loopMusic(ctx, dest, buf, tot, off); film.songName = sg.name; } }
+      else if (sg && Nhac.STYLES[sg.style]) { film.music = (ctx, dest, off) => Nhac.schedule(ctx, dest, sg, tot, off); film.songName = sg.name; } }
+    // nhạc tự hạ khi có giọng đọc (ducking), nâng lại ở khoảng nghỉ – dùng cả khi xem và khi xuất video
+    { const spans = packBufs ? film.scenes.map((S, i) => packBufs[i] ? [S.start + .4, S.start + .4 + packBufs[i].duration] : null).filter(Boolean) : [];
+      if (spans.length) { const raw = film.music; film.music = (ctx, dest, off) => { const g = ctx.createGain(); g.connect(dest); const t0 = ctx.currentTime, at = x => Math.max(t0, t0 + x - off); g.gain.setValueAtTime(spans.some(([a, b]) => off >= a && off < b) ? .4 : 1, t0); spans.forEach(([a, b]) => { if (b <= off) return; if (a > off) g.gain.setTargetAtTime(.4, at(a - .1), .07); g.gain.setTargetAtTime(1, at(b + .15), .3); }); raw(ctx, g, off); return g; }; } }
     frame.classList.toggle('nosubs', !$('swSubs').checked); frame.classList.toggle('nograin', !$('swGrain').checked);
     view.classList.toggle('doc', format === 'doc');
     t = keepT ? Math.min(t, film.total - .01) : 0; curScene = -1;
@@ -987,11 +1018,12 @@ body.render .app{display:none}
     if (!P.custom) {
       el.innerHTML = `<dl class="kv"><dt>Trận</dt><dd>${P.name}</dd><dt>Chỉ huy</dt><dd>${P.who}</dd><dt>Đối phương</dt><dd>${P.vs}</dd><dt>Thời lượng</dt><dd>${fmtT(film.total)}</dd><dt>Khung hình</dt><dd>${FW}×${FH}</dd></dl>
         ${P.id === 'bach-dang-1288' ? '<a class="btn primary wide" href="phim3d.html" style="margin-top:10px;text-decoration:none">🎬 Xem phiên bản PHIM 3D</a>' : ''}
+        <button class="btn primary wide" id="pStick" style="margin-top:8px">🕺 Dựng phim hoạt hình người que từ trận này</button>
         <button class="btn wide" id="pClone" style="margin-top:8px">📋 Dùng mẫu này làm dự án của bạn</button>
         <button class="btn ghost wide" id="pPack" style="margin-top:8px">✨ Tải bộ prompt AI cả phim (.txt)</button>
         <button class="btn ghost wide" id="pYT" style="margin-top:8px">▶ Chương &amp; mô tả YouTube</button>
         <div class="hint">Đây là dự án mẫu (chỉ xem). Bấm <b>Dùng mẫu này làm dự án của bạn</b> để thay hình bằng clip AI (Veo/Flow) mà vẫn giữ giọng đọc, phụ đề, nhạc.</div>`;
-      $('pClone').onclick = cloneTemplate; $('pPack').onclick = downloadPack; $('pYT').onclick = openYT;
+      $('pClone').onclick = cloneTemplate; $('pStick').onclick = cloneStick; $('pPack').onclick = downloadPack; $('pYT').onclick = openYT;
       return;
     }
     el.innerHTML = `
@@ -1065,6 +1097,35 @@ body.render .app{display:none}
     await open(p.id);
     note('Đã tạo bản sao. Bấm từng cảnh → ✨ Prompt AI để lấy prompt, rồi Thêm ảnh/video để gắn clip AI.', 7000);
   }
+  /* PHIM NGƯỜI QUE từ trận mẫu: giữ giọng Manus của từng cảnh; mỗi cảnh thành 1 khối gồm cảnh gốc
+     (bản đồ, sơ đồ, lực lượng…) xen cảnh người que diễn đúng hành động trong lời dẫn. */
+  async function cloneStick() {
+    const T = P; note('Đang dựng phim người que và chép giọng đọc…', 3000);
+    // [loại, tỉ trọng, hành động mặc định, '!' = luôn dùng hành động này]
+    const PLAN = { title: [['orig', 6], ['stick', 5, 'hanhquan', '!']], hero: [['stick', 6, 'phatco', '!'], ['stick', 5]], map: [['orig', 6], ['stick', 5]], forces: [['orig', 5], ['stick', 5, 'hanhquan', '!']],
+      diagram: [['stick', 4, 'cheo'], ['orig', 7], ['stick', 4, 'danh', '!']], timeline: [['orig', 6], ['stick', 4]], quote: [['stick', 4, 'phatco'], ['orig', 6]], points: [['orig', 7], ['stick', 3, 'vui', '!']], end: [['orig', 1]] };
+    const scenes = [];
+    T.scenes.forEach((sc, i) => {
+      const plan = PLAN[sc.type] || [['orig', 1]], parts = Xuong.splitByWeights(sc.say, plan.map(x => x[1])), blk = 'K' + (i + 1);
+      plan.forEach(([kind, w, act, force], k) => {
+        const say = parts[k] || '';
+        const o = kind === 'orig' ? Object.assign(JSON.parse(JSON.stringify(sc)), { uid: Xuong.uid(), srcIdx: i }) : { uid: Xuong.uid(), type: 'stick', heading: k === 0 && sc.type === 'hero' ? sc.name : '', kicker: k === 0 && sc.type === 'hero' ? sc.kicker || '' : '' };
+        if (kind === 'stick') { const g = Xuong.guessAction(say); o.action = force ? act : g !== 'noi' ? g : act || (i % 2 ? 'hanhquan' : 'noi'); }
+        if (kind === 'stick' && k === 0 && sc.type === 'hero') { o.heading = ''; o.kicker = ''; o.lower = { title: sc.name, label: sc.kicker || '', cols: [['Năm sinh – mất', sc.alt || ''], ['Vai trò', (sc.role || '').split(',')[0]]] }; }
+        Object.assign(o, { say, w, blk, code: blk }); if (k === 0) o.blkFirst = true;
+        scenes.push(o);
+      });
+    });
+    const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, name: T.name + ' (người que)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes };
+    for (let i = 0; i < T.scenes.length; i++) {
+      const sc = scenes.find(x => x.blk === 'K' + (i + 1) && x.blkFirst);
+      try { const r = await fetch(`loi-dan/${T.id}/${String(i + 1).padStart(2, '0')}.mp3`); if (r.ok) { sc.voiceId = await Xuong.store.putAsset(await r.blob()); sc.voiceName = `${T.id}/${String(i + 1).padStart(2, '0')}.mp3`; } } catch (e) {}
+    }
+    await Xuong.store.save(p); mine.unshift(p); buildProjects();
+    vsel.value = 'pack'; store.set('voice', 'pack'); readVoice();
+    await open(p.id);
+    note(`Đã dựng "${p.name}": ${scenes.filter(x => x.type === 'stick').length} cảnh người que xen bản đồ, sơ đồ trận. Bấm từng cảnh để đổi hành động.`, 7000);
+  }
   function tplScene(sc) { const T = P.from && BATTLES.find(x => x.id === P.from); return T && sc.srcIdx != null && T.scenes[sc.srcIdx] ? T.scenes[sc.srcIdx] : sc; }
   function promptPanel(sc, i) {
     sc = tplScene(sc); const src = eraSource(), list = AIPrompt.forScene(src, sc, i);
@@ -1099,7 +1160,7 @@ body.render .app{display:none}
       return;
     }
     const sc = P.scenes[ci];
-    const typeSel = `<select class="sel" id="sType"><option value="card"${sc.type === 'card' ? ' selected' : ''}>Thẻ nội dung</option><option value="quote"${sc.type === 'quote' ? ' selected' : ''}>Trích dẫn</option><option value="points"${sc.type === 'points' ? ' selected' : ''}>Ý chính (danh sách)</option><option value="stat"${sc.type === 'stat' ? ' selected' : ''}>Số liệu (số chạy)</option><option value="timeline"${sc.type === 'timeline' ? ' selected' : ''}>Dòng thời gian</option><option value="stick"${sc.type === 'stick' ? ' selected' : ''}>Người que hành động</option>${[['chapter', 'Mở chương'], ['warning', 'Cảnh báo'], ['steps', 'Chuỗi bước (nguyên nhân → hệ quả)'], ['checklist', 'Danh sách tự kiểm tra'], ['vs', 'So sánh hai bên'], ['bigword', 'Chữ / con số thật to']].map(([k, v]) => `<option value="${k}"${sc.type === k ? ' selected' : ''}>${v}</option>`).join('')}</select>`;
+    const typeSel = `<select class="sel" id="sType">${['card', 'quote', 'points', 'stat', 'timeline', 'stick', 'chapter', 'warning', 'steps', 'checklist', 'vs', 'bigword'].includes(sc.type) ? '' : `<option value="${sc.type}" selected>${tname(sc.type)} (giữ từ trận mẫu)</option>`}<option value="card"${sc.type === 'card' ? ' selected' : ''}>Thẻ nội dung</option><option value="quote"${sc.type === 'quote' ? ' selected' : ''}>Trích dẫn</option><option value="points"${sc.type === 'points' ? ' selected' : ''}>Ý chính (danh sách)</option><option value="stat"${sc.type === 'stat' ? ' selected' : ''}>Số liệu (số chạy)</option><option value="timeline"${sc.type === 'timeline' ? ' selected' : ''}>Dòng thời gian</option><option value="stick"${sc.type === 'stick' ? ' selected' : ''}>Người que hành động</option>${[['chapter', 'Mở chương'], ['warning', 'Cảnh báo'], ['steps', 'Chuỗi bước (nguyên nhân → hệ quả)'], ['checklist', 'Danh sách tự kiểm tra'], ['vs', 'So sánh hai bên'], ['bigword', 'Chữ / con số thật to']].map(([k, v]) => `<option value="${k}"${sc.type === k ? ' selected' : ''}>${v}</option>`).join('')}</select>`;
     let fields = '';
     const F = (id, lab, val, area) => `<div class="field"><label>${lab}</label>${area ? `<textarea class="txa" id="${id}" style="min-height:80px">${esc(val || '')}</textarea>` : `<input class="inp" id="${id}" value="${esc(val || '')}">`}</div>`;
     const tip = '<div class="hint" style="margin:-6px 0 12px">Bọc cụm từ trong *dấu sao* để tô màu nổi bật.</div>';
@@ -1113,9 +1174,11 @@ body.render .app{display:none}
     if (sc.type === 'quote') fields = `<div class="field"><label>Câu trích dẫn</label><textarea class="txa" id="sQuote" style="min-height:70px">${esc(sc.quote)}</textarea></div><div class="field"><label>Tác giả / nguồn</label><input class="inp" id="sBy" value="${esc(sc.by)}"></div>`;
     if (sc.type === 'stat') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sHead" value="${esc(sc.heading)}"></div><div class="field"><label>Số liệu (mỗi dòng: số | đơn vị, tối đa 3). VD: hơn 10 vạn | quân Tống</label><textarea class="txa" id="sStats" style="min-height:80px">${esc((sc.stats || []).map(x => `${x.pre ? x.pre + ' ' : ''}${String(x.shown).replace('.', ',')}${x.pct ? '%' : x.scale ? ' ' + x.scale : ''} | ${x.unit}`).join('\n'))}</textarea></div>`;
     if (sc.type === 'timeline') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các mốc (mỗi dòng: mốc | sự kiện, tối đa 5)</label><textarea class="txa" id="sTl" style="min-height:90px">${esc((sc.items || []).map(x => x[0] + ' | ' + x[1]).join('\n'))}</textarea></div>`;
+    const L = sc.lower || {}, lowerTxt = L.title || L.label ? [L.title || '', L.label || '', ...(L.cols || []).map(c => c.join(': '))].join('\n') : '';
+    const lowerF = `<details class="aip"${lowerTxt ? ' open' : ''}><summary>🪪 Thẻ giới thiệu nhân vật ở góc dưới</summary><div class="ai-item"><textarea class="txa" id="sLower" style="min-height:96px" placeholder="Trần Hưng Đạo&#10;Quốc công Tiết chế&#10;Sinh năm: 1228&#10;Chiến công: 3 lần phá quân Nguyên">${esc(lowerTxt)}</textarea><div class="hint">Dòng 1: tên · dòng 2: chức danh · các dòng sau: <b>Nhãn: Giá trị</b> (tối đa 2). Để trống để tắt.</div></div></details>`;
     if (sc.type === 'points') fields = `<div class="field"><label>Tiêu đề</label><input class="inp" id="sTitle" value="${esc(sc.title)}"></div><div class="field"><label>Các ý (mỗi dòng một ý, tối đa 5)</label><textarea class="txa" id="sItems" style="min-height:90px">${esc((sc.items || []).join('\n'))}</textarea></div>`;
     el.innerHTML = `
-      <div class="field"><label>Loại cảnh</label>${typeSel}</div>${fields}
+      <div class="field"><label>Loại cảnh</label>${typeSel}</div>${fields}${lowerF}
       <div class="field"><label>Lời dẫn (phụ đề + giọng đọc)</label><textarea class="txa" id="sSay">${esc(sc.say)}</textarea></div>
       <div class="field"><label>Chuyển vào cảnh này bằng</label><select class="sel" id="sTr">${[['', 'Theo cài đặt chung'], ['zoom', 'Phóng xuyên cảnh'], ['flash', 'Chớp sáng'], ['whip', 'Lia máy'], ['wipe', 'Quét lộ cảnh'], ['slide', 'Đẩy trượt'], ['iris', 'Mở tròn'], ['glitch', 'Nhiễu sóng'], ['fade', 'Hòa mờ'], ['black', 'Mờ qua đen'], ['cut', 'Cắt thẳng']].map(([v, l]) => `<option value="${v}"${(sc.tr || '') === v ? ' selected' : ''}>${l}</option>`).join('')}</select></div>
       ${sc.type === 'card' ? `<div class="field"><label>Ảnh / video minh họa</label><div class="mfile">${sc.mediaId ? `<span>${sc.mediaKind === 'video' ? '🎬' : '🖼'}</span><b>${esc(sc.mediaName || 'đã thêm')}</b>` : 'Chưa có – dùng hình nền tự vẽ'}</div><div class="btnrow"><button class="btn" id="sMedia">${sc.mediaId ? 'Đổi' : '＋ Thêm'} ảnh/video</button>${sc.mediaId ? '<button class="btn danger" id="sMediaX">Gỡ</button>' : ''}</div></div>` : ''}
@@ -1147,6 +1210,7 @@ body.render .app{display:none}
     bind('sKick', v => sc.kicker = v); bind('sSub', v => sc.sub = v); bind('sNote', v => sc.note = v); bind('sBig', v => sc.big = v); bind('sCap', v => sc.caption = v);
     bind('sLines', v => { const a = v.split('\n').map(x => x.trim()).filter(Boolean); if (sc.type === 'steps') sc.steps = a.slice(0, 4); else sc.items = a.slice(0, 5); });
     bind('sA', v => sc.a = v.split('|').map(x => x.trim()).concat('').slice(0, 2)); bind('sB', v => sc.b = v.split('|').map(x => x.trim()).concat('').slice(0, 2));
+    if ($('sLower')) $('sLower').oninput = deb(e => { const ls = e.target.value.split('\n').map(x => x.trim()).filter(Boolean); if (!ls.length) delete sc.lower; else sc.lower = { title: ls[0], label: ls[1] || '', cols: ls.slice(2, 4).map(x => { const i = x.indexOf(':'); return i < 0 ? ['', x] : [x.slice(0, i).trim(), x.slice(i + 1).trim()]; }) }; saveP(true); });
     if ($('sAct')) $('sAct').onchange = e => { sc.action = e.target.value; saveP(true); };
     if ($('sHead')) $('sHead').oninput = deb(e => { sc.heading = e.target.value; saveP(true); });
     if ($('sQuote')) $('sQuote').oninput = deb(e => { sc.quote = e.target.value; saveP(true); });
@@ -1288,6 +1352,8 @@ body.render .app{display:none}
   $('swMusic').onchange = e => { musicOn = e.target.checked; store.set('music', musicOn); if (playing) startAudio(); buildTimeline(); ui(true); };
   $('swSubs').onchange = e => frame.classList.toggle('nosubs', !e.target.checked);
   $('swGrain').onchange = e => frame.classList.toggle('nograin', !e.target.checked);
+  $('swPip').checked = store.get('pip', '0') === '1';
+  $('swPip').onchange = e => { store.set('pip', e.target.checked ? '1' : '0'); if (P) reload(true); };
   function setFormat(f, silent) {
     format = f; document.querySelectorAll('#fmtSeg button').forEach(x => x.classList.toggle('on', x.dataset.f === f));
     if (!silent) reload(true);
@@ -1513,20 +1579,40 @@ body.render .app{display:none}
     document.querySelectorAll('[data-sid]').forEach(e => e.onclick = () => openSong(Nhac.lib.get(e.dataset.sid)));
   }
   function buildMusicSel() {
-    const f = $('musicField'); f.style.display = P && P.custom ? '' : 'none';
-    $('swMusicL').textContent = P && !P.custom ? 'Nhạc trống trận' : 'Nhạc nền';
-    if (!P || !P.custom) return;
-    const a = Nhac.lib.list();
-    $('musicSel').innerHTML = `<option value="">Tự động theo phong cách phim</option>` + a.map(x => `<option value="${x.id}"${P.musicId === x.id ? ' selected' : ''}>♫ ${esc(x.name || 'Bài chưa đặt tên')} · ${Nhac.STYLES[x.style].name}</option>`).join('') + '<option value="+">＋ Sáng tác bài mới…</option>';
-    if (!P.musicId) $('musicSel').value = '';
+    const f = $('musicField'); f.style.display = P ? '' : 'none';
+    $('swMusicL').textContent = 'Nhạc nền';
+    if (!P) return;
+    const a = Nhac.lib.list(), cur = musicIdOf();
+    $('musicSel').innerHTML = `<option value="">${P.custom ? 'Tự động theo phong cách phim' : 'Trống trận tự tổng hợp (mặc định)'}</option>` + a.map(x => `<option value="${x.id}"${cur === x.id ? ' selected' : ''}>${x.style === 'file' ? '📁' : '♫'} ${esc(x.name || 'Bài chưa đặt tên')} · ${x.style === 'file' ? 'nhạc của bạn' : (Nhac.STYLES[x.style] || {}).name || ''}</option>`).join('') + '<option value="*">✨ AI tự sáng tác bài mới cho phim này</option><option value="+">＋ Sáng tác bài mới (tự chỉnh)…</option><option value="file">📁 Tải nhạc AI của bạn (mp3, wav)…</option>';
+    if (!cur) $('musicSel').value = '';
   }
-  $('musicSel').onchange = e => { const v = e.target.value; if (v === '+') { buildMusicSel(); openSong(null); return; } if (v) P.musicId = v; else delete P.musicId; saveP(true); };
+  /* nhạc nền: dự án của bạn lưu trong dự án; trận mẫu lưu trong trình duyệt */
+  function musicIdOf() { return P ? (P.custom ? P.musicId : store.get('music-' + P.id, '')) || '' : ''; }
+  function setMusic(id) { if (P.custom) { if (id) P.musicId = id; else delete P.musicId; saveP(true); } else { store.set('music-' + P.id, id || ''); reload(true); } }
+  function autoSong() {
+    const txt = (P.name || '') + ' ' + (B.scenes || []).map(x => x.say || '').join(' ');
+    const st = /tưởng niệm|hy sinh|tử trận|bi thương|mất nước|đô hộ|tang/i.test(txt) && !/đại thắng|đại phá|chiến thắng/i.test(txt) ? 'bitrang' : /vua|triều|cung đình|lên ngôi|kinh thành|lễ/i.test(txt) && !/trận|quân/i.test(txt) ? 'cungdinh' : 'hungca';
+    const song = Nhac.newSong(st, Date.now()); song.name = Nhac.STYLES[st].name + ' – ' + (P.name || '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
+    Nhac.lib.save(song); return song;
+  }
+  $('musicSel').onchange = e => {
+    const v = e.target.value;
+    if (v === '+') { buildMusicSel(); openSong(null); return; }
+    if (v === '*') { const sg = autoSong(); setMusic(sg.id); buildMusicSel(); note(`Đã sáng tác "${sg.name}" – bài mới hoàn toàn, không vướng bản quyền. Chọn lại mục ✨ để có bài khác.`, 6000); return; }
+    if (v === 'file') {
+      buildMusicSel();
+      const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'audio/*,.mp3,.wav,.m4a,.ogg';
+      inp.onchange = async () => { const f = inp.files[0]; if (!f) return; const assetId = await Xuong.store.putAsset(f); const sg = { id: 's-' + Xuong.uid(), name: f.name.replace(/\.[^.]+$/, ''), style: 'file', assetId }; Nhac.lib.save(sg); setMusic(sg.id); buildMusicSel(); note('Đã thêm nhạc của bạn. Nhạc tự lặp theo độ dài phim và tự hạ nhỏ khi có giọng đọc.', 6000); };
+      inp.click(); return;
+    }
+    setMusic(v);
+  };
   function smFill() {
-    $('smStyles').innerHTML = Object.entries(Nhac.STYLES).map(([k, v]) => `<button class="stc${song.style === k ? ' on' : ''}" data-st="${k}"><div class="pv" style="height:46px;background:${{ bolero: 'linear-gradient(135deg,#5a1e2c,#c9774a)', valse: 'linear-gradient(135deg,#2b3a5c,#d9c08a)', ngucung: 'linear-gradient(135deg,#1f4a3a,#c9b26a)', lofi: 'linear-gradient(135deg,#3a2c4f,#e09a8a)' }[k]}"></div><b>${v.name}</b><small>${v.desc}</small></button>`).join('');
+    $('smStyles').innerHTML = Object.entries(Nhac.STYLES).map(([k, v]) => `<button class="stc${song.style === k ? ' on' : ''}" data-st="${k}"><div class="pv" style="height:46px;background:${{ bolero: 'linear-gradient(135deg,#5a1e2c,#c9774a)', valse: 'linear-gradient(135deg,#2b3a5c,#d9c08a)', ngucung: 'linear-gradient(135deg,#1f4a3a,#c9b26a)', lofi: 'linear-gradient(135deg,#3a2c4f,#e09a8a)', hungca: 'linear-gradient(135deg,#5a1010,#c8352b 60%,#e2c27a)', bitrang: 'linear-gradient(135deg,#1b1a22,#4a4a5a 60%,#a89a7a)', cungdinh: 'linear-gradient(135deg,#5a3a0e,#c9a45c 55%,#7a1e17)' }[k]}"></div><b>${v.name}</b><small>${v.desc}</small></button>`).join('');
     document.querySelectorAll('#smStyles .stc').forEach(b => b.onclick = () => { const keep = { id: song.id, name: song.name }; song = Object.assign(Nhac.newSong(b.dataset.st), keep); smFill(); smChanged(); });
     $('smLead').innerHTML = Object.entries(Nhac.LEADS).map(([k, v]) => `<option value="${k}"${song.lead === k ? ' selected' : ''}>${v}</option>`).join('');
-    const minor = ['bolero', 'lofi'].includes(song.style);
-    $('smKey').innerHTML = Nhac.KEYS.map((k, i) => `<option value="${i}"${song.key === i ? ' selected' : ''}>${k} ${song.style === 'ngucung' ? 'ngũ cung' : minor ? 'thứ' : 'trưởng'}</option>`).join('');
+    const minor = ['bolero', 'lofi', 'hungca'].includes(song.style);
+    $('smKey').innerHTML = Nhac.KEYS.map((k, i) => `<option value="${i}"${song.key === i ? ' selected' : ''}>${k} ${['ngucung', 'bitrang', 'cungdinh'].includes(song.style) ? 'ngũ cung' : minor ? 'thứ' : 'trưởng'}</option>`).join('');
     $('smTempo').value = song.tempo; $('smTempoV').textContent = song.tempo + ' bpm';
     $('smName').value = song.name || '';
     document.querySelectorAll('#smLayers input').forEach(i => i.checked = !!song.layers[i.dataset.l]);

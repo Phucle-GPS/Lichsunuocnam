@@ -26,6 +26,18 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Phim hoạt hình người que lịch sử · nhạc AI tự sáng tác
+- **🕺 Dựng phim hoạt hình người que từ trận này** (bảng *Dự án* của mỗi trận mẫu): app giữ giọng Manus, bản đồ và sơ đồ trận, rồi xen các cảnh người que diễn đúng lời dẫn. Thẻ cảnh và giọng của từng khối khớp nhau.
+- **Người que đề tài lịch sử:** quân ta đội nón lá, quân giặc đội mũ trụ; vũ khí gồm kiếm, giáo, cung, cờ. Các cảnh: hành quân, chèo thuyền chiến, bắn cung (tên bay), cưỡi ngựa xung trận, giao chiến kiếm – giáo, chỉ huy phất cờ, ăn mừng, chạy, đi, suy nghĩ, kể chuyện bên bảng. App tự nhận hành động từ lời dẫn (chèo, thủy quân, kỵ binh, bắn tên, hành quân, truyền hịch…).
+- **Người dẫn người que ở góc** (mục *Hiển thị*): người que khăn đóng kể chuyện ở góc trái dưới trong các cảnh bản đồ, sơ đồ, số liệu. Công cụ dòng lệnh: thêm `--nguoi-dan`.
+- **Thẻ giới thiệu nhân vật ở góc dưới:** tên, chức danh và 2 cặp nhãn/giá trị, sửa được trong từng cảnh.
+- **Hiệu ứng chữ Gõ chữ từng ký tự.**
+- **Nhạc nền:**
+  - Phòng nhạc có thêm *Hùng ca chiến trận*, *Bi tráng* (đàn bầu) và *Nhã nhạc cung đình*.
+  - *✨ AI tự sáng tác bài mới cho phim này* chọn thể loại hợp nội dung và tạo một bài hoàn toàn mới.
+  - *📁 Tải nhạc AI của bạn* (mp3/wav, ví dụ nhạc tự tạo bằng công cụ AI có quyền dùng): nhạc tự lặp theo độ dài phim.
+  - Nhạc **tự hạ khi có giọng đọc** và nâng lại ở khoảng nghỉ, cả trong app lẫn khi xuất bằng `render-video.mjs`.
+
 ## Video giải thích / podcast: thẻ thông tin, dự án khối, chuẩn âm lượng
 - **6 kiểu thẻ mới:** Mở chương, Cảnh báo, Chuỗi bước (nguyên nhân → hệ quả), Danh sách tự kiểm tra, So sánh hai bên, Chữ/con số thật to. Bọc cụm từ trong `*dấu sao*` để tô màu nổi bật.
 - **Kịch bản chia khối:** dán hoặc tải file có dòng `=== AVATAR 01 ===`, `=== SLIDE 02 ===`. Mỗi khối thành một cảnh mang mã khối.

@@ -35,7 +35,7 @@ const preview = args.includes('--preview');
 fs.mkdirSync(outDir, { recursive: true });
 
 const pageFile = flag('--page', 'index.html');
-const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}`;
+const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}` + (args.includes('--nguoi-dan') ? '&pip=1' : '');
 
 function probe(f) { return Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim()); }
 
@@ -110,8 +110,9 @@ async function renderOne(browser, id) {
   const vs = voices.map((v, i) => v && { v, at: info.starts[i] + 0.4 }).filter(Boolean);
   if (vs.length) {
     vs.forEach(x => inputs.push('-i', x.v));
-    filter = '[1:a]volume=0.45[m];' + vs.map((x, i) => `[${i + 2}:a]adelay=${Math.round(x.at * 1000)}|${Math.round(x.at * 1000)},aformat=channel_layouts=stereo[v${i}]`).join(';') +
-      ';' + vs.map((_, i) => `[v${i}]`).join('') + `amix=inputs=${vs.length}:normalize=0[vv];[m][vv]amix=inputs=2:normalize=0[a]`;
+    // nhạc tự hạ khi có giọng (sidechain), nâng lại ở khoảng nghỉ
+    filter = '[1:a]volume=0.75,aformat=channel_layouts=stereo[m];' + vs.map((x, i) => `[${i + 2}:a]adelay=${Math.round(x.at * 1000)}|${Math.round(x.at * 1000)},aformat=channel_layouts=stereo[v${i}]`).join(';') +
+      ';' + vs.map((_, i) => `[v${i}]`).join('') + `amix=inputs=${vs.length}:normalize=0[vv];[vv]asplit=2[vk][vs];[m][vk]sidechaincompress=threshold=0.02:ratio=8:attack=40:release=600[md];[md][vs]amix=inputs=2:normalize=0[a]`;
     mixOut = '[a]';
   }
   // chuẩn âm lượng nền tảng video: -14 LUFS, đỉnh -1.5 dBTP (YouTube/Facebook/TikTok không tự hạ giọng)

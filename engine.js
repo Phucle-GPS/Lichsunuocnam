@@ -686,28 +686,45 @@
 
 
 
-  /* ----- NGƯỜI QUE HÀNH ĐỘNG (stickman): chạy, đi, đánh nhau, ăn mừng, suy nghĩ, thuyết trình -----
+  /* ----- NGƯỜI QUE HÀNH ĐỘNG (phim hoạt hình người que, đề tài lịch sử) -----
+     Quân ta: nón lá, dải đỏ · Quân giặc: mũ trụ có chùm lông · Vũ khí: kiếm, giáo, cung, cờ.
      Khớp xương tính hoàn toàn từ t ⇒ tua/xuất từng khung chính xác. */
-  const STICK_ACTS = { chay: 'Chạy', di: 'Đi bộ', danh: 'Đánh nhau', vui: 'Ăn mừng', nghi: 'Suy nghĩ', noi: 'Thuyết trình' };
-  function stickFig(parent, ink, accent) {
-    const g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, parent);
-    const P = n => s('polyline', null, g), body = P(), la = P(), ra = P(), ll = P(), rl = P();
-    const head = s('circle', { r: 30, fill: ink }, g);
-    const band = s('path', { stroke: accent, 'stroke-width': 9 }, g);
-    // pose: góc tính từ phương thẳng đứng hướng xuống, dương = về phía trước mặt
-    return function draw(x, y, dir, p) {
+  const STICK_ACTS = { noi: 'Kể chuyện / thuyết trình', di: 'Đi bộ', chay: 'Chạy', danh: 'Giao chiến (kiếm – giáo)', hanhquan: 'Đoàn quân hành quân', cheo: 'Chèo thuyền chiến', ban: 'Bắn cung', cuoingua: 'Cưỡi ngựa xung trận', phatco: 'Chỉ huy phất cờ', vui: 'Ăn mừng chiến thắng', nghi: 'Suy nghĩ' };
+  const TA = '#c8352b', GIAC = '#3a6fb0';
+  function stickFig(parent, ink, accent, o = {}) {
+    const outer = s('g', null, parent), g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, outer);
+    const P = () => s('polyline', null, g), back = s('g', null, g), body = P(), la = P(), ll = P(), rl = P();
+    const head = s('circle', { r: 30, fill: ink }, g), ra = P(), wpn = s('g', null, g), hat = s('g', null, g);
+    if (o.hat === 'non') s('path', { d: 'M-50,0 L0,-46 L50,0 Q0,10 -50,0Z', fill: '#d9b66a', stroke: ink, 'stroke-width': 6 }, hat);
+    else if (o.hat === 'mu') { s('path', { d: 'M-34,0 A34,34 0 0 1 34,0 L40,6 L-40,6Z', fill: '#6b6f7a', stroke: ink, 'stroke-width': 6 }, hat); s('path', { d: 'M0,-34 q-6,-30 10,-44 q4,22 -4,44Z', fill: accent, stroke: 'none' }, hat); }
+    else if (o.hat === 'khan') s('ellipse', { cx: 0, cy: -2, rx: 36, ry: 14, fill: '#1d1a16', stroke: accent, 'stroke-width': 5 }, hat);
+    else s('path', { d: 'M-30,0 L30,0', stroke: accent, 'stroke-width': 9 }, hat);
+    const W_ = { kiem: () => { s('line', { x1: 0, y1: 0, x2: 0, y2: -110, stroke: '#d8dde6', 'stroke-width': 9 }, wpn); s('line', { x1: -18, y1: -8, x2: 18, y2: -8, stroke: ink, 'stroke-width': 9 }, wpn); },
+      giao: () => { s('line', { x1: 0, y1: 90, x2: 0, y2: -190, stroke: '#8a5a2b', 'stroke-width': 8 }, wpn); s('path', { d: 'M0,-190 L-10,-160 L0,-225 L10,-160Z', fill: '#d8dde6', stroke: ink, 'stroke-width': 4 }, wpn); s('path', { d: 'M-6,-160 q-16,10 -8,26', stroke: accent, 'stroke-width': 6, fill: 'none' }, wpn); },
+      cung: () => { s('path', { d: 'M0,-80 Q46,0 0,80', stroke: '#8a5a2b', 'stroke-width': 8, fill: 'none' }, wpn); },
+      co: () => { s('line', { x1: 0, y1: 60, x2: 0, y2: -260, stroke: '#5a3a1e', 'stroke-width': 8 }, wpn); wpn._flag = s('path', { fill: accent, stroke: ink, 'stroke-width': 4 }, wpn); } };
+    if (o.weapon && W_[o.weapon]) W_[o.weapon]();
+    const string = o.weapon === 'cung' ? s('polyline', { stroke: '#efe4cc', 'stroke-width': 3 }, g) : null;
+    return function draw(x, y, dir, p, k = 1, t = 0) {
+      outer.setAttribute('transform', `translate(${x},${y}) scale(${k})`);
       const pt = (ox, oy, a, L) => [ox + dir * Math.sin(a) * L, oy + Math.cos(a) * L];
-      const neck = [x + dir * Math.sin(p.lean) * 125, y - Math.cos(p.lean) * 125];
+      const neck = [dir * Math.sin(p.lean) * 125, -Math.cos(p.lean) * 125];
       const hc = [neck[0] + dir * Math.sin(p.lean) * 40, neck[1] - Math.cos(p.lean) * 40];
       const sh = [neck[0] - dir * Math.sin(p.lean) * 8, neck[1] + 8];
-      const limb = (o, a1, a2, L) => { const e = pt(o[0], o[1], a1, L), h2 = pt(e[0], e[1], a2, L); return `${o[0]},${o[1]} ${e[0]},${e[1]} ${h2[0]},${h2[1]}`; };
-      body.setAttribute('points', `${x},${y} ${neck[0]},${neck[1]}`);
-      la.setAttribute('points', limb(sh, p.la[0], p.la[1], 62)); ra.setAttribute('points', limb(sh, p.ra[0], p.ra[1], 62));
-      ll.setAttribute('points', limb([x, y], p.ll[0], p.ll[1], 72)); rl.setAttribute('points', limb([x, y], p.rl[0], p.rl[1], 72));
+      const limb = (o2, a1, a2, L) => { const e = pt(o2[0], o2[1], a1, L), h2 = pt(e[0], e[1], a2, L); return [e, h2, `${o2[0]},${o2[1]} ${e[0]},${e[1]} ${h2[0]},${h2[1]}`]; };
+      body.setAttribute('points', `0,0 ${neck[0]},${neck[1]}`);
+      const L1 = limb(sh, p.la[0], p.la[1], 62), R1 = limb(sh, p.ra[0], p.ra[1], 62);
+      la.setAttribute('points', L1[2]); ra.setAttribute('points', R1[2]);
+      ll.setAttribute('points', limb([0, 0], p.ll[0], p.ll[1], 72)[2]); rl.setAttribute('points', limb([0, 0], p.rl[0], p.rl[1], 72)[2]);
       head.setAttribute('cx', hc[0]); head.setAttribute('cy', hc[1]);
-      band.setAttribute('d', `M${hc[0] - 30},${hc[1] - 8} L${hc[0] + 30},${hc[1] - 8} l${-dir * 26},-14`);
-      const hand = pt(...pt(sh[0], sh[1], p.ra[0], 62), p.ra[1], 62);
-      return { head: hc, hand, neck };
+      hat.setAttribute('transform', `translate(${hc[0]},${hc[1] - 18}) rotate(${dir * p.lean * 57})`);
+      const hand = R1[1];
+      // góc vũ khí: mặc định dọc theo cẳng tay; p.wa = góc riêng (tính như góc chi, 0 = chúc xuống)
+      const wa = p.wa != null ? p.wa : p.ra[1];
+      if (o.weapon === 'cung') { const bh = L1[1]; wpn.setAttribute('transform', `translate(${bh[0]},${bh[1]}) scale(${dir},1)`); const pull = p.pull || 0; string.setAttribute('points', `${bh[0]},${bh[1] - 80} ${bh[0] - dir * (8 + pull * 70)},${bh[1]} ${bh[0]},${bh[1] + 80}`); }
+      else wpn.setAttribute('transform', `translate(${hand[0]},${hand[1]}) rotate(${180 - dir * wa * 57.3})`);
+      if (wpn._flag) { const w = Math.sin(t * 7) * 18, w2 = Math.sin(t * 7 + 1.4) * 22; wpn._flag.setAttribute('d', `M0,-260 C${-dir * 50},${-270 + w} ${-dir * 100},${-250 - w} ${-dir * 150},${-262 + w2} L${-dir * 150},${-172 + w2} C${-dir * 100},${-160 - w} ${-dir * 50},${-180 + w} 0,-170Z`); }
+      return { head: [x + hc[0] * k, y + hc[1] * k], hand: [x + hand[0] * k, y + hand[1] * k], bow: [x + L1[1][0] * k, y + L1[1][1] * k] };
     };
   }
   const STAND = { lean: 0, la: [-.15, -.05], ra: [.15, .05], ll: [-.12, -.12], rl: [.12, .12] };
@@ -720,76 +737,146 @@
     const sn = Math.sin(ph);
     return { lean: .04, la: [-.45 * sn, -.45 * sn + .3], ra: [.45 * sn, .45 * sn + .3], ll: [.38 * sn, .38 * sn - .25 * Math.max(0, -Math.cos(ph))], rl: [-.38 * sn, -.38 * sn - .25 * Math.max(0, Math.cos(ph))] };
   }
+  function drawHorseStick(parent, ink) {
+    const g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, parent);
+    const body = s('polyline', { 'stroke-width': 16 }, g), tail = s('path', { 'stroke-width': 7 }, g), legs = [0, 1, 2, 3].map(() => s('polyline', null, g)), mane = s('path', { stroke: TA, 'stroke-width': 6 }, g);
+    const head = s('path', { fill: ink }, g);
+    const K = 1.65;
+    return (X, Y, ph) => {
+      g.setAttribute('transform', `translate(${X},${Y}) scale(${K})`);
+      let x = 0, y = Math.sin(ph * 2) * 4;
+      body.setAttribute('points', `${x - 95},${y} ${x + 70},${y - 8} ${x + 112},${y - 78}`);
+      head.setAttribute('d', `M${x + 100},${y - 92} L${x + 160},${y - 70} L${x + 150},${y - 52} L${x + 104},${y - 64}Z`);
+      mane.setAttribute('d', `M${x + 80},${y - 30} q10,-30 26,-52`);
+      tail.setAttribute('d', `M${x - 95},${y} q-40,${10 + Math.sin(ph * 2) * 14} -60,${42 + Math.sin(ph * 2 + 1) * 10}`);
+      [[x + 55, 0], [x + 70, Math.PI * .5], [x - 80, Math.PI], [x - 65, Math.PI * 1.5]].forEach(([lx, off], i) => {
+        const a = Math.sin(ph + off) * .7, kx = lx + Math.sin(a) * 50, ky = y + Math.cos(a) * 50, b = a - (Math.max(0, Math.sin(ph + off + 1.2)) * 1.3) * (i < 2 ? -1 : 1);
+        legs[i].setAttribute('points', `${lx},${y} ${kx},${ky} ${kx + Math.sin(b) * 52},${ky + Math.cos(b) * 52}`);
+      });
+    };
+  }
   SCENES.stick = function (sc, B) {
     const root = h('div', { class: 'sc sc-stick' });
     const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
-    const bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 11, { ships: 1 });
+    const bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 11, { ships: sc.action === 'cheo' ? 0 : 1 });
     const light = B.style === 'hoathinh' || B.style === 'langque';
     h('div', { class: 'shade stk-shade' + (light ? ' light' : '') }, root);
-    const ink = light ? '#1d2330' : '#f6efdc', accent = { vientuong: '#38e1ff', vutru: '#7fc8ff', cotich: '#ffcf70', hoathinh: '#ff6b35', langque: '#e2473b' }[B.style] || '#c8352b';
+    const ink = light ? '#1d2330' : '#f6efdc';
     const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'stk-svg', preserveAspectRatio: 'xMidYMid meet' }, root);
     const GY = 780, act = STICK_ACTS[sc.action] ? sc.action : 'noi';
-    s('line', { x1: 80, y1: GY + 150, x2: W - 80, y2: GY + 150, stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, svg);
-    const fx = s('g', null, svg), A = stickFig(svg, ink, accent), Bf = act === 'danh' ? stickFig(svg, ink, light ? '#2a6fc2' : '#7fc8ff') : null;
+    if (act !== 'cheo') s('line', { x1: 80, y1: GY + 150, x2: W - 80, y2: GY + 150, stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, svg);
+    const fx = s('g', null, svg), rr = rng(sc._i * 31 + 5);
     const kick = h('div', { class: 'stk-head' + (light ? ' light' : '') }, root, (sc.kicker ? `<small>${esc(sc.kicker)}</small>` : '') + esc(sc.heading || ''));
-    let board = null, bubble = null, bang = null, lines = [], dust = [], conf = [];
-    const rr = rng(sc._i * 31 + 5);
+    const F = (o) => stickFig(svg, ink, o.side === 'giac' ? GIAC : TA, o);
+    let figs = [], extra = {}, lines = [], dust = [], conf = [];
+    const dustOn = n => { for (let i = 0; i < n; i++) dust.push([s('circle', { fill: ink, opacity: .3 }, fx), rr()]); };
     if (act === 'noi') {
-      board = s('g', null, svg);
-      s('rect', { x: 820, y: 330, width: 900, height: 460, rx: 26, fill: light ? '#fffdf6' : 'rgba(10,8,6,.72)', stroke: ink, 'stroke-width': 8 }, board);
-      s('line', { x1: 1270, y1: 790, x2: 1270, y2: GY + 150, stroke: ink, 'stroke-width': 10 }, board);
-      const words = (sc.pull || (sc.say || '').split(/(?<=[.!?…])\s+/)[0] || '').split(' ');
-      let ln = '', rows = []; words.forEach(w => { if ((ln + ' ' + w).length > 30) { rows.push(ln); ln = w; } else ln = ln ? ln + ' ' + w : w; }); if (ln) rows.push(ln);
+      figs = [F({ hat: 'khan' })];
+      const board = extra.board = s('g', null, svg);
+      s('rect', { x: 820, y: 290, width: 900, height: 460, rx: 26, fill: light ? '#fffdf6' : 'rgba(10,8,6,.72)', stroke: ink, 'stroke-width': 8 }, board);
+      s('line', { x1: 1270, y1: 750, x2: 1270, y2: GY + 150, stroke: ink, 'stroke-width': 10 }, board);
+      const ws = (sc.pull || (sc.say || '').split(/(?<=[.!?…])\s+/)[0] || '').split(' ');
+      let ln = '', rows = []; ws.forEach(w => { if ((ln + ' ' + w).length > 30) { rows.push(ln); ln = w; } else ln = ln ? ln + ' ' + w : w; }); if (ln) rows.push(ln);
       rows = rows.slice(0, 5); if (rows.length === 5) rows[4] = rows[4].replace(/\s*\S*$/, '…');
-      lines = rows.map((t, i) => s('text', { x: 870, y: 420 + i * 78, fill: light ? '#1d2330' : '#f6efdc', 'font-family': 'Be Vietnam Pro', 'font-weight': 700, 'font-size': 50 }, board, t));
+      lines = rows.map((t, i) => s('text', { x: 870, y: 380 + i * 78, fill: light ? '#1d2330' : '#f6efdc', 'font-family': 'Be Vietnam Pro', 'font-weight': 700, 'font-size': 50 }, board, t));
     }
     if (act === 'nghi') {
-      bubble = s('g', null, svg);
-      [[1060, 600, 16], [1110, 540, 26]].forEach(([x, y, r2]) => s('circle', { cx: x, cy: y, r: r2, fill: light ? '#fff' : 'rgba(255,255,255,.12)', stroke: ink, 'stroke-width': 6 }, bubble));
-      s('ellipse', { cx: 1330, cy: 380, rx: 260, ry: 150, fill: light ? '#fff' : 'rgba(255,255,255,.12)', stroke: ink, 'stroke-width': 7 }, bubble);
-      s('text', { x: 1330, y: 425, 'text-anchor': 'middle', fill: accent, 'font-family': 'Oswald', 'font-weight': 700, 'font-size': 140 }, bubble, '?');
+      figs = [F({ hat: 'non' })];
+      const bubble = extra.bubble = s('g', null, svg);
+      [[1060, 520, 16], [1110, 460, 26]].forEach(([x, y, r2]) => s('circle', { cx: x, cy: y, r: r2, fill: light ? '#fff' : 'rgba(255,255,255,.12)', stroke: ink, 'stroke-width': 6 }, bubble));
+      s('ellipse', { cx: 1330, cy: 320, rx: 260, ry: 150, fill: light ? '#fff' : 'rgba(255,255,255,.12)', stroke: ink, 'stroke-width': 7 }, bubble);
+      s('text', { x: 1330, y: 365, 'text-anchor': 'middle', fill: TA, 'font-family': 'Oswald', 'font-weight': 700, 'font-size': 140 }, bubble, '?');
     }
     if (act === 'danh') {
-      bang = s('g', null, svg);
-      s('path', { d: 'M0,-90 L22,-30 L85,-50 L40,0 L90,45 L25,32 L0,95 L-20,35 L-85,50 L-40,0 L-88,-48 L-24,-30Z', fill: '#ffd23f', stroke: accent, 'stroke-width': 8 }, bang);
-      s('text', { y: 18, 'text-anchor': 'middle', fill: '#1d2330', 'font-family': 'Oswald', 'font-weight': 700, 'font-size': 46 }, bang, 'BỤP!');
+      figs = [F({ hat: 'non', weapon: 'kiem' }), F({ hat: 'mu', weapon: 'giao', side: 'giac' })];
+      const bang = extra.bang = s('g', null, svg);
+      s('path', { d: 'M0,-90 L22,-30 L85,-50 L40,0 L90,45 L25,32 L0,95 L-20,35 L-85,50 L-40,0 L-88,-48 L-24,-30Z', fill: '#ffd23f', stroke: TA, 'stroke-width': 8 }, bang);
+      s('text', { y: 18, 'text-anchor': 'middle', fill: '#1d2330', 'font-family': 'Oswald', 'font-weight': 700, 'font-size': 46 }, bang, 'KENG!');
     }
-    if (act === 'chay') { for (let i = 0; i < 6; i++) lines.push(s('line', { stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, fx)); for (let i = 0; i < 8; i++) dust.push([s('circle', { fill: ink, opacity: .3 }, fx), rr()]); }
-    if (act === 'vui') for (let i = 0; i < 60; i++) conf.push([s('rect', { width: 14, height: 22, fill: ['#ff6b35', '#ffd23f', '#38e1ff', '#7ed957', '#e2473b'][i % 5] }, fx), rr() * W, rr() * 2, rr() * 6, 120 + rr() * 160]);
+    if (act === 'chay') { figs = [F({ hat: 'non', weapon: 'giao' })]; for (let i = 0; i < 6; i++) lines.push(s('line', { stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, fx)); dustOn(8); }
+    if (act === 'di') figs = [F({ hat: 'non' })];
+    if (act === 'vui') { figs = [F({ hat: 'non' }), F({ hat: 'non', weapon: 'giao' }), F({ hat: 'non', weapon: 'co' })]; for (let i = 0; i < 60; i++) conf.push([s('rect', { width: 14, height: 22, fill: ['#c8352b', '#ffd23f', '#f6efdc', '#e2473b'][i % 4] }, fx), rr() * W, rr() * 2, rr() * 6, 120 + rr() * 160]); }
+    if (act === 'hanhquan') { figs = [F({ hat: 'non', weapon: 'co' })]; for (let i = 0; i < 6; i++) figs.push(F({ hat: 'non', weapon: 'giao' })); dustOn(14); }
+    if (act === 'cheo') {
+      const wv = extra.waves = []; for (let i = 0; i < 30; i++) wv.push([s('path', { d: 'M0,0 q25,-8 50,0', stroke: ink, 'stroke-width': 4, fill: 'none', opacity: .5 }, fx), rr() * W, GY + 70 + rr() * 200, 20 + rr() * 30]);
+      extra.boat = s('g', null, svg);
+      s('path', { d: 'M-430,0 L430,0 Q470,-10 500,-90 Q470,-50 440,-40 L-420,-40 Q-470,-60 -500,-110 Q-480,-20 -430,0Z', fill: light ? '#8a5a2b' : '#5a3a1e', stroke: ink, 'stroke-width': 8 }, extra.boat);
+      s('path', { d: 'M500,-90 q30,-20 20,-50 q-20,10 -20,50', fill: TA, stroke: ink, 'stroke-width': 4 }, extra.boat);
+      for (let i = 0; i < 5; i++) figs.push(stickFig(extra.boat, ink, TA, { hat: 'non' }));
+      extra.oars = []; for (let i = 0; i < 4; i++) extra.oars.push(s('line', { stroke: '#8a5a2b', 'stroke-width': 9, 'stroke-linecap': 'round' }, extra.boat));
+    }
+    if (act === 'ban') {
+      figs = [F({ hat: 'non', weapon: 'cung' }), F({ hat: 'non', weapon: 'cung' })];
+      extra.arrows = []; for (let i = 0; i < 9; i++) { const a = s('g', null, fx); s('line', { x1: -60, y1: 0, x2: 0, y2: 0, stroke: ink, 'stroke-width': 5 }, a); s('path', { d: 'M0,0 l-16,-8 l0,16Z', fill: ink }, a); s('path', { d: 'M-60,0 l-12,-8 M-60,0 l-12,8', stroke: TA, 'stroke-width': 4 }, a); extra.arrows.push([a, i]); }
+    }
+    if (act === 'cuoingua') { extra.horse = drawHorseStick(svg, ink); figs = [F({ hat: 'non', weapon: 'giao' })]; dustOn(12); for (let i = 0; i < 5; i++) lines.push(s('line', { stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .45 }, fx)); }
+    if (act === 'phatco') {
+      s('path', { d: 'M420,930 Q470,790 640,780 Q760,800 800,930Z', fill: light ? '#a08a6a' : '#3b3226', stroke: ink, 'stroke-width': 6 }, svg);
+      figs = [F({ hat: 'khan', weapon: 'co' })]; for (let i = 0; i < 4; i++) figs.push(F({ hat: 'non', weapon: i % 2 ? 'kiem' : 'giao' }));
+    }
     return {
       root, update(t, d) {
         bg.style.transform = `scale(${1.04 + t / d * .05})`; bgu.update(t);
-        kick.style.opacity = eout(ramp(t, .1, .6));
-        const k = eout(ramp(t, 0, .6));
-        svg.style.opacity = k;
+        kick.style.opacity = eout(ramp(t, .1, .6)); svg.style.opacity = eout(ramp(t, 0, .6));
+        const A = figs[0];
         if (act === 'chay') {
           const ph = t * 9, x = 300 + ((t * 260) % 1500), y = GY - Math.abs(Math.sin(ph)) * 18;
-          A(x, y, 1, poseRun(ph));
+          const p = poseRun(ph); p.wa = 1.75; A(x, y, 1, p, 1, t);
           lines.forEach((l, i) => { const yy = y - 120 + i * 30, len = 60 + (i % 3) * 40; l.setAttribute('x1', x - 90 - len); l.setAttribute('x2', x - 70); l.setAttribute('y1', yy); l.setAttribute('y2', yy); });
           dust.forEach(([c, ph0], i) => { const a = ((t * 2 + ph0 + i / 8) % 1); c.setAttribute('cx', x - 40 - a * 160); c.setAttribute('cy', GY + 140 - a * 30); c.setAttribute('r', 6 + a * 18); c.setAttribute('opacity', .35 * (1 - a)); });
         } else if (act === 'di') {
-          const ph = t * 4.2; A(260 + t * 120 % 1400, GY - Math.abs(Math.sin(ph)) * 6, 1, poseWalk(ph));
+          const ph = t * 4.2; A(260 + t * 120 % 1400, GY - Math.abs(Math.sin(ph)) * 6, 1, poseWalk(ph), 1, t);
         } else if (act === 'danh') {
           const c = t % 1.6, pa = ramp(c, 0, .18) - ramp(c, .35, .5), pb = ramp(c, .8, .98) - ramp(c, 1.15, 1.3);
-          const bob = Math.sin(t * 7) * 5, guard = { lean: .1, la: [.55, 2.6], ra: [.35, 2.75], ll: [.35, .2], rl: [-.3, -.35] };
-          const a = JSON.parse(JSON.stringify(guard)), b = JSON.parse(JSON.stringify(guard));
-          a.ra = [.35 + pa * 1.25, 2.75 - pa * 1.15]; a.lean = .1 + pa * .2; b.lean = .1 - pa * .35;
-          b.rl = [-.3 + pb * 1.9, -.35 + pb * 2.0]; b.lean += pb * -.15; a.lean -= pb * .35;
-          A(760 - pb * 40, GY + bob, 1, a); Bf(1160 + pa * 40, GY - bob, -1, b);
-          const hit = Math.max(pa, pb); bang.setAttribute('opacity', hit > .85 ? 1 : 0);
-          bang.setAttribute('transform', `translate(${pa > pb ? 1080 : 840},${pa > pb ? GY - 190 : GY - 40}) scale(${.8 + hit * .3}) rotate(${(t * 40) % 30 - 15})`);
+          const bob = Math.sin(t * 7) * 5;
+          const a = { lean: .1 + pa * .2 - pb * .3, la: [.4, 1.2], ra: [.6 + pa * 1.2, 2.4 - pa * .9], ll: [.35, .2], rl: [-.3, -.35], wa: 2.6 - pa * 1.1 };
+          const b = { lean: .08 - pa * .35, la: [.9, 1.6], ra: [.7 + pb * .8, 1.3 + pb * .3], ll: [.35, .2], rl: [-.3, -.35], wa: 1.62 };
+          A(760 - pb * 50, GY + bob, 1, a, 1, t); figs[1](1160 + pa * 50 - pb * 60, GY - bob, -1, b, 1, t);
+          const hit = Math.max(pa, pb); extra.bang.setAttribute('opacity', hit > .85 ? 1 : 0);
+          extra.bang.setAttribute('transform', `translate(960,${GY - 170}) scale(${.8 + hit * .3}) rotate(${(t * 40) % 30 - 15})`);
         } else if (act === 'vui') {
-          const ph = t * Math.PI * 1.4, air = Math.abs(Math.sin(ph)), y = GY - air * 120;
-          A(960, y, 1, { lean: 0, la: [-(2.55 + Math.sin(t * 9) * .15), -(2.9)], ra: [2.55 + Math.sin(t * 9 + 1) * .15, 2.9], ll: [-.25 - air * .3, -.25 + air * .9], rl: [.25 + air * .3, .25 - air * .9] });
+          figs.forEach((F2, i) => { const ph = t * Math.PI * 1.4 + i * 1.1, air = Math.abs(Math.sin(ph)); F2(600 + i * 360, GY - air * 110, 1, { lean: 0, la: [-(2.55 + Math.sin(t * 9 + i) * .15), -2.9], ra: [2.55 + Math.sin(t * 9 + 1 + i) * .15, 2.9], ll: [-.25 - air * .3, -.25 + air * .9], rl: [.25 + air * .3, .25 - air * .9], wa: 3.1 }, i ? .9 : 1, t); });
           conf.forEach(([c, x, ph0, rot, v]) => { const yy = ((t * v + ph0 * 400) % 1200) - 100; c.setAttribute('transform', `translate(${x + Math.sin(t * 2 + rot) * 40},${yy}) rotate(${t * 180 + rot * 60})`); });
         } else if (act === 'nghi') {
-          const sway = Math.sin(t * 1.2) * .04;
-          A(880, GY, 1, { lean: sway, la: [.35, 2.9 + Math.sin(t * 2) * .05], ra: [-.25, .25], ll: [-.12, -.12], rl: [.12, .12] });
-          bubble.setAttribute('opacity', eout(ramp(t, .6, 1.2))); bubble.style.transformOrigin = '1330px 380px'; bubble.style.transform = `scale(${.9 + .1 * eout(ramp(t, .6, 1.2)) + Math.sin(t * 2) * .01})`;
+          A(880, GY, 1, { lean: Math.sin(t * 1.2) * .04, la: [.35, 2.9 + Math.sin(t * 2) * .05], ra: [-.25, .25], ll: [-.12, -.12], rl: [.12, .12] }, 1, t);
+          const k = eout(ramp(t, .6, 1.2)); extra.bubble.setAttribute('opacity', k); extra.bubble.style.transformOrigin = '1330px 320px'; extra.bubble.style.transform = `scale(${.9 + .1 * k + Math.sin(t * 2) * .01})`;
+        } else if (act === 'hanhquan') {
+          const base = -200 + t * 110;
+          figs.forEach((F2, i) => { const ph = t * 4.2 + i * .9, x = base + (figs.length - 1 - i) * 170 + 400, p = poseWalk(ph); p.ra = [.55, 2.2]; p.wa = 3.05; F2(((x % (W + 600)) + W + 600) % (W + 600) - 300, GY + 40 - Math.abs(Math.sin(ph)) * 5, 1, p, .82, t); });
+          dust.forEach(([c, ph0], i) => { const a = ((t * .8 + ph0) % 1); c.setAttribute('cx', ((base + i * 140) % (W + 400)) - 100); c.setAttribute('cy', GY + 150 - a * 40); c.setAttribute('r', 8 + a * 24); c.setAttribute('opacity', .2 * (1 - a)); });
+        } else if (act === 'cheo') {
+          const bx = 400 + (t * 70) % 1100, by = GY + 60 + Math.sin(t * 1.5) * 8;
+          extra.boat.setAttribute('transform', `translate(${bx},${by}) rotate(${Math.sin(t * 1.2) * 1.5})`);
+          extra.waves.forEach(([p, x, y, v]) => p.setAttribute('transform', `translate(${W - (((x + t * v * 3) % (W + 100)))},${y})`));
+          const c = t * 3.2;
+          figs.forEach((F2, i) => {
+            const ph = c - i * .15, sw = Math.sin(ph);
+            if (i === 4) { F2(380, -40, -1, { lean: .1, la: [1.2, 2], ra: [.9, 1.5], ll: [-.12, -.12], rl: [.12, .12] }, .8, t); return; }
+            const hx = -300 + i * 170, p = { lean: .35 + sw * .25, la: [1.1 + sw * .5, 1.5 + sw * .5], ra: [1.2 + sw * .5, 1.6 + sw * .5], ll: [1.4, .3], rl: [1.5, .2] };
+            const r = F2(hx, -40, 1, p, .7, t), hx2 = r.hand[0], hy2 = r.hand[1];
+            extra.oars[i].setAttribute('x1', hx2); extra.oars[i].setAttribute('y1', hy2); extra.oars[i].setAttribute('x2', hx2 - 70 - sw * 60); extra.oars[i].setAttribute('y2', 90);
+          });
+        } else if (act === 'ban') {
+          const cyc = 1.8;
+          figs.forEach((F2, i) => {
+            const c = (t + i * .7) % cyc, pull = ramp(c, .2, 1.1) * (c < 1.25 ? 1 : 0);
+            F2(420 + i * 260, GY, 1, { lean: -.05, la: [1.57, 1.57], ra: [1.2 - pull * .9, 1.6 - pull * 2.4], ll: [.35, .2], rl: [-.3, -.35], pull }, 1, t);
+          });
+          extra.arrows.forEach(([a, i]) => { const c = (t + i * .37) % 1.6, x = 640 + c * 1050, y = GY - 130 - Math.sin(c / 1.6 * Math.PI) * 260 + c * 60; const vy = -Math.cos(c / 1.6 * Math.PI) * 260 * Math.PI / 1.6 + 60; a.setAttribute('transform', `translate(${x},${y}) rotate(${Math.atan2(vy, 1050) * 57.3})`); a.setAttribute('opacity', c < .05 || c > 1.5 ? 0 : 1); });
+        } else if (act === 'cuoingua') {
+          const ph = t * 8, x = 200 + (t * 300) % 1600, y = GY - 25;
+          extra.horse(x, y, ph);
+          A(x - 15, y - 14 + Math.sin(ph * 2) * 6.6, 1, { lean: .2, la: [.9, 1.5], ra: [1.4, 1.62], ll: [.9, .1], rl: [1, 0], wa: 1.62 }, .85, t);
+          lines.forEach((l, i) => { const yy = y - 160 + i * 40; l.setAttribute('x1', x - 260 - (i % 2) * 60); l.setAttribute('x2', x - 140); l.setAttribute('y1', yy); l.setAttribute('y2', yy); });
+          dust.forEach(([c, ph0], i) => { const a = ((t * 2.5 + ph0 + i / 12) % 1); c.setAttribute('cx', x - 100 - a * 220); c.setAttribute('cy', GY + 140 - a * 40); c.setAttribute('r', 8 + a * 22); c.setAttribute('opacity', .35 * (1 - a)); });
+        } else if (act === 'phatco') {
+          const sw = Math.sin(t * 2.4);
+          A(610, GY - 10, 1, { lean: -.05, la: [-.3, -.1], ra: [2.2 + sw * .5, 2.9 + sw * .3], ll: [-.15, -.1], rl: [.15, .1], wa: 2.95 + sw * .35 }, 1.05, t);
+          figs.slice(1).forEach((F2, i) => { const up = Math.max(0, Math.sin(t * 3.2 + i * .8)); F2(900 + i * 220, GY + 40, -1, { lean: .05, la: [-.2, -.1], ra: [1.2 + up * 1.6, 1.6 + up * 1.4], ll: [.15, .1], rl: [-.15, -.1], wa: 2.2 + up * .9 }, .85, t); });
         } else {
           const talk = Math.sin(t * 5) * .08, pt = ramp(t, .4, 1);
-          A(560, GY, 1, { lean: .02 + talk * .3, la: [-.2, -.1 + talk], ra: [.4 + pt * 1.05, .4 + pt * 1.2 + Math.sin(t * 3) * .08], ll: STAND.ll, rl: STAND.rl });
-          board.setAttribute('opacity', eout(ramp(t, .2, .7)));
+          A(560, GY, 1, { lean: .02 + talk * .3, la: [-.2, -.1 + talk], ra: [.4 + pt * 1.05, .4 + pt * 1.2 + Math.sin(t * 3) * .08], ll: STAND.ll, rl: STAND.rl }, 1, t);
+          extra.board.setAttribute('opacity', eout(ramp(t, .2, .7)));
           lines.forEach((l, i) => l.setAttribute('opacity', eout(ramp(t, .8 + i * .5, 1.3 + i * .5))));
         }
       }
@@ -1233,6 +1320,12 @@
       } else if (K === 'giaima' && window.ScrambleTextPlugin && !el.children.length) {
         const txt = el.textContent;
         tl.fromTo(el, { scrambleText: { text: ' ', chars: 'upperCase' } }, { duration: Math.min(1.8, .4 + txt.length * .05), scrambleText: { text: txt, chars: 'ĐĂÂÊÔƠƯXYZ01', revealDelay: .25, speed: .6 }, ease: 'none' }, at);
+      } else if (K === 'go' && window.SplitText) {
+        // gõ chữ từng ký tự, có con trỏ nhấp nháy
+        const sp = new SplitText(el, { type: 'chars', charsClass: 'fx-ch' }), cur = document.createElement('span'); cur.className = 'fx-cur'; cur.textContent = '▍'; el.appendChild(cur);
+        const n = sp.chars.length, dur = Math.min(2.2, n * .045);
+        tl.set(sp.chars, { opacity: 0 }, 0); tl.to(sp.chars, { opacity: 1, duration: .01, stagger: dur / Math.max(1, n) }, at);
+        tl.fromTo(cur, { opacity: 1 }, { opacity: 0, duration: .25, repeat: 9, yoyo: true, ease: 'steps(1)' }, at); tl.set(cur, { display: 'none' }, at + dur + 2.4);
       } else if (K === 'quet') {
         tl.fromTo(el, { clipPath: 'inset(0 100% 0 0)' }, { duration: .9, clipPath: 'inset(0 0% 0 0)', ease: 'power3.inOut' }, at);
       }
@@ -1257,6 +1350,16 @@
   /* ======================================================================
      PLAYER
      ====================================================================== */
+  /* THẺ GIỚI THIỆU GÓC DƯỚI (lower third): tên + chức danh + 2 cặp nhãn/giá trị */
+  function lowerThird(root, L) {
+    if (!L || !(L.title || L.label)) return null;
+    const box = h('div', { class: 'lt3' }, root);
+    if (L.label) h('div', { class: 'lt3-label' }, box, esc(L.label));
+    h('div', { class: 'lt3-title' }, box, esc(L.title || ''));
+    const cols = (L.cols || []).filter(c => c && (c[0] || c[1])).slice(0, 2);
+    const row = cols.length ? h('div', { class: 'lt3-cols' }, box, cols.map(c => `<div><small>${esc(c[0] || '')}</small><b>${esc(c[1] || '')}</b></div>`).join('')) : null;
+    return (t, d) => { const k = eout(ramp(t, .5, 1.1)) * (1 - ramp(t, d - .9, d - .4)); box.style.opacity = k; box.style.transform = `translateX(${(1 - k) * -60}px)`; if (row) row.style.opacity = eout(ramp(t, 1, 1.5)); };
+  }
   function build(battle, stage, opts = {}) {
     stage.innerHTML = '';
     const durs = opts.durs || [];
@@ -1276,6 +1379,18 @@
     const gimg = gctx.createImageData(384, 216);
     const fade = h('div', { class: 'fade' }, stage);
     h('div', { class: 'vign' }, stage);
+    // NGƯỜI DẪN Ở GÓC (PiP): người que khăn đóng kể chuyện ở góc trái dưới, hiện ở các cảnh thông tin
+    let pipU = null;
+    if (opts.pip) {
+      const box = h('div', { class: 'pip' }, stage), ps = s('svg', { viewBox: '0 0 400 400' }, box);
+      s('circle', { cx: 200, cy: 200, r: 196, fill: 'rgba(16,12,8,.78)', stroke: '#c9a45c', 'stroke-width': 6 }, ps);
+      const fig = stickFig(ps, '#f6efdc', TA, { hat: 'khan' });
+      pipU = (t, on, lt, d) => {
+        const vis = on ? eout(ramp(lt, .3, .8)) * (1 - ramp(lt, d - .7, d - .3)) : 0;
+        box.style.opacity = vis; box.style.transform = `scale(${.8 + .2 * vis})`;
+        if (vis > 0) { const g = Math.sin(t * 2.3), talk = Math.sin(t * 6) * .06; fig(175, 300, 1, { lean: .03 + talk, la: [-.15, -.05], ra: [.5 + g * .45, 1.1 + g * .7], ll: [-.12, -.12], rl: [.12, .12] }, .78, t); }
+      };
+    }
     const brand = h('div', { class: 'brand' }, stage, esc(battle.series || 'SỬ VIỆT · NHỮNG TRẬN ĐÁNH LỪNG DANH'));
     let cur = -1, inst = null;
     scenes.forEach(S => { S.chunks = chunks(S.sc.say); const L = S.chunks.reduce((a, c) => a + c.length, 0) || 1; let a = .25; S.cuts = S.chunks.map(c => { const st = a; a += (S.d - .6) * c.length / L; return [st, a, c]; }); });
@@ -1294,13 +1409,14 @@
       if (!insts.has(i)) {
         const sc = scenes[i].sc, it = SCENES[sc.type](sc, battle);
         const fxKind = sc.textFx || opts.textFx || 'none';
-        it._fx = null; it._fxKind = fxKind; it._anim = animLayer(it.root, sc);
+        it._fx = null; it._fxKind = fxKind; it._anim = animLayer(it.root, sc); it._lower = lowerThird(it.root, sc.lower);
         const up = it.update.bind(it);
         it.update = (t, d) => {
           up(t, d);
           if (it._fxKind !== 'none' && !it._fx && it.root.isConnected) it._fx = textFx(it.root, it._fxKind, battle.style) || false;
           if (it._fx) it._fx.time(Math.max(0, t), false);
           if (it._anim) it._anim.seek(t);
+          if (it._lower) it._lower(t, d);
         };
         insts.set(i, it);
       }
@@ -1369,6 +1485,7 @@
       if (subs._t !== txt) { subs._t = txt; subs.innerHTML = txt ? `<span>${esc(txt)}</span>` : ''; }
       fade.style.opacity = i === 0 ? 1 - ramp(lt, 0, .5) : i === scenes.length - 1 ? ramp(lt, S.d - .6, S.d) : 0;
       brand.style.opacity = ['title', 'map', 'diagram'].includes(S.sc.type) ? 0 : .75;
+      if (pipU) { const on = !['stick', 'title', 'end', 'hero'].includes(S.sc.type) && !(S.sc.media && S.sc.full) && !pair; pipU(t, on, lt, S.d); }
       // hạt phim
       const gk = Math.floor(t * 4) % 4;
       if (gk !== grain._k) {
