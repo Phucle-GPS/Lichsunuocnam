@@ -1565,5 +1565,5 @@
     return btoa(bin);
   }
 
-  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks, plugins, textFx, STICK_ACTS };
+  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks, plugins, textFx, STICK_ACTS, stickFig, drawHorse: drawHorseStick, svgEl: s };
 })();

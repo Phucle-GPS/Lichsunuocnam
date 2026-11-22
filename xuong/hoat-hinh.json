@@ -4,6 +4,11 @@
  "mo_ta": "Phim người que (stickman) và hoạt hình 2D: dựng từ kịch bản hoặc từ trận lịch sử, các phong cách Hoạt hình, Cổ tích, Làng quê, Vũ trụ.",
  "lenh": [
   {
+   "ten": "Xuất GÓI LÀM VIỆC GOOGLE FLOW của một trận",
+   "lenh": "node tools/goi-flow.mjs <id-trận> --out video",
+   "mo_ta": "Zip gồm prompt từng clip, ảnh nhân vật (Ingredients), khung mở đầu từng clip (Frames to Video), giọng Manus, nhạc nền, phim người que mẫu và hướng dẫn."
+  },
+  {
    "ten": "Xuất PHIM NGƯỜI QUE của một trận (16:9)",
    "lenh": "node tools/render-video.mjs <id-trận> --nguoi-que --nguoi-dan --nhac hungca-<số>",
    "mo_ta": "Áp skill A5: câu hỏi mở đầu, cảnh người que theo lời dẫn xen bản đồ/sơ đồ, thẻ giới thiệu, người dẫn ở góc, nhạc Hùng ca tự hạ khi có giọng Manus, −14 LUFS."
