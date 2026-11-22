@@ -58,7 +58,7 @@ async function renderOne(browser, id) {
     await page.goto(page_url(id)); await page.waitForFunction(() => window.STUDIO);
     const n = await page.evaluate(() => window.STUDIO.starts.length);
     if (!manusOK(id, n) && !args.includes('--cho-phep-thieu-giong')) {
-      console.log(`⏸ ${id}: chưa đủ giọng Manus ⇒ KHÔNG xuất (quy tắc chỉ dùng giọng Manus). Chạy "node tools/nap-giong-manus.mjs --yeu-cau" để tạo file gửi Manus, rồi nạp gói bằng "node tools/nap-giong-manus.mjs goi.zip".`);
+      console.log(`⏸ ${id}: chưa đủ giọng Manus ⇒ KHÔNG xuất (quy tắc chỉ dùng giọng Manus). Tự đọc bằng giọng Manus đã lưu: "node tools/giong-manus.mjs tao ${id}" (hoặc gửi Manus: "node tools/nap-giong-manus.mjs --yeu-cau").`);
       await page.close(); return;
     }
     for (let i = 1; i <= n; i++) {

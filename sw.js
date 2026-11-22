@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v15';
+const VERSION = 'v16';
 const CORE = [
   './',
   'index.html',
@@ -13,6 +13,9 @@ const CORE = [
   'lib/xuong.js',
   'lib/nhac.js',
   'lib/aiprompt.js',
+  'lib/giong.js',
+  'loi-dan/GIONG.json',
+  'loi-dan/giong-mau.mp3',
   'lib/vendor/gsap.min.js',
   'lib/vendor/SplitText.min.js',
   'lib/vendor/ScrambleTextPlugin.min.js',

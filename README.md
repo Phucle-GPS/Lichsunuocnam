@@ -27,12 +27,17 @@ Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của m�
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
 ## Giọng dẫn chuyện: chỉ dùng giọng Manus
-Mục **Trận đánh lừng danh** chỉ dùng giọng nam trầm do **Manus** tạo (nguồn ghi trong `loi-dan/NGUON.json`).
-1. Thêm trận mới vào `battles.js`.
-2. `node tools/nap-giong-manus.mjs --yeu-cau` → tạo `loi-dan/CAN-GUI-MANUS.txt` (chỉ các đoạn còn thiếu) → gửi file này cho Manus, nhắc dùng đúng giọng cũ.
-3. Nhận gói zip → `node tools/nap-giong-manus.mjs goi.zip` (tự kiểm tra tên file, file câm, tốc độ đọc; ghi nguồn).
-4. Xuất video: `node tools/render-video.mjs <id>` – trận chưa đủ giọng Manus sẽ **không được xuất**.
-`tools/tts-google.mjs` chỉ tạo giọng *nháp* vào `giong-nhap/` để duyệt nhịp, không dùng cho mục này.
+Mục **Trận đánh lừng danh** chỉ dùng giọng nam trầm của **Manus**. Giọng đã được **lưu vào app** (`loi-dan/GIONG.json`, nghe mẫu `loi-dan/giong-mau.mp3`) nên không cần gửi Manus mỗi lần.
+
+**Trong app:** bảng phải → *Giọng & âm thanh* → **🎙 Giọng Manus đã lưu**. Nhập API key (chỉ lưu trên máy đó) và voice_id một lần. Sau đó, trong dự án của bạn, bấm **🎙 Giọng Manus** ở từng cảnh hoặc **Đọc lời dẫn mọi cảnh bằng giọng Manus**.
+
+**Dòng lệnh (trận mẫu):**
+1. Chọn giọng một lần: `node tools/giong-manus.mjs dat-id <voice_id>`. Nếu chưa có voice_id, chạy `thiet-ke`, nghe các file trong `giong-nhap/thiet-ke/`, rồi chạy `chon <số>`. Script gốc của Manus: `tools/create_male_voice_elevenlabs.py`.
+2. Thêm trận vào `battles.js` → `ELEVENLABS_API_KEY=… node tools/giong-manus.mjs tao <id>`. Lệnh chỉ đọc những cảnh còn thiếu; bản Manus gửi trước đó được giữ nguyên.
+3. `node tools/render-video.mjs <id>`. Trận chưa đủ giọng Manus sẽ **không được xuất**.
+
+Không có key thì vẫn làm theo cách cũ: `node tools/nap-giong-manus.mjs --yeu-cau` → gửi `loi-dan/CAN-GUI-MANUS.txt` cho Manus → `node tools/nap-giong-manus.mjs goi.zip`.
+`tools/tts-google.mjs` chỉ tạo giọng *nháp* vào `giong-nhap/`, không dùng cho mục này.
 
 ## Đăng Facebook (Fanpage) – đăng ngay, hẹn giờ, lên lịch hàng loạt
 1. Tạo app tại developers.facebook.com (loại Business, thêm Facebook Login; tên miền `phucle-gps.github.io`), để chế độ **Development** là đủ cho chính bạn dùng. Copy **App ID**.

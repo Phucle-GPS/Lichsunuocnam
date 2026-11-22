@@ -36,6 +36,7 @@ function yeuCau() {
   for (const { b, miss } of list) { t += `\n──────── ${b.name.toUpperCase()} (${b.who}) ────────\n\n`; miss.forEach(k => { t += `[${b.id}_${pad(k)}.mp3]\n${b.scenes[k - 1].say}\n\n`; }); }
   fs.writeFileSync(path.join(LD, 'CAN-GUI-MANUS.txt'), t);
   console.log(`📝 loi-dan/CAN-GUI-MANUS.txt: ${n} đoạn của ${list.length} trận đang chờ giọng Manus:`); list.forEach(x => console.log(`   • ${x.b.name}: cảnh ${x.miss.join(', ')}`));
+  console.log('   ⇢ Nhanh hơn: tự đọc bằng giọng Manus đã lưu: node tools/giong-manus.mjs tao');
 }
 
 const arg = process.argv.slice(2).find(a => !a.startsWith('--'));

@@ -484,7 +484,7 @@ body.render .app{display:none}
     </div>
     <div class="sec">
       <h3>Giọng &amp; âm thanh</h3>
-      <div class="field"><label>Giọng dẫn chuyện</label><select class="sel" id="voiceSel"></select></div>
+      <div class="field"><label>Giọng dẫn chuyện</label><select class="sel" id="voiceSel"></select><button class="btn wide" id="bGiong" style="margin-top:8px">🎙 Giọng Manus đã lưu</button></div>
       <div class="field"><label>Âm lượng giọng</label><div class="rng"><input type="range" id="volV" min="0" max="150" value="100"><em id="volVt">100%</em></div></div>
       <div class="field"><label>Âm lượng nhạc nền</label><div class="rng"><input type="range" id="volM" min="0" max="150" value="100"><em id="volMt">100%</em></div></div>
       <div class="field" id="musicField" style="display:none"><label>Nhạc nền của dự án</label><select class="sel" id="musicSel"></select></div>
@@ -624,6 +624,24 @@ body.render .app{display:none}
 <input type="file" id="fVoice" accept="audio/*" hidden>
 <input type="file" id="fAnim" accept=".lottie,.json,.riv" hidden>
 
+<div class="modal" id="giongModal">
+  <div class="dlg" style="width:min(620px,100%)">
+    <header><h2>GIỌNG DẪN CHUYỆN MANUS</h2><button class="ibtn" id="gClose" title="Đóng">✕</button></header>
+    <div class="body">
+      <div class="field"><label>Giọng mẫu (nam trầm, ấm, kể chuyện phim tài liệu)</label><audio controls preload="none" src="loi-dan/giong-mau.mp3" style="width:100%"></audio>
+        <div class="hint">Giọng chính thức của mục <b>Trận đánh lừng danh</b>. Đã lưu vào app – từ giờ lời dẫn mới được đọc tự động bằng giọng này, không cần gửi Manus mỗi lần.</div></div>
+      <div class="grid2">
+        <div class="field"><label>Dịch vụ đọc</label><select class="sel" id="gProv"><option value="elevenlabs">ElevenLabs (theo cấu hình Manus)</option><option value="gemini">Google Gemini – giọng Charon</option></select></div>
+        <div class="field" id="gIdF"><label>Mã giọng (voice_id)</label><input class="inp" id="gId" placeholder="VD: 21m00Tcm4TlvDq8ikWAM"></div>
+      </div>
+      <div class="field"><label>Mã truy cập (API key)</label><input class="inp" id="gKey" type="password" autocomplete="off" placeholder="Dán API key – chỉ lưu trên máy này">
+        <div class="hint">Mã chỉ nằm trong trình duyệt của máy này, không đưa lên GitHub. ElevenLabs: <b>elevenlabs.io → Profile → API Keys</b>. voice_id nằm trong file <b>voice_id.txt</b> do script của Manus tạo.</div></div>
+      <div class="btnrow"><button class="btn primary" id="gSave">Lưu</button><button class="btn" id="gTry">▶ Đọc thử câu mở đầu</button></div>
+      <div class="summary" id="gStatus"></div>
+      <audio id="gOut" controls style="width:100%;display:none;margin-top:8px"></audio>
+    </div>
+  </div>
+</div>
 <script src="lib/vendor/gsap.min.js"></script>
 <script src="lib/vendor/SplitText.min.js"></script>
 <script src="lib/vendor/ScrambleTextPlugin.min.js"></script>
@@ -635,6 +653,7 @@ body.render .app{display:none}
 <script src="lib/nhac.js"></script>
 <script src="lib/aiprompt.js"></script>
 <script src="lib/facebook.js"></script>
+<script src="lib/giong.js"></script>
 <script>
 (function () {
   const Q = new URLSearchParams(location.search);
@@ -855,8 +874,18 @@ body.render .app{display:none}
       </div>
       <dl class="kv" style="margin-bottom:10px"><dt>Tổng số cảnh</dt><dd>${P.scenes.length}</dd><dt>Số tập</dt><dd>${B.epCount}</dd><dt>Tập này</dt><dd>${fmtT(film.total)} · ${FW}×${FH}</dd></dl>
       <div class="btnrow"><button class="btn" id="pAdd">＋ Thêm cảnh</button><button class="btn danger" id="pDel">Xóa dự án</button></div>
+      <button class="btn wide" id="pVoiceAll" style="margin-top:8px">🎙 Đọc lời dẫn mọi cảnh bằng giọng Manus</button>
       <button class="btn ghost wide" id="pPack" style="margin-top:8px">✨ Tải bộ prompt AI cả phim (.txt)</button>`;
     $('pPack').onclick = downloadPack;
+    $('pVoiceAll').onclick = async () => {
+      const todo = P.scenes.filter(x => (x.say || '').trim() && !x.voiceId);
+      if (!todo.length) return note('Mọi cảnh có lời dẫn đều đã có giọng. Muốn đọc lại cảnh nào thì bấm "🎙 Giọng Manus" trong cảnh đó.', 5000);
+      if (!await giongReady()) return;
+      const btn = $('pVoiceAll'); btn.disabled = true;
+      try { for (let k = 0; k < todo.length; k++) { btn.textContent = `⏳ Đang đọc ${k + 1}/${todo.length}…`; await voiceScene(todo[k]); } note(`Đã tạo giọng Manus cho ${todo.length} cảnh.`, 3000); }
+      catch (e) { note(e.message, 7000); }
+      saveP(true);
+    };
     $('pName').onchange = e => { P.name = e.target.value.trim() || 'Dự án'; saveP(); buildProjects(); $('crumb').innerHTML = `Dự án của bạn › <b>${esc(P.name)}</b>`; };
     $('pStyle').onchange = e => { P.style = e.target.value; saveP(true); buildProjects(); };
     $('pEp').onchange = e => { P.epLen = +e.target.value; epIdx = 0; saveP(true); buildProjects(); };
@@ -938,7 +967,7 @@ body.render .app{display:none}
       <div class="field"><label>Hoạt hình động (Lottie .lottie/.json · Rive .riv)</label><div class="mfile">${sc.animId ? `<span>✨</span><b>${esc(sc.animName || 'đã thêm')}</b>` : 'Chưa có – tải miễn phí tại lottiefiles.com hoặc rive.app/community'}</div>
         ${sc.animId ? `<select class="sel" id="sAnimPos" style="margin-bottom:6px">${[['center', 'Giữa khung'], ['left', 'Góc dưới trái'], ['right', 'Góc dưới phải'], ['corner', 'Góc trên phải (nhỏ)'], ['full', 'Phủ toàn khung']].map(([v, l]) => `<option value="${v}"${(sc.animPos || 'center') === v ? ' selected' : ''}>${l}</option>`).join('')}</select>` : ''}
         <div class="btnrow"><button class="btn" id="sAnim">${sc.animId ? 'Đổi' : '＋ Thêm'} hoạt hình</button>${sc.animId ? '<button class="btn danger" id="sAnimX">Gỡ</button>' : ''}</div></div>
-      <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
+      <div class="field"><label>Giọng thu cho cảnh này</label><div class="mfile">${sc.voiceId ? `<span>🎙</span><b>${esc(sc.voiceName || 'đã thêm')}</b>` : 'Chưa có'}</div><div class="btnrow"><button class="btn" id="sVoice">${sc.voiceId ? 'Đổi' : '＋ Thêm'} file giọng</button><button class="btn" id="sVoiceAI" title="Đọc lời dẫn cảnh này bằng giọng Manus đã lưu">🎙 Giọng Manus</button>${sc.voiceId ? '<button class="btn danger" id="sVoiceX">Gỡ</button>' : ''}</div></div>
       ${sc.type === 'card' && sc.mediaId ? `<label class="row" style="margin:-4px 0 12px"><span>Ảnh/video phủ toàn khung</span><span class="sw"><input type="checkbox" id="sFull"${sc.full ? ' checked' : ''}><i></i></span></label>` : ''}
       <div class="btnrow"><button class="btn" id="sUp" title="Đưa lên">↑ Lên</button><button class="btn" id="sDown" title="Đưa xuống">↓ Xuống</button><button class="btn" id="sDup">⧉ Nhân đôi</button><button class="btn danger" id="sDel">Xóa</button></div>${promptPanel(sc, i)}`;
     bindPrompt(sc, i);
@@ -971,6 +1000,7 @@ body.render .app{display:none}
     if ($('sAnimX')) $('sAnimX').onclick = () => { Xuong.store.delAsset(sc.animId); delete sc.animId; delete sc.animKind; delete sc.animName; saveP(true); };
     if ($('sAnimPos')) $('sAnimPos').onchange = e => { sc.animPos = e.target.value; saveP(true); };
     $('sVoice').onclick = () => pickFile('fVoice', async f => { if (sc.voiceId) Xuong.store.delAsset(sc.voiceId); sc.voiceId = await Xuong.store.putAsset(f); sc.voiceName = f.name; if (voiceMode !== 'pack') { vsel.value = 'pack'; store.set('voice', 'pack'); readVoice(); } saveP(true); });
+    $('sVoiceAI').onclick = async () => { if (!(sc.say || '').trim()) return note('Cảnh này chưa có lời dẫn.'); if (!await giongReady()) return; const btn = $('sVoiceAI'); btn.disabled = true; btn.textContent = '⏳ Đang đọc…'; try { await voiceScene(sc); saveP(true); note('Đã tạo giọng Manus cho cảnh này.', 2500); } catch (e) { note(e.message, 7000); btn.disabled = false; btn.textContent = '🎙 Giọng Manus'; } };
     if ($('sVoiceX')) $('sVoiceX').onclick = () => { Xuong.store.delAsset(sc.voiceId); delete sc.voiceId; delete sc.voiceName; saveP(true); };
   }
   function pickFile(id, fn) { const inp = $(id); inp.value = ''; inp.onchange = () => inp.files[0] && fn(inp.files[0]); inp.click(); }
@@ -1365,6 +1395,29 @@ body.render .app{display:none}
     $('fbAtL').textContent = w === 'series' ? 'Giờ đăng video đầu tiên' : 'Giờ đăng';
     if (!$('fbAt').value) { const d = new Date(Date.now() + 864e5); d.setHours(20, 0, 0, 0); $('fbAt').value = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16); }
   }
+  /* ---------- giọng Manus đã lưu ---------- */
+  async function voiceScene(sc) {
+    const blob = await Giong.speak(sc.say.trim());
+    if (sc.voiceId) Xuong.store.delAsset(sc.voiceId);
+    sc.voiceId = await Xuong.store.putAsset(blob); sc.voiceName = 'Giọng Manus (tự đọc)';
+    if (voiceMode !== 'pack') { vsel.value = 'pack'; store.set('voice', 'pack'); readVoice(); }
+  }
+  async function giongReady() { await Giong.config(); if (Giong.ready()) return true; openGiong(); $('gStatus').textContent = 'Nhập mã truy cập (và voice_id) một lần để app tự đọc lời dẫn.'; return false; }
+  async function openGiong() {
+    await Giong.config(); const s = Giong.settings();
+    $('gProv').value = s.provider; $('gId').value = s.voiceId; $('gKey').value = s.key; $('gIdF').style.display = s.provider === 'gemini' ? 'none' : '';
+    $('gStatus').textContent = Giong.ready() ? '✔ Đã sẵn sàng đọc bằng giọng Manus.' : ''; $('giongModal').classList.add('on'); popIn($('giongModal'));
+  }
+  $('bGiong').onclick = openGiong;
+  $('gClose').onclick = () => $('giongModal').classList.remove('on');
+  $('gProv').onchange = e => { $('gIdF').style.display = e.target.value === 'gemini' ? 'none' : ''; };
+  $('gSave').onclick = () => { Giong.save({ provider: $('gProv').value, key: $('gKey').value, voiceId: $('gId').value }); $('gStatus').textContent = Giong.ready() ? '✔ Đã lưu. Trong dự án của bạn: bấm "🎙 Giọng Manus" ở từng cảnh hoặc "Đọc lời dẫn mọi cảnh".' : 'Còn thiếu mã truy cập hoặc voice_id.'; };
+  $('gTry').onclick = async () => {
+    $('gSave').onclick(); if (!Giong.ready()) return;
+    $('gStatus').textContent = '⏳ Đang đọc thử…';
+    try { const b = await Giong.speak(BATTLES.find(x => x.id === 'bach-dang-1288').scenes[0].say); const a = $('gOut'); a.src = URL.createObjectURL(b); a.style.display = 'block'; a.play(); $('gStatus').textContent = '✔ Nghe và so với giọng mẫu phía trên.'; }
+    catch (e) { $('gStatus').textContent = '✖ ' + e.message; }
+  };
   $('bFB').onclick = () => { $('fbApp').value = store.get('fbApp', ''); fbFill(); fbWhenUI(); $('fbModal').classList.add('on'); popIn($('fbModal')); };
   $('fbClose').onclick = () => $('fbModal').classList.remove('on');
   $('fbWhen').onchange = fbWhenUI;
