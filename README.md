@@ -26,6 +26,14 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Phong cách Cổ tích · Làng quê · Vũ trụ, người que, YouTube dài
+- **Dự án mới từ kịch bản** có thêm 3 phong cách. Mỗi phong cách có nền vẽ động, màu chữ, chuyển cảnh và nhạc nền riêng:
+  - **Cổ tích:** trăng rằm, cây đa, mái đình, đom đóm, nhạc hộp nhạc.
+  - **Làng quê:** lũy tre, ruộng lúa, con đò, cánh diều, cò bay, nhạc ngũ cung.
+  - **Vũ trụ:** ngân hà, thiên hà xoắn ốc, Trái Đất, sao chổi, nhạc nền vũ trụ.
+- **Người que hành động:** bật *Minh họa bằng người que* khi tạo dự án, app tự đọc lời dẫn để chọn hành động: đánh nhau, chạy, đi bộ, suy nghĩ, ăn mừng hoặc thuyết trình (người que chỉ vào bảng chữ). Mỗi cảnh cũng đổi được sang *Người que hành động* và tự chọn hành động.
+- **YouTube video dài:** bảng *Dự án* → **▶ Chương & mô tả YouTube**. App tự chia chương theo đúng thời lượng phim (mốc đầu 00:00, mỗi chương ≥ 10 giây), soạn sẵn tiêu đề, mô tả có chương, nguồn tham khảo và thẻ. Có nút chép từng phần hoặc tải gói .txt.
+
 ## Giọng dẫn chuyện: chỉ dùng giọng Manus
 Mục **Trận đánh lừng danh** chỉ dùng giọng nam trầm của **Manus**. Giọng đã được **lưu vào app** (`loi-dan/GIONG.json`, nghe mẫu `loi-dan/giong-mau.mp3`) nên không cần gửi Manus mỗi lần.
 

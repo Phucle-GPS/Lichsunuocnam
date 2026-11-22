@@ -149,7 +149,7 @@
 
 
   /* ======================================================================
-     PHONG CÁCH HÌNH NỀN cho dự án tự tạo: tailieu | vientuong | hoathinh
+     PHONG CÁCH HÌNH NỀN cho dự án tự tạo: tailieu | vientuong | hoathinh | cotich | langque | vutru
      Trả về { update(t) } để chuyển động theo thời gian.
      ====================================================================== */
   function styleBG(svg, style, seed, opts = {}) {
@@ -207,6 +207,141 @@
       return { update(t) {
         rays.setAttribute('transform', `rotate(${t * 12})`);
         clouds.forEach(([g, x, y, v]) => g.setAttribute('transform', `translate(${((x + t * v) % (W + 300)) - 150},${y})`));
+      } };
+    }
+    if (style === 'cotich') {
+      // CỔ TÍCH: đêm trăng rằm, cây đa, mái đình, đom đóm, mây ngũ sắc
+      const defs = s('defs', null, svg);
+      const sky = s('linearGradient', { id: 'ctk' + seed, x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+      [[0, '#1b1440'], [.45, '#4a2a6e'], [.75, '#b0557a'], [1, '#f2b46b']].forEach(([o, c]) => s('stop', { offset: o, 'stop-color': c }, sky));
+      s('rect', { width: W, height: H, fill: `url(#ctk${seed})` }, svg);
+      const glow = s('radialGradient', { id: 'ctm' + seed }, defs);
+      s('stop', { offset: 0, 'stop-color': '#fff6d8', 'stop-opacity': .9 }, glow); s('stop', { offset: 1, 'stop-color': '#fff6d8', 'stop-opacity': 0 }, glow);
+      const halo = s('circle', { cx: 1380, cy: 230, r: 330, fill: `url(#ctm${seed})` }, svg);
+      s('circle', { cx: 1380, cy: 230, r: 120, fill: '#fff3c9' }, svg);
+      [[1340, 200, 22], [1420, 260, 16], [1395, 190, 10]].forEach(([x, y, rr]) => s('circle', { cx: x, cy: y, r: rr, fill: '#e8d9a8', opacity: .6 }, svg));
+      const stars = [];
+      for (let i = 0; i < 120; i++) stars.push([s('path', { d: 'M0,-6 L1.6,-1.6 6,0 1.6,1.6 0,6 -1.6,1.6 -6,0 -1.6,-1.6Z', fill: '#fff4cc', transform: `translate(${r() * W},${r() * H * .55}) scale(${.4 + r() * .9})` }, svg), r() * 6]);
+      const clouds = [];
+      for (let i = 0; i < 4; i++) {
+        const g = s('g', { opacity: .55 }, svg), y = 120 + r() * 300, c = ['#f7b2d0', '#b6a4ff', '#ffd59a', '#9fe0e0'][i];
+        s('path', { d: 'M0,0 q60,-50 120,0 q50,-40 100,0 q40,-30 80,10 q-150,30 -300,-10Z', fill: c }, g);
+        s('path', { d: 'M20,4 q40,-30 80,0', fill: 'none', stroke: '#fff', 'stroke-width': 3, opacity: .7 }, g);
+        clouds.push([g, r() * W, y, 6 + r() * 10, 1 + r() * .8]);
+      }
+      let d = `M0,${H} L0,700`; for (let x = 0; x <= W; x += 160) d += ` Q${x + 80},${600 + r() * 60} ${x + 160},${690 + r() * 30}`;
+      s('path', { d: d + ` L${W},${H}Z`, fill: '#3b2453', opacity: .85 }, svg);
+      const ink = '#140c22';
+      s('path', { d: `M0,${H} L0,840 Q480,800 960,830 T${W},820 L${W},${H}Z`, fill: ink }, svg);
+      // cây đa
+      const tree = s('g', { transform: 'translate(300,840)', fill: ink }, svg);
+      s('path', { d: 'M-40,0 Q-30,-160 -70,-260 L-20,-250 Q10,-180 0,-120 Q20,-200 70,-260 L100,-240 Q40,-160 50,0Z' }, tree);
+      [[-180, -330, 170, 90], [40, -380, 200, 110], [230, -310, 150, 80], [-40, -470, 170, 90], [-260, -260, 120, 60]].forEach(([x, y, rx, ry]) => s('ellipse', { cx: x, cy: y, rx, ry }, tree));
+      for (let i = 0; i < 16; i++) { const x = -300 + i * 38 + r() * 20; s('path', { d: `M${x},-270 Q${x + 6},-140 ${x - 4},${-40 - r() * 80}`, stroke: ink, 'stroke-width': 3, fill: 'none' }, tree); }
+      // mái đình
+      const dinh = s('g', { transform: 'translate(1500,830)', fill: ink }, svg);
+      s('path', { d: 'M-260,-120 Q-300,-150 -320,-190 Q-280,-170 -230,-170 L230,-170 Q280,-170 320,-190 Q300,-150 260,-120Z' }, dinh);
+      s('path', { d: 'M-170,-170 Q-200,-200 -215,-235 Q-180,-220 -150,-220 L150,-220 Q180,-220 215,-235 Q200,-200 170,-170Z' }, dinh);
+      [-200, -100, 0, 100, 200].forEach(x => s('rect', { x: x - 10, y: -120, width: 20, height: 120 }, dinh));
+      s('rect', { x: -250, y: -12, width: 500, height: 14 }, dinh);
+      [-150, 0, 150].forEach(x => s('rect', { x: x - 30, y: -100, width: 60, height: 70, fill: '#ffcf70', opacity: .55 }, dinh));
+      const flies = [];
+      for (let i = 0; i < 40; i++) flies.push([s('circle', { r: 3 + r() * 3, fill: '#fff59a' }, svg), r() * W, 520 + r() * 420, r() * 6, 20 + r() * 50]);
+      return { update(t) {
+        stars.forEach(([p, ph]) => p.setAttribute('opacity', .35 + .65 * Math.abs(Math.sin(t * 1.3 + ph))));
+        halo.setAttribute('r', 320 + Math.sin(t * .8) * 18);
+        clouds.forEach(([g, x, y, v, k]) => g.setAttribute('transform', `translate(${((x + t * v) % (W + 400)) - 300},${y}) scale(${k})`));
+        flies.forEach(([c, x, y, ph, a]) => { c.setAttribute('cx', x + Math.sin(t * .6 + ph) * a); c.setAttribute('cy', y + Math.cos(t * .9 + ph * 2) * a * .6); c.setAttribute('opacity', .25 + .75 * Math.abs(Math.sin(t * 2 + ph))); });
+      } };
+    }
+    if (style === 'langque') {
+      // LÀNG QUÊ: bình minh, lũy tre, ruộng lúa, dòng sông con đò, cánh diều, cò bay
+      const defs = s('defs', null, svg);
+      const sky = s('linearGradient', { id: 'lqs' + seed, x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+      [[0, '#8fc9e8'], [.45, '#f9dca6'], [.62, '#ffe9c2']].forEach(([o, c]) => s('stop', { offset: o, 'stop-color': c }, sky));
+      s('rect', { width: W, height: H, fill: `url(#lqs${seed})` }, svg);
+      s('circle', { cx: 1450, cy: 470, r: 95, fill: '#ffb347', opacity: .9 }, svg);
+      s('circle', { cx: 1450, cy: 470, r: 150, fill: '#ffd58a', opacity: .3 }, svg);
+      let hill = `M0,${H} L0,560`; for (let x = 0; x <= W; x += 320) hill += ` Q${x + 160},${470 + r() * 50} ${x + 320},${545 + r() * 20}`;
+      s('path', { d: hill + ` L${W},${H}Z`, fill: '#8fb3a6', opacity: .7 }, svg);
+      // lũy tre
+      const tre = s('g', { stroke: '#3f6b2e', fill: 'none', 'stroke-linecap': 'round' }, svg);
+      for (let x = -20; x < W + 20; x += 18 + r() * 22) {
+        if (x > 1250 && x < 1650 && r() < .7) continue;
+        const hgt = 120 + r() * 120, bend = (r() - .5) * 70;
+        s('path', { d: `M${x},610 Q${x + bend * .3},${610 - hgt * .6} ${x + bend},${610 - hgt}`, 'stroke-width': 4 }, tre);
+        for (let k = 0; k < 4; k++) { const yy = 610 - hgt * (.45 + k * .15), xx = x + bend * (.3 + k * .2); s('path', { d: `M${xx},${yy} l${r() < .5 ? 26 : -26},${8 + r() * 10}`, 'stroke-width': 6, stroke: '#4f8a38' }, tre); }
+      }
+      s('rect', { x: 0, y: 600, width: W, height: 20, fill: '#557a35' }, svg);
+      // ruộng lúa
+      const field = s('g', null, svg);
+      [['#9ccc4f', 620, 700], ['#86bb3e', 700, 800], ['#c9c34a', 800, 900]].forEach(([c, y1, y2]) => s('rect', { x: 0, y: y1, width: W, height: y2 - y1, fill: c }, field));
+      const rice = s('g', { stroke: '#5f8f2a', 'stroke-width': 3 }, svg), stalks = [];
+      for (let i = 0; i < 160; i++) { const x = r() * W, y = 640 + r() * 260, l = 10 + (y - 620) * .08; stalks.push([s('line', { x1: x, y1: y, x2: x, y2: y - l }, rice), x, y, l, r() * 6]); }
+      // dòng sông
+      s('path', { d: `M0,900 Q480,870 960,900 T${W},890 L${W},${H} L0,${H}Z`, fill: '#6fa3b8' }, svg);
+      const waves = []; for (let i = 0; i < 26; i++) waves.push([s('path', { d: 'M0,0 q20,-6 40,0', stroke: '#e6f4f8', 'stroke-width': 3, fill: 'none', opacity: .7 }, svg), r() * W, 930 + r() * 130, 10 + r() * 20]);
+      const boat = s('g', null, svg);
+      s('path', { d: 'M-110,0 Q0,40 110,0 L80,-10 L-80,-10Z', fill: '#5a3a1e' }, boat);
+      s('path', { d: 'M-40,-12 Q0,-60 40,-12Z', fill: '#7a5a34' }, boat);
+      s('line', { x1: 70, y1: -10, x2: 75, y2: -70, stroke: '#2b2118', 'stroke-width': 5 }, boat);
+      s('path', { d: 'M75,-70 l-24,14 l48,0Z', fill: '#e8d28a' }, boat);
+      s('line', { x1: 75, y1: -50, x2: 140, y2: 40, stroke: '#2b2118', 'stroke-width': 4 }, boat);
+      // cánh diều
+      const kite = s('g', null, svg), str = s('path', { stroke: '#4a3a2a', 'stroke-width': 2, fill: 'none', opacity: .7 }, svg);
+      s('path', { d: 'M0,-60 L40,0 L0,70 L-40,0Z', fill: '#e2473b', stroke: '#7a1e17', 'stroke-width': 3 }, kite);
+      s('path', { d: 'M0,-60 L0,70 M-40,0 L40,0', stroke: '#7a1e17', 'stroke-width': 2 }, kite);
+      const tail = s('path', { stroke: '#f5c542', 'stroke-width': 5, fill: 'none' }, kite);
+      // cò bay
+      const birds = []; for (let i = 0; i < 5; i++) birds.push([s('path', { fill: 'none', stroke: '#fff', 'stroke-width': 5, 'stroke-linecap': 'round' }, svg), r() * W, 160 + r() * 200, 30 + r() * 20, r() * 6]);
+      return { update(t) {
+        stalks.forEach(([l, x, y, len, ph]) => { const sw = Math.sin(t * 1.5 + ph + x * .01) * len * .35; l.setAttribute('x2', x + sw); });
+        waves.forEach(([p, x, y, v]) => p.setAttribute('transform', `translate(${((x + t * v) % (W + 80)) - 40},${y})`));
+        boat.setAttribute('transform', `translate(${((300 + t * 22) % (W + 300)) - 150},${985 + Math.sin(t * 1.4) * 5}) rotate(${Math.sin(t * 1.2) * 2})`);
+        const kx = 560 + Math.sin(t * .5) * 50, ky = 230 + Math.sin(t * .8) * 30;
+        kite.setAttribute('transform', `translate(${kx},${ky}) rotate(${Math.sin(t * 1.1) * 10})`);
+        tail.setAttribute('d', `M0,70 q${Math.sin(t * 3) * 20},40 0,80 q${-Math.sin(t * 3) * 20},40 0,80`);
+        str.setAttribute('d', `M${kx},${ky + 40} Q${kx + 200},${ky + 300} 980,640`);
+        birds.forEach(([p, x, y, v, ph]) => { const f = Math.sin(t * 6 + ph) * 14; p.setAttribute('d', `M-24,${-f} Q-12,${-f * .3 - 6} 0,0 Q12,${-f * .3 - 6} 24,${-f}`); p.setAttribute('transform', `translate(${((x + t * v) % (W + 100)) - 50},${y + Math.sin(t + ph) * 10})`); });
+      } };
+    }
+    if (style === 'vutru') {
+      // VŨ TRỤ: dải ngân hà, thiên hà xoắn ốc, Trái Đất, sao chổi
+      const defs = s('defs', null, svg);
+      const bgg = s('radialGradient', { id: 'vtb' + seed, cx: '30%', cy: '40%', r: '90%' }, defs);
+      [[0, '#13224a'], [.5, '#070c1f'], [1, '#010208']].forEach(([o, c]) => s('stop', { offset: o, 'stop-color': c }, bgg));
+      s('rect', { width: W, height: H, fill: `url(#vtb${seed})` }, svg);
+      const bl = s('filter', { id: 'vbl' + seed, x: '-50%', y: '-50%', width: '200%', height: '200%' }, defs); s('feGaussianBlur', { stdDeviation: 40 }, bl);
+      const mw = s('g', { transform: 'rotate(-24 960 540)' }, svg);
+      s('ellipse', { cx: 960, cy: 520, rx: 1300, ry: 120, fill: '#3d4f8f', opacity: .5, filter: `url(#vbl${seed})` }, mw);
+      s('ellipse', { cx: 960, cy: 520, rx: 900, ry: 50, fill: '#c9b8e8', opacity: .25, filter: `url(#vbl${seed})` }, mw);
+      for (let i = 0; i < 500; i++) { const x = -300 + r() * 2500, y = 520 + (r() + r() + r() - 1.5) * 140; s('circle', { cx: x, cy: y, r: r() * 1.5 + .3, fill: '#fff', opacity: .3 + r() * .6 }, mw); }
+      const stars = []; for (let i = 0; i < 180; i++) stars.push([s('circle', { cx: r() * W, cy: r() * H, r: r() < .08 ? 2.6 : .8 + r() * 1.2, fill: ['#fff', '#cfe0ff', '#ffe6c4'][i % 3] }, svg), r() * 6]);
+      const gal = s('g', null, svg), garm = s('g', null, gal);
+      const gc = s('radialGradient', { id: 'vtg' + seed }, defs); s('stop', { offset: 0, 'stop-color': '#fff4dc', 'stop-opacity': .95 }, gc); s('stop', { offset: 1, 'stop-color': '#bcd2ff', 'stop-opacity': 0 }, gc);
+      s('ellipse', { rx: 80, ry: 44, fill: `url(#vtg${seed})` }, gal);
+      for (let a = 0; a < 2; a++) for (let i = 0; i < 160; i++) { const th = i / 160 * 4.2, rr = 8 * Math.exp(.42 * th) + r() * 10, ang = th + a * Math.PI; s('circle', { cx: Math.cos(ang) * rr, cy: Math.sin(ang) * rr * .45, r: 1 + r() * 1.6, fill: i % 4 ? '#bcd2ff' : '#ffd7f0', opacity: .75 }, garm); }
+      // Trái Đất
+      const eg = s('radialGradient', { id: 'vte' + seed, cx: '35%', cy: '35%', r: '75%' }, defs);
+      [[0, '#7fc8ff'], [.45, '#2a6fc2'], [.85, '#0b2a63'], [1, '#04102a']].forEach(([o, c]) => s('stop', { offset: o, 'stop-color': c }, eg));
+      const clip = s('clipPath', { id: 'vtc' + seed }, defs); s('circle', { cx: 1600, cy: 1020, r: 520 }, clip);
+      s('circle', { cx: 1600, cy: 1020, r: 540, fill: '#5fb0ff', opacity: .25, filter: `url(#vbl${seed})` }, svg);
+      s('circle', { cx: 1600, cy: 1020, r: 520, fill: `url(#vte${seed})` }, svg);
+      const land = s('g', { 'clip-path': `url(#vtc${seed})` }, svg), lands = s('g', null, land);
+      for (let k = 0; k < 2; k++) [[1250, 760, 160, 70], [1480, 680, 120, 50], [1700, 820, 200, 80], [1900, 700, 110, 60], [1420, 900, 140, 60]].forEach(([x, y, rx, ry]) => s('ellipse', { cx: x + k * 1100, cy: y, rx, ry, fill: '#3f8f4f', opacity: .8 }, lands));
+      const cl = s('g', { opacity: .55 }, land);
+      for (let k = 0; k < 2; k++) for (let i = 0; i < 8; i++) s('path', { d: `M${1100 + k * 1100 + i * 140},${640 + (i % 3) * 90} q60,-30 140,0`, stroke: '#fff', 'stroke-width': 14, 'stroke-linecap': 'round', fill: 'none' }, cl);
+      s('circle', { cx: 1600, cy: 1020, r: 520, fill: 'none', stroke: '#9fd4ff', 'stroke-width': 6, opacity: .6 }, svg);
+      s('circle', { cx: 380, cy: 260, r: 46, fill: '#d8d2c4' }, svg); s('circle', { cx: 395, cy: 250, r: 46, fill: '#070c1f', opacity: .55 }, svg);
+      const comet = s('g', null, svg);
+      const cg = s('linearGradient', { id: 'vtk' + seed, x1: 0, y1: 0, x2: 1, y2: 0 }, defs);
+      s('stop', { offset: 0, 'stop-color': '#fff', 'stop-opacity': 0 }, cg); s('stop', { offset: 1, 'stop-color': '#dff3ff', 'stop-opacity': .95 }, cg);
+      s('path', { d: 'M-320,-6 L0,-3 L0,3 L-320,6Z', fill: `url(#vtk${seed})` }, comet); s('circle', { r: 6, fill: '#fff' }, comet);
+      return { update(t) {
+        stars.forEach(([c, ph]) => c.setAttribute('opacity', .4 + .6 * Math.abs(Math.sin(t * 1.1 + ph))));
+        gal.setAttribute('transform', `translate(1000,230) rotate(-18)`); garm.setAttribute('transform', `rotate(${t * 4})`);
+        lands.setAttribute('transform', `translate(${-((t * 14) % 1100)},0)`); cl.setAttribute('transform', `translate(${-((t * 22) % 1100)},0)`);
+        const p = (t % 9) / 9; comet.setAttribute('transform', `translate(${-200 + p * 2400},${80 + p * 520}) rotate(12)`); comet.setAttribute('opacity', Math.sin(p * Math.PI));
       } };
     }
     paintedBG(svg, seed, opts);
@@ -550,6 +685,117 @@
   };
 
 
+
+  /* ----- NGƯỜI QUE HÀNH ĐỘNG (stickman): chạy, đi, đánh nhau, ăn mừng, suy nghĩ, thuyết trình -----
+     Khớp xương tính hoàn toàn từ t ⇒ tua/xuất từng khung chính xác. */
+  const STICK_ACTS = { chay: 'Chạy', di: 'Đi bộ', danh: 'Đánh nhau', vui: 'Ăn mừng', nghi: 'Suy nghĩ', noi: 'Thuyết trình' };
+  function stickFig(parent, ink, accent) {
+    const g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, parent);
+    const P = n => s('polyline', null, g), body = P(), la = P(), ra = P(), ll = P(), rl = P();
+    const head = s('circle', { r: 30, fill: ink }, g);
+    const band = s('path', { stroke: accent, 'stroke-width': 9 }, g);
+    // pose: góc tính từ phương thẳng đứng hướng xuống, dương = về phía trước mặt
+    return function draw(x, y, dir, p) {
+      const pt = (ox, oy, a, L) => [ox + dir * Math.sin(a) * L, oy + Math.cos(a) * L];
+      const neck = [x + dir * Math.sin(p.lean) * 125, y - Math.cos(p.lean) * 125];
+      const hc = [neck[0] + dir * Math.sin(p.lean) * 40, neck[1] - Math.cos(p.lean) * 40];
+      const sh = [neck[0] - dir * Math.sin(p.lean) * 8, neck[1] + 8];
+      const limb = (o, a1, a2, L) => { const e = pt(o[0], o[1], a1, L), h2 = pt(e[0], e[1], a2, L); return `${o[0]},${o[1]} ${e[0]},${e[1]} ${h2[0]},${h2[1]}`; };
+      body.setAttribute('points', `${x},${y} ${neck[0]},${neck[1]}`);
+      la.setAttribute('points', limb(sh, p.la[0], p.la[1], 62)); ra.setAttribute('points', limb(sh, p.ra[0], p.ra[1], 62));
+      ll.setAttribute('points', limb([x, y], p.ll[0], p.ll[1], 72)); rl.setAttribute('points', limb([x, y], p.rl[0], p.rl[1], 72));
+      head.setAttribute('cx', hc[0]); head.setAttribute('cy', hc[1]);
+      band.setAttribute('d', `M${hc[0] - 30},${hc[1] - 8} L${hc[0] + 30},${hc[1] - 8} l${-dir * 26},-14`);
+      const hand = pt(...pt(sh[0], sh[1], p.ra[0], 62), p.ra[1], 62);
+      return { head: hc, hand, neck };
+    };
+  }
+  const STAND = { lean: 0, la: [-.15, -.05], ra: [.15, .05], ll: [-.12, -.12], rl: [.12, .12] };
+  function poseRun(ph, amp = 1) {
+    const sn = Math.sin(ph), sn2 = Math.sin(ph + Math.PI);
+    const leg = (s1, c) => [.75 * amp * s1, .75 * amp * s1 - (.25 + 1.1 * amp * Math.max(0, -Math.cos(c)))];
+    return { lean: .22 * amp, la: [-.9 * amp * sn, -.9 * amp * sn + 1.5 * amp], ra: [-.9 * amp * sn2, -.9 * amp * sn2 + 1.5 * amp], ll: leg(sn, ph), rl: leg(sn2, ph + Math.PI) };
+  }
+  function poseWalk(ph) {
+    const sn = Math.sin(ph);
+    return { lean: .04, la: [-.45 * sn, -.45 * sn + .3], ra: [.45 * sn, .45 * sn + .3], ll: [.38 * sn, .38 * sn - .25 * Math.max(0, -Math.cos(ph))], rl: [-.38 * sn, -.38 * sn - .25 * Math.max(0, Math.cos(ph))] };
+  }
+  SCENES.stick = function (sc, B) {
+    const root = h('div', { class: 'sc sc-stick' });
+    const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
+    const bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 11, { ships: 1 });
+    const light = B.style === 'hoathinh' || B.style === 'langque';
+    h('div', { class: 'shade stk-shade' + (light ? ' light' : '') }, root);
+    const ink = light ? '#1d2330' : '#f6efdc', accent = { vientuong: '#38e1ff', vutru: '#7fc8ff', cotich: '#ffcf70', hoathinh: '#ff6b35', langque: '#e2473b' }[B.style] || '#c8352b';
+    const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'stk-svg', preserveAspectRatio: 'xMidYMid meet' }, root);
+    const GY = 780, act = STICK_ACTS[sc.action] ? sc.action : 'noi';
+    s('line', { x1: 80, y1: GY + 150, x2: W - 80, y2: GY + 150, stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, svg);
+    const fx = s('g', null, svg), A = stickFig(svg, ink, accent), Bf = act === 'danh' ? stickFig(svg, ink, light ? '#2a6fc2' : '#7fc8ff') : null;
+    const kick = h('div', { class: 'stk-head' + (light ? ' light' : '') }, root, (sc.kicker ? `<small>${esc(sc.kicker)}</small>` : '') + esc(sc.heading || ''));
+    let board = null, bubble = null, bang = null, lines = [], dust = [], conf = [];
+    const rr = rng(sc._i * 31 + 5);
+    if (act === 'noi') {
+      board = s('g', null, svg);
+      s('rect', { x: 820, y: 330, width: 900, height: 460, rx: 26, fill: light ? '#fffdf6' : 'rgba(10,8,6,.72)', stroke: ink, 'stroke-width': 8 }, board);
+      s('line', { x1: 1270, y1: 790, x2: 1270, y2: GY + 150, stroke: ink, 'stroke-width': 10 }, board);
+      const words = (sc.pull || (sc.say || '').split(/(?<=[.!?…])\s+/)[0] || '').split(' ');
+      let ln = '', rows = []; words.forEach(w => { if ((ln + ' ' + w).length > 30) { rows.push(ln); ln = w; } else ln = ln ? ln + ' ' + w : w; }); if (ln) rows.push(ln);
+      rows = rows.slice(0, 5); if (rows.length === 5) rows[4] = rows[4].replace(/\s*\S*$/, '…');
+      lines = rows.map((t, i) => s('text', { x: 870, y: 420 + i * 78, fill: light ? '#1d2330' : '#f6efdc', 'font-family': 'Be Vietnam Pro', 'font-weight': 700, 'font-size': 50 }, board, t));
+    }
+    if (act === 'nghi') {
+      bubble = s('g', null, svg);
+      [[1060, 600, 16], [1110, 540, 26]].forEach(([x, y, r2]) => s('circle', { cx: x, cy: y, r: r2, fill: light ? '#fff' : 'rgba(255,255,255,.12)', stroke: ink, 'stroke-width': 6 }, bubble));
+      s('ellipse', { cx: 1330, cy: 380, rx: 260, ry: 150, fill: light ? '#fff' : 'rgba(255,255,255,.12)', stroke: ink, 'stroke-width': 7 }, bubble);
+      s('text', { x: 1330, y: 425, 'text-anchor': 'middle', fill: accent, 'font-family': 'Oswald', 'font-weight': 700, 'font-size': 140 }, bubble, '?');
+    }
+    if (act === 'danh') {
+      bang = s('g', null, svg);
+      s('path', { d: 'M0,-90 L22,-30 L85,-50 L40,0 L90,45 L25,32 L0,95 L-20,35 L-85,50 L-40,0 L-88,-48 L-24,-30Z', fill: '#ffd23f', stroke: accent, 'stroke-width': 8 }, bang);
+      s('text', { y: 18, 'text-anchor': 'middle', fill: '#1d2330', 'font-family': 'Oswald', 'font-weight': 700, 'font-size': 46 }, bang, 'BỤP!');
+    }
+    if (act === 'chay') { for (let i = 0; i < 6; i++) lines.push(s('line', { stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, fx)); for (let i = 0; i < 8; i++) dust.push([s('circle', { fill: ink, opacity: .3 }, fx), rr()]); }
+    if (act === 'vui') for (let i = 0; i < 60; i++) conf.push([s('rect', { width: 14, height: 22, fill: ['#ff6b35', '#ffd23f', '#38e1ff', '#7ed957', '#e2473b'][i % 5] }, fx), rr() * W, rr() * 2, rr() * 6, 120 + rr() * 160]);
+    return {
+      root, update(t, d) {
+        bg.style.transform = `scale(${1.04 + t / d * .05})`; bgu.update(t);
+        kick.style.opacity = eout(ramp(t, .1, .6));
+        const k = eout(ramp(t, 0, .6));
+        svg.style.opacity = k;
+        if (act === 'chay') {
+          const ph = t * 9, x = 300 + ((t * 260) % 1500), y = GY - Math.abs(Math.sin(ph)) * 18;
+          A(x, y, 1, poseRun(ph));
+          lines.forEach((l, i) => { const yy = y - 120 + i * 30, len = 60 + (i % 3) * 40; l.setAttribute('x1', x - 90 - len); l.setAttribute('x2', x - 70); l.setAttribute('y1', yy); l.setAttribute('y2', yy); });
+          dust.forEach(([c, ph0], i) => { const a = ((t * 2 + ph0 + i / 8) % 1); c.setAttribute('cx', x - 40 - a * 160); c.setAttribute('cy', GY + 140 - a * 30); c.setAttribute('r', 6 + a * 18); c.setAttribute('opacity', .35 * (1 - a)); });
+        } else if (act === 'di') {
+          const ph = t * 4.2; A(260 + t * 120 % 1400, GY - Math.abs(Math.sin(ph)) * 6, 1, poseWalk(ph));
+        } else if (act === 'danh') {
+          const c = t % 1.6, pa = ramp(c, 0, .18) - ramp(c, .35, .5), pb = ramp(c, .8, .98) - ramp(c, 1.15, 1.3);
+          const bob = Math.sin(t * 7) * 5, guard = { lean: .1, la: [.55, 2.6], ra: [.35, 2.75], ll: [.35, .2], rl: [-.3, -.35] };
+          const a = JSON.parse(JSON.stringify(guard)), b = JSON.parse(JSON.stringify(guard));
+          a.ra = [.35 + pa * 1.25, 2.75 - pa * 1.15]; a.lean = .1 + pa * .2; b.lean = .1 - pa * .35;
+          b.rl = [-.3 + pb * 1.9, -.35 + pb * 2.0]; b.lean += pb * -.15; a.lean -= pb * .35;
+          A(760 - pb * 40, GY + bob, 1, a); Bf(1160 + pa * 40, GY - bob, -1, b);
+          const hit = Math.max(pa, pb); bang.setAttribute('opacity', hit > .85 ? 1 : 0);
+          bang.setAttribute('transform', `translate(${pa > pb ? 1080 : 840},${pa > pb ? GY - 190 : GY - 40}) scale(${.8 + hit * .3}) rotate(${(t * 40) % 30 - 15})`);
+        } else if (act === 'vui') {
+          const ph = t * Math.PI * 1.4, air = Math.abs(Math.sin(ph)), y = GY - air * 120;
+          A(960, y, 1, { lean: 0, la: [-(2.55 + Math.sin(t * 9) * .15), -(2.9)], ra: [2.55 + Math.sin(t * 9 + 1) * .15, 2.9], ll: [-.25 - air * .3, -.25 + air * .9], rl: [.25 + air * .3, .25 - air * .9] });
+          conf.forEach(([c, x, ph0, rot, v]) => { const yy = ((t * v + ph0 * 400) % 1200) - 100; c.setAttribute('transform', `translate(${x + Math.sin(t * 2 + rot) * 40},${yy}) rotate(${t * 180 + rot * 60})`); });
+        } else if (act === 'nghi') {
+          const sway = Math.sin(t * 1.2) * .04;
+          A(880, GY, 1, { lean: sway, la: [.35, 2.9 + Math.sin(t * 2) * .05], ra: [-.25, .25], ll: [-.12, -.12], rl: [.12, .12] });
+          bubble.setAttribute('opacity', eout(ramp(t, .6, 1.2))); bubble.style.transformOrigin = '1330px 380px'; bubble.style.transform = `scale(${.9 + .1 * eout(ramp(t, .6, 1.2)) + Math.sin(t * 2) * .01})`;
+        } else {
+          const talk = Math.sin(t * 5) * .08, pt = ramp(t, .4, 1);
+          A(560, GY, 1, { lean: .02 + talk * .3, la: [-.2, -.1 + talk], ra: [.4 + pt * 1.05, .4 + pt * 1.2 + Math.sin(t * 3) * .08], ll: STAND.ll, rl: STAND.rl });
+          board.setAttribute('opacity', eout(ramp(t, .2, .7)));
+          lines.forEach((l, i) => l.setAttribute('opacity', eout(ramp(t, .8 + i * .5, 1.3 + i * .5))));
+        }
+      }
+    };
+  };
+
   /* ----- Thống kê: số liệu lớn chạy đếm (tự nhận diện từ kịch bản) ----- */
   SCENES.stat = function (sc, B) {
     const root = h('div', { class: 'sc sc-stat' });
@@ -801,7 +1047,13 @@
     const nd = noiseBuf.getChannelData(0); const rr = rng(42); for (let i = 0; i < nd.length; i++) nd[i] = rr() * 2 - 1;
     const live = x => x >= offset - .05;
     // nền trầm: Rê thứ ngũ cung (viễn tưởng: hợp âm mở; hoạt hình: Đô trưởng)
-    const chords = style === 'vientuong' ? [[50, 57, 64], [46, 53, 60], [48, 55, 62], [43, 50, 57]]
+    // phong cách mới: cổ tích (hộp nhạc huyền ảo), làng quê (ngũ cung, trống cơm nhẹ), vũ trụ (nền pad, không trống)
+    const MX = {
+      cotich: { chords: [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]], bpm: 70, pattern: [.3, 0, 0, 0, .2, 0, 0, 0], penta: [76, 79, 81, 84, 86, 88], wave: 'sine', prob: .5 },
+      langque: { chords: [[50, 57, 62], [48, 55, 60], [45, 52, 57], [47, 54, 59]], bpm: 84, pattern: [.4, 0, .2, 0, .3, 0, .2, .15], penta: [62, 64, 67, 69, 72, 74], wave: 'triangle', prob: .5 },
+      vutru: { chords: [[45, 52, 59], [41, 48, 55], [43, 50, 57], [40, 47, 54]], bpm: 60, pattern: [.25, 0, 0, 0, 0, 0, 0, 0], penta: [69, 71, 76, 79, 83, 88], wave: 'sine', prob: .35, half: true }
+    }[style];
+    const chords = MX ? MX.chords : style === 'vientuong' ? [[50, 57, 64], [46, 53, 60], [48, 55, 62], [43, 50, 57]]
       : style === 'hoathinh' ? [[60, 64, 67], [57, 60, 64], [53, 57, 60], [55, 59, 62]]
       : [[50, 57, 62], [48, 55, 60], [46, 53, 58], [45, 52, 57]];
     const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
@@ -819,8 +1071,8 @@
       });
     }
     // trống trận
-    const bpm = style === 'hoathinh' ? 108 : style === 'vientuong' ? 92 : 76, beat = 60 / bpm;
-    const pattern = style === 'vientuong' ? [.7, 0, .25, 0, .5, 0, .25, 0] : style === 'hoathinh' ? [.5, 0, .3, .3, .5, 0, .3, 0] : [1, 0, .4, 0, .8, .3, .5, 0];
+    const bpm = MX ? MX.bpm : style === 'hoathinh' ? 108 : style === 'vientuong' ? 92 : 76, beat = 60 / bpm;
+    const pattern = MX ? MX.pattern : style === 'vientuong' ? [.7, 0, .25, 0, .5, 0, .25, 0] : style === 'hoathinh' ? [.5, 0, .3, .3, .5, 0, .3, 0] : [1, 0, .4, 0, .8, .3, .5, 0];
     for (let i = 0, x = 4; x < total - 2; i++, x += beat / 2) {
       const v = pattern[i % 8] * (x < 10 ? .5 : 1); if (!v || !live(x)) continue;
       const o = ctx.createOscillator(); o.type = 'sine';
@@ -835,12 +1087,12 @@
       }
     }
     // đàn gảy ngũ cung (gợi đàn tranh)
-    const penta = style === 'hoathinh' ? [72, 74, 76, 79, 81, 84] : style === 'vientuong' ? [62, 64, 69, 71, 74, 76] : [62, 65, 67, 69, 72, 74, 77];
-    const pr = rng(7), step = style === 'vientuong' ? beat / 2 : beat, prob = style === 'vientuong' ? .7 : style === 'hoathinh' ? .55 : .42;
+    const penta = MX ? MX.penta : style === 'hoathinh' ? [72, 74, 76, 79, 81, 84] : style === 'vientuong' ? [62, 64, 69, 71, 74, 76] : [62, 65, 67, 69, 72, 74, 77];
+    const pr = rng(7), step = (MX ? MX.half : style === 'vientuong') ? beat / 2 : beat, prob = MX ? MX.prob : style === 'vientuong' ? .7 : style === 'hoathinh' ? .55 : .42;
     for (let x = 6; x < total - 3; x += step) {
       if (pr() > prob || !live(x)) continue;
       const m = penta[Math.floor(pr() * penta.length)];
-      const o = ctx.createOscillator(); o.type = style === 'hoathinh' ? 'sine' : 'triangle'; o.frequency.value = mtof(m);
+      const o = ctx.createOscillator(); o.type = MX ? MX.wave : style === 'hoathinh' ? 'sine' : 'triangle'; o.frequency.value = mtof(m);
       const g = ctx.createGain(); g.gain.setValueAtTime(.0001, at(x)); g.gain.exponentialRampToValueAtTime(.09, at(x + .01)); g.gain.exponentialRampToValueAtTime(.001, at(x + 1.6));
       o.connect(g); g.connect(master); o.start(at(x)); o.stop(at(x + 1.7));
     }
@@ -865,7 +1117,8 @@
   function fxAuto(style, el) {
     const small = el.matches('.title-sub, .kicker, .card-kick, .sec-title');
     if (style === 'vientuong') return small ? 'quet' : 'giaima';
-    if (style === 'hoathinh') return small ? 'quet' : 'nay';
+    if (style === 'hoathinh' || style === 'langque') return small ? 'quet' : 'nay';
+    if (style === 'vutru') return small ? 'quet' : 'giaima';
     return small ? 'quet' : 'tach';
   }
   function textFx(root, kind, style) {
@@ -923,7 +1176,7 @@
     });
     let acc = 0; scenes.forEach(S => { S.start = acc; acc += S.d; });
     const total = acc;
-    stage.classList.remove('st-tailieu', 'st-vientuong', 'st-hoathinh'); if (battle.style) stage.classList.add('st-' + battle.style);
+    stage.classList.remove('st-tailieu', 'st-vientuong', 'st-hoathinh', 'st-cotich', 'st-langque', 'st-vutru'); if (battle.style) stage.classList.add('st-' + battle.style);
     const layer = h('div', { class: 'layer' }, stage);
     const fxLeak = h('div', { class: 'tr-leak' }, stage), fxBar = h('div', { class: 'tr-bar' }, stage), fxScan = h('div', { class: 'tr-scan' }, stage);
     const subs = h('div', { class: 'subs' }, stage);
@@ -937,7 +1190,7 @@
     scenes.forEach(S => { S.chunks = chunks(S.sc.say); const L = S.chunks.reduce((a, c) => a + c.length, 0) || 1; let a = .25; S.cuts = S.chunks.map(c => { const st = a; a += (S.d - .6) * c.length / L; return [st, a, c]; }); });
     /* ---------- chuyển cảnh kiểu After Effects ---------- */
     const TR_T = .8;
-    const TR_SETS = { tailieu: ['zoom', 'flash', 'whip', 'wipe'], vientuong: ['glitch', 'zoom', 'iris', 'whip'], hoathinh: ['iris', 'slide', 'zoom', 'wipe'] };
+    const TR_SETS = { tailieu: ['zoom', 'flash', 'whip', 'wipe'], vientuong: ['glitch', 'zoom', 'iris', 'whip'], hoathinh: ['iris', 'slide', 'zoom', 'wipe'], cotich: ['iris', 'zoom', 'black', 'wipe'], langque: ['slide', 'wipe', 'zoom', 'iris'], vutru: ['zoom', 'iris', 'black', 'glitch'] };
     const trOpt = opts.tr || 'auto';
     function trKind(i) {
       if (scenes[i].sc.tr) return scenes[i].sc.tr;
@@ -1053,5 +1306,5 @@
     return btoa(bin);
   }
 
-  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks, plugins, textFx };
+  window.Studio = { build, renderAudio, sceneDur, W, H, music: scheduleMusic, chunks, plugins, textFx, STICK_ACTS };
 })();
