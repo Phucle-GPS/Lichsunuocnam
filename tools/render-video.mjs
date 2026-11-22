@@ -114,6 +114,8 @@ async function renderOne(browser, id) {
       ';' + vs.map((_, i) => `[v${i}]`).join('') + `amix=inputs=${vs.length}:normalize=0[vv];[m][vv]amix=inputs=2:normalize=0[a]`;
     mixOut = '[a]';
   }
+  // chuẩn âm lượng nền tảng video: -14 LUFS, đỉnh -1.5 dBTP (YouTube/Facebook/TikTok không tự hạ giọng)
+  filter += `;${mixOut}loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[an]`; mixOut = '[an]';
   execFileSync('ffmpeg', ['-y', '-v', 'error', ...inputs, '-filter_complex', filter, '-map', '0:v', '-map', mixOut, '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-shortest', out]);
   fs.unlinkSync(silent); fs.unlinkSync(wav);
   console.log(`\r✔ ${out}  (${info.total.toFixed(1)} giây)`);

@@ -26,6 +26,13 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Video giải thích / podcast: thẻ thông tin, dự án khối, chuẩn âm lượng
+- **6 kiểu thẻ mới:** Mở chương, Cảnh báo, Chuỗi bước (nguyên nhân → hệ quả), Danh sách tự kiểm tra, So sánh hai bên, Chữ/con số thật to. Bọc cụm từ trong `*dấu sao*` để tô màu nổi bật.
+- **Kịch bản chia khối:** dán hoặc tải file có dòng `=== AVATAR 01 ===`, `=== SLIDE 02 ===`. Mỗi khối thành một cảnh mang mã khối.
+- **Nạp nhiều file giọng cùng lúc:** chọn một lúc nhiều file. App khớp theo mã khối (`AVATAR-01.mp3`, `SLIDE-02_full.mp3`) hoặc theo số thứ tự (`01.mp3`).
+- **Nhập dự án khối:** `timeline.json`, hoặc file `.zip` gồm `timeline.json`, kịch bản khối và các thư mục `voice/`, `images/`, `stock/`, `avatar/`. Mỗi khối có một file giọng; các thẻ trong khối chia nhau thời lượng giọng theo tỉ trọng `w`. Lời dẫn được chia theo câu để làm phụ đề. Ảnh, video và giọng được nạp tự động.
+- **Chuẩn âm lượng:** `tools/render-video.mjs` chuẩn hóa tiếng về −14 LUFS (đỉnh −1,5 dBTP), mức YouTube, Facebook và TikTok dùng.
+
 ## Phong cách Cổ tích · Làng quê · Vũ trụ, người que, YouTube dài
 - **Dự án mới từ kịch bản** có thêm 3 phong cách. Mỗi phong cách có nền vẽ động, màu chữ, chuyển cảnh và nhạc nền riêng:
   - **Cổ tích:** trăng rằm, cây đa, mái đình, đom đóm, nhạc hộp nhạc.

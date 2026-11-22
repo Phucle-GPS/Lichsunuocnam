@@ -796,6 +796,97 @@
     };
   };
 
+  /* ----- THẺ THÔNG TIN kiểu podcast/giải thích: chương, cảnh báo, chuỗi bước, tự kiểm tra, so sánh, chữ to -----
+     *cụm từ* trong tiêu đề được tô màu nổi bật. */
+  const hl = t => esc(t || '').replace(/\*([^*]+)\*/g, '<em class="hl">$1</em>');
+  function infoBG(root, sc, B, k) {
+    if (B.style) { const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root); root._bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * k, { ships: 1 }); h('div', { class: 'shade info-shade' }, root); }
+    return t => { if (root._bgu) root._bgu.update(t); };
+  }
+  const ICON = {
+    warning: '<svg viewBox="0 0 100 100"><path d="M50 8 L96 90 H4Z" fill="#e2473b"/><rect x="45" y="36" width="10" height="30" rx="4" fill="#fff"/><circle cx="50" cy="77" r="6" fill="#fff"/></svg>',
+    check: '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#2f9a5a"/><path d="M28 52 L44 68 L74 34" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    cross: '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#c8352b"/><path d="M32 32 L68 68 M68 32 L32 68" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg>'
+  };
+  const reveal = (el, t, a, dx = 0, dy = 30) => { const k = eout(ramp(t, a, a + .5)); el.style.opacity = k; el.style.transform = `translate(${(1 - k) * dx}px,${(1 - k) * dy}px)`; return k; };
+
+  SCENES.chapter = function (sc, B) {
+    const root = h('div', { class: 'sc sc-info sc-chapter' }), bgu = infoBG(root, sc, B, 17);
+    const box = h('div', { class: 'ch-box' }, root);
+    const kick = h('div', { class: 'ch-kick' }, box, esc(sc.kicker || 'CHƯƠNG MỚI'));
+    const title = h('div', { class: 'ch-title' }, box, hl(sc.title || sc.heading));
+    const bar = h('div', { class: 'ch-bar' }, box);
+    const sub = sc.sub ? h('div', { class: 'ch-sub' }, box, hl(sc.sub)) : null;
+    return { root, update(t) { bgu(t); reveal(kick, t, .1, 0, -20); reveal(title, t, .35); bar.style.width = eout(ramp(t, .8, 1.5)) * 320 + 'px'; if (sub) reveal(sub, t, 1.2); } };
+  };
+
+  SCENES.warning = function (sc, B) {
+    const root = h('div', { class: 'sc sc-info sc-warning' }), bgu = infoBG(root, sc, B, 19);
+    const ic = h('div', { class: 'wr-icon' }, root, ICON.warning);
+    const box = h('div', { class: 'wr-box' }, root);
+    const kick = sc.kicker ? h('div', { class: 'wr-kick' }, box, esc(sc.kicker)) : null;
+    const title = h('div', { class: 'wr-title' }, box, hl(sc.title || sc.heading));
+    const sub = sc.sub ? h('div', { class: 'wr-sub' }, box, hl(sc.sub)) : null;
+    return { root, update(t) {
+      bgu(t); const k = eout(ramp(t, 0, .5)); ic.style.opacity = k; ic.style.transform = `scale(${(.6 + .4 * k) * (1 + Math.max(0, Math.sin(t * 4)) * .05)})`;
+      if (kick) reveal(kick, t, .3, -40, 0); reveal(title, t, .5, -40, 0); if (sub) reveal(sub, t, 1.1, -40, 0);
+    } };
+  };
+
+  SCENES.steps = function (sc, B) {
+    const root = h('div', { class: 'sc sc-info sc-steps' }), bgu = infoBG(root, sc, B, 23);
+    const title = h('div', { class: 'in-title' }, root, hl(sc.title || sc.heading));
+    const row = h('div', { class: 'st-row n' + Math.min(4, (sc.steps || []).length) }, root);
+    const els = (sc.steps || []).slice(0, 4).map((x, i) => {
+      if (i) h('div', { class: 'st-arrow' }, row, '➜');
+      return h('div', { class: 'st-step' }, row, `<b>${String(i + 1).padStart(2, '0')}</b><span>${hl(x)}</span>`);
+    });
+    const arrows = [...row.querySelectorAll('.st-arrow')];
+    return { root, update(t, d) {
+      bgu(t); reveal(title, t, .1); const step = Math.max(.6, (d - 2) / Math.max(1, els.length));
+      els.forEach((e, i) => { reveal(e, t, .6 + i * step, 0, 40); if (arrows[i - 1]) arrows[i - 1].style.opacity = eout(ramp(t, .4 + i * step, .7 + i * step)); });
+    } };
+  };
+
+  SCENES.checklist = function (sc, B) {
+    const root = h('div', { class: 'sc sc-info sc-check' }), bgu = infoBG(root, sc, B, 29);
+    const title = h('div', { class: 'in-title' }, root, hl(sc.title || sc.heading));
+    const list = h('div', { class: 'ck-list' }, root), ico = sc.icon === 'check' ? ICON.check : ICON.warning;
+    const els = (sc.items || []).slice(0, 5).map(x => h('div', { class: 'ck-item' }, list, `<i>${ico}</i><span>${hl(x)}</span>`));
+    const note = sc.note ? h('div', { class: 'ck-note' }, root, hl(sc.note)) : null;
+    return { root, update(t, d) {
+      bgu(t); reveal(title, t, .1); const step = Math.max(.7, (d - 2.5) / Math.max(1, els.length));
+      els.forEach((e, i) => { reveal(e, t, .6 + i * step, 50, 0); const ic = e.firstChild; ic.style.transform = `scale(${.4 + .6 * eout(ramp(t, .8 + i * step, 1.2 + i * step))})`; });
+      if (note) reveal(note, t, .8 + els.length * step);
+    } };
+  };
+
+  SCENES.vs = function (sc, B) {
+    const root = h('div', { class: 'sc sc-info sc-vs' }), bgu = infoBG(root, sc, B, 31);
+    const title = h('div', { class: 'in-title' }, root, hl(sc.title || sc.heading));
+    const a = sc.a || ['', ''], b = sc.b || ['', ''];
+    const ca = h('div', { class: 'vs-card good' }, root, `<i>${ICON.check}</i><b>${hl(a[0])}</b><span>${hl(a[1])}</span>`);
+    const cb = h('div', { class: 'vs-card bad' }, root, `<i>${ICON.cross}</i><b>${hl(b[0])}</b><span>${hl(b[1])}</span>`);
+    const mid = h('div', { class: 'vs-mid' }, root, 'VS');
+    return { root, update(t) { bgu(t); reveal(title, t, .1); reveal(ca, t, .5, -80, 0); reveal(cb, t, .9, 80, 0); const k = eout(ramp(t, 1.3, 1.7)); mid.style.opacity = k; mid.style.transform = `translate(-50%,-50%) scale(${.5 + k * .5}) rotate(${(1 - k) * -90}deg)`; } };
+  };
+
+  SCENES.bigword = function (sc, B) {
+    const root = h('div', { class: 'sc sc-info sc-big' + (sc.media && sc.media.url ? ' has-media' : '') }), bgu = infoBG(root, sc, B, 37);
+    let media = null;
+    if (sc.media && sc.media.url) { media = h(sc.media.kind === 'video' ? 'video' : 'img', { class: 'bw-media', src: sc.media.url, muted: '', playsinline: '' }, root); if (media.tagName === 'VIDEO') media.muted = true; }
+    const box = h('div', { class: 'bw-box' }, root);
+    const big = h('div', { class: 'bw-big' }, box, hl(sc.big || sc.title || ''));
+    const cap = sc.caption ? h('div', { class: 'bw-cap' }, box, hl(sc.caption)) : null;
+    const sub = sc.sub ? h('div', { class: 'bw-sub' }, box, hl(sc.sub)) : null;
+    const len = (sc.big || sc.title || '').replace(/\*/g, '').length; big.style.fontSize = Math.min(220, Math.max(90, (media ? 1700 : 2600) / Math.max(4, len))) + 'px';
+    return { root, update(t, d) {
+      bgu(t); const k = eout(ramp(t, .1, .7)); big.style.opacity = k; big.style.transform = `scale(${1.25 - .25 * k})`;
+      if (media) { media.style.opacity = eout(ramp(t, 0, .6)); media.style.transform = `scale(${1.05 + t / d * .08})`; if (media.tagName === 'VIDEO' && media.duration && Math.abs(media.currentTime - t % media.duration) > .3) media.currentTime = t % media.duration; }
+      if (cap) reveal(cap, t, .7); if (sub) reveal(sub, t, 1.2);
+    } };
+  };
+
   /* ----- Thống kê: số liệu lớn chạy đếm (tự nhận diện từ kịch bản) ----- */
   SCENES.stat = function (sc, B) {
     const root = h('div', { class: 'sc sc-stat' });
