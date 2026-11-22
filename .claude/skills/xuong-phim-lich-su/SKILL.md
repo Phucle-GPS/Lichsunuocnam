@@ -21,3 +21,12 @@ Mọi thứ của xưởng này được liệt kê trong `xuong/lich-su.json` (
 5. Xuất: `node tools/render-video.mjs <id>` và `--doc` (9:16); thêm `--nguoi-dan` để có người dẫn người que ở góc.
 6. Ảnh bìa: `node tools/thumbnail.mjs <id>`; prompt AI: nút "✨ Tải bộ prompt AI cả phim" hoặc `prompt-ai/<id>.txt`.
 7. Đăng: nút **Đăng YouTube** (chương + mô tả tự soạn) / **Đăng Facebook** trong app.
+
+## Phim người que lịch sử theo kaomei/stickman-video-director (MIT)
+Nguồn: `.claude/skills/directing-stickman-videos/` (đọc `references/historical-cartoon.md` = Style **A5 Historical Cartoon**).
+- **Trong app (tự vẽ, không cần AI ngoài):** trận mẫu → *🕺 Dựng phim người que từ trận này*.
+- **Bằng Veo / Google Flow (hình đẹp kiểu A5):** `node tools/prompt-nguoi-que.mjs <id|all>` → `prompt-ai/nguoi-que/<id>.txt` (hoặc nút *🕺 Prompt phim người que A5* trong app). File gồm:
+  - **Phase A – đề xuất đạo diễn:** era pack (thời kỳ, bối cảnh, màu, nhạc), cast card đầy đủ (chỉ huy theo thời kỳ, quân Đại Việt, quân địch), giọng Manus là bản thu ngoài, tách sự thật/minh họa.
+  - **Phase B – prompt từng clip 8 giây:** lặp NGUYÊN VĂN khối vẽ A5 (`lib/a5-anchor.js`) + cast card đầy đủ + hành động có mốc giây + âm thanh + cấm kỵ. Hành động chọn theo lời dẫn (`Xuong.guessAction`) và loại cảnh.
+- Quy tắc A5 phải giữ: đầu trắng nối cổ ngắn liền mạch, bàn tay đen hình găng không ngón, không chữ/không máu, giọng kể giữ nguyên cả phim (Manus). Khuyên người dùng tự tạo ảnh tham chiếu nhân vật (chính diện/nghiêng/sau) và đính kèm mỗi lần tạo.
+- Thêm trận mới: bổ sung `ERA[id]` trong `lib/aiprompt.js`; trang phục chỉ huy theo thời kỳ ở `LEAD` trong `lib/stickprompt.js`.

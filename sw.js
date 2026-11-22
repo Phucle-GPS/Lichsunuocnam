@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v20';
+const VERSION = 'v21';
 const CORE = [
   './',
   'index.html',
@@ -13,6 +13,8 @@ const CORE = [
   'lib/xuong.js',
   'lib/nhac.js',
   'lib/aiprompt.js',
+  'lib/a5-anchor.js',
+  'lib/stickprompt.js',
   'lib/giong.js',
   'lib/youtube.js',
   'lib/ytup.js',

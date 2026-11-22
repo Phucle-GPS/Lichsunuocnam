@@ -21,6 +21,11 @@
    "lenh": "node tools/render-video.mjs all && node tools/render-video.mjs all --doc"
   },
   {
+   "ten": "Bộ prompt phim người que A5 (Veo/Flow) cho các trận",
+   "lenh": "node tools/prompt-nguoi-que.mjs all",
+   "mo_ta": "Theo skill directing-stickman-videos – Style A5 Historical Cartoon; thời lượng khớp giọng Manus. Ra prompt-ai/nguoi-que/<id>.txt"
+  },
+  {
    "ten": "Tự đọc lời dẫn bằng giọng Manus đã lưu",
    "lenh": "node tools/giong-manus.mjs tao <id-trận>",
    "mo_ta": "Cần ELEVENLABS_API_KEY; chỉ đọc cảnh còn thiếu."
@@ -54,6 +59,18 @@
    "giay_phep": "của dự án"
   },
   {
+   "ten": "directing-stickman-videos – A5 Historical Cartoon",
+   "duong_dan": ".claude/skills/directing-stickman-videos/references/historical-cartoon.md",
+   "mo_ta": "Ngữ pháp vẽ người que lịch sử cố định, era pack, cast card, quy trình Phase A → Phase B, kiểm tra clip.",
+   "giay_phep": "MIT – kaomei/stickman-video-director"
+  },
+  {
+   "ten": "directing-stickman-videos (toàn bộ skill)",
+   "duong_dan": ".claude/skills/directing-stickman-videos/SKILL.md",
+   "mo_ta": "Đạo diễn phim người que: 15 phong cách, storyboard, giọng, hậu kỳ, gói đăng.",
+   "giay_phep": "MIT"
+  },
+  {
    "ten": "GSAP (8 skill chính thức)",
    "duong_dan": ".claude/skills/gsap-core/SKILL.md",
    "mo_ta": "Hiệu ứng chữ, timeline tạm dừng tua theo t.",
@@ -63,9 +80,89 @@
    "ten": "Quy tắc giọng Manus",
    "duong_dan": "loi-dan/GIONG.json",
    "mo_ta": "Cấu hình giọng nam trầm đã lưu; nguồn từng trận ở loi-dan/NGUON.json."
+  },
+  {
+   "ten": "Mẫu đề xuất đạo diễn (storyboard)",
+   "duong_dan": ".claude/skills/directing-stickman-videos/references/storyboard-template.md",
+   "mo_ta": "Phase A: tựa, móc câu, khung hình, giọng, nhịp 5 bước.",
+   "giay_phep": "MIT"
+  },
+  {
+   "ten": "Giữ giọng kể nhất quán",
+   "duong_dan": ".claude/skills/directing-stickman-videos/references/voice-continuity.md",
+   "mo_ta": "Hồ sơ giọng cố định cho cả phim (áp cho giọng Manus).",
+   "giay_phep": "MIT"
+  },
+  {
+   "ten": "Dòng thời gian âm thanh & kiểm tra",
+   "duong_dan": ".claude/skills/directing-stickman-videos/references/a-audio-timeline-and-review.md",
+   "mo_ta": "Giọng làm trục, nhạc/SFX riêng lớp.",
+   "giay_phep": "MIT"
+  },
+  {
+   "ten": "Gói ảnh bìa & đăng bài",
+   "duong_dan": ".claude/skills/directing-stickman-videos/references/thumbnail-publishing-kit.md",
+   "mo_ta": "",
+   "giay_phep": "MIT"
+  },
+  {
+   "ten": "Nguồn nhạc & giấy phép",
+   "duong_dan": ".claude/skills/directing-stickman-videos/references/music-sourcing-and-license.md",
+   "mo_ta": "",
+   "giay_phep": "MIT"
   }
  ],
  "prompt": [
+  {
+   "ten": "Người que A5 – bach-dang-1288",
+   "duong_dan": "prompt-ai/nguoi-que/bach-dang-1288.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – bach-dang-938",
+   "duong_dan": "prompt-ai/nguoi-que/bach-dang-938.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – chi-lang-1427",
+   "duong_dan": "prompt-ai/nguoi-que/chi-lang-1427.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – dong-bo-dau-1258",
+   "duong_dan": "prompt-ai/nguoi-que/dong-bo-dau-1258.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – dong-da-1789",
+   "duong_dan": "prompt-ai/nguoi-que/dong-da-1789.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – ham-tu-1285",
+   "duong_dan": "prompt-ai/nguoi-que/ham-tu-1285.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – nhu-nguyet-1077",
+   "duong_dan": "prompt-ai/nguoi-que/nhu-nguyet-1077.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – rach-gam-1785",
+   "duong_dan": "prompt-ai/nguoi-que/rach-gam-1785.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – tay-ket-1285",
+   "duong_dan": "prompt-ai/nguoi-que/tay-ket-1285.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
+  {
+   "ten": "Người que A5 – van-don-1288",
+   "duong_dan": "prompt-ai/nguoi-que/van-don-1288.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+  },
   {
    "ten": "Prompt AI cả phim – bach-dang-1288",
    "duong_dan": "prompt-ai/bach-dang-1288.txt",
@@ -128,6 +225,17 @@
   }
  ],
  "nguon": [
+  {
+   "ten": "kaomei/stickman-video-director",
+   "url": "https://github.com/kaomei/stickman-video-director",
+   "giay_phep": "MIT",
+   "mo_ta": "Nguồn phong cách A5 Historical Cartoon, quy trình đạo diễn và kiểm tra clip. Phần chữ của skill đã chép vào .claude/skills/directing-stickman-videos."
+  },
+  {
+   "ten": "Xem mẫu A5 Historical Cartoon (GIF)",
+   "url": "https://cdn.jsdelivr.net/gh/kaomei/stickman-video-director@2697fac5e0466f44098148a52c9648697521b3d6/assets/readme/previews/style-5-japan-hero.gif",
+   "giay_phep": "MIT"
+  },
   {
    "ten": "Đại Việt sử ký toàn thư",
    "mo_ta": "Nguồn chính cho các trận thời Ngô, Lý, Trần, Lê"

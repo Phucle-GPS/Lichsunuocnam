@@ -854,6 +854,8 @@ body.render .app{display:none}
 <script src="lib/xuong.js"></script>
 <script src="lib/nhac.js"></script>
 <script src="lib/aiprompt.js"></script>
+<script src="lib/a5-anchor.js"></script>
+<script src="lib/stickprompt.js"></script>
 <script src="lib/facebook.js"></script>
 <script src="lib/giong.js"></script>
 <script src="lib/youtube.js"></script>
@@ -1105,9 +1107,11 @@ body.render .app{display:none}
         <button class="btn primary wide" id="pStick" style="margin-top:8px">🕺 Dựng phim người que từ trận này</button>
         <button class="btn wide" id="pClone" style="margin-top:8px">📋 Dùng mẫu này làm dự án của bạn</button>
         <button class="btn ghost wide" id="pPack" style="margin-top:8px">✨ Tải bộ prompt AI cả phim (.txt)</button>
+        <button class="btn ghost wide" id="pA5" style="margin-top:8px" title="Prompt Veo/Flow phong cách A5 Historical Cartoon (skill directing-stickman-videos, MIT)">🕺 Prompt phim người que A5 (Veo/Flow)</button>
         <button class="btn ghost wide" id="pYT" style="margin-top:8px">▶ Chương &amp; mô tả YouTube</button>
         <div class="hint">Đây là dự án mẫu (chỉ xem). Bấm <b>Dùng mẫu này làm dự án của bạn</b> để thay hình bằng clip AI (Veo/Flow) mà vẫn giữ giọng đọc, phụ đề, nhạc.</div>`;
-      $('pClone').onclick = cloneTemplate; $('pStick').onclick = cloneStick; $('pPack').onclick = downloadPack; $('pYT').onclick = openYT;
+      $('pClone').onclick = cloneTemplate; $('pStick').onclick = cloneStick;
+      $('pA5').onclick = () => { const r = StickPrompt.pack(P, packBufs ? packBufs.map(x => x ? x.duration + 1 : 0) : []); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([r.text], { type: 'text/plain;charset=utf-8' })); a.download = 'prompt-nguoi-que-' + P.id + '.txt'; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 3000); note(`Đã tải ${r.clips} prompt clip A5 (~${Math.round(r.total)} giây). Dán từng clip vào Veo / Google Flow.`, 6000); }; $('pPack').onclick = downloadPack; $('pYT').onclick = openYT;
       return;
     }
     el.innerHTML = `
