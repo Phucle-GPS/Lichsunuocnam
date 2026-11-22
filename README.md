@@ -27,13 +27,13 @@ Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của m�
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
 ## Ba xưởng trong một app
-Cột trái chia thành 3 xưởng. Mỗi xưởng có nút **🧰** gom đủ **lệnh, skill, prompt và nguồn mở** của riêng nó (khai báo trong `xuong/*.json`).
+Cột trái chia thành 3 xưởng. **Gọi tên xưởng nào thì chỉ làm việc trong xưởng đó** – câu lệnh nhận dạng: *film Lịch Sử Việt Nam* · *film hoạt hình* · *nhạc AI tự động*. Mỗi xưởng có nút **🧰** gom đủ **lệnh, skill, prompt và nguồn mở** của riêng nó (khai báo trong `xuong/*.json`).
 
 | Xưởng | Có gì |
 |---|---|
-| 🏯 **Film Lịch sử Việt Nam** | Dự án lịch sử của bạn, 10 trận mẫu. Giọng Manus, bản đồ, sơ đồ trận, prompt Veo/Flow, Blender, phim 3D. Skill `xuong-phim-lich-su`. |
+| 🏯 **Film Lịch sử Việt Nam** | Dự án lịch sử của bạn, 10 trận mẫu. Giọng Manus, bản đồ, sơ đồ trận, prompt Veo/Flow, Blender, phim 3D. Skill `xuong-phim-lich-su`. **Phim người que A5** (skill MIT kaomei/stickman-video-director): dựng trong app, prompt Veo/Flow, gói Google Flow (`tools/goi-flow.mjs`). |
 | 🎧 **Nhạc AI tự động** | Mỗi ngày 2 bài **EDM có lời** tiếng Việt do lịch chạy tự động sáng tác: lời, hook, prompt phong cách, bản demo nhạc nền. Có khóa MiniMax/ElevenLabs thì có thêm bản hát. Nút *Làm nhạc nền* đưa bài vào phim. Skill `xuong-nhac-ai`, lệnh `tools/nhac-ai.mjs`. |
-| 🎨 **Film hoạt hình** | Phim người que và hoạt hình 2D: tạo từ kịch bản, hoặc dựng nhanh từ một trận. Kèm skill nguồn mở MIT `directing-stickman-videos`, `animate` và skill `xuong-hoat-hinh` (era pack Đại Việt). |
+| 🎨 **Film hoạt hình** | Phim hoạt hình 2D từ kịch bản (Hoạt hình, Cổ tích, Làng quê, Vũ trụ), Lottie/Rive, skill MIT `animate`. Skill `xuong-hoat-hinh`. |
 
 **Đăng YouTube** (thanh trên): nhập OAuth Client ID của bạn một lần (có hướng dẫn trong hộp) → kết nối kênh → video vừa xuất được tải lên. Tiêu đề, mô tả (có chương), thẻ, ảnh bìa đã soạn sẵn. Đăng được ngay hoặc hẹn giờ, có khai báo nội dung do AI tạo.
 

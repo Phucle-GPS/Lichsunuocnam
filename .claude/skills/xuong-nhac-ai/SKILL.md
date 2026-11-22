@@ -1,9 +1,11 @@
 ---
 name: xuong-nhac-ai
-description: Xưởng nhạc AI tự động của app Xưởng Video – mỗi ngày sáng tác 2 bài EDM có lời (tiếng Việt, bắt tai, nguyên tác), lưu vào nhac-ai/<ngày>/, dựng bản demo nhạc nền bằng bộ tổng hợp của app và (nếu có khóa) bản có giọng hát qua ElevenLabs Music hoặc MiniMax Music. Dùng cho lịch chạy hằng ngày hoặc khi người dùng nói "viết nhạc EDM", "sáng tác bài mới", "tạo bài hát có lời".
+description: Câu lệnh nhận dạng "nhạc AI tự động". Xưởng nhạc AI tự động của app Xưởng Video – mỗi ngày sáng tác 2 bài EDM có lời (tiếng Việt, bắt tai, nguyên tác), lưu vào nhac-ai/<ngày>/, dựng bản demo nhạc nền bằng bộ tổng hợp của app và (nếu có khóa) bản có giọng hát qua ElevenLabs Music hoặc MiniMax Music. Dùng cho lịch chạy hằng ngày hoặc khi người dùng nói "viết nhạc EDM", "sáng tác bài mới", "tạo bài hát có lời".
 ---
 
 # XƯỞNG NHẠC AI TỰ ĐỘNG
+
+Phạm vi: khi người dùng gọi "nhạc AI tự động" CHỈ làm trong Xưởng nhạc AI tự động – không tạo mục mới ở 2 xưởng còn lại hay ở thanh bên phải.
 
 ## Mỗi lần chạy (hằng ngày)
 1. `node tools/nhac-ai.mjs mau` → in khung JSON và danh sách đề tài đã dùng (tránh trùng).

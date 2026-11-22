@@ -1,9 +1,11 @@
 ---
 name: xuong-phim-lich-su
-description: Xưởng film Lịch sử Việt Nam của app Xưởng Video – thêm trận đánh/nhân vật lịch sử mới vào battles.js, dựng cảnh (bản đồ, sơ đồ trận, lực lượng, mốc thời gian), nạp giọng Manus, xuất video 16:9/9:16, ảnh bìa, prompt AI, chương YouTube. Dùng khi người dùng nói "làm video trận…", "thêm trận mới", "xuất video lịch sử", "prompt Veo cho trận…".
+description: Câu lệnh nhận dạng "film Lịch Sử Việt Nam". Xưởng film Lịch sử Việt Nam của app Xưởng Video – thêm trận đánh/nhân vật lịch sử mới vào battles.js, dựng cảnh (bản đồ, sơ đồ trận, lực lượng, mốc thời gian), nạp giọng Manus, xuất video 16:9/9:16, ảnh bìa, prompt AI, chương YouTube. Dùng khi người dùng nói "làm video trận…", "thêm trận mới", "xuất video lịch sử", "prompt Veo cho trận…".
 ---
 
 # XƯỞNG FILM LỊCH SỬ VIỆT NAM
+
+Phạm vi: khi người dùng gọi "film Lịch Sử Việt Nam" CHỈ làm trong Xưởng film Lịch sử Việt Nam – không tạo mục mới ở 2 xưởng còn lại hay ở thanh bên phải.
 
 Mọi thứ của xưởng này được liệt kê trong `xuong/lich-su.json` (app đọc file đó để hiện **🧰 Lệnh · Skill · Prompt**). Khi thêm lệnh/prompt mới, cập nhật file đó.
 
@@ -24,8 +26,9 @@ Mọi thứ của xưởng này được liệt kê trong `xuong/lich-su.json` (
 
 ## Phim người que lịch sử theo kaomei/stickman-video-director (MIT)
 Nguồn: `.claude/skills/directing-stickman-videos/` (đọc `references/historical-cartoon.md` = Style **A5 Historical Cartoon**).
-- **Trong app (tự vẽ, không cần AI ngoài):** trận mẫu → *🕺 Dựng phim người que từ trận này*.
-- **Bằng Veo / Google Flow (hình đẹp kiểu A5):** `node tools/prompt-nguoi-que.mjs <id|all>` → `prompt-ai/nguoi-que/<id>.txt` (hoặc nút *🕺 Prompt phim người que A5* trong app). File gồm:
+- **Trong app (tự vẽ, không cần AI ngoài):** cột trái, Xưởng film Lịch sử Việt Nam → mục *Phim người que A5* → nút *🕺 Dựng* (hoặc *✨ A5* để tải prompt).
+- Người que kiểu A5 (`stickFig`, `drawHorseStick`) và gói Google Flow (`tools/goi-flow.mjs`) chỉ thuộc xưởng này.
+- **Bằng Veo / Google Flow (hình đẹp kiểu A5):** `node tools/prompt-nguoi-que.mjs <id|all>` → `prompt-ai/nguoi-que/<id>.txt` (hoặc nút *✨ A5* trong mục Phim người que A5). File gồm:
   - **Phase A – đề xuất đạo diễn:** era pack (thời kỳ, bối cảnh, màu, nhạc), cast card đầy đủ (chỉ huy theo thời kỳ, quân Đại Việt, quân địch), giọng Manus là bản thu ngoài, tách sự thật/minh họa.
   - **Phase B – prompt từng clip 8 giây:** lặp NGUYÊN VĂN khối vẽ A5 (`lib/a5-anchor.js`) + cast card đầy đủ + hành động có mốc giây + âm thanh + cấm kỵ. Hành động chọn theo lời dẫn (`Xuong.guessAction`) và loại cảnh.
 - Quy tắc A5 phải giữ: đầu trắng nối cổ ngắn liền mạch, bàn tay đen hình găng không ngón, không chữ/không máu, giọng kể giữ nguyên cả phim (Manus). Khuyên người dùng tự tạo ảnh tham chiếu nhân vật (chính diện/nghiêng/sau) và đính kèm mỗi lần tạo.

@@ -806,7 +806,63 @@
       });
     };
   }
+  /* Người que KIỂU CŨ (nét đơn) – dùng cho Xưởng film hoạt hình; kiểu A5 ở trên chỉ dùng cho Xưởng film Lịch sử Việt Nam */
+  function stickFigClassic(parent, ink, accent, o = {}) {
+    const outer = s('g', null, parent), g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, outer);
+    const P = () => s('polyline', null, g), back = s('g', null, g), body = P(), la = P(), ll = P(), rl = P();
+    const head = s('circle', { r: 30, fill: ink }, g), ra = P(), wpn = s('g', null, g), hat = s('g', null, g);
+    if (o.hat === 'non') s('path', { d: 'M-50,0 L0,-46 L50,0 Q0,10 -50,0Z', fill: '#d9b66a', stroke: ink, 'stroke-width': 6 }, hat);
+    else if (o.hat === 'mu') { s('path', { d: 'M-34,0 A34,34 0 0 1 34,0 L40,6 L-40,6Z', fill: '#6b6f7a', stroke: ink, 'stroke-width': 6 }, hat); s('path', { d: 'M0,-34 q-6,-30 10,-44 q4,22 -4,44Z', fill: accent, stroke: 'none' }, hat); }
+    else if (o.hat === 'khan') s('ellipse', { cx: 0, cy: -2, rx: 36, ry: 14, fill: '#1d1a16', stroke: accent, 'stroke-width': 5 }, hat);
+    else s('path', { d: 'M-30,0 L30,0', stroke: accent, 'stroke-width': 9 }, hat);
+    const W_ = { kiem: () => { s('line', { x1: 0, y1: 0, x2: 0, y2: -110, stroke: '#d8dde6', 'stroke-width': 9 }, wpn); s('line', { x1: -18, y1: -8, x2: 18, y2: -8, stroke: ink, 'stroke-width': 9 }, wpn); },
+      giao: () => { s('line', { x1: 0, y1: 90, x2: 0, y2: -190, stroke: '#8a5a2b', 'stroke-width': 8 }, wpn); s('path', { d: 'M0,-190 L-10,-160 L0,-225 L10,-160Z', fill: '#d8dde6', stroke: ink, 'stroke-width': 4 }, wpn); s('path', { d: 'M-6,-160 q-16,10 -8,26', stroke: accent, 'stroke-width': 6, fill: 'none' }, wpn); },
+      cung: () => { s('path', { d: 'M0,-80 Q46,0 0,80', stroke: '#8a5a2b', 'stroke-width': 8, fill: 'none' }, wpn); },
+      co: () => { s('line', { x1: 0, y1: 60, x2: 0, y2: -260, stroke: '#5a3a1e', 'stroke-width': 8 }, wpn); wpn._flag = s('path', { fill: accent, stroke: ink, 'stroke-width': 4 }, wpn); } };
+    if (o.weapon && W_[o.weapon]) W_[o.weapon]();
+    const string = o.weapon === 'cung' ? s('polyline', { stroke: '#efe4cc', 'stroke-width': 3 }, g) : null;
+    return function draw(x, y, dir, p, k = 1, t = 0) {
+      outer.setAttribute('transform', `translate(${x},${y}) scale(${k})`);
+      const pt = (ox, oy, a, L) => [ox + dir * Math.sin(a) * L, oy + Math.cos(a) * L];
+      const neck = [dir * Math.sin(p.lean) * 125, -Math.cos(p.lean) * 125];
+      const hc = [neck[0] + dir * Math.sin(p.lean) * 40, neck[1] - Math.cos(p.lean) * 40];
+      const sh = [neck[0] - dir * Math.sin(p.lean) * 8, neck[1] + 8];
+      const limb = (o2, a1, a2, L) => { const e = pt(o2[0], o2[1], a1, L), h2 = pt(e[0], e[1], a2, L); return [e, h2, `${o2[0]},${o2[1]} ${e[0]},${e[1]} ${h2[0]},${h2[1]}`]; };
+      body.setAttribute('points', `0,0 ${neck[0]},${neck[1]}`);
+      const L1 = limb(sh, p.la[0], p.la[1], 62), R1 = limb(sh, p.ra[0], p.ra[1], 62);
+      la.setAttribute('points', L1[2]); ra.setAttribute('points', R1[2]);
+      ll.setAttribute('points', limb([0, 0], p.ll[0], p.ll[1], 72)[2]); rl.setAttribute('points', limb([0, 0], p.rl[0], p.rl[1], 72)[2]);
+      head.setAttribute('cx', hc[0]); head.setAttribute('cy', hc[1]);
+      hat.setAttribute('transform', `translate(${hc[0]},${hc[1] - 18}) rotate(${dir * p.lean * 57})`);
+      const hand = R1[1];
+      // góc vũ khí: mặc định dọc theo cẳng tay; p.wa = góc riêng (tính như góc chi, 0 = chúc xuống)
+      const wa = p.wa != null ? p.wa : p.ra[1];
+      if (o.weapon === 'cung') { const bh = L1[1]; wpn.setAttribute('transform', `translate(${bh[0]},${bh[1]}) scale(${dir},1)`); const pull = p.pull || 0; string.setAttribute('points', `${bh[0]},${bh[1] - 80} ${bh[0] - dir * (8 + pull * 70)},${bh[1]} ${bh[0]},${bh[1] + 80}`); }
+      else wpn.setAttribute('transform', `translate(${hand[0]},${hand[1]}) rotate(${180 - dir * wa * 57.3})`);
+      if (wpn._flag) { const w = Math.sin(t * 7) * 18, w2 = Math.sin(t * 7 + 1.4) * 22; wpn._flag.setAttribute('d', `M0,-260 C${-dir * 50},${-270 + w} ${-dir * 100},${-250 - w} ${-dir * 150},${-262 + w2} L${-dir * 150},${-172 + w2} C${-dir * 100},${-160 - w} ${-dir * 50},${-180 + w} 0,-170Z`); }
+      return { head: [x + hc[0] * k, y + hc[1] * k], hand: [x + hand[0] * k, y + hand[1] * k], bow: [x + L1[1][0] * k, y + L1[1][1] * k] };
+    };
+  }
+  function drawHorseClassic(parent, ink) {
+    const g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, parent);
+    const body = s('polyline', { 'stroke-width': 16 }, g), tail = s('path', { 'stroke-width': 7 }, g), legs = [0, 1, 2, 3].map(() => s('polyline', null, g)), mane = s('path', { stroke: TA, 'stroke-width': 6 }, g);
+    const head = s('path', { fill: ink }, g);
+    const K = 1.65;
+    return (X, Y, ph) => {
+      g.setAttribute('transform', `translate(${X},${Y}) scale(${K})`);
+      let x = 0, y = Math.sin(ph * 2) * 4;
+      body.setAttribute('points', `${x - 95},${y} ${x + 70},${y - 8} ${x + 112},${y - 78}`);
+      head.setAttribute('d', `M${x + 100},${y - 92} L${x + 160},${y - 70} L${x + 150},${y - 52} L${x + 104},${y - 64}Z`);
+      mane.setAttribute('d', `M${x + 80},${y - 30} q10,-30 26,-52`);
+      tail.setAttribute('d', `M${x - 95},${y} q-40,${10 + Math.sin(ph * 2) * 14} -60,${42 + Math.sin(ph * 2 + 1) * 10}`);
+      [[x + 55, 0], [x + 70, Math.PI * .5], [x - 80, Math.PI], [x - 65, Math.PI * 1.5]].forEach(([lx, off], i) => {
+        const a = Math.sin(ph + off) * .7, kx = lx + Math.sin(a) * 50, ky = y + Math.cos(a) * 50, b = a - (Math.max(0, Math.sin(ph + off + 1.2)) * 1.3) * (i < 2 ? -1 : 1);
+        legs[i].setAttribute('points', `${lx},${y} ${kx},${ky} ${kx + Math.sin(b) * 52},${ky + Math.cos(b) * 52}`);
+      });
+    };
+  }
   SCENES.stick = function (sc, B) {
+    const a5 = B.xuong !== 'hh', FIG = a5 ? stickFig : stickFigClassic, HORSE = a5 ? drawHorseStick : drawHorseClassic;
     const root = h('div', { class: 'sc sc-stick' });
     const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
     const bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 11, { ships: sc.action === 'cheo' ? 0 : 1 });
@@ -818,7 +874,7 @@
     if (act !== 'cheo') s('line', { x1: 80, y1: GY + 150, x2: W - 80, y2: GY + 150, stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .5 }, svg);
     const fx = s('g', null, svg), rr = rng(sc._i * 31 + 5);
     const kick = h('div', { class: 'stk-head' + (light ? ' light' : '') }, root, (sc.kicker ? `<small>${esc(sc.kicker)}</small>` : '') + esc(sc.heading || ''));
-    const F = (o) => stickFig(svg, ink, o.side === 'giac' ? GIAC : TA, o);
+    const F = (o) => FIG(svg, ink, o.side === 'giac' ? GIAC : TA, o);
     let figs = [], extra = {}, lines = [], dust = [], conf = [];
     const dustOn = n => { for (let i = 0; i < n; i++) dust.push([s('circle', { fill: ink, opacity: .3 }, fx), rr()]); };
     if (act === 'noi') {
@@ -853,14 +909,14 @@
       extra.boat = s('g', null, svg);
       s('path', { d: 'M-430,0 L430,0 Q470,-10 500,-90 Q470,-50 440,-40 L-420,-40 Q-470,-60 -500,-110 Q-480,-20 -430,0Z', fill: light ? '#8a5a2b' : '#5a3a1e', stroke: ink, 'stroke-width': 8 }, extra.boat);
       s('path', { d: 'M500,-90 q30,-20 20,-50 q-20,10 -20,50', fill: TA, stroke: ink, 'stroke-width': 4 }, extra.boat);
-      for (let i = 0; i < 5; i++) figs.push(stickFig(extra.boat, ink, TA, { hat: 'non' }));
+      for (let i = 0; i < 5; i++) figs.push(FIG(extra.boat, ink, TA, { hat: 'non' }));
       extra.oars = []; for (let i = 0; i < 4; i++) extra.oars.push(s('line', { stroke: '#8a5a2b', 'stroke-width': 9, 'stroke-linecap': 'round' }, extra.boat));
     }
     if (act === 'ban') {
       figs = [F({ hat: 'non', weapon: 'cung' }), F({ hat: 'non', weapon: 'cung' })];
       extra.arrows = []; for (let i = 0; i < 9; i++) { const a = s('g', null, fx); s('line', { x1: -60, y1: 0, x2: 0, y2: 0, stroke: ink, 'stroke-width': 5 }, a); s('path', { d: 'M0,0 l-16,-8 l0,16Z', fill: ink }, a); s('path', { d: 'M-60,0 l-12,-8 M-60,0 l-12,8', stroke: TA, 'stroke-width': 4 }, a); extra.arrows.push([a, i]); }
     }
-    if (act === 'cuoingua') { extra.horse = drawHorseStick(svg, ink); figs = [F({ hat: 'non', weapon: 'giao' })]; dustOn(12); for (let i = 0; i < 5; i++) lines.push(s('line', { stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .45 }, fx)); }
+    if (act === 'cuoingua') { extra.horse = HORSE(svg, ink); figs = [F({ hat: 'non', weapon: 'giao' })]; dustOn(12); for (let i = 0; i < 5; i++) lines.push(s('line', { stroke: ink, 'stroke-width': 6, 'stroke-linecap': 'round', opacity: .45 }, fx)); }
     if (act === 'phatco') {
       s('path', { d: 'M420,930 Q470,790 640,780 Q760,800 800,930Z', fill: light ? '#a08a6a' : '#3b3226', stroke: ink, 'stroke-width': 6 }, svg);
       figs = [F({ hat: 'khan', weapon: 'co' })]; for (let i = 0; i < 4; i++) figs.push(F({ hat: 'non', weapon: i % 2 ? 'kiem' : 'giao' }));
@@ -917,7 +973,7 @@
         } else if (act === 'cuoingua') {
           const ph = t * 8, x = 200 + (t * 300) % 1600, y = GY - 25;
           extra.horse(x, y, ph);
-          A(x - 10, y - 50 + Math.sin(ph * 2) * 6.6, 1, { lean: .22, la: [.9, 1.5], ra: [1.4, 1.62], ll: [.75, .25], rl: [.85, .2], wa: 1.62, brow: 2, mouth: 1 }, .85, t);
+          A(x - (a5 ? 10 : 15), y - (a5 ? 50 : 14) + Math.sin(ph * 2) * 6.6, 1, { lean: .22, la: [.9, 1.5], ra: [1.4, 1.62], ll: [.75, .25], rl: [.85, .2], wa: 1.62, brow: 2, mouth: 1 }, .85, t);
           lines.forEach((l, i) => { const yy = y - 160 + i * 40; l.setAttribute('x1', x - 260 - (i % 2) * 60); l.setAttribute('x2', x - 140); l.setAttribute('y1', yy); l.setAttribute('y2', yy); });
           dust.forEach(([c, ph0], i) => { const a = ((t * 2.5 + ph0 + i / 12) % 1); c.setAttribute('cx', x - 100 - a * 220); c.setAttribute('cy', GY + 140 - a * 40); c.setAttribute('r', 8 + a * 22); c.setAttribute('opacity', .35 * (1 - a)); });
         } else if (act === 'phatco') {
@@ -1435,7 +1491,7 @@
     if (opts.pip) {
       const box = h('div', { class: 'pip' }, stage), ps = s('svg', { viewBox: '0 0 400 400' }, box);
       s('circle', { cx: 200, cy: 200, r: 196, fill: 'rgba(16,12,8,.78)', stroke: '#c9a45c', 'stroke-width': 6 }, ps);
-      const fig = stickFig(ps, '#f6efdc', TA, { hat: 'khan' });
+      const fig = (battle.xuong === 'hh' ? stickFigClassic : stickFig)(ps, '#f6efdc', TA, { hat: 'khan' });
       pipU = (t, on, lt, d) => {
         const vis = on ? eout(ramp(lt, .3, .8)) * (1 - ramp(lt, d - .7, d - .3)) : 0;
         box.style.opacity = vis; box.style.transform = `scale(${.8 + .2 * vis})`;

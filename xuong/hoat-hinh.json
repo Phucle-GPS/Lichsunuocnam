@@ -1,26 +1,8 @@
 {
  "id": "hoat-hinh",
  "ten": "Xưởng film hoạt hình",
- "mo_ta": "Phim người que (stickman) và hoạt hình 2D: dựng từ kịch bản hoặc từ trận lịch sử, các phong cách Hoạt hình, Cổ tích, Làng quê, Vũ trụ.",
+ "mo_ta": "Phim hoạt hình 2D: dựng từ kịch bản với các phong cách Hoạt hình, Cổ tích, Làng quê, Vũ trụ; hoạt hình Lottie/Rive; phim hoạt hình bằng code (skill animate).",
  "lenh": [
-  {
-   "ten": "Xuất GÓI LÀM VIỆC GOOGLE FLOW của một trận",
-   "lenh": "node tools/goi-flow.mjs <id-trận> --out video",
-   "mo_ta": "Zip gồm prompt từng clip, ảnh nhân vật (Ingredients), khung mở đầu từng clip (Frames to Video), giọng Manus, nhạc nền, phim người que mẫu và hướng dẫn."
-  },
-  {
-   "ten": "Xuất PHIM NGƯỜI QUE của một trận (16:9)",
-   "lenh": "node tools/render-video.mjs <id-trận> --nguoi-que --nguoi-dan --nhac hungca-<số>",
-   "mo_ta": "Áp skill A5: câu hỏi mở đầu, cảnh người que theo lời dẫn xen bản đồ/sơ đồ, thẻ giới thiệu, người dẫn ở góc, nhạc Hùng ca tự hạ khi có giọng Manus, −14 LUFS."
-  },
-  {
-   "ten": "Xuất PHIM NGƯỜI QUE bản dọc 9:16",
-   "lenh": "node tools/render-video.mjs <id-trận> --nguoi-que --nhac hungca-<số> --doc"
-  },
-  {
-   "ten": "Xuất trận mẫu có người dẫn người que",
-   "lenh": "node tools/render-video.mjs <id-trận> --nguoi-dan"
-  },
   {
    "ten": "Phim hoạt hình canvas thủ tục (skill animate)",
    "lenh": "node .claude/skills/animate/tools/build.mjs pieces/<tên>",
@@ -31,14 +13,8 @@
   {
    "ten": "xuong-hoat-hinh",
    "duong_dan": ".claude/skills/xuong-hoat-hinh/SKILL.md",
-   "mo_ta": "Người que trong app, hành động, era pack Đại Việt.",
+   "mo_ta": "Phạm vi và công cụ của xưởng hoạt hình.",
    "giay_phep": "của dự án"
-  },
-  {
-   "ten": "directing-stickman-videos",
-   "duong_dan": ".claude/skills/directing-stickman-videos/SKILL.md",
-   "mo_ta": "Đạo diễn phim người que: 15 phong cách, storyboard, A5 Historical Cartoon.",
-   "giay_phep": "MIT – kaomei/stickman-video-director"
   },
   {
    "ten": "animate",
@@ -47,42 +23,13 @@
    "giay_phep": "MIT – cth9191/animate"
   }
  ],
- "prompt": [
-  {
-   "ten": "A5 Historical Cartoon – ngữ pháp vẽ",
-   "duong_dan": ".claude/skills/directing-stickman-videos/references/historical-cartoon.md",
-   "mo_ta": "Khối mô tả nhân vật cố định để Veo/Flow vẽ người que nhất quán."
-  },
-  {
-   "ten": "Mẫu storyboard",
-   "duong_dan": ".claude/skills/directing-stickman-videos/references/storyboard-template.md"
-  },
-  {
-   "ten": "Era pack Đại Việt (prompt Veo/Flow)",
-   "noi_dung": "stickman animated video, 16:9, 8 seconds. Polished 2D cel-shaded historical cartoon, clean thick black outlines, round white heads, thin black limbs, compact black mitten palms. ERA: Đại Việt, Trần dynasty, 13th century, Bạch Đằng river at high tide, limestone hills, bamboo groves. CAST: Đại Việt soldiers in conical palm-leaf hats, brown and indigo stand-collar tunics, red sashes, wooden spears, rattan shields; a general in bronze scale armor with a red headscarf holding a red flag with gold border (no text). Mongol-Yuan soldiers in fur-plumed helmets and leather coats with short bows. PALETTE: vermilion red, bronze gold, earth brown, indigo, moss green, river grey. ACTION: <mô tả hành động>. NO VISIBLE TEXT, LETTERS, LOGOS OR WATERMARKS, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO EXTRA LIMBS."
-  },
-  {
-   "ten": "Từ khóa hành động người que (app tự nhận)",
-   "noi_dung": "chèo/thủy quân → chèo thuyền · kỵ binh/phi ngựa → cưỡi ngựa · bắn tên/cung → bắn cung · giao chiến/đánh → kiếm–giáo · hành quân/dẫn quân → đoàn quân · truyền hịch/chỉ huy → phất cờ · chiến thắng/reo hò → ăn mừng · tháo chạy → chạy · tại sao/băn khoăn → suy nghĩ"
-  }
- ],
+ "prompt": [],
  "nguon": [
-  {
-   "ten": "kaomei/stickman-video-director",
-   "url": "https://github.com/kaomei/stickman-video-director",
-   "giay_phep": "MIT",
-   "mo_ta": "Đã chép phần chữ của skill vào .claude/skills/directing-stickman-videos"
-  },
   {
    "ten": "cth9191/animate",
    "url": "https://github.com/cth9191/animate",
    "giay_phep": "MIT",
    "mo_ta": "Đã chép vào .claude/skills/animate"
-  },
-  {
-   "ten": "GSAP",
-   "url": "https://gsap.com",
-   "giay_phep": "Miễn phí (Webflow) – kèm sẵn lib/vendor"
   },
   {
    "ten": "Lottie / dotLottie",
