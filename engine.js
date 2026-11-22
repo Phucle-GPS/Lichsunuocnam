@@ -691,40 +691,75 @@
      Khớp xương tính hoàn toàn từ t ⇒ tua/xuất từng khung chính xác. */
   const STICK_ACTS = { noi: 'Kể chuyện / thuyết trình', di: 'Đi bộ', chay: 'Chạy', danh: 'Giao chiến (kiếm – giáo)', hanhquan: 'Đoàn quân hành quân', cheo: 'Chèo thuyền chiến', ban: 'Bắn cung', cuoingua: 'Cưỡi ngựa xung trận', phatco: 'Chỉ huy phất cờ', vui: 'Ăn mừng chiến thắng', nghi: 'Suy nghĩ' };
   const TA = '#c8352b', GIAC = '#3a6fb0';
+  /* Nhân vật kiểu A5 Historical Cartoon (skill directing-stickman-videos): đầu tròn trắng có mặt, cổ ngắn liền,
+     áo có màu theo phe, tay chân nét đen mảnh có viền sáng (nổi trên nền tối), bàn tay đen hình găng không ngón. */
+  const OUT = '#1d1a16', SKIN = '#fbf6ea';
+  const ROLE = {
+    ta: { tunic: '#6e4d2f', tunic2: '#4f3622', sash: '#c8352b', trim: '#d9b66a' },
+    giac: { tunic: '#454c58', tunic2: '#2f343d', sash: '#7a8494', trim: '#a9b1bd' },
+    tuong: { tunic: '#9e2a22', tunic2: '#6f1c16', sash: '#d9a441', trim: '#e8c46a' }
+  };
   function stickFig(parent, ink, accent, o = {}) {
-    const outer = s('g', null, parent), g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 14, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, outer);
-    const P = () => s('polyline', null, g), back = s('g', null, g), body = P(), la = P(), ll = P(), rl = P();
-    const head = s('circle', { r: 30, fill: ink }, g), ra = P(), wpn = s('g', null, g), hat = s('g', null, g);
-    if (o.hat === 'non') s('path', { d: 'M-50,0 L0,-46 L50,0 Q0,10 -50,0Z', fill: '#d9b66a', stroke: ink, 'stroke-width': 6 }, hat);
-    else if (o.hat === 'mu') { s('path', { d: 'M-34,0 A34,34 0 0 1 34,0 L40,6 L-40,6Z', fill: '#6b6f7a', stroke: ink, 'stroke-width': 6 }, hat); s('path', { d: 'M0,-34 q-6,-30 10,-44 q4,22 -4,44Z', fill: accent, stroke: 'none' }, hat); }
-    else if (o.hat === 'khan') s('ellipse', { cx: 0, cy: -2, rx: 36, ry: 14, fill: '#1d1a16', stroke: accent, 'stroke-width': 5 }, hat);
-    else s('path', { d: 'M-30,0 L30,0', stroke: accent, 'stroke-width': 9 }, hat);
-    const W_ = { kiem: () => { s('line', { x1: 0, y1: 0, x2: 0, y2: -110, stroke: '#d8dde6', 'stroke-width': 9 }, wpn); s('line', { x1: -18, y1: -8, x2: 18, y2: -8, stroke: ink, 'stroke-width': 9 }, wpn); },
-      giao: () => { s('line', { x1: 0, y1: 90, x2: 0, y2: -190, stroke: '#8a5a2b', 'stroke-width': 8 }, wpn); s('path', { d: 'M0,-190 L-10,-160 L0,-225 L10,-160Z', fill: '#d8dde6', stroke: ink, 'stroke-width': 4 }, wpn); s('path', { d: 'M-6,-160 q-16,10 -8,26', stroke: accent, 'stroke-width': 6, fill: 'none' }, wpn); },
-      cung: () => { s('path', { d: 'M0,-80 Q46,0 0,80', stroke: '#8a5a2b', 'stroke-width': 8, fill: 'none' }, wpn); },
-      co: () => { s('line', { x1: 0, y1: 60, x2: 0, y2: -260, stroke: '#5a3a1e', 'stroke-width': 8 }, wpn); wpn._flag = s('path', { fill: accent, stroke: ink, 'stroke-width': 4 }, wpn); } };
+    const R = ROLE[o.side === 'giac' ? 'giac' : o.hat === 'khan' ? 'tuong' : 'ta'];
+    const outer = s('g', null, parent), g = s('g', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, outer);
+    const limb = (cloth) => { const h = s('polyline', { fill: 'none', stroke: '#e8d9b8', 'stroke-width': 11, opacity: .3 }, g), l = s('polyline', { fill: 'none', stroke: OUT, 'stroke-width': 8 }, g); const c = cloth ? [s('polyline', { fill: 'none', stroke: OUT, 'stroke-width': 21 }, g), s('polyline', { fill: 'none', stroke: cloth, 'stroke-width': 15 }, g)] : null; return (p, cp) => { h.setAttribute('points', p); l.setAttribute('points', p); if (c) c.forEach(e => e.setAttribute('points', cp)); }; };
+    const hand = () => s('ellipse', { rx: 10, ry: 8.5, fill: SKIN, stroke: OUT, 'stroke-width': 3 }, g);
+    const foot = () => s('ellipse', { rx: 14, ry: 7, fill: '#2a211a' }, g);
+    const la = limb(R.tunic2), lh = hand(), ll = limb(R.tunic2), lf = foot(), rl = limb(R.tunic2), rf = foot();
+    const tunic = s('path', { fill: R.tunic, stroke: OUT, 'stroke-width': 4 }, g), fold = s('path', { fill: 'none', stroke: R.tunic2, 'stroke-width': 5, opacity: .8 }, g);
+    const sash = s('path', { fill: 'none', stroke: R.sash, 'stroke-width': 9 }, g), plates = R === ROLE.tuong || o.side === 'giac' ? s('path', { fill: 'none', stroke: R.trim, 'stroke-width': 3, opacity: .9 }, g) : null;
+    const neck = s('path', { fill: SKIN, stroke: OUT, 'stroke-width': 3 }, g);
+    const head = s('circle', { r: 30, fill: SKIN, stroke: OUT, 'stroke-width': 4 }, g);
+    const face = s('g', null, g);
+    const eyes = [0, 1].map(() => s('ellipse', { rx: 3.6, ry: 6.5, fill: OUT }, face)), brows = [0, 1].map(() => s('path', { fill: 'none', stroke: OUT, 'stroke-width': 3.2 }, face));
+    const blush = s('circle', { r: 6, fill: '#e98a7a', opacity: .35 }, face), mouth = s('path', { fill: 'none', stroke: OUT, 'stroke-width': 3 }, face);
+    const beard = R === ROLE.tuong ? s('path', { fill: '#2a211a', stroke: OUT, 'stroke-width': 2 }, face) : null;
+    const hat = s('g', null, g), ra = limb(R.tunic), rh = hand(), wpn = s('g', null, g);
+    if (o.hat === 'non') { s('path', { d: 'M-52,2 L0,-48 L52,2 Q0,12 -52,2Z', fill: '#e2c27a', stroke: OUT, 'stroke-width': 4 }, hat); s('path', { d: 'M-26,-22 L0,-46 M-8,-6 L0,-46 M14,-6 L0,-46 M30,-20 L0,-46', stroke: '#b08a4a', 'stroke-width': 2, fill: 'none' }, hat); }
+    else if (o.hat === 'mu') { s('path', { d: 'M-34,2 A34,36 0 0 1 34,2 L40,9 L-40,9Z', fill: '#7d838e', stroke: OUT, 'stroke-width': 4 }, hat); s('path', { d: 'M-34,0 L34,0', stroke: '#c9ced6', 'stroke-width': 3 }, hat); s('path', { d: 'M0,-34 q-10,-30 12,-48 q2,26 -6,48Z', fill: accent, stroke: OUT, 'stroke-width': 2 }, hat); }
+    else if (o.hat === 'khan') { s('path', { d: 'M-32,2 Q-30,-22 0,-26 Q30,-22 32,2 Q0,-6 -32,2Z', fill: '#2a211a', stroke: OUT, 'stroke-width': 3 }, hat); s('path', { d: 'M-32,2 Q0,-8 32,2', stroke: R.sash, 'stroke-width': 5, fill: 'none' }, hat); }
+    else s('path', { d: 'M-30,-4 Q0,-12 30,-4', stroke: accent, 'stroke-width': 8, fill: 'none' }, hat);
+    const W_ = { kiem: () => { s('line', { x1: 0, y1: 0, x2: 0, y2: -112, stroke: '#e6ebf2', 'stroke-width': 8 }, wpn); s('line', { x1: 0, y1: -8, x2: 0, y2: -112, stroke: '#9aa3ad', 'stroke-width': 2 }, wpn); s('line', { x1: -18, y1: -8, x2: 18, y2: -8, stroke: '#d9a441', 'stroke-width': 8 }, wpn); s('line', { x1: 0, y1: 0, x2: 0, y2: 16, stroke: '#5a3a1e', 'stroke-width': 8 }, wpn); },
+      giao: () => { s('line', { x1: 0, y1: 90, x2: 0, y2: -190, stroke: '#8a5a2b', 'stroke-width': 7 }, wpn); s('path', { d: 'M0,-190 L-10,-160 L0,-228 L10,-160Z', fill: '#e6ebf2', stroke: OUT, 'stroke-width': 3 }, wpn); s('path', { d: 'M-6,-160 q-16,10 -8,26 M6,-160 q14,10 6,24', stroke: accent, 'stroke-width': 5, fill: 'none' }, wpn); },
+      cung: () => { s('path', { d: 'M0,-82 Q50,0 0,82', stroke: '#8a5a2b', 'stroke-width': 7, fill: 'none' }, wpn); },
+      co: () => { s('line', { x1: 0, y1: 60, x2: 0, y2: -262, stroke: '#5a3a1e', 'stroke-width': 7 }, wpn); s('circle', { cx: 0, cy: -266, r: 6, fill: '#d9a441' }, wpn); wpn._flag = s('path', { fill: accent, stroke: OUT, 'stroke-width': 3 }, wpn); wpn._trim = s('path', { fill: 'none', stroke: '#d9a441', 'stroke-width': 4 }, wpn); } };
     if (o.weapon && W_[o.weapon]) W_[o.weapon]();
-    const string = o.weapon === 'cung' ? s('polyline', { stroke: '#efe4cc', 'stroke-width': 3 }, g) : null;
+    const string = o.weapon === 'cung' ? s('polyline', { fill: 'none', stroke: '#efe4cc', 'stroke-width': 2.5 }, g) : null;
     return function draw(x, y, dir, p, k = 1, t = 0) {
       outer.setAttribute('transform', `translate(${x},${y}) scale(${k})`);
       const pt = (ox, oy, a, L) => [ox + dir * Math.sin(a) * L, oy + Math.cos(a) * L];
-      const neck = [dir * Math.sin(p.lean) * 125, -Math.cos(p.lean) * 125];
-      const hc = [neck[0] + dir * Math.sin(p.lean) * 40, neck[1] - Math.cos(p.lean) * 40];
-      const sh = [neck[0] - dir * Math.sin(p.lean) * 8, neck[1] + 8];
-      const limb = (o2, a1, a2, L) => { const e = pt(o2[0], o2[1], a1, L), h2 = pt(e[0], e[1], a2, L); return [e, h2, `${o2[0]},${o2[1]} ${e[0]},${e[1]} ${h2[0]},${h2[1]}`]; };
-      body.setAttribute('points', `0,0 ${neck[0]},${neck[1]}`);
-      const L1 = limb(sh, p.la[0], p.la[1], 62), R1 = limb(sh, p.ra[0], p.ra[1], 62);
-      la.setAttribute('points', L1[2]); ra.setAttribute('points', R1[2]);
-      ll.setAttribute('points', limb([0, 0], p.ll[0], p.ll[1], 72)[2]); rl.setAttribute('points', limb([0, 0], p.rl[0], p.rl[1], 72)[2]);
+      const neckP = [dir * Math.sin(p.lean) * 118, -Math.cos(p.lean) * 118];
+      const hc = [neckP[0] + dir * Math.sin(p.lean) * 40, neckP[1] - Math.cos(p.lean) * 40];
+      const sh = [neckP[0] - dir * Math.sin(p.lean) * 4, neckP[1] + 10];
+      const L = (o2, a1, a2, len) => { const e = pt(o2[0], o2[1], a1, len), h2 = pt(e[0], e[1], a2, len); return [e, h2, `${o2[0]},${o2[1]} ${e[0]},${e[1]} ${h2[0]},${h2[1]}`]; };
+      const A1 = L(sh, p.la[0], p.la[1], 60), A2 = L(sh, p.ra[0], p.ra[1], 60), G1 = L([0, 0], p.ll[0], p.ll[1], 70), G2 = L([0, 0], p.rl[0], p.rl[1], 70);
+      // tay áo / ống quần phủ gần hết chi, chỉ lộ bàn tay & bàn chân
+      const part = (o2, X, f) => `${o2[0]},${o2[1]} ${X[0][0]},${X[0][1]} ${X[0][0] + (X[1][0] - X[0][0]) * f},${X[0][1] + (X[1][1] - X[0][1]) * f}`;
+      la(A1[2], part(sh, A1, .72)); ra(A2[2], part(sh, A2, .72)); ll(G1[2], part([0, 0], G1, .8)); rl(G2[2], part([0, 0], G2, .8));
+      lh.setAttribute('cx', A1[1][0]); lh.setAttribute('cy', A1[1][1]); rh.setAttribute('cx', A2[1][0]); rh.setAttribute('cy', A2[1][1]);
+      lf.setAttribute('cx', G1[1][0] + dir * 6); lf.setAttribute('cy', G1[1][1] + 2); rf.setAttribute('cx', G2[1][0] + dir * 6); rf.setAttribute('cy', G2[1][1] + 2);
+      // áo: từ vai xuống quá hông thành vạt
+      const ux = -neckP[0] / 118, uy = -neckP[1] / 118, nx = -uy, ny = ux, hem = [ux * 30, uy * 30];
+      const P2 = (b, w) => `${b[0] + nx * w},${b[1] + ny * w}`;
+      const sw = 24, hw = 36, at = f => [neckP[0] * f, neckP[1] * f], top = at(1.06), shl = at(.9), wst = at(.4);
+      tunic.setAttribute('d', `M${P2(top, 10)} Q${P2(top, sw + 4)} ${P2(shl, sw + 2)} Q${P2(wst, sw - 4)} ${P2(hem, hw)} Q${P2([hem[0] * 1.15, hem[1] * 1.15], 0)} ${P2(hem, -hw)} Q${P2(wst, -sw + 4)} ${P2(shl, -sw - 2)} Q${P2(top, -sw - 4)} ${P2(top, -10)} Q${P2(at(.98), 0)} ${P2(top, 10)}Z`);
+      fold.setAttribute('d', `M${P2([neckP[0] * .35, neckP[1] * .35], 6)} L${P2(hem, 8)}`);
+      const sp = [neckP[0] * .3, neckP[1] * .3]; sash.setAttribute('d', `M${P2(sp, sw + 4)} L${P2(sp, -sw - 4)}`);
+      if (plates) plates.setAttribute('d', [.55, .7, .85].map(f => `M${P2([neckP[0] * f, neckP[1] * f], sw - 2)} L${P2([neckP[0] * f, neckP[1] * f], -sw + 2)}`).join(' '));
+      neck.setAttribute('d', `M${neckP[0] - 8},${neckP[1] + 4} L${hc[0] - 9},${hc[1] + 20} L${hc[0] + 9},${hc[1] + 20} L${neckP[0] + 8},${neckP[1] + 4}Z`);
       head.setAttribute('cx', hc[0]); head.setAttribute('cy', hc[1]);
-      hat.setAttribute('transform', `translate(${hc[0]},${hc[1] - 18}) rotate(${dir * p.lean * 57})`);
-      const hand = R1[1];
-      // góc vũ khí: mặc định dọc theo cẳng tay; p.wa = góc riêng (tính như góc chi, 0 = chúc xuống)
-      const wa = p.wa != null ? p.wa : p.ra[1];
-      if (o.weapon === 'cung') { const bh = L1[1]; wpn.setAttribute('transform', `translate(${bh[0]},${bh[1]}) scale(${dir},1)`); const pull = p.pull || 0; string.setAttribute('points', `${bh[0]},${bh[1] - 80} ${bh[0] - dir * (8 + pull * 70)},${bh[1]} ${bh[0]},${bh[1] + 80}`); }
-      else wpn.setAttribute('transform', `translate(${hand[0]},${hand[1]}) rotate(${180 - dir * wa * 57.3})`);
-      if (wpn._flag) { const w = Math.sin(t * 7) * 18, w2 = Math.sin(t * 7 + 1.4) * 22; wpn._flag.setAttribute('d', `M0,-260 C${-dir * 50},${-270 + w} ${-dir * 100},${-250 - w} ${-dir * 150},${-262 + w2} L${-dir * 150},${-172 + w2} C${-dir * 100},${-160 - w} ${-dir * 50},${-180 + w} 0,-170Z`); }
-      return { head: [x + hc[0] * k, y + hc[1] * k], hand: [x + hand[0] * k, y + hand[1] * k], bow: [x + L1[1][0] * k, y + L1[1][1] * k] };
+      const fx = hc[0] + dir * 8, fy = hc[1];
+      eyes[0].setAttribute('cx', fx - dir * 7); eyes[1].setAttribute('cx', fx + dir * 9); eyes.forEach(e => e.setAttribute('cy', fy - 1));
+      const ang = p.brow || 0; brows[0].setAttribute('d', `M${fx - dir * 13},${fy - 13 - ang} L${fx - dir * 2},${fy - 14 + ang}`); brows[1].setAttribute('d', `M${fx + dir * 4},${fy - 14 + ang} L${fx + dir * 15},${fy - 13 - ang}`);
+      blush.setAttribute('cx', fx + dir * 16); blush.setAttribute('cy', fy + 10);
+      const op = p.mouth || 0; mouth.setAttribute('d', `M${fx - dir * 2},${fy + 13} Q${fx + dir * 5},${fy + 18 + op * 6} ${fx + dir * 11},${fy + 12}`);
+      if (beard) beard.setAttribute('d', `M${fx - dir * 6},${fy + 17} Q${fx + dir * 4},${fy + 36} ${fx + dir * 14},${fy + 17} Q${fx + dir * 4},${fy + 24} ${fx - dir * 6},${fy + 17}Z`);
+      hat.setAttribute('transform', `translate(${hc[0]},${hc[1] - 18}) rotate(${dir * p.lean * 57}) scale(${dir},1)`);
+      const handP = A2[1], wa = p.wa != null ? p.wa : p.ra[1];
+      if (o.weapon === 'cung') { const bh = A1[1]; wpn.setAttribute('transform', `translate(${bh[0]},${bh[1]}) scale(${dir},1)`); const pull = p.pull || 0; string.setAttribute('points', `${bh[0]},${bh[1] - 82} ${bh[0] - dir * (8 + pull * 70)},${bh[1]} ${bh[0]},${bh[1] + 82}`); }
+      else wpn.setAttribute('transform', `translate(${handP[0]},${handP[1]}) rotate(${180 - dir * wa * 57.3})`);
+      if (wpn._flag) { const w = Math.sin(t * 7) * 18, w2 = Math.sin(t * 7 + 1.4) * 22, D = `M0,-260 C${-dir * 50},${-270 + w} ${-dir * 100},${-250 - w} ${-dir * 150},${-262 + w2} L${-dir * 150},${-172 + w2} C${-dir * 100},${-160 - w} ${-dir * 50},${-180 + w} 0,-170Z`; wpn._flag.setAttribute('d', D); wpn._trim.setAttribute('d', `M${-dir * 150},${-262 + w2} L${-dir * 150},${-172 + w2}`); }
+      return { head: [x + hc[0] * k, y + hc[1] * k], hand: [x + handP[0] * k, y + handP[1] * k], bow: [x + A1[1][0] * k, y + A1[1][1] * k] };
     };
   }
   const STAND = { lean: 0, la: [-.15, -.05], ra: [.15, .05], ll: [-.12, -.12], rl: [.12, .12] };
@@ -737,21 +772,37 @@
     const sn = Math.sin(ph);
     return { lean: .04, la: [-.45 * sn, -.45 * sn + .3], ra: [.45 * sn, .45 * sn + .3], ll: [.38 * sn, .38 * sn - .25 * Math.max(0, -Math.cos(ph))], rl: [-.38 * sn, -.38 * sn - .25 * Math.max(0, Math.cos(ph))] };
   }
+  /* Ngựa chiến vẽ đầy đặn: thân nâu đổ bóng, cổ cong, đầu có tai/mắt/mũi, bờm & đuôi bay, yên đỏ, chân phi có khớp và móng. */
   function drawHorseStick(parent, ink) {
-    const g = s('g', { fill: 'none', stroke: ink, 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, parent);
-    const body = s('polyline', { 'stroke-width': 16 }, g), tail = s('path', { 'stroke-width': 7 }, g), legs = [0, 1, 2, 3].map(() => s('polyline', null, g)), mane = s('path', { stroke: TA, 'stroke-width': 6 }, g);
-    const head = s('path', { fill: ink }, g);
-    const K = 1.65;
+    const BR = '#7a4a28', BR2 = '#5c3519', MANE = '#2a1a10', K = 1.65;
+    const g = s('g', { 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, parent);
+    const legsBack = [0, 1].map(() => [s('polyline', { fill: 'none', stroke: OUT, 'stroke-width': 17 }, g), s('polyline', { fill: 'none', stroke: BR2, 'stroke-width': 11 }, g), s('ellipse', { rx: 8, ry: 5, fill: '#1d1a16' }, g)]);
+    const tail = s('path', { fill: MANE, stroke: OUT, 'stroke-width': 2 }, g);
+    const body = s('g', null, g);
+    s('ellipse', { cx: -60, cy: -4, rx: 42, ry: 38, fill: BR, stroke: OUT, 'stroke-width': 4 }, body);
+    s('ellipse', { cx: 0, cy: 0, rx: 90, ry: 36, fill: BR, stroke: OUT, 'stroke-width': 4 }, body);
+    s('ellipse', { cx: 56, cy: 2, rx: 40, ry: 36, fill: BR, stroke: OUT, 'stroke-width': 4 }, body);
+    s('path', { d: 'M-95,-6 Q0,-30 90,-4 Q0,-12 -95,-6Z', fill: '#9a6338', opacity: .55 }, body);
+    s('path', { d: 'M-80,22 Q0,40 80,22', fill: 'none', stroke: BR2, 'stroke-width': 8, opacity: .6 }, body);
+    s('path', { d: 'M40,-22 C70,-60 92,-92 112,-104 L134,-92 C118,-70 104,-30 92,14 Z', fill: BR, stroke: OUT, 'stroke-width': 4 }, body);
+    s('path', { d: 'M108,-110 C126,-112 150,-96 170,-80 C178,-74 176,-62 166,-60 C150,-58 132,-66 118,-74 C108,-80 102,-96 108,-110Z', fill: BR, stroke: OUT, 'stroke-width': 4 }, body);
+    s('path', { d: 'M112,-108 L106,-128 L122,-112Z', fill: BR, stroke: OUT, 'stroke-width': 3 }, body);
+    s('circle', { cx: 132, cy: -92, r: 4, fill: OUT }, body); s('circle', { cx: 166, cy: -70, r: 2.5, fill: OUT }, body);
+    s('path', { d: 'M118,-76 L150,-60', stroke: '#8b2a20', 'stroke-width': 3, fill: 'none' }, body);
+    s('path', { d: 'M-30,-34 Q0,-46 32,-34 L36,-8 Q0,-2 -34,-8Z', fill: '#c8352b', stroke: OUT, 'stroke-width': 3 }, body);
+    s('path', { d: 'M-34,-8 Q0,-2 36,-8', fill: 'none', stroke: '#d9a441', 'stroke-width': 4 }, body);
+    const mane = s('path', { fill: MANE, stroke: OUT, 'stroke-width': 2 }, g);
+    const legsFront = [0, 1].map(() => [s('polyline', { fill: 'none', stroke: OUT, 'stroke-width': 17 }, g), s('polyline', { fill: 'none', stroke: BR, 'stroke-width': 11 }, g), s('ellipse', { rx: 8, ry: 5, fill: '#1d1a16' }, g)]);
+    const leg = (L, lx, ly, a, b) => { const kx = lx + Math.sin(a) * 40, ky = ly + Math.cos(a) * 40, fx = kx + Math.sin(b) * 42, fy = ky + Math.cos(b) * 42, pts = `${lx},${ly} ${kx},${ky} ${fx},${fy}`; L[0].setAttribute('points', pts); L[1].setAttribute('points', pts); L[2].setAttribute('cx', fx + 4); L[2].setAttribute('cy', fy + 2); };
     return (X, Y, ph) => {
       g.setAttribute('transform', `translate(${X},${Y}) scale(${K})`);
-      let x = 0, y = Math.sin(ph * 2) * 4;
-      body.setAttribute('points', `${x - 95},${y} ${x + 70},${y - 8} ${x + 112},${y - 78}`);
-      head.setAttribute('d', `M${x + 100},${y - 92} L${x + 160},${y - 70} L${x + 150},${y - 52} L${x + 104},${y - 64}Z`);
-      mane.setAttribute('d', `M${x + 80},${y - 30} q10,-30 26,-52`);
-      tail.setAttribute('d', `M${x - 95},${y} q-40,${10 + Math.sin(ph * 2) * 14} -60,${42 + Math.sin(ph * 2 + 1) * 10}`);
-      [[x + 55, 0], [x + 70, Math.PI * .5], [x - 80, Math.PI], [x - 65, Math.PI * 1.5]].forEach(([lx, off], i) => {
-        const a = Math.sin(ph + off) * .7, kx = lx + Math.sin(a) * 50, ky = y + Math.cos(a) * 50, b = a - (Math.max(0, Math.sin(ph + off + 1.2)) * 1.3) * (i < 2 ? -1 : 1);
-        legs[i].setAttribute('points', `${lx},${y} ${kx},${ky} ${kx + Math.sin(b) * 52},${ky + Math.cos(b) * 52}`);
+      const bob = Math.sin(ph * 2) * 4; body.setAttribute('transform', `translate(0,${bob}) rotate(${Math.sin(ph) * 2})`);
+      const w = Math.sin(ph * 2) * 10;
+      mane.setAttribute('d', `M112,${-106 + bob} C96,${-90 + bob} 78,${-60 + bob} 52,${-28 + bob} L${40 - w * .5},${-40 + bob} C${66 - w},${-70 + bob} ${86 - w},${-98 + bob} ${104 - w * .4},${-116 + bob}Z`);
+      tail.setAttribute('d', `M-98,${-14 + bob} C-130,${-20 + w} -150,${10 + w} ${-162 + w * .3},${46 + w} C-140,${30 + w} -120,${14 + bob} -96,${6 + bob}Z`);
+      [[legsFront[0], 64, 0], [legsFront[1], 50, Math.PI * .45], [legsBack[0], -66, Math.PI], [legsBack[1], -52, Math.PI * 1.45]].forEach(([L, lx, off], i) => {
+        const a = Math.sin(ph + off) * .75, bend = Math.max(0, Math.sin(ph + off + 1.2)) * 1.4 * (i < 2 ? -1 : 1);
+        leg(L, lx, 18 + bob, a, a + bend);
       });
     };
   }
@@ -829,13 +880,13 @@
         } else if (act === 'danh') {
           const c = t % 1.6, pa = ramp(c, 0, .18) - ramp(c, .35, .5), pb = ramp(c, .8, .98) - ramp(c, 1.15, 1.3);
           const bob = Math.sin(t * 7) * 5;
-          const a = { lean: .1 + pa * .2 - pb * .3, la: [.4, 1.2], ra: [.6 + pa * 1.2, 2.4 - pa * .9], ll: [.35, .2], rl: [-.3, -.35], wa: 2.6 - pa * 1.1 };
-          const b = { lean: .08 - pa * .35, la: [.9, 1.6], ra: [.7 + pb * .8, 1.3 + pb * .3], ll: [.35, .2], rl: [-.3, -.35], wa: 1.62 };
+          const a = { brow: 3, mouth: pa, lean: .1 + pa * .2 - pb * .3, la: [.4, 1.2], ra: [.6 + pa * 1.2, 2.4 - pa * .9], ll: [.35, .2], rl: [-.3, -.35], wa: 2.6 - pa * 1.1 };
+          const b = { brow: 3, mouth: pa, lean: .08 - pa * .35, la: [.9, 1.6], ra: [.7 + pb * .8, 1.3 + pb * .3], ll: [.35, .2], rl: [-.3, -.35], wa: 1.62 };
           A(760 - pb * 50, GY + bob, 1, a, 1, t); figs[1](1160 + pa * 50 - pb * 60, GY - bob, -1, b, 1, t);
           const hit = Math.max(pa, pb); extra.bang.setAttribute('opacity', hit > .85 ? 1 : 0);
           extra.bang.setAttribute('transform', `translate(960,${GY - 170}) scale(${.8 + hit * .3}) rotate(${(t * 40) % 30 - 15})`);
         } else if (act === 'vui') {
-          figs.forEach((F2, i) => { const ph = t * Math.PI * 1.4 + i * 1.1, air = Math.abs(Math.sin(ph)); F2(600 + i * 360, GY - air * 110, 1, { lean: 0, la: [-(2.55 + Math.sin(t * 9 + i) * .15), -2.9], ra: [2.55 + Math.sin(t * 9 + 1 + i) * .15, 2.9], ll: [-.25 - air * .3, -.25 + air * .9], rl: [.25 + air * .3, .25 - air * .9], wa: 3.1 }, i ? .9 : 1, t); });
+          figs.forEach((F2, i) => { const ph = t * Math.PI * 1.4 + i * 1.1, air = Math.abs(Math.sin(ph)); F2(600 + i * 360, GY - air * 110, 1, { mouth: 1.4, brow: -1, lean: 0, la: [-(2.55 + Math.sin(t * 9 + i) * .15), -2.9], ra: [2.55 + Math.sin(t * 9 + 1 + i) * .15, 2.9], ll: [-.25 - air * .3, -.25 + air * .9], rl: [.25 + air * .3, .25 - air * .9], wa: 3.1 }, i ? .9 : 1, t); });
           conf.forEach(([c, x, ph0, rot, v]) => { const yy = ((t * v + ph0 * 400) % 1200) - 100; c.setAttribute('transform', `translate(${x + Math.sin(t * 2 + rot) * 40},${yy}) rotate(${t * 180 + rot * 60})`); });
         } else if (act === 'nghi') {
           A(880, GY, 1, { lean: Math.sin(t * 1.2) * .04, la: [.35, 2.9 + Math.sin(t * 2) * .05], ra: [-.25, .25], ll: [-.12, -.12], rl: [.12, .12] }, 1, t);
@@ -866,7 +917,7 @@
         } else if (act === 'cuoingua') {
           const ph = t * 8, x = 200 + (t * 300) % 1600, y = GY - 25;
           extra.horse(x, y, ph);
-          A(x - 15, y - 14 + Math.sin(ph * 2) * 6.6, 1, { lean: .2, la: [.9, 1.5], ra: [1.4, 1.62], ll: [.9, .1], rl: [1, 0], wa: 1.62 }, .85, t);
+          A(x - 10, y - 50 + Math.sin(ph * 2) * 6.6, 1, { lean: .22, la: [.9, 1.5], ra: [1.4, 1.62], ll: [.75, .25], rl: [.85, .2], wa: 1.62, brow: 2, mouth: 1 }, .85, t);
           lines.forEach((l, i) => { const yy = y - 160 + i * 40; l.setAttribute('x1', x - 260 - (i % 2) * 60); l.setAttribute('x2', x - 140); l.setAttribute('y1', yy); l.setAttribute('y2', yy); });
           dust.forEach(([c, ph0], i) => { const a = ((t * 2.5 + ph0 + i / 12) % 1); c.setAttribute('cx', x - 100 - a * 220); c.setAttribute('cy', GY + 140 - a * 40); c.setAttribute('r', 8 + a * 22); c.setAttribute('opacity', .35 * (1 - a)); });
         } else if (act === 'phatco') {
