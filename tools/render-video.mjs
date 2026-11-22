@@ -35,7 +35,7 @@ const preview = args.includes('--preview');
 fs.mkdirSync(outDir, { recursive: true });
 
 const pageFile = flag('--page', 'index.html');
-const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}` + (args.includes('--nguoi-dan') ? '&pip=1' : '');
+const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}` + (args.includes('--nguoi-dan') ? '&pip=1' : '') + (args.includes('--nguoi-que') ? '&nguoique=1' : '') + (args.includes('--nhac') ? '&nhac=' + args[args.indexOf('--nhac') + 1] : '');
 
 function probe(f) { return Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim()); }
 
@@ -56,7 +56,7 @@ async function renderOne(browser, id) {
   let durs = [], voices = [];
   if (voiceDir) {
     await page.goto(page_url(id)); await page.waitForFunction(() => window.STUDIO);
-    const n = await page.evaluate(() => window.STUDIO.starts.length);
+    const n = await page.evaluate(() => window.STUDIO.nVoice || window.STUDIO.starts.length);
     if (!manusOK(id, n) && !args.includes('--cho-phep-thieu-giong')) {
       console.log(`⏸ ${id}: chưa đủ giọng Manus ⇒ KHÔNG xuất (quy tắc chỉ dùng giọng Manus). Tự đọc bằng giọng Manus đã lưu: "node tools/giong-manus.mjs tao ${id}" (hoặc gửi Manus: "node tools/nap-giong-manus.mjs --yeu-cau").`);
       await page.close(); return;
@@ -69,8 +69,8 @@ async function renderOne(browser, id) {
   const url = page_url(id) + (durs.some(Boolean) ? '&durs=' + durs.map(d => d ? d.toFixed(2) : '').join(',') : '');
   await page.goto(url);
   await page.waitForFunction(() => window.STUDIO);
-  const info = await page.evaluate(() => ({ total: window.STUDIO.total, starts: window.STUDIO.starts }));
-  const base = path.join(outDir, `${id}${pageFile !== 'index.html' ? '-' + path.basename(pageFile, '.html') : ''}${format === 'doc' ? '-doc' : ''}`);
+  const info = await page.evaluate(() => ({ total: window.STUDIO.total, starts: window.STUDIO.starts, vstarts: window.STUDIO.voiceStarts }));
+  const base = path.join(outDir, `${id}${pageFile !== 'index.html' ? '-' + path.basename(pageFile, '.html') : ''}${format === 'doc' ? '-doc' : ''}${args.includes('--nguoi-que') ? '-nguoi-que' : ''}`);
 
   if (preview) {
     const ends = [...info.starts.slice(1), info.total];
@@ -107,7 +107,7 @@ async function renderOne(browser, id) {
   const out = base + '.mp4';
   const inputs = ['-i', silent, '-i', wav];
   let filter = '[1:a]volume=0.9[m]', mixOut = '[m]';
-  const vs = voices.map((v, i) => v && { v, at: info.starts[i] + 0.4 }).filter(Boolean);
+  const vs = voices.map((v, i) => v && { v, at: (info.vstarts ? info.vstarts[i] : info.starts[i]) + 0.4 }).filter(Boolean);
   if (vs.length) {
     vs.forEach(x => inputs.push('-i', x.v));
     // nhạc tự hạ khi có giọng (sidechain), nâng lại ở khoảng nghỉ

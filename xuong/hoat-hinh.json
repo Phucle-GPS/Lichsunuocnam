@@ -4,6 +4,15 @@
  "mo_ta": "Phim người que (stickman) và hoạt hình 2D: dựng từ kịch bản hoặc từ trận lịch sử, các phong cách Hoạt hình, Cổ tích, Làng quê, Vũ trụ.",
  "lenh": [
   {
+   "ten": "Xuất PHIM NGƯỜI QUE của một trận (16:9)",
+   "lenh": "node tools/render-video.mjs <id-trận> --nguoi-que --nguoi-dan --nhac hungca-<số>",
+   "mo_ta": "Áp skill A5: câu hỏi mở đầu, cảnh người que theo lời dẫn xen bản đồ/sơ đồ, thẻ giới thiệu, người dẫn ở góc, nhạc Hùng ca tự hạ khi có giọng Manus, −14 LUFS."
+  },
+  {
+   "ten": "Xuất PHIM NGƯỜI QUE bản dọc 9:16",
+   "lenh": "node tools/render-video.mjs <id-trận> --nguoi-que --nhac hungca-<số> --doc"
+  },
+  {
    "ten": "Xuất trận mẫu có người dẫn người que",
    "lenh": "node tools/render-video.mjs <id-trận> --nguoi-dan"
   },

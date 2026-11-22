@@ -893,12 +893,21 @@ body.render .app{display:none}
     document.body.classList.add('render');
     const b = BATTLES.find(x => x.id === Q.get('render'));
     const frame = document.createElement('div'); document.body.appendChild(frame);
-    const durs = (Q.get('durs') || '').split(',').filter(Boolean).map(Number);
-    const { film, FW, FH } = mount(frame, b, Q.get('format') || 'ngang', durs, Q.get('tr') || 'auto', Q.get('fx') || 'auto', Q.get('pip') === '1');
+    let durs = (Q.get('durs') || '').split(',').map(x => +x || 0), B2 = b, voiceIdx = null;
+    // bản PHIM NGƯỜI QUE của trận: mỗi cảnh gốc thành 1 khối, các thẻ trong khối chia nhau giọng Manus theo tỉ trọng w
+    if (Q.get('nguoique') === '1') {
+      const sc = Xuong.stickFilm(b); B2 = Object.assign({}, b, { scenes: sc, series: (b.series || 'SỬ VIỆT') + ' · PHIM NGƯỜI QUE' });
+      voiceIdx = sc.map((x, i) => x.blkFirst ? i : -1).filter(i => i >= 0);
+      const vd = durs; durs = sc.map(() => 0);
+      voiceIdx.forEach((fi, k) => { let j = fi + 1; while (j < sc.length && !sc[j].blkFirst) j++; const ws = sc.slice(fi, j).map(x => +x.w || 1), W = ws.reduce((a, c) => a + c, 0), tot = vd[k] || ws.length * 5; ws.forEach((w, q) => durs[fi + q] = Math.max(2.5, tot * w / W)); });
+    }
+    const { film, FW, FH } = mount(frame, B2, Q.get('format') || 'ngang', durs.some(Boolean) ? durs : [], Q.get('tr') || 'auto', Q.get('fx') || 'auto', Q.get('pip') === '1');
+    // nhạc nền từ phòng nhạc: &nhac=hungca-<seed>
+    if (Q.get('nhac')) { const [st, seed] = Q.get('nhac').split('-'); if (Nhac.STYLES[st]) { const sg = Nhac.newSong(st, +seed || 7), tot = film.total; film.music = (ctx, dest, off) => Nhac.schedule(ctx, dest, sg, tot, off); } }
     frame.style.position = 'absolute';
     document.fonts.ready.then(() => {
       film.seek(0);
-      window.STUDIO = { total: film.total, W: FW, H: FH, seek: t => film.seek(t), starts: film.scenes.map(s => s.start), audio: () => Studio.renderAudio(film) };
+      window.STUDIO = { total: film.total, W: FW, H: FH, seek: t => film.seek(t), starts: film.scenes.map(s => s.start), nVoice: b.scenes.length, voiceStarts: voiceIdx ? voiceIdx.map(i => film.scenes[i].start) : null, audio: () => Studio.renderAudio(film) };
     });
     return;
   }
@@ -1189,21 +1198,7 @@ body.render .app{display:none}
      (bản đồ, sơ đồ, lực lượng…) xen cảnh người que diễn đúng hành động trong lời dẫn. */
   async function cloneStick() {
     const T = P; note('Đang dựng phim người que và chép giọng đọc…', 3000);
-    // [loại, tỉ trọng, hành động mặc định, '!' = luôn dùng hành động này]
-    const PLAN = { title: [['orig', 6], ['stick', 5, 'hanhquan', '!']], hero: [['stick', 6, 'phatco', '!'], ['stick', 5]], map: [['orig', 6], ['stick', 5]], forces: [['orig', 5], ['stick', 5, 'hanhquan', '!']],
-      diagram: [['stick', 4, 'cheo'], ['orig', 7], ['stick', 4, 'danh', '!']], timeline: [['orig', 6], ['stick', 4]], quote: [['stick', 4, 'phatco'], ['orig', 6]], points: [['orig', 7], ['stick', 3, 'vui', '!']], end: [['orig', 1]] };
-    const scenes = [];
-    T.scenes.forEach((sc, i) => {
-      const plan = PLAN[sc.type] || [['orig', 1]], parts = Xuong.splitByWeights(sc.say, plan.map(x => x[1])), blk = 'K' + (i + 1);
-      plan.forEach(([kind, w, act, force], k) => {
-        const say = parts[k] || '';
-        const o = kind === 'orig' ? Object.assign(JSON.parse(JSON.stringify(sc)), { uid: Xuong.uid(), srcIdx: i }) : { uid: Xuong.uid(), type: 'stick', heading: k === 0 && sc.type === 'hero' ? sc.name : '', kicker: k === 0 && sc.type === 'hero' ? sc.kicker || '' : '' };
-        if (kind === 'stick') { const g = Xuong.guessAction(say); o.action = force ? act : g !== 'noi' ? g : act || (i % 2 ? 'hanhquan' : 'noi'); }
-        if (kind === 'stick' && k === 0 && sc.type === 'hero') { o.heading = ''; o.kicker = ''; o.lower = { title: sc.name, label: sc.kicker || '', cols: [['Năm sinh – mất', sc.alt || ''], ['Vai trò', (sc.role || '').split(',')[0]]] }; }
-        Object.assign(o, { say, w, blk, code: blk }); if (k === 0) o.blkFirst = true;
-        scenes.push(o);
-      });
-    });
+    const scenes = Xuong.stickFilm(T);
     const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, xuong: 'hh', name: T.name + ' (người que)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes };
     for (let i = 0; i < T.scenes.length; i++) {
       const sc = scenes.find(x => x.blk === 'K' + (i + 1) && x.blkFirst);
