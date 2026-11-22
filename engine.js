@@ -1388,7 +1388,7 @@
       pipU = (t, on, lt, d) => {
         const vis = on ? eout(ramp(lt, .3, .8)) * (1 - ramp(lt, d - .7, d - .3)) : 0;
         box.style.opacity = vis; box.style.transform = `scale(${.8 + .2 * vis})`;
-        if (vis > 0) { const g = Math.sin(t * 2.3), talk = Math.sin(t * 6) * .06; fig(175, 300, 1, { lean: .03 + talk, la: [-.15, -.05], ra: [.5 + g * .45, 1.1 + g * .7], ll: [-.12, -.12], rl: [.12, .12] }, .78, t); }
+        if (vis > 0) { const g = Math.sin(t * 2.3), talk = Math.sin(t * 6) * .06; fig(185, 262, 1, { lean: .03 + talk, la: [-.15, -.05], ra: [.5 + g * .45, 1.1 + g * .7], ll: [-.12, -.12], rl: [.12, .12] }, .78, t); }
       };
     }
     const brand = h('div', { class: 'brand' }, stage, esc(battle.series || 'SỬ VIỆT · NHỮNG TRẬN ĐÁNH LỪNG DANH'));
