@@ -1,0 +1,82 @@
+{
+ "id": "nhac-ai",
+ "ten": "Xưởng nhạc AI tự động",
+ "mo_ta": "Mỗi ngày tự viết 2 bài EDM có lời tiếng Việt (nguyên tác), có bản demo nhạc nền dùng tự do; thêm khóa dịch vụ nhạc AI để có bản hát.",
+ "lenh": [
+  {
+   "ten": "Khung bài + đề tài đã dùng",
+   "lenh": "node tools/nhac-ai.mjs mau"
+  },
+  {
+   "ten": "Dựng file nghe cho một ngày",
+   "lenh": "node tools/nhac-ai.mjs render <YYYY-MM-DD>",
+   "mo_ta": "Bản demo (tự tổng hợp) + bản có lời nếu có khóa."
+  },
+  {
+   "ten": "Bản có lời qua MiniMax Music",
+   "lenh": "MINIMAX_API_KEY=… node tools/nhac-ai.mjs render <YYYY-MM-DD> --co-loi minimax"
+  },
+  {
+   "ten": "Bản có lời qua ElevenLabs Music",
+   "lenh": "ELEVENLABS_API_KEY=… node tools/nhac-ai.mjs render <YYYY-MM-DD> --co-loi elevenlabs"
+  },
+  {
+   "ten": "Dựng lại danh mục cho app",
+   "lenh": "node tools/nhac-ai.mjs index"
+  }
+ ],
+ "skill": [
+  {
+   "ten": "xuong-nhac-ai",
+   "duong_dan": ".claude/skills/xuong-nhac-ai/SKILL.md",
+   "mo_ta": "Quy trình hằng ngày, khung JSON, chuẩn lời bài hát.",
+   "giay_phep": "của dự án"
+  }
+ ],
+ "prompt": [
+  {
+   "ten": "Prompt phong cách EDM (mẫu)",
+   "noi_dung": "Progressive house, 124 bpm, A minor, euphoric festival energy. Warm supersaw chords with sidechain pump, bright plucked lead hook, deep sub bass, four-on-the-floor kick, claps on 2 and 4, snare-roll build-up into a big drop. Clear lead vocal singing in Vietnamese, airy backing vocals on the chorus, polished modern mix."
+  },
+  {
+   "ten": "Khung lời bài hát",
+   "noi_dung": "[Intro]\n[Verse 1]\n[Pre-Chorus]\n[Chorus]\n[Drop]\n[Verse 2]\n[Pre-Chorus]\n[Chorus]\n[Outro]"
+  },
+  {
+   "ten": "Yêu cầu Claude viết thêm bài",
+   "noi_dung": "Dùng skill xuong-nhac-ai: viết 2 bài EDM có lời tiếng Việt mới cho hôm nay (khác thể loại con, khác tâm trạng, không trùng đề tài trong nhac-ai/index.json), lưu nhac-ai/<ngày>/, chạy node tools/nhac-ai.mjs render <ngày>, commit và push."
+  }
+ ],
+ "nguon": [
+  {
+   "ten": "MiniMax Music API",
+   "url": "https://platform.minimax.io/docs/api-reference/music-generation",
+   "mo_ta": "Lời + phong cách → bài hát mp3 (POST /v1/music_generation).",
+   "giay_phep": "Trả phí; xem điều khoản thương mại"
+  },
+  {
+   "ten": "ElevenLabs Music API",
+   "url": "https://elevenlabs.io/docs/api-reference/music/compose",
+   "mo_ta": "POST /v1/music, prompt hoặc composition plan có lời.",
+   "giay_phep": "Trả phí; xem điều khoản thương mại"
+  },
+  {
+   "ten": "ACE-Step 1.5",
+   "url": "https://github.com/ace-step/ACE-Step",
+   "mo_ta": "Mô hình mở lời → bài hát, chạy trên máy có GPU.",
+   "giay_phep": "MIT (v1.5) / Apache-2.0 (v1)"
+  },
+  {
+   "ten": "YuE (v1)",
+   "url": "https://github.com/multimodal-art-projection/YuE",
+   "mo_ta": "Mô hình mở lời → bài hát dài, cần GPU mạnh.",
+   "giay_phep": "Apache-2.0 (YuE2: phi thương mại)"
+  },
+  {
+   "ten": "DiffRhythm",
+   "url": "https://github.com/ASLP-lab/DiffRhythm",
+   "mo_ta": "Sinh cả bài có lời rất nhanh, cần GPU.",
+   "giay_phep": "Apache-2.0"
+  }
+ ]
+}

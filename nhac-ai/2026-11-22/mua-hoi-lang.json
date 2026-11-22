@@ -1,0 +1,24 @@
+{
+  "title": "Mùa Hội Làng",
+  "date": "2026-11-22",
+  "genre": "EDM",
+  "subgenre": "tropical house",
+  "bpm": 104,
+  "key": "Rê thứ",
+  "mood": "vui tươi, ấm áp, quê nhà",
+  "language": "vi",
+  "theme": "Trở về quê mùa lễ hội, gặp lại bạn cũ, đi hội làng dưới trời xuân",
+  "lyrics": "[Intro]\nTrống làng ai gõ xa xa\nMùa xuân gọi bước con về nhà\n\n[Verse 1]\nĐường đê hoa cải vàng tươi\nCờ bay phấp phới bên trời\nBạn xưa đứng đợi đầu đình\nHỏi rằng còn nhớ quê mình\n\n[Pre-Chorus]\nTiếng sáo vút lên trời cao\nLòng ta rộn ràng biết bao\n\n[Chorus]\nMùa hội làng, ta về đây\nNắm tay nhau quay vòng say\nTiếng cười vang khắp sân đình\nQuê hương ơi đẹp xinh\nMùa hội làng, mùa hội làng\nTim ta ngân lên rộn ràng\n\n[Drop]\n(nhạc – sáo trúc hòa pluck)\n\n[Verse 2]\nĐu tiên ai bay lưng trời\nBánh chưng xanh, chén rượu mời\nĐi đâu cũng nhớ nơi này\nMùa xuân năm nào cũng đầy\n\n[Pre-Chorus]\nTiếng sáo vút lên trời cao\nLòng ta rộn ràng biết bao\n\n[Chorus]\nMùa hội làng, ta về đây\nNắm tay nhau quay vòng say\nTiếng cười vang khắp sân đình\nQuê hương ơi đẹp xinh\n\n[Outro]\nTrống làng còn vang mãi\nHẹn xuân sau ta lại về",
+  "hook": "Mùa hội làng, ta về đây – nắm tay nhau quay vòng say",
+  "style_prompt": "Tropical house, 104 bpm, D minor, sunny and warm. Marimba and plucked synth hook blended with a bamboo flute melody, soft piano chords, punchy kick with light sidechain, shaker grooves, gentle snare build into a bouncy drop. Bright female lead vocal singing in Vietnamese, joyful group chants in the chorus, clean modern mix.",
+  "nhac": {
+    "style": "edm",
+    "key": 2,
+    "tempo": 104,
+    "seed": 90417,
+    "lead": "pluck"
+  },
+  "files": {
+    "demo": "mua-hoi-lang-demo.mp3"
+  }
+}

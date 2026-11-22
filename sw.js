@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v19';
+const VERSION = 'v20';
 const CORE = [
   './',
   'index.html',
@@ -15,6 +15,10 @@ const CORE = [
   'lib/aiprompt.js',
   'lib/giong.js',
   'lib/youtube.js',
+  'lib/ytup.js',
+  'xuong/lich-su.json',
+  'xuong/nhac-ai.json',
+  'xuong/hoat-hinh.json',
   'loi-dan/GIONG.json',
   'loi-dan/giong-mau.mp3',
   'lib/vendor/gsap.min.js',

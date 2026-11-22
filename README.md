@@ -26,6 +26,17 @@ Mỗi video gồm các cảnh dựng tự động: **tiêu đề** trên nền t
 Dự án, ảnh, video, giọng được lưu ngay trong trình duyệt của máy (không gửi lên mạng). Đổi máy / xóa dữ liệu trình duyệt sẽ mất dự án.
 Bản quyền: phần hình, chữ, nhạc do app tạo ra là của bạn; **nội dung kịch bản, ảnh, video, giọng bạn đưa vào** phải do bạn sở hữu hoặc được phép dùng.
 
+## Ba xưởng trong một app
+Cột trái chia thành 3 xưởng. Mỗi xưởng có nút **🧰** gom đủ **lệnh, skill, prompt và nguồn mở** của riêng nó (khai báo trong `xuong/*.json`).
+
+| Xưởng | Có gì |
+|---|---|
+| 🏯 **Film Lịch sử Việt Nam** | Dự án lịch sử của bạn, 10 trận mẫu. Giọng Manus, bản đồ, sơ đồ trận, prompt Veo/Flow, Blender, phim 3D. Skill `xuong-phim-lich-su`. |
+| 🎧 **Nhạc AI tự động** | Mỗi ngày 2 bài **EDM có lời** tiếng Việt do lịch chạy tự động sáng tác: lời, hook, prompt phong cách, bản demo nhạc nền. Có khóa MiniMax/ElevenLabs thì có thêm bản hát. Nút *Làm nhạc nền* đưa bài vào phim. Skill `xuong-nhac-ai`, lệnh `tools/nhac-ai.mjs`. |
+| 🎨 **Film hoạt hình** | Phim người que và hoạt hình 2D: tạo từ kịch bản, hoặc dựng nhanh từ một trận. Kèm skill nguồn mở MIT `directing-stickman-videos`, `animate` và skill `xuong-hoat-hinh` (era pack Đại Việt). |
+
+**Đăng YouTube** (thanh trên): nhập OAuth Client ID của bạn một lần (có hướng dẫn trong hộp) → kết nối kênh → video vừa xuất được tải lên. Tiêu đề, mô tả (có chương), thẻ, ảnh bìa đã soạn sẵn. Đăng được ngay hoặc hẹn giờ, có khai báo nội dung do AI tạo.
+
 ## Phim hoạt hình người que lịch sử · nhạc AI tự sáng tác
 - **🕺 Dựng phim hoạt hình người que từ trận này** (bảng *Dự án* của mỗi trận mẫu): app giữ giọng Manus, bản đồ và sơ đồ trận, rồi xen các cảnh người que diễn đúng lời dẫn. Thẻ cảnh và giọng của từng khối khớp nhau.
 - **Người que đề tài lịch sử:** quân ta đội nón lá, quân giặc đội mũ trụ; vũ khí gồm kiếm, giáo, cung, cờ. Các cảnh: hành quân, chèo thuyền chiến, bắn cung (tên bay), cưỡi ngựa xung trận, giao chiến kiếm – giáo, chỉ huy phất cờ, ăn mừng, chạy, đi, suy nghĩ, kể chuyện bên bảng. App tự nhận hành động từ lời dẫn (chèo, thủy quân, kỵ binh, bắn tên, hành quân, truyền hịch…).

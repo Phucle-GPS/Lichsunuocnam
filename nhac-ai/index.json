@@ -1,0 +1,34 @@
+{
+ "cap_nhat": "2026-11-22T15:47:00.670Z",
+ "ngay": [
+  {
+   "date": "2026-11-22",
+   "songs": [
+    {
+     "file": "2026-11-22/den-pho-goi-ten.json",
+     "title": "Đèn Phố Gọi Tên",
+     "subgenre": "progressive house",
+     "bpm": 124,
+     "key": "La thứ",
+     "mood": "rạo rực, tự do, đêm thành phố",
+     "theme": "Tuổi trẻ phóng xe qua phố đêm, thấy mình đủ lớn để bay xa",
+     "hook": "Đèn phố gọi tên, gọi tên – mình bay lên, bay lên",
+     "demo": "2026-11-22/den-pho-goi-ten-demo.mp3",
+     "loi": null
+    },
+    {
+     "file": "2026-11-22/mua-hoi-lang.json",
+     "title": "Mùa Hội Làng",
+     "subgenre": "tropical house",
+     "bpm": 104,
+     "key": "Rê thứ",
+     "mood": "vui tươi, ấm áp, quê nhà",
+     "theme": "Trở về quê mùa lễ hội, gặp lại bạn cũ, đi hội làng dưới trời xuân",
+     "hook": "Mùa hội làng, ta về đây – nắm tay nhau quay vòng say",
+     "demo": "2026-11-22/mua-hoi-lang-demo.mp3",
+     "loi": null
+    }
+   ]
+  }
+ ]
+}

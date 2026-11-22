@@ -1,0 +1,24 @@
+{
+  "title": "Đèn Phố Gọi Tên",
+  "date": "2026-11-22",
+  "genre": "EDM",
+  "subgenre": "progressive house",
+  "bpm": 124,
+  "key": "La thứ",
+  "mood": "rạo rực, tự do, đêm thành phố",
+  "language": "vi",
+  "theme": "Tuổi trẻ phóng xe qua phố đêm, thấy mình đủ lớn để bay xa",
+  "lyrics": "[Intro]\nĐêm nay phố lên đèn\nGió mang tên em về\n\n[Verse 1]\nXe lăn bánh qua cầu sông\nNgàn ô cửa sáng mênh mông\nMình bỏ lại bao lo âu\nCứ đi đi, không cần đâu\n\n[Pre-Chorus]\nNghe tim đập theo nhịp trống\nNghe đêm dài như sóng lòng\n\n[Chorus]\nĐèn phố gọi tên, gọi tên\nMình bay lên, bay lên\nTay trong tay giữa ánh đèn\nĐêm nay không ngủ quên\nĐèn phố gọi tên, gọi tên\nTuổi hai mươi chẳng muộn phiền\n\n[Drop]\n(nhạc – hook: gọi tên, gọi tên)\n\n[Verse 2]\nTầng cao gió thổi lao xao\nNụ cười ai sáng như sao\nNgày mai dẫu có ra sao\nĐêm nay ta cứ tự hào\n\n[Pre-Chorus]\nNghe tim đập theo nhịp trống\nNghe đêm dài như sóng lòng\n\n[Chorus]\nĐèn phố gọi tên, gọi tên\nMình bay lên, bay lên\nTay trong tay giữa ánh đèn\nĐêm nay không ngủ quên\n\n[Outro]\nĐèn phố gọi tên…\nGọi tên mình thôi",
+  "hook": "Đèn phố gọi tên, gọi tên – mình bay lên, bay lên",
+  "style_prompt": "Progressive house, 124 bpm, A minor, euphoric festival energy. Warm supersaw chords with sidechain pump, bright plucked lead hook, deep sub bass, four-on-the-floor kick, claps on 2 and 4, snare-roll build-up into a big drop. Clear young male lead vocal singing in Vietnamese, airy female backing vocals on the chorus, polished modern mix, radio-ready.",
+  "nhac": {
+    "style": "edm",
+    "key": 9,
+    "tempo": 124,
+    "seed": 582113,
+    "lead": "pluck"
+  },
+  "files": {
+    "demo": "den-pho-goi-ten-demo.mp3"
+  }
+}

@@ -465,6 +465,27 @@ button{cursor:pointer}
 .st-hoathinh .card-shade.has-media{background:linear-gradient(90deg,rgba(255,244,214,.97) 30%,rgba(255,244,214,.6) 55%,transparent 80%)}
 .st-hoathinh .card-shade.has-media+.card-box .card-head{color:#fff}
 
+/* ---------- 3 xưởng ở cột trái ---------- */
+.xw>h3.fold{font-size:12.5px;letter-spacing:.6px;padding:9px 10px;border-radius:9px;margin:0 -4px;color:#f1e6cf}
+.xw-ls>h3.fold{background:linear-gradient(90deg,rgba(200,53,43,.28),transparent)}
+.xw-nh>h3.fold{background:linear-gradient(90deg,rgba(120,80,220,.3),transparent)}
+.xw-hh>h3.fold{background:linear-gradient(90deg,rgba(47,154,122,.3),transparent)}
+.xw:not(.closed)>h3.fold{margin-bottom:10px}
+.xw-bar{display:flex;gap:6px;margin-bottom:6px}.xw-bar .add{flex:1;margin:0}
+.btn.kit{padding:0 10px;font-size:15px}
+.xw-sub{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin:12px 2px 6px;display:flex;justify-content:space-between}
+.edm{border:1px solid var(--line2);border-radius:10px;padding:8px 10px;margin-bottom:6px;background:var(--panel2)}
+.edm b{font-size:13px;display:block}.edm small{color:var(--muted);font-size:11px;display:block;margin:2px 0 6px}
+.edm audio{width:100%;height:30px}
+.edm .btnrow .btn{font-size:11.5px;padding:4px 8px}
+.qk{display:flex;align-items:center;gap:8px;width:100%;padding:6px 8px;border-radius:8px;border:1px dashed var(--line2);background:transparent;text-align:left;margin-bottom:4px;font-size:12.5px}
+.qk:hover{background:var(--panel2)}.qk .y{font-family:Oswald;color:#5fd1a8;min-width:38px}
+.kit-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}.kit-tabs button{border:1px solid var(--line2);background:var(--panel2);border-radius:20px;padding:6px 14px;font-size:13px}.kit-tabs button.on{background:var(--red);border-color:var(--red);color:#fff}
+.kit-it{border:1px solid var(--line2);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--panel2)}
+.kit-it b{display:block;font-size:13.5px}.kit-it small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.kit-it code,.kit-it pre{display:block;background:#0d0b09;border-radius:7px;padding:7px 9px;margin-top:6px;font-size:12px;white-space:pre-wrap;word-break:break-word;color:#e8dcc0;max-height:220px;overflow:auto}
+.kit-it .btnrow{margin-top:6px;justify-content:flex-start}.kit-it .btn{font-size:12px;padding:4px 12px;flex:none;color:var(--text,#efe4cc)}
+.lic{display:inline-block;font-size:10.5px;border:1px solid #5a4a2e;color:#e2c27a;border-radius:10px;padding:1px 8px;margin-left:6px}
 /* ---------- thẻ giới thiệu góc dưới & người dẫn ở góc ---------- */
 .lt3{position:absolute;left:90px;bottom:150px;max-width:900px;background:linear-gradient(90deg,rgba(12,9,6,.92),rgba(12,9,6,.75));border-left:10px solid #c8352b;padding:22px 34px 24px;border-radius:0 18px 18px 0;box-shadow:0 12px 40px rgba(0,0,0,.5)}
 .lt3-label{font-family:Oswald;font-size:26px;letter-spacing:6px;color:#e2c27a;text-transform:uppercase}
@@ -555,15 +576,28 @@ body.render .app{display:none}
     <div class="sp"></div>
     <button class="btn hide-m" id="bNewTop" title="Tạo dự án mới từ kịch bản">＋ Dự án mới</button>
     <button class="btn ghost hide-m" id="bInstall" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Cài ứng dụng</button>
+    <button class="btn yt" id="bYT" title="Tải video lên kênh YouTube (đăng ngay hoặc hẹn giờ)"><svg viewBox="0 0 24 24"><path fill="#ff0033" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8z"/><path fill="#fff" d="M9.7 15.1 15.5 12 9.7 8.9z"/></svg>Đăng YouTube</button>
     <button class="btn" id="bFB" title="Đăng / hẹn giờ video lên Fanpage Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>Đăng Facebook</button>
     <button class="btn primary" id="bExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span>Xuất video</span></button>
     <button class="btn primary" id="bRec" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>Chế độ quay</button>
   </header>
 
   <aside class="left">
-    <div class="sec" data-fold="mine"><h3 class="fold"><span class="l">Dự án của bạn</span><small id="myCount"></small></h3><div class="fold-body"><button class="btn add" id="bNew">＋ Dự án mới từ kịch bản</button><div id="myProjs"></div></div></div>
-    <div class="sec" data-fold="mau"><h3 class="fold"><span class="l">Mẫu: Trận đánh lừng danh</span><small id="mauCount"></small></h3><div class="fold-body"><div id="projs"></div></div></div>
-    <div class="sec" data-fold="nhac"><h3 class="fold"><span class="l">Phòng nhạc</span><small id="songCount"></small></h3><div class="fold-body"><button class="btn add" id="bSong">♫ Sáng tác bài nhạc mới</button><div id="songs"></div></div></div>
+    <div class="sec xw xw-ls" data-fold="ls"><h3 class="fold"><span class="l">🏯 Xưởng film Lịch sử Việt Nam</span><small id="lsCount"></small></h3><div class="fold-body">
+      <div class="xw-bar"><button class="btn add" id="bNew">＋ Dự án lịch sử mới</button><button class="btn kit" data-kit="lich-su" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
+      <div class="xw-sub">Dự án của bạn <small id="myCount"></small></div><div id="myProjs"></div>
+      <div class="xw-sub">Mẫu: trận đánh lừng danh <small id="mauCount"></small></div><div id="projs"></div>
+    </div></div>
+    <div class="sec xw xw-nh" data-fold="nhac"><h3 class="fold"><span class="l">🎧 Xưởng nhạc AI tự động</span><small id="songCount"></small></h3><div class="fold-body">
+      <div class="xw-bar"><button class="btn add" id="bSong">♫ Sáng tác nhạc nền mới</button><button class="btn kit" data-kit="nhac-ai" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
+      <div class="xw-sub">EDM có lời – mỗi ngày 2 bài <small id="edmInfo"></small></div><div id="edmList"></div>
+      <div class="xw-sub">Nhạc nền của bạn</div><div id="songs"></div>
+    </div></div>
+    <div class="sec xw xw-hh" data-fold="hh"><h3 class="fold"><span class="l">🎨 Xưởng film hoạt hình</span><small id="hhCount"></small></h3><div class="fold-body">
+      <div class="xw-bar"><button class="btn add" id="bNewHH">＋ Phim hoạt hình mới</button><button class="btn kit" data-kit="hoat-hinh" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
+      <div class="xw-sub">Phim của bạn</div><div id="hhProjs"></div>
+      <div class="xw-sub">Dựng nhanh phim người que từ trận</div><div id="hhQuick"></div>
+    </div></div>
     <div class="sec" data-fold="scn"><h3 class="fold"><span class="l">Cảnh</span><small id="scnCount"></small></h3><div class="fold-body"><div id="scns"></div></div></div>
   </aside>
 
@@ -640,7 +674,7 @@ body.render .app{display:none}
 
 <div class="modal" id="newModal">
   <div class="dlg">
-    <header><h2>DỰ ÁN MỚI TỪ KỊCH BẢN</h2><button class="ibtn" id="nmClose" title="Đóng">✕</button></header>
+    <header><h2 id="nmTitle">DỰ ÁN MỚI TỪ KỊCH BẢN</h2><button class="ibtn" id="nmClose" title="Đóng">✕</button></header>
     <div class="body">
       <div class="field"><label>Tên dự án (để trống: lấy tiêu đề trong kịch bản)</label><input class="inp" id="nmName" placeholder="VD: Hành trình đến sao Hỏa"></div>
       <div class="field"><label>Thể loại / phong cách hình ảnh</label>
@@ -735,8 +769,49 @@ body.render .app{display:none}
 <input type="file" id="fbFile" accept="video/mp4,video/*" multiple hidden>
 <input type="file" id="fMedia" accept="image/*,video/*" hidden>
 <input type="file" id="fVoice" accept="audio/*" hidden>
+<input type="file" id="fVideoYT" accept="video/mp4,video/*" hidden>
 <input type="file" id="fAnim" accept=".lottie,.json,.riv" hidden>
 
+<div class="modal" id="ytUpModal">
+  <div class="dlg" style="width:min(780px,100%)">
+    <header><h2>ĐĂNG VIDEO LÊN YOUTUBE</h2><button class="ibtn" id="yuClose" title="Đóng">✕</button></header>
+    <div class="body">
+      <div class="field"><label>1 · Kết nối kênh</label>
+        <div class="btnrow"><input class="inp" id="yuClient" placeholder="OAuth Client ID (…apps.googleusercontent.com)" style="flex:1"><button class="btn primary" id="yuConnect">Kết nối Google</button></div>
+        <div class="hint" id="yuStatus">Mã đăng nhập chỉ nằm trong trang này (~1 giờ), không lưu lên máy chủ nào.</div>
+        <details class="aip"><summary>Hướng dẫn lấy Client ID (làm 1 lần, ~5 phút)</summary><div class="ai-item" style="font-size:12.5px;line-height:1.6">
+          1. Vào <b>console.cloud.google.com</b> → tạo dự án (VD "Xưởng Video").<br>
+          2. <b>APIs &amp; Services → Library</b> → bật <b>YouTube Data API v3</b>.<br>
+          3. <b>OAuth consent screen</b>: chọn External, điền tên app, email; mục <i>Test users</i> thêm Gmail sở hữu kênh.<br>
+          4. <b>Credentials → Create credentials → OAuth client ID</b> → loại <b>Web application</b>; <i>Authorized JavaScript origins</i>: <b>https://phucle-gps.github.io</b>. Copy Client ID dán vào ô trên.<br>
+          5. App ở chế độ <b>Testing</b> là đủ dùng cho kênh của bạn. Lưu ý: dự án Google chưa được xác minh có thể bị YouTube để video ở chế độ <b>riêng tư</b> – khi đó mở YouTube Studio đổi sang công khai, hoặc gửi Google xác minh ứng dụng.</div></details>
+      </div>
+      <div class="field"><label>2 · Video</label>
+        <div class="btnrow"><button class="btn" id="yuUseLast">🎬 Video vừa xuất trong app</button><button class="btn" id="yuPick">📁 Chọn file MP4</button></div>
+        <div class="summary" id="yuFile">Chưa chọn video.</div></div>
+      <div class="field"><label>Tiêu đề</label><input class="inp" id="yuTitle"></div>
+      <div class="field"><label>Mô tả (đã có chương, nguồn, hashtag – sửa được)</label><textarea class="txa" id="yuDesc" style="min-height:140px"></textarea></div>
+      <div class="field"><label>Thẻ (cách nhau dấu phẩy)</label><input class="inp" id="yuTags"></div>
+      <div class="grid2">
+        <div class="field"><label>Chế độ</label><select class="sel" id="yuPriv"><option value="public">Công khai</option><option value="unlisted">Không công khai (có link mới xem)</option><option value="private">Riêng tư</option><option value="at">Hẹn giờ công khai</option></select></div>
+        <div class="field" id="yuAtF" style="display:none"><label>Giờ công khai</label><input class="inp" type="datetime-local" id="yuAt"></div>
+        <div class="field"><label>Danh mục</label><select class="sel" id="yuCat"><option value="27">Giáo dục</option><option value="22">Con người &amp; blog</option><option value="1">Phim &amp; hoạt hình</option><option value="10">Âm nhạc</option><option value="24">Giải trí</option></select></div>
+      </div>
+      <label class="row"><span>Có nội dung do AI tạo/chỉnh sửa (giọng AI, hình dựng) – khai báo theo chính sách YouTube</span><span class="sw"><input type="checkbox" id="yuSyn" checked><i></i></span></label>
+      <label class="row"><span>Dành cho trẻ em</span><span class="sw"><input type="checkbox" id="yuKids"><i></i></span></label>
+      <label class="row"><span>Đặt ảnh bìa có sẵn của trận (nếu có, cần kênh đã xác minh)</span><span class="sw"><input type="checkbox" id="yuThumb" checked><i></i></span></label>
+      <div class="summary" id="yuProg"></div>
+      <div class="hint" id="yuHist"></div>
+    </div>
+    <footer><button class="btn" id="yuCancel">Đóng</button><button class="btn primary" id="yuGo">⬆ Tải lên YouTube</button></footer>
+  </div>
+</div>
+<div class="modal" id="kitModal">
+  <div class="dlg" style="width:min(820px,100%)">
+    <header><h2 id="kitTitle">BỘ CÔNG CỤ</h2><button class="ibtn" id="kitClose" title="Đóng">✕</button></header>
+    <div class="body"><div class="hint" id="kitDesc" style="margin:0 0 10px"></div><div class="kit-tabs" id="kitTabs"></div><div id="kitBody"></div></div>
+  </div>
+</div>
 <div class="modal" id="ytModal">
   <div class="dlg" style="width:min(760px,100%)">
     <header><h2>YOUTUBE VIDEO DÀI – CHƯƠNG &amp; MÔ TẢ</h2><button class="ibtn" id="ytClose" title="Đóng">✕</button></header>
@@ -782,6 +857,7 @@ body.render .app{display:none}
 <script src="lib/facebook.js"></script>
 <script src="lib/giong.js"></script>
 <script src="lib/youtube.js"></script>
+<script src="lib/ytup.js"></script>
 <script>
 (function () {
   const Q = new URLSearchParams(location.search);
@@ -990,12 +1066,20 @@ body.render .app{display:none}
   }
 
   /* ---------- cột trái ---------- */
+  /* dự án thuộc xưởng nào: 'ls' (lịch sử) hay 'hh' (hoạt hình) */
+  function xuongOf(p) { return p.xuong || (['hoathinh', 'cotich', 'langque', 'vutru'].includes(p.style) || /người que/.test(p.name) || p.scenes.filter(x => x.type === 'stick').length >= 2 ? 'hh' : 'ls'); }
   function buildProjects() {
     $('projs').innerHTML = BATTLES.map(b => `<button class="proj" data-id="${b.id}"><span class="y">${b.year}</span><span><b>${b.name.replace(/\s\d{3,4}$/, '')}</b><small>${b.who} · quân ${b.vs}</small></span></button>`).join('');
-    $('myCount').textContent = mine.length ? mine.length + ' dự án' : '';
+    const ls = mine.filter(p => xuongOf(p) === 'ls'), hh = mine.filter(p => xuongOf(p) === 'hh');
+    const item = p => `<button class="proj" data-id="${p.id}"><span class="y u">${{ tailieu: '🎞', vientuong: '🚀', hoathinh: '🎨', cotich: '🌕', langque: '🌾', vutru: '🪐' }[p.style] || '🎞'}</span><span><b>${esc(p.name)}</b><small>${Xuong.STYLES[p.style] || ''} · ${p.scenes.length} cảnh${+p.epLen ? ' · chia tập' : ''}</small></span></button>`;
+    $('myCount').textContent = ls.length ? ls.length + ' dự án' : '';
     $('mauCount').textContent = BATTLES.length + ' trận';
-    $('myProjs').innerHTML = mine.length ? mine.map(p => `<button class="proj" data-id="${p.id}"><span class="y u">${{ tailieu: '🎞', vientuong: '🚀', hoathinh: '🎨' }[p.style] || '🎞'}</span><span><b>${esc(p.name)}</b><small>${Xuong.STYLES[p.style]} · ${p.scenes.length} cảnh${+p.epLen ? ' · chia tập' : ''}</small></span></button>`).join('')
-      : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
+    $('lsCount').textContent = (ls.length + BATTLES.length) + ' phim';
+    $('hhCount').textContent = hh.length ? hh.length + ' phim' : '';
+    $('myProjs').innerHTML = ls.length ? ls.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
+    $('hhProjs').innerHTML = hh.length ? hh.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có phim hoạt hình. Tạo từ kịch bản, hoặc dựng nhanh từ một trận bên dưới.</div>';
+    $('hhQuick').innerHTML = BATTLES.map(b => `<button class="qk" data-qk="${b.id}"><span class="y">${b.year}</span><span>🕺 ${b.name.replace(/\s\d{3,4}$/, '')}</span></button>`).join('');
+    document.querySelectorAll('[data-qk]').forEach(e => e.onclick = async () => { if (await open(e.dataset.qk)) cloneStick(); });
     document.querySelectorAll('.proj').forEach(e => { e.onclick = () => open(e.dataset.id); e.classList.toggle('on', P && e.dataset.id === P.id); });
   }
   function buildScenes() {
@@ -1018,7 +1102,7 @@ body.render .app{display:none}
     if (!P.custom) {
       el.innerHTML = `<dl class="kv"><dt>Trận</dt><dd>${P.name}</dd><dt>Chỉ huy</dt><dd>${P.who}</dd><dt>Đối phương</dt><dd>${P.vs}</dd><dt>Thời lượng</dt><dd>${fmtT(film.total)}</dd><dt>Khung hình</dt><dd>${FW}×${FH}</dd></dl>
         ${P.id === 'bach-dang-1288' ? '<a class="btn primary wide" href="phim3d.html" style="margin-top:10px;text-decoration:none">🎬 Xem phiên bản PHIM 3D</a>' : ''}
-        <button class="btn primary wide" id="pStick" style="margin-top:8px">🕺 Dựng phim hoạt hình người que từ trận này</button>
+        <button class="btn primary wide" id="pStick" style="margin-top:8px">🕺 Dựng phim người que từ trận này</button>
         <button class="btn wide" id="pClone" style="margin-top:8px">📋 Dùng mẫu này làm dự án của bạn</button>
         <button class="btn ghost wide" id="pPack" style="margin-top:8px">✨ Tải bộ prompt AI cả phim (.txt)</button>
         <button class="btn ghost wide" id="pYT" style="margin-top:8px">▶ Chương &amp; mô tả YouTube</button>
@@ -1088,7 +1172,7 @@ body.render .app{display:none}
       const kick = { title: sc.sub, hero: sc.kicker, map: sc.date, end: sc.sub }[sc.type] || '';
       return Object.assign(base, { type: 'card', heading: head || '', kicker: kick || '', full: true });
     };
-    const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, name: T.name + ' (bản AI)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes: T.scenes.map(map) };
+    const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, xuong: 'ls', name: T.name + ' (bản AI)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes: T.scenes.map(map) };
     for (let i = 0; i < p.scenes.length; i++) {
       try { const r = await fetch(`loi-dan/${T.id}/${String(i + 1).padStart(2, '0')}.mp3`); if (r.ok) { p.scenes[i].voiceId = await Xuong.store.putAsset(await r.blob()); p.scenes[i].voiceName = `${T.id}/${String(i + 1).padStart(2, '0')}.mp3`; } } catch (e) {}
     }
@@ -1116,7 +1200,7 @@ body.render .app{display:none}
         scenes.push(o);
       });
     });
-    const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, name: T.name + ' (người que)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes };
+    const p = { id: 'u-' + Xuong.uid(), custom: true, from: T.id, noAuto: true, xuong: 'hh', name: T.name + ' (người que)', style: 'tailieu', epLen: 0, created: Date.now(), updated: Date.now(), scenes };
     for (let i = 0; i < T.scenes.length; i++) {
       const sc = scenes.find(x => x.blk === 'K' + (i + 1) && x.blkFirst);
       try { const r = await fetch(`loi-dan/${T.id}/${String(i + 1).padStart(2, '0')}.mp3`); if (r.ok) { sc.voiceId = await Xuong.store.putAsset(await r.blob()); sc.voiceName = `${T.id}/${String(i + 1).padStart(2, '0')}.mp3`; } } catch (e) {}
@@ -1404,13 +1488,18 @@ body.render .app{display:none}
     $('nmSum').innerHTML = `Nhận diện: <b>${nmBlocks.filter(b => b.kind === 'heading').length}</b> tiêu đề · <b>${sc.length}</b> cảnh · khoảng <b>${fmtT(sec)}</b>${ep ? ` → khoảng <b>${n}</b> tập` : ''}${nmFileName ? ` · từ file <b>${esc(nmFileName)}</b>` : ''}`;
     btn.disabled = false;
   };
-  function openNew() {
+  let nmXuong = 'ls';
+  function openNew(x) {
+    nmXuong = x === 'hh' ? 'hh' : 'ls';
+    $('nmTitle').textContent = nmXuong === 'hh' ? 'PHIM HOẠT HÌNH MỚI TỪ KỊCH BẢN' : 'PHIM LỊCH SỬ MỚI TỪ KỊCH BẢN';
+    $('nmStick').checked = nmXuong === 'hh';
+    const st = nmXuong === 'hh' ? 'hoathinh' : 'tailieu'; nmStyle = st; document.querySelectorAll('#nmStyles .stc').forEach(x => x.classList.toggle('on', x.dataset.s === st));
     nmBlocks = null; nmImport = null; nmFileName = ''; $('nmName').value = ''; $('nmText').value = ''; $('nmSum').textContent = ''; $('nmCreate').disabled = true;
     $('nmFmt').value = format === 'doc' ? 'doc' : 'doc';
     $('newModal').classList.add('on'); popIn($('newModal'));
   }
   const closeNew = () => $('newModal').classList.remove('on');
-  $('bNew').onclick = openNew; $('nmClose').onclick = closeNew; $('nmCancel').onclick = closeNew;
+  $('bNew').onclick = () => openNew('ls'); $('bNewHH').onclick = () => openNew('hh'); $('nmClose').onclick = closeNew; $('nmCancel').onclick = closeNew;
   document.querySelectorAll('#nmStyles .stc').forEach(b => b.onclick = () => { nmStyle = b.dataset.s; document.querySelectorAll('#nmStyles .stc').forEach(x => x.classList.toggle('on', x === b)); });
   document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
     document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
@@ -1437,7 +1526,7 @@ body.render .app{display:none}
   $('nmCreate').onclick = async () => {
     if (nmImport) {
       const btn = $('nmCreate'); btn.disabled = true; $('nmSum').textContent = 'Đang nạp giọng, ảnh, video…';
-      const p = Xuong.newProject({ name: $('nmName').value || nmImport.name, style: nmStyle, epLen: 0, blocks: [] });
+      const p = Xuong.newProject({ name: $('nmName').value || nmImport.name, style: nmStyle, epLen: 0, blocks: [] }); p.xuong = nmXuong;
       p.scenes = Xuong.scenesFromTimeline(nmImport.tl, nmImport.texts); p.noAuto = true;
       for (const sc of p.scenes) {
         const f = sc._mediaName && nmImport.files[sc._mediaName];
@@ -1450,7 +1539,7 @@ body.render .app{display:none}
       note(`Đã nhập "${p.name}" – ${p.scenes.length} thẻ. Thẻ cùng khối chia nhau thời lượng giọng của khối.`, 6000);
       return;
     }
-    const p = Xuong.newProject({ name: $('nmName').value || (nmFileName ? '' : ''), style: nmStyle, epLen: +$('nmEp').value, blocks: nmBlocks, stick: $('nmStick').checked });
+    const p = Xuong.newProject({ name: $('nmName').value || (nmFileName ? '' : ''), style: nmStyle, epLen: +$('nmEp').value, blocks: nmBlocks, stick: $('nmStick').checked }); p.xuong = nmXuong;
     if (!$('nmName').value && $('nmName').placeholder && nmFileName && p.name === 'Dự án mới') p.name = $('nmName').placeholder;
     if (!p.scenes.length) return note('Kịch bản chưa có nội dung.');
     await Xuong.store.save(p); mine.unshift(p); buildProjects(); closeNew();
@@ -1574,9 +1663,9 @@ body.render .app{display:none}
   function buildSongs() {
     const a = Nhac.lib.list();
     $('songCount').textContent = a.length ? a.length + ' bài' : '';
-    $('songs').innerHTML = a.length ? a.map(x => `<button class="proj" data-sid="${x.id}"><span class="y u">♫</span><span><b>${esc(x.name || 'Bài chưa đặt tên')}</b><small>${Nhac.STYLES[x.style].name} · ${Nhac.KEYS[x.key]} · ${x.tempo} bpm</small></span></button>`).join('')
+    $('songs').innerHTML = a.length ? a.map(x => `<button class="proj" data-sid="${x.id}"><span class="y u">♫</span><span><b>${esc(x.name || 'Bài chưa đặt tên')}</b><small>${x.style === 'file' ? 'Nhạc của bạn (file)' : `${(Nhac.STYLES[x.style] || {}).name || ''} · ${Nhac.KEYS[x.key]} · ${x.tempo} bpm`}</small></span></button>`).join('')
       : '<div class="hint" style="margin:0">Chưa có bài nào. Bấm nút trên để app tự sáng tác nhạc nền phong cách xưa.</div>';
-    document.querySelectorAll('[data-sid]').forEach(e => e.onclick = () => openSong(Nhac.lib.get(e.dataset.sid)));
+    document.querySelectorAll('[data-sid]').forEach(e => e.onclick = () => { const sg = Nhac.lib.get(e.dataset.sid); if (sg && sg.style === 'file') { if (P) { setMusic(sg.id); note(`Đã dùng "${sg.name}" làm nhạc nền.`); } } else openSong(sg); });
   }
   function buildMusicSel() {
     const f = $('musicField'); f.style.display = P ? '' : 'none';
@@ -1661,7 +1750,7 @@ body.render .app{display:none}
   document.querySelectorAll('#smLayers input').forEach(i => i.onchange = () => { song.layers[i.dataset.l] = i.checked; smChanged(); });
   const smName = () => song.name || (song.name = `${Nhac.STYLES[song.style].name} ${Nhac.KEYS[song.key]} #${String(song.seed).slice(-4)}`);
   $('smSave').onclick = () => { smName(); Nhac.lib.save(song); buildSongs(); buildMusicSel(); $('smDel').style.display = ''; note(`Đã lưu bài "${song.name}" vào Phòng nhạc.`); };
-  $('smUse').onclick = () => { smName(); Nhac.lib.save(song); buildSongs(); P.musicId = song.id; closeSong(); saveP(true); note(`Đã dùng "${song.name}" làm nhạc nền cho "${P.name}".`); };
+  $('smUse').onclick = () => { smName(); Nhac.lib.save(song); buildSongs(); closeSong(); setMusic(song.id); note(`Đã dùng "${song.name}" làm nhạc nền cho "${P.name}".`); };
   $('smDel').onclick = () => { if (!confirm('Xóa bài nhạc này khỏi thư viện?')) return; Nhac.lib.remove(song.id); mine.forEach(p => { if (p.musicId === song.id) { delete p.musicId; Xuong.store.save(p); } }); closeSong(); buildSongs(); reload(true); };
   $('smWav').onclick = async () => {
     $('smWav').textContent = '⏳ Đang xuất…'; $('smWav').disabled = true;
@@ -1694,6 +1783,78 @@ body.render .app{display:none}
     $('fbAtL').textContent = w === 'series' ? 'Giờ đăng video đầu tiên' : 'Giờ đăng';
     if (!$('fbAt').value) { const d = new Date(Date.now() + 864e5); d.setHours(20, 0, 0, 0); $('fbAt').value = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16); }
   }
+  /* ---------- ĐĂNG YOUTUBE ---------- */
+  let yuFileObj = null;
+  function yuHist() { const h = YTUp.history.list().slice(0, 5); $('yuHist').innerHTML = h.length ? 'Đã đăng gần đây: ' + h.map(x => `<a href="${x.url}" target="_blank" rel="noopener">${esc(x.title)}</a>${x.when ? ' (hẹn ' + new Date(x.when).toLocaleString('vi-VN') + ')' : ''}`).join(' · ') : ''; }
+  $('bYT').onclick = () => {
+    if (!P || !film) return;
+    const k = YTLong.pack(B, film);
+    $('yuClient').value = store.get('ytClient', ''); $('yuTitle').value = k.title; $('yuDesc').value = k.desc; $('yuTags').value = k.tags.join(', ');
+    $('yuCat').value = P.custom && xuongOf(P) === 'hh' ? '1' : '27';
+    $('yuProg').textContent = ''; yuHist(); $('yuStatus').textContent = YTUp.ready() ? '✔ Đã kết nối.' : 'Mã đăng nhập chỉ nằm trong trang này (~1 giờ), không lưu lên máy chủ nào.';
+    if (!yuFileObj && window._lastExport) { yuFileObj = window._lastExport.file; }
+    $('yuFile').textContent = yuFileObj ? `🎬 ${yuFileObj.name} · ${(yuFileObj.size / 1048576).toFixed(1)} MB` : 'Chưa chọn video – bấm Xuất video trước hoặc chọn file MP4.';
+    $('ytUpModal').classList.add('on'); popIn($('ytUpModal'));
+  };
+  const yuClose = () => $('ytUpModal').classList.remove('on'); $('yuClose').onclick = yuClose; $('yuCancel').onclick = yuClose;
+  $('yuPriv').onchange = e => { $('yuAtF').style.display = e.target.value === 'at' ? '' : 'none'; if (e.target.value === 'at' && !$('yuAt').value) { const d = new Date(Date.now() + 864e5); d.setHours(19, 0, 0, 0); $('yuAt').value = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16); } };
+  $('yuConnect').onclick = async () => {
+    store.set('ytClient', $('yuClient').value.trim()); $('yuStatus').textContent = '⏳ Đang mở đăng nhập Google…';
+    try { const c = await YTUp.connect($('yuClient').value); $('yuStatus').innerHTML = `✔ Đã kết nối kênh <b>${esc(c.title)}</b>.`; } catch (e) { $('yuStatus').textContent = '✖ ' + e.message; }
+  };
+  $('yuUseLast').onclick = () => { if (!window._lastExport) return note('Chưa có video vừa xuất. Bấm "Xuất video" trước, hoặc chọn file MP4.', 5000); yuFileObj = window._lastExport.file; $('yuFile').textContent = `🎬 ${yuFileObj.name} · ${(yuFileObj.size / 1048576).toFixed(1)} MB`; };
+  $('yuPick').onclick = () => pickFile('fVideoYT', f => { yuFileObj = f; $('yuFile').textContent = `📁 ${f.name} · ${(f.size / 1048576).toFixed(1)} MB`; });
+  $('yuGo').onclick = async () => {
+    if (!yuFileObj) return note('Chọn video trước.'); if (!YTUp.ready()) return note('Bấm "Kết nối Google" trước.');
+    const at = $('yuPriv').value === 'at' ? new Date($('yuAt').value) : null;
+    if (at && !(at > new Date(Date.now() + 15 * 60000))) return note('Giờ hẹn phải sau hiện tại ít nhất 15 phút.');
+    let thumb = null; if ($('yuThumb').checked && !P.custom) { try { const r = await fetch(`thumbnails/${P.id}-youtube.jpg`); if (r.ok) thumb = await r.blob(); } catch (e) {} }
+    const btn = $('yuGo'); btn.disabled = true;
+    try {
+      const r = await YTUp.upload(yuFileObj, { title: $('yuTitle').value, description: $('yuDesc').value, tags: $('yuTags').value.split(',').map(x => x.trim()).filter(Boolean), privacy: at ? 'private' : $('yuPriv').value, when: at, category: $('yuCat').value, kids: $('yuKids').checked, synthetic: $('yuSyn').checked, thumb }, p => $('yuProg').textContent = `⬆ Đang tải lên… ${Math.round(p * 100)}%`);
+      YTUp.history.add({ title: $('yuTitle').value, url: r.url, when: at ? at.toISOString() : null, at: Date.now() }); yuHist();
+      $('yuProg').innerHTML = `✔ Xong! <a href="${r.url}" target="_blank" rel="noopener">${r.url}</a>${at ? ' – YouTube sẽ tự công khai lúc ' + at.toLocaleString('vi-VN') : ''}. YouTube cần vài phút để xử lý video.`;
+    } catch (e) { $('yuProg').textContent = '✖ ' + e.message; }
+    btn.disabled = false;
+  };
+
+  /* ---------- BỘ CÔNG CỤ mỗi xưởng: lệnh · skill · prompt · nguồn mở (xuong/<id>.json) ---------- */
+  const kitCache = {};
+  async function openKit(id, tab = 'lenh') {
+    try { kitCache[id] = kitCache[id] || await (await fetch(`xuong/${id}.json`, { cache: 'no-cache' })).json(); } catch (e) { return note('Không tải được bộ công cụ: ' + e.message); }
+    const K = kitCache[id], TABS = [['lenh', '⌨ Lệnh'], ['skill', '🧠 Skill'], ['prompt', '✨ Prompt'], ['nguon', '🔗 Nguồn mở']];
+    $('kitTitle').textContent = '🧰 ' + K.ten.toUpperCase(); $('kitDesc').textContent = K.mo_ta;
+    $('kitTabs').innerHTML = TABS.filter(([k]) => (K[k] || []).length || k === tab).map(([k, v]) => `<button data-kt="${k}" class="${k === tab ? 'on' : ''}">${v} <small>${(K[k] || []).length}</small></button>`).join('');
+    const lic = x => x.giay_phep ? `<span class="lic">${esc(x.giay_phep)}</span>` : '';
+    $('kitBody').innerHTML = (K[tab] || []).map((x, i) => `<div class="kit-it"><b>${esc(x.ten)}${lic(x)}</b>${x.mo_ta ? `<small>${esc(x.mo_ta)}</small>` : ''}${x.lenh ? `<code>${esc(x.lenh)}</code>` : ''}${x.noi_dung ? `<pre>${esc(x.noi_dung)}</pre>` : ''}${x.duong_dan ? `<small>📄 ${esc(x.duong_dan)}</small>` : ''}
+      <div class="btnrow">${x.lenh ? `<button class="btn" data-kc="${i}">Chép lệnh</button>` : ''}${x.noi_dung ? `<button class="btn" data-kc="${i}">Chép</button>` : ''}${x.duong_dan ? `<a class="btn" href="${esc(x.duong_dan)}" target="_blank" rel="noopener" style="text-decoration:none">Mở file</a>` : ''}${x.url ? `<a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener" style="text-decoration:none">Mở trang</a>` : ''}</div></div>`).join('') || '<div class="hint">Chưa có mục nào.</div>';
+    document.querySelectorAll('[data-kt]').forEach(b => b.onclick = () => openKit(id, b.dataset.kt));
+    document.querySelectorAll('[data-kc]').forEach(b => b.onclick = () => { const x = K[tab][+b.dataset.kc]; copy(x.lenh || x.noi_dung); });
+    if (!$('kitModal').classList.contains('on')) { $('kitModal').classList.add('on'); popIn($('kitModal')); }
+  }
+  document.querySelectorAll('[data-kit]').forEach(b => b.onclick = e => { e.stopPropagation(); openKit(b.dataset.kit); });
+  $('kitClose').onclick = () => $('kitModal').classList.remove('on');
+
+  /* ---------- XƯỞNG NHẠC AI: bài EDM có lời tự động mỗi ngày (nhac-ai/index.json) ---------- */
+  async function buildEDM() {
+    let I = null; try { I = await (await fetch('nhac-ai/index.json', { cache: 'no-cache' })).json(); } catch (e) {}
+    const days = (I && I.ngay) || [], all = days.flatMap(d => d.songs.map(x => Object.assign({ date: d.date }, x)));
+    $('edmInfo').textContent = all.length ? all.length + ' bài' : '';
+    if (!all.length) { $('edmList').innerHTML = '<div class="hint" style="margin:0">Chưa có bài. Lịch chạy hằng ngày sẽ tự thêm 2 bài mới mỗi sáng.</div>'; return; }
+    const show = all.slice(0, 6);
+    $('edmList').innerHTML = show.map((x, i) => `<div class="edm"><b>${esc(x.title)}</b><small>${x.date} · ${esc(x.subgenre || 'EDM')} · ${x.bpm || ''} bpm${x.loi ? ' · 🎤 có lời' : ' · bản demo nhạc nền'}</small>
+      ${x.loi || x.demo ? `<audio controls preload="none" src="nhac-ai/${x.loi || x.demo}"></audio>` : ''}
+      <div class="btnrow"><button class="btn" data-el="${i}">📝 Lời & prompt</button>${x.loi || x.demo ? `<button class="btn" data-eu="${i}">🎬 Làm nhạc nền</button>` : ''}</div></div>`).join('') + (all.length > show.length ? `<div class="hint" style="margin:0">Còn ${all.length - show.length} bài cũ hơn trong thư mục nhac-ai/.</div>` : '');
+    document.querySelectorAll('[data-el]').forEach(b => b.onclick = async () => { const x = show[+b.dataset.el]; const j = await (await fetch('nhac-ai/' + x.file)).json(); kitCache['_bai'] = { ten: j.title, mo_ta: `${j.date} · ${j.subgenre} · ${j.bpm} bpm · ${j.key} · ${j.mood}`, prompt: [{ ten: 'Lời bài hát', noi_dung: j.lyrics }, { ten: 'Câu hook', noi_dung: j.hook }, { ten: 'Prompt phong cách (MiniMax / ElevenLabs / Suno)', noi_dung: j.style_prompt }, { ten: 'Đề tài', noi_dung: j.theme }] }; openKit('_bai', 'prompt'); });
+    document.querySelectorAll('[data-eu]').forEach(b => b.onclick = async () => {
+      if (!P) return; const x = show[+b.dataset.eu]; const f = x.loi || x.demo;
+      const blob = await (await fetch('nhac-ai/' + f)).blob(); const assetId = await Xuong.store.putAsset(blob);
+      const sg = { id: 's-' + Xuong.uid(), name: x.title + (x.loi ? '' : ' (demo)'), style: 'file', assetId }; Nhac.lib.save(sg); buildSongs(); setMusic(sg.id); buildMusicSel();
+      note(`Đã dùng "${x.title}" làm nhạc nền cho "${P.name}" – nhạc tự hạ khi có giọng đọc.`, 5000);
+    });
+  }
+  buildEDM();
+
   /* ---------- YouTube video dài: chương + mô tả ---------- */
   function openYT() {
     const k = YTLong.pack(B, film), ch = k.chapters;
@@ -1768,10 +1929,15 @@ body.render .app{display:none}
   const folds = store.get('folds', {});
   function setFold(sec, closed, save) { sec.classList.toggle('closed', closed); if (save) { folds[sec.dataset.fold] = closed; store.set('folds', folds); } }
   document.querySelectorAll('.sec[data-fold]').forEach(sec => {
-    if (folds[sec.dataset.fold] != null) setFold(sec, folds[sec.dataset.fold]);
-    sec.querySelector('h3.fold').onclick = () => setFold(sec, !sec.classList.contains('closed'), true);
+    if (folds[sec.dataset.fold] != null) setFold(sec, folds[sec.dataset.fold]); else if (['nhac', 'hh'].includes(sec.dataset.fold)) setFold(sec, true);
+    sec.querySelector('h3.fold').onclick = () => {
+      const open = sec.classList.contains('closed');
+      // 3 xưởng mở kiểu xếp lớp: mở xưởng này thì gấp 2 xưởng kia cho gọn
+      if (open && sec.classList.contains('xw')) document.querySelectorAll('.sec.xw').forEach(o => o !== sec && setFold(o, true, true));
+      setFold(sec, !open, true);
+    };
   });
-  $('bNewTop').onclick = () => { setFold(document.querySelector('[data-fold=mine]'), false, true); openNew(); };
+  $('bNewTop').onclick = () => { const hh = P && P.custom && xuongOf(P) === 'hh'; setFold(document.querySelector(`[data-fold=${hh ? 'hh' : 'ls'}]`), false, true); openNew(hh ? 'hh' : 'ls'); };
   $('trSel').value = store.get('tr', 'auto');
   $('fxSel').value = store.get('fx', 'auto');
   $('fxSel').onchange = e => { store.set('fx', e.target.value); reload(true); };
@@ -1780,7 +1946,6 @@ body.render .app{display:none}
   /* ---------- khởi động ---------- */
   (async () => {
     try { mine = await Xuong.store.list(); } catch (e) { mine = []; note('Trình duyệt không cho lưu dự án (chế độ ẩn danh?).'); }
-    if (folds.mau == null && mine.length) setFold(document.querySelector('[data-fold=mau]'), true);
     buildProjects();
     await document.fonts.ready;
     const want = Q.get('tran') || store.get('last', BATTLES[0].id);

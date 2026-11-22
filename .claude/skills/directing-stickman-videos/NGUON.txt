@@ -1,0 +1,2 @@
+Nguồn: https://github.com/kaomei/stickman-video-director (MIT), commit 793cc9f93baac9f297cb31f1a3e7d57f863917c3
+Chỉ chép phần chữ (SKILL.md, references/*.md). Thư mục assets/scripts/examples (~490 MB) không chép; các liên kết tới đó trong skill sẽ không mở được.

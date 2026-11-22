@@ -1,0 +1,149 @@
+{
+ "id": "lich-su",
+ "ten": "Xưởng film Lịch sử Việt Nam",
+ "mo_ta": "Phim tài liệu các trận đánh, nhân vật lịch sử Việt Nam: bản đồ, sơ đồ trận, giọng Manus, nhạc trống trận, đăng YouTube/Facebook.",
+ "lenh": [
+  {
+   "ten": "Xuất video ngang 16:9",
+   "lenh": "node tools/render-video.mjs <id-trận>",
+   "mo_ta": "Dựng từng khung, ghép giọng Manus, nhạc tự hạ khi có giọng, chuẩn −14 LUFS."
+  },
+  {
+   "ten": "Xuất video dọc 9:16 (Reels/TikTok)",
+   "lenh": "node tools/render-video.mjs <id-trận> --doc"
+  },
+  {
+   "ten": "Thêm người dẫn người que ở góc",
+   "lenh": "node tools/render-video.mjs <id-trận> --nguoi-dan"
+  },
+  {
+   "ten": "Xuất tất cả trận",
+   "lenh": "node tools/render-video.mjs all && node tools/render-video.mjs all --doc"
+  },
+  {
+   "ten": "Tự đọc lời dẫn bằng giọng Manus đã lưu",
+   "lenh": "node tools/giong-manus.mjs tao <id-trận>",
+   "mo_ta": "Cần ELEVENLABS_API_KEY; chỉ đọc cảnh còn thiếu."
+  },
+  {
+   "ten": "Tạo file yêu cầu gửi Manus",
+   "lenh": "node tools/nap-giong-manus.mjs --yeu-cau"
+  },
+  {
+   "ten": "Nạp gói giọng Manus",
+   "lenh": "node tools/nap-giong-manus.mjs goi.zip"
+  },
+  {
+   "ten": "Ảnh bìa YouTube + TikTok",
+   "lenh": "node tools/thumbnail.mjs <id-trận | all>"
+  },
+  {
+   "ten": "Dựng lại dữ liệu bản đồ",
+   "lenh": "node tools/build-map.mjs"
+  },
+  {
+   "ten": "Cài công cụ (1 lần)",
+   "lenh": "cd tools && npm install"
+  }
+ ],
+ "skill": [
+  {
+   "ten": "xuong-phim-lich-su",
+   "duong_dan": ".claude/skills/xuong-phim-lich-su/SKILL.md",
+   "mo_ta": "Quy trình thêm trận, nguồn sử, giọng Manus, xuất & đăng.",
+   "giay_phep": "của dự án"
+  },
+  {
+   "ten": "GSAP (8 skill chính thức)",
+   "duong_dan": ".claude/skills/gsap-core/SKILL.md",
+   "mo_ta": "Hiệu ứng chữ, timeline tạm dừng tua theo t.",
+   "giay_phep": "MIT"
+  },
+  {
+   "ten": "Quy tắc giọng Manus",
+   "duong_dan": "loi-dan/GIONG.json",
+   "mo_ta": "Cấu hình giọng nam trầm đã lưu; nguồn từng trận ở loi-dan/NGUON.json."
+  }
+ ],
+ "prompt": [
+  {
+   "ten": "Prompt AI cả phim – bach-dang-1288",
+   "duong_dan": "prompt-ai/bach-dang-1288.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – bach-dang-938",
+   "duong_dan": "prompt-ai/bach-dang-938.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – chi-lang-1427",
+   "duong_dan": "prompt-ai/chi-lang-1427.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – dong-bo-dau-1258",
+   "duong_dan": "prompt-ai/dong-bo-dau-1258.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – dong-da-1789",
+   "duong_dan": "prompt-ai/dong-da-1789.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – ham-tu-1285",
+   "duong_dan": "prompt-ai/ham-tu-1285.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – nhu-nguyet-1077",
+   "duong_dan": "prompt-ai/nhu-nguyet-1077.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – rach-gam-1785",
+   "duong_dan": "prompt-ai/rach-gam-1785.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – tay-ket-1285",
+   "duong_dan": "prompt-ai/tay-ket-1285.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – van-don-1288",
+   "duong_dan": "prompt-ai/van-don-1288.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Blender – Bạch Đằng 1288 (Python bpy)",
+   "duong_dan": "tools/blender/bach_dang_1288.py",
+   "mo_ta": "Dựng cảnh 3D bãi cọc, thuyền, nước triều trong Blender."
+  },
+  {
+   "ten": "Phim 3D Bạch Đằng (three.js)",
+   "duong_dan": "phim3d.html",
+   "mo_ta": "Xem/xuất MP4 bản 3D."
+  }
+ ],
+ "nguon": [
+  {
+   "ten": "Đại Việt sử ký toàn thư",
+   "mo_ta": "Nguồn chính cho các trận thời Ngô, Lý, Trần, Lê"
+  },
+  {
+   "ten": "Khâm định Việt sử thông giám cương mục"
+  },
+  {
+   "ten": "Nguyên sử, Tống sử, Minh thực lục",
+   "mo_ta": "Đối chiếu phía đối phương"
+  },
+  {
+   "ten": "Natural Earth",
+   "url": "https://www.naturalearthdata.com/",
+   "giay_phep": "Phạm vi công cộng",
+   "mo_ta": "Dữ liệu bản đồ"
+  }
+ ]
+}
