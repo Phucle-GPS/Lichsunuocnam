@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Kinh thành Huế 1885
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Đêm 4 rạng sáng 5 tháng 7 năm 1885, phái chủ chiến trong triều đình Huế do Tôn Thất Thuyết đứng đầu đã mở cuộc tấn công quân Pháp ở kinh thành.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Huế at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Huế at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Tôn Thất Thuyết là phụ chính đại thần, người đứng đầu phái chủ chiến, ngầm xây dựng lực lượng chống Pháp.
+
+▶ Nhân vật – Tôn Thất Thuyết (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Tôn Thất Thuyết, the Vietnamese commander (Thủ lĩnh phái chủ chiến), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tôn Thất Thuyết, the Vietnamese commander (Thủ lĩnh phái chủ chiến), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Quân Pháp đóng ở đồn Mang Cá trong kinh thành và Tòa Khâm sứ bên kia sông Hương.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Huế seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Huế seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Tướng Pháp De Courcy kéo quân vào Huế, đòi triều đình phải theo ý Pháp, khiến cuộc đối đầu không thể tránh khỏi.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Nửa đêm, quân ta nổ súng tấn công đồn Mang Cá và Tòa Khâm sứ. Quân Pháp lúc đầu rối loạn, nhưng đến sáng thì củng cố được lực lượng và phản công. Kinh thành bị chiếm, bị cướp phá. Tôn Thất Thuyết đưa vua Hàm Nghi rời kinh thành ra căn cứ Tân Sở ở Quảng Trị.
+
+▶ Diễn biến 1: Nửa đêm, nổ súng tấn công đồn Mang Cá (8s)
+VIDEO PROMPT:
+Wide shot at water level. As the tide falls, hundreds of Nguyễn dynasty soldiers in red and blue tunics with conical hats rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. As the tide falls, hundreds of Nguyễn dynasty soldiers in red and blue tunics with conical hats rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Đánh vào Tòa Khâm sứ (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Đánh vào Tòa Khâm sứ. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Đánh vào Tòa Khâm sứ. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Trời sáng, Pháp phản công dữ dội (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. As the tide falls, hundreds of Nguyễn dynasty soldiers in red and blue tunics with conical hats rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. As the tide falls, hundreds of Nguyễn dynasty soldiers in red and blue tunics with conical hats rise from the reeds on both riverbanks and shoot volleys of flaming arrows, while Vietnamese war boats charge out from side channels. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Tôn Thất Thuyết đưa vua Hàm Nghi ra Tân Sở (8s)
+VIDEO PROMPT:
+Wide aerial shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Tôn Thất Thuyết đưa vua Hàm Nghi ra Tân Sở. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Tôn Thất Thuyết đưa vua Hàm Nghi ra Tân Sở. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · QUOTE ════════
+Lời dẫn: Ngày 13 tháng 7 năm 1885, nhân danh vua Hàm Nghi, Tôn Thất Thuyết ban Chiếu Cần Vương, kêu gọi văn thân và nhân dân cả nước đứng lên giúp vua cứu nước.
+
+▶ Trích dẫn – không khí (8s)
+VIDEO PROMPT:
+Slow-motion medium close-up. Nguyễn dynasty soldiers in red and blue tunics with conical hats standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Very slow dolly in, 48fps slow-motion feel. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Người giàu bỏ của, người khỏe bỏ sức, người mạnh giúp lực, kẻ nghèo giúp công, đồng tâm hiệp lực, giải nguy cứu khốn.".
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Người giàu bỏ của, người khỏe bỏ sức, người mạnh giúp lực, kẻ nghèo giúp công, đồng tâm hiệp lực, giải nguy cứu khốn.".
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Phong trào Cần Vương với các cuộc khởi nghĩa Ba Đình, Bãi Sậy, Hương Khê kéo dài hơn mười năm.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Huế today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Huế today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Huế, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

@@ -69,7 +69,7 @@ for (const b of BATTLES) {
           el('div', { display: 'flex', backgroundColor: '#c8352b', color: '#fff', fontFamily: 'Oswald', fontSize: tall ? 64 : 50, padding: '2px 22px', letterSpacing: 4 }, b.year),
           el('div', { display: 'flex', marginLeft: 18, color: '#efe4cc', fontSize: tall ? 34 : 26, fontWeight: 800, letterSpacing: 1 }, b.who.toUpperCase())
         ]),
-        el('div', { display: 'flex', marginTop: 26, fontSize: tall ? 52 : 40, fontWeight: 800, color: '#ffd36b', lineHeight: 1.15, textShadow: '0 4px 14px rgba(0,0,0,.8)' }, HOOK[b.id] || '')
+        el('div', { display: 'flex', marginTop: 26, fontSize: tall ? 52 : 40, fontWeight: 800, color: '#ffd36b', lineHeight: 1.15, textShadow: '0 4px 14px rgba(0,0,0,.8)' }, HOOK[b.id] || b.hook || '')
       ])
     ]);
     let svg = await satori(tree, { width: W, height: H, fonts });

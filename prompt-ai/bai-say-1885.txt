@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Bãi Sậy 1885 – 1889
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Giữa đồng bằng Bắc Bộ, vùng lau sậy um tùm ở Hưng Yên đã trở thành căn cứ của một cuộc khởi nghĩa lớn hưởng ứng Chiếu Cần Vương.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Căn cứ Bãi Sậy at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Căn cứ Bãi Sậy at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Nguyễn Thiện Thuật quê Hải Dương, là người lãnh đạo cuộc khởi nghĩa Bãi Sậy, sau khi các cuộc chống Pháp trước đó thất bại.
+
+▶ Nhân vật – Nguyễn Thiện Thuật (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Nguyễn Thiện Thuật, the Vietnamese commander (Thủ lĩnh khởi nghĩa Bãi Sậy), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn Thiện Thuật, the Vietnamese commander (Thủ lĩnh khởi nghĩa Bãi Sậy), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Căn cứ chính ở vùng Văn Lâm, Yên Mỹ, Khoái Châu, tỉnh Hưng Yên, gần các tuyến giao thông quan trọng của Pháp.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Căn cứ Bãi Sậy seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Căn cứ Bãi Sậy seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Nghĩa quân hoạt động thành từng toán nhỏ, lúc ẩn lúc hiện, phối hợp với nhân dân các làng.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Mỗi khi quân Pháp càn quét, nghĩa quân phân tán vào lau sậy, đầm lầy. Khi địch mỏi mệt, họ bất ngờ phục kích, đánh tỉa trên đường hành quân, tập kích đồn bốt. Cuộc khởi nghĩa làm chủ một vùng rộng lớn, uy hiếp đường giao thông của Pháp suốt nhiều năm, cho đến khi Pháp tập trung lực lượng lớn đàn áp vào năm 1889.
+
+▶ Diễn biến 1: Quân Pháp càn quét vào vùng lau sậy (8s)
+VIDEO PROMPT:
+Wide shot at water level. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Quân Pháp càn quét vào vùng lau sậy. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Quân Pháp càn quét vào vùng lau sậy. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Nghĩa quân ẩn mình, phân tán thành toán nhỏ (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Nghĩa quân ẩn mình, phân tán thành toán nhỏ. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Nghĩa quân ẩn mình, phân tán thành toán nhỏ. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Phục kích, đánh tỉa trên đường hành quân (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Phục kích, đánh tỉa trên đường hành quân. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Phục kích, đánh tỉa trên đường hành quân. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Quân Pháp thiệt hại, phải rút ra (8s)
+VIDEO PROMPT:
+Wide aerial shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Quân Pháp thiệt hại, phải rút ra. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Quân Pháp thiệt hại, phải rút ra. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Sau khi khởi nghĩa thất bại, Nguyễn Thiện Thuật sang Trung Quốc, tiếp tục hoạt động cho đến cuối đời.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Sau khi khởi nghĩa thất bại, Nguyễn Thiện Thuật sang Trung Quốc, tiếp tục hoạt động cho đến cuối đời. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Sau khi khởi nghĩa thất bại, Nguyễn Thiện Thuật sang Trung Quốc, tiếp tục hoạt động cho đến cuối đời. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Khởi nghĩa Bãi Sậy cho thấy đồng bằng, nếu dựa vào nhân dân và địa hình, vẫn có thể trở thành căn cứ kháng chiến.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Căn cứ Bãi Sậy today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Căn cứ Bãi Sậy today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Căn cứ Bãi Sậy, Vietnam, 19th-century Vietnam, 1885, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Khả Lưu – Bồ Ải 1424
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Cuối năm 1424, nghĩa quân Lam Sơn chuyển vào Nghệ An. Ở Khả Lưu và Bồ Ải, Lê Lợi dùng mưu đốt trại giả rút để đánh bại quân Minh.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Ải Khả Lưu at the edge of a historic battle, with Ming soldiers visible far away as tiny silhouettes. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Ải Khả Lưu at the edge of a historic battle, with Ming soldiers visible far away as tiny silhouettes. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Theo kế của tướng Nguyễn Chích, Lê Lợi đưa nghĩa quân vào Nghệ An, vùng đất rộng người đông, làm bàn đạp tiến ra Bắc.
+
+▶ Nhân vật – Lê Lợi (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Lê Lợi, the Vietnamese commander (Lãnh tụ khởi nghĩa Lam Sơn), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lê Lợi, the Vietnamese commander (Lãnh tụ khởi nghĩa Lam Sơn), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Nghĩa quân từ miền tây Thanh Hóa tiến vào Nghệ An, đóng ở bờ sông Lam gần ải Khả Lưu, vùng Anh Sơn ngày nay.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Ải Khả Lưu seen from above, a winding river among mountains, with a long column of Ming soldiers moving along it like an armada. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Ải Khả Lưu seen from above, a winding river among mountains, with a long column of Ming soldiers moving along it like an armada. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Hai bên đóng quân cách sông nhiều ngày. Quân Minh đông, chiếm giữ ải hiểm.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Ming soldiers in red brigandine armor and iron helmets with yellow banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests, conical hats, rattan shields, spears and crossbows; commanders in red-and-gold lacquered armor watching silently from cover. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Ming soldiers in red brigandine armor and iron helmets with yellow banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests, conical hats, rattan shields, spears and crossbows; commanders in red-and-gold lacquered armor watching silently from cover. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Thấy quân Minh giữ chỗ hiểm, Lê Lợi cho đốt trại, giả vờ rút lui, nhưng ngầm đặt phục binh ở chỗ hiểm yếu. Quân Minh tưởng nghĩa quân bỏ chạy, vượt sông đuổi theo, lọt vào trận địa mai phục. Nghĩa quân đổ ra đánh, quân Minh thua to, bị chém và chết đuối rất nhiều, tàn quân chạy về cố thủ thành Nghệ An.
+
+▶ Diễn biến 1: Hai bên đóng quân hai bờ sông Lam (8s)
+VIDEO PROMPT:
+Wide shot at water level. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Hai bên đóng quân hai bờ sông Lam. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Hai bên đóng quân hai bờ sông Lam. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Ban đêm nghĩa quân đốt trại, giả vờ rút (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Ban đêm nghĩa quân đốt trại, giả vờ rút. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Ban đêm nghĩa quân đốt trại, giả vờ rút. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Quân Minh đuổi theo, lọt ổ phục kích (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Quân Minh đuổi theo, lọt ổ phục kích. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Quân Minh đuổi theo, lọt ổ phục kích. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Quân Minh thua to, chạy về thành Nghệ An (8s)
+VIDEO PROMPT:
+Wide aerial shot. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Quân Minh thua to, chạy về thành Nghệ An. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Ming soldiers: Quân Minh thua to, chạy về thành Nghệ An. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Sau chiến thắng này, nghĩa quân làm chủ phần lớn Nghệ An, rồi giải phóng cả một vùng rộng lớn ở phía nam.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Sau chiến thắng này, nghĩa quân làm chủ phần lớn Nghệ An, rồi giải phóng cả một vùng rộng lớn ở phía nam. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Sau chiến thắng này, nghĩa quân làm chủ phần lớn Nghệ An, rồi giải phóng cả một vùng rộng lớn ở phía nam. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Trận Khả Lưu – Bồ Ải mở ra bước ngoặt, đưa khởi nghĩa Lam Sơn từ thế cầm cự sang thế tấn công.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Ải Khả Lưu today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Ải Khả Lưu today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Ải Khả Lưu, Vietnam, 1424 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

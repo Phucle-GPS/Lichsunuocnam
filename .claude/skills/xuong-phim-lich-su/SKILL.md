@@ -15,6 +15,9 @@ Mọi thứ của xưởng này được liệt kê trong `xuong/lich-su.json` (
 - **Tất định theo thời gian t** để xuất từng khung (GSAP: timeline `paused` + `tl.time(t)`).
 - Hình, nhạc do app tự vẽ/tự tổng hợp ⇒ không vướng bản quyền.
 
+## Bộ phim 40 trận (năm 40 → 1894)
+`battles.js`: 10 trận gốc + khối "TẬP 11 – 40" ở cuối file. Khuôn sơ đồ dùng chung: `SONG` (sông/thủy chiến), `AI` (phục kích ở ải), `THANH` (công/thủ thành), `DONG` (đồng bằng, đánh hai cánh, có thể có cầu), `DAM` (đầm lầy/làng chiến đấu), `TAU` (tàu chiến trên sông). Danh sách tự xếp theo năm (`sortKey` để chỉnh thứ tự cùng năm) và tự nối "Tập tiếp theo". Mỗi trận có `hook` (ảnh bìa) và `hookQ` (câu hỏi mở đầu phim người que). 30 trận mới đang chờ giọng Manus (`loi-dan/CAN-GUI-MANUS.txt`).
+
 ## Thêm một trận
 1. `battles.js`: `{ id, year, name, who, vs, seed, sources, series?, scenes: [...] }`. Cảnh: `title, hero, map, forces, diagram, timeline, quote, points, end` (xem trận có sẵn làm mẫu; tọa độ bản đồ theo `tools/build-map.mjs`).
 2. `lib/aiprompt.js` → thêm `ERA[id]` (trang phục, vũ khí, thuyền, địa hình) cho prompt Veo/Flow.

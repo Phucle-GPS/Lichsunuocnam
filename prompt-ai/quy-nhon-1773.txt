@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Thành Quy Nhơn 1773
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Năm 1773, phong trào Tây Sơn từ vùng núi Tây Sơn thượng đạo tiến xuống đồng bằng, chiếm thành Quy Nhơn bằng một mưu kế táo bạo.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Quy Nhơn at the edge of a historic battle, with Vietnamese government soldiers of the Nguyễn lords visible far away as tiny silhouettes. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Quy Nhơn at the edge of a historic battle, with Vietnamese government soldiers of the Nguyễn lords visible far away as tiny silhouettes. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Nguyễn Nhạc cùng hai em Nguyễn Huệ, Nguyễn Lữ dấy binh năm 1771, chống sự hà khắc của quyền thần Trương Phúc Loan ở Đàng Trong.
+
+▶ Nhân vật – Nguyễn Nhạc (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Nguyễn Nhạc, the Vietnamese commander (Anh cả trong ba anh em Tây Sơn), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn Nhạc, the Vietnamese commander (Anh cả trong ba anh em Tây Sơn), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Từ vùng núi An Khê, nghĩa quân Tây Sơn tiến xuống đồng bằng, nhắm vào phủ thành Quy Nhơn.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Quy Nhơn seen from above, a winding river among mountains, with a long column of Vietnamese government soldiers of the Nguyễn lords moving along it like an armada. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Quy Nhơn seen from above, a winding river among mountains, with a long column of Vietnamese government soldiers of the Nguyễn lords moving along it like an armada. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Phong trào Tây Sơn được dân nghèo hưởng ứng mạnh mẽ nhờ chủ trương lấy của nhà giàu chia cho dân nghèo.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Vietnamese government soldiers of the Nguyễn lords in blue tunics with spears and old muskets, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Tây Sơn soldiers in red tunics and red turbans with spears, sabres, war elephants and river war boats watching silently from cover. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Vietnamese government soldiers of the Nguyễn lords in blue tunics with spears and old muskets, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Tây Sơn soldiers in red tunics and red turbans with spears, sabres, war elephants and river war boats watching silently from cover. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Theo các sách sử, Nguyễn Nhạc cho người giả bắt mình bỏ vào cũi, đem nộp cho quan giữ thành. Đêm đến, ông phá cũi, cùng những người theo vào làm nội ứng, mở cổng thành. Nghĩa quân bên ngoài do Nguyễn Huệ chỉ huy ập vào. Quân giữ thành tan vỡ, Tây Sơn làm chủ thành Quy Nhơn.
+
+▶ Diễn biến 1: Nguyễn Nhạc giả bị bắt, nằm trong cũi (8s)
+VIDEO PROMPT:
+Wide shot at water level. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Nguyễn Nhạc giả bị bắt, nằm trong cũi. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Nguyễn Nhạc giả bị bắt, nằm trong cũi. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Được đưa vào thành nộp cho quan giữ thành (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Được đưa vào thành nộp cho quan giữ thành. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Được đưa vào thành nộp cho quan giữ thành. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Đêm xuống, phá cũi, mở cổng thành (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Đêm xuống, phá cũi, mở cổng thành. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Đêm xuống, phá cũi, mở cổng thành. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Quân Tây Sơn ập vào, làm chủ Quy Nhơn (8s)
+VIDEO PROMPT:
+Wide aerial shot. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Quân Tây Sơn ập vào, làm chủ Quy Nhơn. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese government soldiers of the Nguyễn lords: Quân Tây Sơn ập vào, làm chủ Quy Nhơn. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Chiếm được Quy Nhơn, phong trào Tây Sơn có căn cứ vững chắc để phát triển thành một thế lực lớn.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Chiếm được Quy Nhơn, phong trào Tây Sơn có căn cứ vững chắc để phát triển thành một thế lực lớn. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Chiếm được Quy Nhơn, phong trào Tây Sơn có căn cứ vững chắc để phát triển thành một thế lực lớn. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Thành Quy Nhơn sau này trở thành kinh đô Hoàng Đế thành của Nguyễn Nhạc, trung tâm của phong trào Tây Sơn.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Tây Sơn soldiers in red tunics and red turbans with spears raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Tây Sơn soldiers in red tunics and red turbans with spears raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Quy Nhơn today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Quy Nhơn today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Quy Nhơn, Vietnam, 18th-century Vietnam, 1773, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

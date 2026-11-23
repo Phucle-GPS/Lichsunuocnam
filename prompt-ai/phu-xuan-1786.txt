@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Phú Xuân 1786
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Mùa hè năm 1786, Nguyễn Huệ đem thủy bộ ra đánh thành Phú Xuân, khi ấy do quân Trịnh chiếm giữ.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Thành Phú Xuân at the edge of a historic battle, with Vietnamese soldiers of the Trịnh lords visible far away as tiny silhouettes. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Thành Phú Xuân at the edge of a historic battle, with Vietnamese soldiers of the Trịnh lords visible far away as tiny silhouettes. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Nguyễn Huệ là thiên tài quân sự của phong trào Tây Sơn, nổi tiếng với lối đánh thần tốc, bất ngờ.
+
+▶ Nhân vật – Nguyễn Huệ (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Nguyễn Huệ, the Vietnamese commander (Danh tướng Tây Sơn), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn Huệ, the Vietnamese commander (Danh tướng Tây Sơn), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Quân Tây Sơn từ Quy Nhơn theo đường thủy, đường bộ tiến ra, nhắm vào thành Phú Xuân bên bờ sông Hương.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Thành Phú Xuân seen from above, a winding river among mountains, with a long column of Vietnamese soldiers of the Trịnh lords moving along it like an armada. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Thành Phú Xuân seen from above, a winding river among mountains, with a long column of Vietnamese soldiers of the Trịnh lords moving along it like an armada. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Quân Trịnh chiếm giữ Phú Xuân từ năm 1775, nhưng nội bộ chia rẽ, tướng sĩ chán nản.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Vietnamese soldiers of the Trịnh lords in black tunics with spears and muskets, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Tây Sơn soldiers in red tunics and red turbans with spears, sabres, war elephants and river war boats watching silently from cover. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Vietnamese soldiers of the Trịnh lords in black tunics with spears and muskets, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Tây Sơn soldiers in red tunics and red turbans with spears, sabres, war elephants and river war boats watching silently from cover. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Quân Tây Sơn tiến vào cửa Thuận An. Theo sử cũ, gặp lúc mưa to, nước sông Hương dâng cao, chiến thuyền áp sát được chân thành. Phó tướng Hoàng Đình Thể ra đánh và tử trận, Phạm Ngô Cầu phải đầu hàng. Chỉ trong thời gian ngắn, Tây Sơn làm chủ thành Phú Xuân và toàn bộ vùng Thuận Hóa.
+
+▶ Diễn biến 1: Thủy quân tiến vào cửa Thuận An (8s)
+VIDEO PROMPT:
+Wide shot at water level. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese soldiers of the Trịnh lords: Thủy quân tiến vào cửa Thuận An. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese soldiers of the Trịnh lords: Thủy quân tiến vào cửa Thuận An. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Gặp mưa lớn, nước sông Hương dâng cao (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese soldiers of the Trịnh lords: Gặp mưa lớn, nước sông Hương dâng cao. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese soldiers of the Trịnh lords: Gặp mưa lớn, nước sông Hương dâng cao. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Chiến thuyền áp sát chân thành mà đánh (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese soldiers of the Trịnh lords: Chiến thuyền áp sát chân thành mà đánh. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Tây Sơn soldiers in red tunics and red turbans with spears fight Vietnamese soldiers of the Trịnh lords: Chiến thuyền áp sát chân thành mà đánh. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Thành vỡ, Tây Sơn làm chủ Phú Xuân (8s)
+VIDEO PROMPT:
+Wide aerial shot. Enemy war junks are impaled on the emerging stakes, tilting and sinking, burning with tall flames and black smoke as Vietnamese boats surround them. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Enemy war junks are impaled on the emerging stakes, tilting and sinking, burning with tall flames and black smoke as Vietnamese boats surround them. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Ngay sau khi lấy Phú Xuân, Nguyễn Huệ quyết định tiến thẳng ra Bắc với danh nghĩa phù Lê diệt Trịnh.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Ngay sau khi lấy Phú Xuân, Nguyễn Huệ quyết định tiến thẳng ra Bắc với danh nghĩa phù Lê diệt Trịnh. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Ngay sau khi lấy Phú Xuân, Nguyễn Huệ quyết định tiến thẳng ra Bắc với danh nghĩa phù Lê diệt Trịnh. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Phú Xuân sau này trở thành kinh đô của vua Quang Trung, trung tâm của vương triều Tây Sơn.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Tây Sơn soldiers in red tunics and red turbans with spears raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Tây Sơn soldiers in red tunics and red turbans with spears raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Thành Phú Xuân today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Thành Phú Xuân today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Thành Phú Xuân, Vietnam, 18th-century Vietnam, 1786, golden hour with smoke over the battlefield. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

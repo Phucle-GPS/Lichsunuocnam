@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Nhật Tảo 1861
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Ngày 10 tháng 12 năm 1861, trên vàm Nhật Tảo, nghĩa quân của Nguyễn Trung Trực đã đốt cháy chiếc tàu chiến Pháp mang tên Hy Vọng.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Nhật Tảo at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Nhật Tảo at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Nguyễn Trung Trực vốn là người làm nghề chài lưới ở Long An, đứng lên chiêu mộ nghĩa quân chống Pháp.
+
+▶ Nhân vật – Nguyễn Trung Trực (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Nguyễn Trung Trực, the Vietnamese commander (Quản cơ, thủ lĩnh nghĩa quân), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn Trung Trực, the Vietnamese commander (Quản cơ, thủ lĩnh nghĩa quân), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Tàu Hy Vọng, tiếng Pháp là Espérance, đậu ở vàm Nhật Tảo, thuộc Long An ngày nay, làm nhiệm vụ canh giữ đường sông.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Nhật Tảo seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Nhật Tảo seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Nghĩa quân chỉ có giáo mác và lửa, nhưng có lòng gan dạ và sự bất ngờ.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Nghĩa quân chia thành nhiều toán, đi thuyền nhỏ áp sát tàu Hy Vọng. Khi tới gần, họ bất ngờ nhảy lên tàu đánh giáp lá cà. Sau một hồi chiến đấu, nghĩa quân phóng hỏa đốt tàu. Chiếc tàu chiến bốc cháy dữ dội rồi chìm, phần lớn lính trên tàu bị tiêu diệt. Tiếng vang của trận đánh khiến quân Pháp bàng hoàng.
+
+▶ Diễn biến 1: Tàu Pháp đậu canh giữ vàm sông (8s)
+VIDEO PROMPT:
+Wide shot at water level. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Tàu Pháp đậu canh giữ vàm sông. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Tàu Pháp đậu canh giữ vàm sông. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Nghĩa quân cải trang, chèo thuyền áp sát (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Nghĩa quân cải trang, chèo thuyền áp sát. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Nghĩa quân cải trang, chèo thuyền áp sát. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Bất ngờ nhảy lên tàu, giao chiến (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. At night Vietnamese troops silently cross the river by boat and storm the enemy camp, torches igniting tents. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. At night Vietnamese troops silently cross the river by boat and storm the enemy camp, torches igniting tents. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Phóng hỏa, tàu Hy Vọng chìm trong biển lửa (8s)
+VIDEO PROMPT:
+Wide aerial shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Phóng hỏa, tàu Hy Vọng chìm trong biển lửa. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Phóng hỏa, tàu Hy Vọng chìm trong biển lửa. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · QUOTE ════════
+Lời dẫn: Năm 1868, sau khi đánh chiếm đồn Kiên Giang, Nguyễn Trung Trực bị bắt. Trước khi hy sinh, ông khẳng khái để lại câu nói bất hủ này.
+
+▶ Trích dẫn – không khí (8s)
+VIDEO PROMPT:
+Slow-motion medium close-up. Nguyễn dynasty soldiers in red and blue tunics with conical hats standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Very slow dolly in, 48fps slow-motion feel. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Bao giờ người Tây nhổ hết cỏ nước Nam thì mới hết người Nam đánh Tây.".
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Bao giờ người Tây nhổ hết cỏ nước Nam thì mới hết người Nam đánh Tây.".
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Nhà thơ Huỳnh Mẫn Đạt đã ca ngợi chiến công này bằng câu: Hỏa hồng Nhật Tảo oanh thiên địa, kiếm bạt Kiên Giang khấp quỷ thần.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Nhật Tảo today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Nhật Tảo today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Nhật Tảo, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

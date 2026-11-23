@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Đại đồn Chí Hòa 1861
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Tháng 2 năm 1861, quân Pháp tấn công Đại đồn Chí Hòa, phòng tuyến lớn nhất của triều Nguyễn ở Gia Định.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Chí Hòa at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Chí Hòa at the edge of a historic battle, with French colonial troops visible far away as tiny silhouettes. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Từ Đà Nẵng, Nguyễn Tri Phương được điều vào Gia Định, xây dựng Đại đồn Chí Hòa làm phòng tuyến chống giặc.
+
+▶ Nhân vật – Nguyễn Tri Phương (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Nguyễn Tri Phương, the Vietnamese commander (Chỉ huy Đại đồn Chí Hòa), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn Tri Phương, the Vietnamese commander (Chỉ huy Đại đồn Chí Hòa), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Đại đồn Chí Hòa nằm ở vùng Kỳ Hòa, phía tây bắc thành Gia Định, dài nhiều cây số, có hào, lũy và chông.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Chí Hòa seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Chí Hòa seen from above, a winding river among mountains, with a long column of French colonial troops moving along it like an armada. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Quân Pháp được tăng viện từ chiến trường Trung Quốc, có đại bác và súng trường vượt trội.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes watching silently from cover. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Quân Pháp dùng đại bác bắn phá rồi xung phong. Quân giữ đồn chống trả quyết liệt suốt hai ngày. Em trai Nguyễn Tri Phương là Nguyễn Tri Thức tử trận, bản thân ông bị thương. Trước hỏa lực vượt trội, Đại đồn Chí Hòa thất thủ, quân Pháp mở rộng đánh chiếm các tỉnh miền Đông Nam Kỳ.
+
+▶ Diễn biến 1: Pháo binh Pháp bắn phá dữ dội (8s)
+VIDEO PROMPT:
+Wide shot at water level. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Pháo binh Pháp bắn phá dữ dội. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Pháo binh Pháp bắn phá dữ dội. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Quân giữ đồn chống trả quyết liệt (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Quân giữ đồn chống trả quyết liệt. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Quân giữ đồn chống trả quyết liệt. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Nguyễn Tri Thức tử trận, Nguyễn Tri Phương bị thương (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Nguyễn Tri Thức tử trận, Nguyễn Tri Phương bị thương. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Nguyễn Tri Thức tử trận, Nguyễn Tri Phương bị thương. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Đại đồn thất thủ sau hai ngày chiến đấu (8s)
+VIDEO PROMPT:
+Wide aerial shot. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Đại đồn thất thủ sau hai ngày chiến đấu. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Nguyễn dynasty soldiers in red and blue tunics with conical hats fight French colonial troops: Đại đồn thất thủ sau hai ngày chiến đấu. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Sau trận Chí Hòa, triều đình Huế ký Hòa ước Nhâm Tuất năm 1862, cắt ba tỉnh miền Đông cho Pháp.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Sau trận Chí Hòa, triều đình Huế ký Hòa ước Nhâm Tuất năm 1862, cắt ba tỉnh miền Đông cho Pháp. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Sau trận Chí Hòa, triều đình Huế ký Hòa ước Nhâm Tuất năm 1862, cắt ba tỉnh miền Đông cho Pháp. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Dù đại đồn thất thủ, phong trào kháng chiến của nhân dân Nam Kỳ bùng lên mạnh mẽ, với những tên tuổi như Trương Định, Nguyễn Trung Trực.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Nguyễn dynasty soldiers in red and blue tunics with conical hats raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Chí Hòa today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Chí Hòa today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Chí Hòa, Vietnam, 19th-century Vietnam, 1861, French colonial invasion, humid tropical afternoon, gunsmoke. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

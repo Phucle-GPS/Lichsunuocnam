@@ -1,0 +1,206 @@
+PHIM NGƯỜI QUE LỊCH SỬ – VỤ QUANG 1894 (Phan Đình Phùng · quân Pháp)
+Phong cách A5 Historical Cartoon – quy trình skill directing-stickman-videos (kaomei/stickman-video-director, MIT).
+Dán từng PROMPT CLIP vào Veo / Google Flow (chế độ text-to-video, 16:9, 8 giây). Nên tạo trước ảnh tham chiếu nhân vật (chính diện / nghiêng / sau lưng) và đính kèm mỗi lần tạo để giữ nhân vật nhất quán.
+
+═══════════ PHASE A – ĐỀ XUẤT ĐẠO DIỄN ═══════════
+• Tựa: Vụ Quang 1894 – Phan Đình Phùng  |  EN: The Battle of Vụ Quang (1894)
+• Khung hình 16:9 (bản 9:16 dựng lại bố cục dọc, không cắt xén) · Thời lượng ≈ 64 giây theo giọng đọc
+• Giọng: lời dẫn Manus (nam trầm, ấm, kể chậm) là BẢN THU NGOÀI – dựng hình theo giọng, không cho mô hình video nói
+• Era pack: 19th-century Vietnam, 1894, French colonial invasion · Bối cảnh: Căn cứ Vụ Quang, Vietnam · Màu: royal red, indigo, khaki, gunsmoke grey, tropical green · Nhạc: war drums, đàn nguyệt, mournful horns
+• Sự thật & minh họa: lời dẫn bám nguồn (Lịch sử Việt Nam – NXB Khoa học xã hội, Việt Nam sử lược); cảnh người que là minh họa, không bịa thêm câu nói hay số liệu.
+• Cast card (lặp ĐẦY ĐỦ trong mọi prompt):
+  - COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms.
+  - ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks).
+  - ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+═══════════ PHASE B – PROMPT TỪNG CLIP ═══════════
+
+━━━━ CẢNH 1 (title) · 0.0–8.0s · hành động: hanhquan ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Tháng 10 năm 1894, ở vùng núi Vụ Quang, Hà Tĩnh, nghĩa quân Hương Khê của Phan Đình Phùng giành thắng lợi lớn trước quân Pháp."
+
+▶ CLIP 1
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] wide lateral tracking shot: a column of soldiers marches left to right along the riverbank, spears upright, the flag bearer at the front. [3–6s] medium shot: feet stamp in rhythm, dust rises, the commander rides alongside and raises a hand. [6–8s] the column crests a low hill and the camera rises to reveal the landscape ahead.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 2 (hero) · 8.0–16.0s · hành động: phatco ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Phan Đình Phùng đỗ đình nguyên tiến sĩ, hưởng ứng Chiếu Cần Vương, lãnh đạo khởi nghĩa Hương Khê suốt mười năm."
+
+▶ CLIP 2
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] low-angle shot: the commander stands on a rock and lifts a large red flag (no text). [3–6s] he waves the flag in wide arcs; soldiers below raise spears and swords and cheer. [6–8s] the camera pulls back to show the whole army answering the signal.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 3 (map) · 16.0–24.0s · hành động: noi ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Căn cứ Vụ Quang nằm ở miền núi Hương Khê, Hà Tĩnh, hiểm trở, rừng rậm."
+
+▶ CLIP 3
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] medium shot: the commander stands beside a wooden table with a painted map scroll (abstract brush strokes, no text). [3–6s] he traces the river route with his palm while two officers lean in. [6–8s] he looks up with a confident nod.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 4 (forces) · 24.0–32.0s · hành động: hanhquan ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Tướng Cao Thắng đã tổ chức chế tạo được súng trường theo mẫu súng Pháp, một thành tựu đặc biệt của nghĩa quân."
+
+▶ CLIP 4
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] wide lateral tracking shot: a column of soldiers marches left to right along the riverbank, spears upright, the flag bearer at the front. [3–6s] medium shot: feet stamp in rhythm, dust rises, the commander rides alongside and raises a hand. [6–8s] the column crests a low hill and the camera rises to reveal the landscape ahead.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 5 (diagram) · 32.0–40.0s · hành động: danh ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Quân Pháp kéo vào đánh căn cứ Vụ Quang. Nghĩa quân giả vờ rút lui, nhử địch vào sâu trong thung lũng giữa núi. Khi quân Pháp lọt vào trận địa, phục binh hai bên núi đồng loạt nổ súng bằng những khẩu súng tự chế. Quân Pháp thua to, phải rút chạy, nhiều binh lính bị tiêu diệt."
+
+▶ CLIP 5
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] medium shot: a Vietnamese soldier with a sword faces an enemy soldier with a spear, both in guard stance. [3–6s] they clash: sword parries the spear, a bright spark flash, the enemy stumbles back. [6–8s] the Vietnamese soldier holds his ground as comrades rush in from the left.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 6 (quote) · 40.0–48.0s · hành động: phatco ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Khi bị dụ hàng, uy hiếp bằng mồ mả tổ tiên, Phan Đình Phùng đã trả lời bằng một bức thư nổi tiếng, khẳng định ý chí giữ nước."
+
+▶ CLIP 6
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] low-angle shot: the commander stands on a rock and lifts a large red flag (no text). [3–6s] he waves the flag in wide arcs; soldiers below raise spears and swords and cheer. [6–8s] the camera pulls back to show the whole army answering the signal.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 7 (points) · 48.0–56.0s · hành động: vui ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Cuối năm 1895, Phan Đình Phùng mất trong rừng Vụ Quang. Khởi nghĩa Hương Khê là cuộc khởi nghĩa lớn và kéo dài nhất của phong trào Cần Vương."
+
+▶ CLIP 7
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] medium shot: soldiers leap and raise their weapons in victory. [3–6s] they embrace and throw their conical hats into the air. [6–8s] wide shot: banners wave over the riverbank at golden hour.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+━━━━ CẢNH 8 (end) · 56.0–64.0s · hành động: vui ━━━━
+Lời dẫn Manus (gốc giờ dựng, KHÔNG đưa vào prompt): "Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo."
+
+▶ CLIP 8
+stickman animated video, 16:9, 8 seconds, 24 fps.
+
+CHARACTER: A 2D cartoon man with a round white head and a short, sturdy white neck growing naturally from his clothed shoulders and supporting his jaw. The white head and neck form one continuous filled silhouette. The lower jaw flows directly into the short white neck; the bottom of that neck enters the tunic neckline. The visible connection is white, with black outlines only along its two sides. Keep this white connection visible during walking, turns, tilts and camera cuts. Use balanced adult stickman proportions rather than a big-headed chibi: the complete standing figure is roughly four head-heights tall, the round head is visibly narrower than the clothed shoulder span, the torso is slightly longer than the head, and the thin black legs provide a natural lower-body length. The exposed neck is short, about one tenth of the head diameter tall. Thin black arms and legs, exactly two of each. Polished 2D cel-shaded historical cartoon, clean thick black outlines, softly shaded period clothing, and sunlit painterly surroundings.
+FACE: An appealing, expressive storybook-cartoon face on the round white head. Two solid black vertical oval eyes; character-specific eyebrows, nose and mouth defined in the cast card, not a universal template face. Subtle cheek shading gives the face warmth without realistic skin texture. Expressions react to the action while the eye shape, nose shape, face proportions and identity remain unchanged. Hair and facial hair, when present in the cast, have a few clearly shaped locks and soft cel shading, not flat featureless patches. Keep this readable cartoon richness, not a blank symbolic face, photorealism or detailed irises.
+PALMS: Each thin black wrist ends in one compact, solid black rounded oval palm with a subtle integrated thumb bump. Use the same palm-to-head proportion in both hands and all shots: total palm silhouette about 18% of head diameter long and 10% wide, including the thumb bump. It is visibly wider than the wrist, neither a wrist-tip dot nor an enlarged glove. No separate fingers, finger lines or white fill. The empty indicating gesture keeps this compact silhouette; change the arm angle instead of spreading or enlarging the palm.
+EXPOSED LIMBS: Every uncovered arm, forearm, wrist and shin is one slender solid black stroke. Face and short neck use white fill; the limbs use solid black strokes. Preserve the character proportions and costume colors throughout.
+
+STYLE: polished 2D cel-shaded historical cartoon, full-color painted backgrounds. ERA: 19th-century Vietnam, 1894, French colonial invasion. SETTING: Căn cứ Vụ Quang, Vietnam; humid tropical afternoon, gunsmoke. PALETTE: royal red, indigo, khaki, gunsmoke grey, tropical green.
+
+CAST: COMMANDER (Phan Đình Phùng): a 19th-century Vietnamese mandarin general: short black beard, a black turban, a red tunic with a blue sash over loose white trousers, black boots, a curved sabre. Same white round head and short white neck as the drawing anchor, thin black limbs, compact black mitten palms. ĐẠI VIỆT SOLDIERS (uniform group): Nguyễn dynasty soldiers in red and blue tunics with conical hats, spears and old muskets; Cần Vương militia in brown peasant clothes. Drawn with the same white heads, short white necks, thin black limbs and black mitten palms; no readable tattoo letters (only abstract ink marks). ENEMY SOLDIERS – Pháp (uniform group): French colonial troops in dark blue uniforms and white sun helmets with rifles, steam gunboats. Same drawing grammar; cartoon depiction, not a caricature of any ethnicity.
+
+OPENING: establish the location and screen direction (Đại Việt on the left moving right, enemy on the right).
+
+ACTION: [0–3s] medium shot: soldiers leap and raise their weapons in victory. [3–6s] they embrace and throw their conical hats into the air. [6–8s] wide shot: banners wave over the riverbank at golden hour.
+
+SOUND: no speech from characters; external narration is added in editing. Era score: war drums, đàn nguyệt, mournful horns. Timed SFX that match the action.
+
+NO VISIBLE TEXT, LETTERS, NUMBERS, SUBTITLES, LOGOS OR WATERMARKS (blank paper or abstract brush strokes only), NO SPEECH BUBBLES, NO BLOOD OR GORE, NO PHOTOREALISTIC FACES, NO 3D CGI, NO PAPER TEXTURE, NO EXTRA LIMBS, NO FUSED OR DUPLICATE HEADS, NO COSTUME CHANGES, NO EXTRA CHARACTERS, NO INDIVIDUAL FINGERS, NO FINGER SEPARATIONS, NO WHITE HANDS OR GLOVES, NO FLOATING HEAD, NO BACKGROUND GAP BETWEEN HEAD AND NECKLINE.
+
+═══════════ HẬU KỲ ═══════════
+• Ghép clip theo thứ tự, cắt phần thừa đầu/đuôi; đặt giọng Manus làm trục thời gian.
+• Nhạc nền: phòng nhạc app (Hùng ca / Bi tráng) hoặc nhạc có giấy phép; nhạc tự hạ khi có giọng.
+• Phụ đề tiếng Việt thêm khi dựng (không để mô hình vẽ chữ).
+• Kiểm tra từng clip: đầu trắng nối cổ ngắn liền mạch, bàn tay đen hình găng không ngón, đúng số giáo/cờ, đúng hướng màn hình.

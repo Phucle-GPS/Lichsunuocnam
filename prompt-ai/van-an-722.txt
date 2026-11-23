@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Khởi nghĩa Mai Thúc Loan 722
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Năm 722, từ đất Hoan Châu, Mai Thúc Loan kêu gọi những người phu gánh vải quả cống nộp nổi dậy chống nhà Đường.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Phủ thành Tống Bình at the edge of a historic battle, with Tang Chinese soldiers visible far away as tiny silhouettes. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Phủ thành Tống Bình at the edge of a historic battle, with Tang Chinese soldiers visible far away as tiny silhouettes. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Mai Thúc Loan xuất thân nghèo khó ở Hoan Châu, nay là Nghệ An. Ông xây thành Vạn An làm căn cứ, xưng đế, sử gọi là Mai Hắc Đế.
+
+▶ Nhân vật – Mai Thúc Loan (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Mai Thúc Loan, the Vietnamese commander (Lập căn cứ Vạn An ở Hoan Châu), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Mai Thúc Loan, the Vietnamese commander (Lập căn cứ Vạn An ở Hoan Châu), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Nghĩa quân từ Hoan Châu tiến ra Bắc, liên kết với nhiều vùng khác, đánh chiếm phủ thành Tống Bình, trung tâm cai trị của An Nam đô hộ phủ.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Phủ thành Tống Bình seen from above, a winding river among mountains, with a long column of Tang Chinese soldiers moving along it like an armada. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Phủ thành Tống Bình seen from above, a winding river among mountains, with a long column of Tang Chinese soldiers moving along it like an armada. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Theo sử Đường, triều đình phải sai Dương Tư Húc đem khoảng mười vạn quân sang đàn áp.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Tang Chinese soldiers in iron lamellar armor with long spears and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums watching silently from cover. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Tang Chinese soldiers in iron lamellar armor with long spears and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums watching silently from cover. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Nghĩa quân từ Hoan Châu tiến ra, hào kiệt các châu Diễn, Ái cùng hưởng ứng. Phủ thành Tống Bình bị vây đánh, viên đô hộ Quang Sở Khách phải bỏ chạy về nước. Mai Thúc Loan làm chủ đất nước một thời gian, cho đến khi nhà Đường dồn đại quân sang đàn áp vào năm 723.
+
+▶ Diễn biến 1: Khởi nghĩa ở Hoan Châu, xây thành Vạn An (8s)
+VIDEO PROMPT:
+Wide shot at water level. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Khởi nghĩa ở Hoan Châu, xây thành Vạn An. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Khởi nghĩa ở Hoan Châu, xây thành Vạn An. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Tiến ra Bắc, liên kết các vùng (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Tiến ra Bắc, liên kết các vùng. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Tiến ra Bắc, liên kết các vùng. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Đánh chiếm phủ thành Tống Bình (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Đánh chiếm phủ thành Tống Bình. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Đánh chiếm phủ thành Tống Bình. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Viên đô hộ Quang Sở Khách bỏ chạy (8s)
+VIDEO PROMPT:
+Wide aerial shot. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Viên đô hộ Quang Sở Khách bỏ chạy. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Tang Chinese soldiers: Viên đô hộ Quang Sở Khách bỏ chạy. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Cuộc khởi nghĩa tuy ngắn ngủi nhưng đã làm chủ được trung tâm cai trị của nhà Đường.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Cuộc khởi nghĩa tuy ngắn ngủi nhưng đã làm chủ được trung tâm cai trị của nhà Đường. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Cuộc khởi nghĩa tuy ngắn ngủi nhưng đã làm chủ được trung tâm cai trị của nhà Đường. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Mai Hắc Đế được nhân dân Nghệ An tôn thờ, cuộc khởi nghĩa là minh chứng cho sức mạnh của những người lao động bị áp bức.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Phủ thành Tống Bình today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Phủ thành Tống Bình today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Phủ thành Tống Bình, Vietnam, Giao Châu / An Nam, 722 under the Tang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

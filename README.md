@@ -31,7 +31,7 @@ Cột trái chia thành 3 xưởng. **Gọi tên xưởng nào thì chỉ làm v
 
 | Xưởng | Có gì |
 |---|---|
-| 🏯 **Film Lịch sử Việt Nam** | Dự án lịch sử của bạn, 10 trận mẫu. Giọng Manus, bản đồ, sơ đồ trận, prompt Veo/Flow, Blender, phim 3D. Skill `xuong-phim-lich-su`. **Phim người que A5** (skill MIT kaomei/stickman-video-director): dựng trong app, prompt Veo/Flow, gói Google Flow (`tools/goi-flow.mjs`). |
+| 🏯 **Film Lịch sử Việt Nam** | Dự án lịch sử của bạn, **bộ 40 trận đánh lừng danh** (năm 40 → 1894). Giọng Manus, bản đồ, sơ đồ trận, prompt Veo/Flow, Blender, phim 3D. Skill `xuong-phim-lich-su`. **Phim người que A5** (skill MIT kaomei/stickman-video-director): dựng trong app, prompt Veo/Flow, gói Google Flow (`tools/goi-flow.mjs`). |
 | 🎧 **Nhạc AI tự động** | Mỗi ngày 2 bài **EDM có lời** tiếng Việt do lịch chạy tự động sáng tác: lời, hook, prompt phong cách, bản demo nhạc nền. Có khóa MiniMax/ElevenLabs thì có thêm bản hát. Nút *Làm nhạc nền* đưa bài vào phim. Skill `xuong-nhac-ai`, lệnh `tools/nhac-ai.mjs`. |
 | 🎨 **Film hoạt hình** | Phim hoạt hình 2D từ kịch bản (Hoạt hình, Cổ tích, Làng quê, Vũ trụ), Lottie/Rive, skill MIT `animate`. Skill `xuong-hoat-hinh`. |
 

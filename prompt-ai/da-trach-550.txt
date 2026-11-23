@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Đầm Dạ Trạch 550
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Giữa vùng đầm lầy mênh mông bên sông Hồng, Triệu Quang Phục đã dùng lối đánh du kích, bảo vệ nền độc lập của nước Vạn Xuân.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Dạ Trạch at the edge of a historic battle, with Liang Chinese soldiers visible far away as tiny silhouettes. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Dạ Trạch at the edge of a historic battle, with Liang Chinese soldiers visible far away as tiny silhouettes. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Triệu Quang Phục là tướng của Lý Nam Đế. Khi Lý Nam Đế thất thế, ông được giao binh quyền, lui về đầm Dạ Trạch kháng chiến.
+
+▶ Nhân vật – Triệu Quang Phục (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Triệu Quang Phục, the Vietnamese commander (Tướng của Lý Nam Đế), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Triệu Quang Phục, the Vietnamese commander (Tướng của Lý Nam Đế), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Đầm Dạ Trạch nằm ở vùng Khoái Châu, Hưng Yên ngày nay, lau sậy um tùm, bùn lầy hiểm trở, có bãi nổi ở giữa.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Dạ Trạch seen from above, a winding river among mountains, with a long column of Liang Chinese soldiers moving along it like an armada. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Dạ Trạch seen from above, a winding river among mountains, with a long column of Liang Chinese soldiers moving along it like an armada. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Theo sử cũ, nghĩa quân có khoảng hai vạn người, ngày tắt khói lửa ẩn mình, đêm dùng thuyền độc mộc ra đánh úp trại giặc.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Liang Chinese soldiers in lamellar armor with halberds and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums watching silently from cover. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Liang Chinese soldiers in lamellar armor with halberds and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums watching silently from cover. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Trần Bá Tiên vây đầm nhưng không sao tiến vào được. Ban ngày nghĩa quân ẩn kín, ban đêm dùng thuyền độc mộc đánh úp, cướp lương, giết giặc rồi rút vào đầm. Cuộc chiến kéo dài nhiều năm. Năm 550, nhân nhà Lương có loạn, Trần Bá Tiên phải về nước, Triệu Quang Phục tung quân đánh lớn, giành lại thành Long Biên.
+
+▶ Diễn biến 1: Quân Lương vây quanh đầm (8s)
+VIDEO PROMPT:
+Wide shot at water level. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Quân Lương vây quanh đầm. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Quân Lương vây quanh đầm. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Nghĩa quân ẩn mình trong lau sậy (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Nghĩa quân ẩn mình trong lau sậy. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Nghĩa quân ẩn mình trong lau sậy. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Đêm đêm dùng thuyền nhỏ đánh úp (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. At night Vietnamese troops silently cross the river by boat and storm the enemy camp, torches igniting tents. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. At night Vietnamese troops silently cross the river by boat and storm the enemy camp, torches igniting tents. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Quân Lương mệt mỏi, rút về nước, nghĩa quân giành lại Long Biên (8s)
+VIDEO PROMPT:
+Wide aerial shot. The defeated Liang Chinese soldiers flee in panic across a crowded pontoon bridge that collapses into the river. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The defeated Liang Chinese soldiers flee in panic across a crowded pontoon bridge that collapses into the river. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Sau bốn năm kiên trì trong đầm lầy, Triệu Việt Vương giữ vững được nền độc lập của nước Vạn Xuân.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Sau bốn năm kiên trì trong đầm lầy, Triệu Việt Vương giữ vững được nền độc lập của nước Vạn Xuân. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Sau bốn năm kiên trì trong đầm lầy, Triệu Việt Vương giữ vững được nền độc lập của nước Vạn Xuân. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Đầm Dạ Trạch là một trong những căn cứ du kích sớm nhất trong lịch sử, cho thấy trí tuệ dựa vào thiên nhiên để đánh giặc.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Dạ Trạch today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Dạ Trạch today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Dạ Trạch, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

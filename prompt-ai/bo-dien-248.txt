@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Khởi nghĩa Bà Triệu 248
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Năm 248, ở quận Cửu Chân, Triệu Thị Trinh dựng cờ khởi nghĩa chống ách đô hộ của nhà Đông Ngô.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Căn cứ Bồ Điền at the edge of a historic battle, with Wu Chinese soldiers visible far away as tiny silhouettes. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Căn cứ Bồ Điền at the edge of a historic battle, with Wu Chinese soldiers visible far away as tiny silhouettes. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Bà Triệu quê ở quận Cửu Chân, nay thuộc Thanh Hóa. Tương truyền bà cưỡi voi trắng, mặc áo giáp vàng ra trận.
+
+▶ Nhân vật – Triệu Thị Trinh (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Triệu Thị Trinh, the Vietnamese commander (Quê ở quận Cửu Chân), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Triệu Thị Trinh, the Vietnamese commander (Quê ở quận Cửu Chân), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Từ núi Nưa, nghĩa quân đánh chiếm nhiều thành ấp ở Cửu Chân rồi Giao Chỉ, lấy Bồ Điền làm căn cứ.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Căn cứ Bồ Điền seen from above, a winding river among mountains, with a long column of Wu Chinese soldiers moving along it like an armada. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Căn cứ Bồ Điền seen from above, a winding river among mountains, with a long column of Wu Chinese soldiers moving along it like an armada. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Nhà Ngô phải sai tướng Lục Dận đem khoảng tám nghìn quân sang đàn áp, vừa đánh vừa dùng của cải mua chuộc.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Wu Chinese soldiers in lamellar armor with halberds and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums; a Vietnamese woman general in ornate red-and-gold armor riding a war elephant watching silently from cover. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Wu Chinese soldiers in lamellar armor with halberds and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums; a Vietnamese woman general in ornate red-and-gold armor riding a war elephant watching silently from cover. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Nghĩa quân dựa vào núi rừng Cửu Chân, đánh nhiều trận khiến quân Ngô khiếp sợ. Lục Dận dùng mưu mua chuộc, chia rẽ, rồi dồn quân bao vây căn cứ Bồ Điền. Cuộc chiến kéo dài nhiều tháng, đến khi lực lượng suy kiệt, Bà Triệu hy sinh trên núi Tùng khi mới hai mươi ba tuổi.
+
+▶ Diễn biến 1: Quân Ngô kéo vào vùng núi Cửu Chân (8s)
+VIDEO PROMPT:
+Wide shot at water level. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Wu Chinese soldiers: Quân Ngô kéo vào vùng núi Cửu Chân. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Wu Chinese soldiers: Quân Ngô kéo vào vùng núi Cửu Chân. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Nghĩa quân đánh chặn ở đường núi (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Wu Chinese soldiers: Nghĩa quân đánh chặn ở đường núi. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Wu Chinese soldiers: Nghĩa quân đánh chặn ở đường núi. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Giao chiến nhiều trận ác liệt (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Wu Chinese soldiers: Giao chiến nhiều trận ác liệt. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Wu Chinese soldiers: Giao chiến nhiều trận ác liệt. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Rút về căn cứ Bồ Điền, chiến đấu đến cùng (8s)
+VIDEO PROMPT:
+Wide aerial shot. The defeated Wu Chinese soldiers flee in panic across a crowded pontoon bridge that collapses into the river. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The defeated Wu Chinese soldiers flee in panic across a crowded pontoon bridge that collapses into the river. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · QUOTE ════════
+Lời dẫn: Câu nói tương truyền của Bà Triệu đã trở thành biểu tượng cho khí phách của người phụ nữ Việt Nam.
+
+▶ Trích dẫn – không khí (8s)
+VIDEO PROMPT:
+Slow-motion medium close-up. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Very slow dolly in, 48fps slow-motion feel. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Tôi muốn cưỡi cơn gió mạnh, đạp luồng sóng dữ, chém cá kình ở biển Đông, đánh đuổi quân Ngô, giành lại giang sơn, cởi ác".
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics standing in silence at dusk, fists clenched, embers and smoke drifting across the frame, a red banner behind them. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Solemn, emotional mood matching the words: "Tôi muốn cưỡi cơn gió mạnh, đạp luồng sóng dữ, chém cá kình ở biển Đông, đánh đuổi quân Ngô, giành lại giang sơn, cởi ác".
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Khởi nghĩa Bà Triệu tuy thất bại nhưng khiến chính quyền đô hộ phải dè chừng, và để lại tấm gương sáng ngời cho muôn đời sau.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Căn cứ Bồ Điền today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Căn cứ Bồ Điền today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Căn cứ Bồ Điền, Vietnam, ancient Giao Chỉ, early centuries AD under the Eastern Wu kingdom, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

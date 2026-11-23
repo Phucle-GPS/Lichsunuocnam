@@ -1,7 +1,7 @@
 {
  "id": "lich-su",
  "ten": "Xưởng film Lịch sử Việt Nam",
- "mo_ta": "Phim tài liệu các trận đánh, nhân vật lịch sử Việt Nam: bản đồ, sơ đồ trận, giọng Manus, nhạc trống trận, đăng YouTube/Facebook.",
+ "mo_ta": "Bộ phim 40 trận đánh lừng danh (năm 40 → 1894): bản đồ, sơ đồ trận, giọng Manus, nhạc trống trận, phim người que A5, đăng YouTube/Facebook.",
  "lenh": [
   {
    "ten": "Xuất GÓI LÀM VIỆC GOOGLE FLOW của một trận",
@@ -128,54 +128,209 @@
  ],
  "prompt": [
   {
+   "ten": "Người que A5 – ba-dinh-1887",
+   "duong_dan": "prompt-ai/nguoi-que/ba-dinh-1887.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
    "ten": "Người que A5 – bach-dang-1288",
    "duong_dan": "prompt-ai/nguoi-que/bach-dang-1288.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – bach-dang-938",
    "duong_dan": "prompt-ai/nguoi-que/bach-dang-938.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – bai-say-1885",
+   "duong_dan": "prompt-ai/nguoi-que/bai-say-1885.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – bo-co-1408",
+   "duong_dan": "prompt-ai/nguoi-que/bo-co-1408.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – bo-dien-248",
+   "duong_dan": "prompt-ai/nguoi-que/bo-dien-248.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – cau-giay-1873",
+   "duong_dan": "prompt-ai/nguoi-que/cau-giay-1873.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – cau-giay-1883",
+   "duong_dan": "prompt-ai/nguoi-que/cau-giay-1883.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – chi-lang-1427",
    "duong_dan": "prompt-ai/nguoi-que/chi-lang-1427.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – chi-lang-981",
+   "duong_dan": "prompt-ai/nguoi-que/chi-lang-981.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – da-nang-1858",
+   "duong_dan": "prompt-ai/nguoi-que/da-nang-1858.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – da-trach-550",
+   "duong_dan": "prompt-ai/nguoi-que/da-trach-550.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – dai-la-931",
+   "duong_dan": "prompt-ai/nguoi-que/dai-la-931.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – dong-bo-dau-1258",
    "duong_dan": "prompt-ai/nguoi-que/dong-bo-dau-1258.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – dong-da-1789",
    "duong_dan": "prompt-ai/nguoi-que/dong-da-1789.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – ha-noi-1873",
+   "duong_dan": "prompt-ai/nguoi-que/ha-noi-1873.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – ha-noi-1882",
+   "duong_dan": "prompt-ai/nguoi-que/ha-noi-1882.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – hai-trieu-1390",
+   "duong_dan": "prompt-ai/nguoi-que/hai-trieu-1390.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – ham-tu-1285",
    "duong_dan": "prompt-ai/nguoi-que/ham-tu-1285.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – ho-chuoi-1890",
+   "duong_dan": "prompt-ai/nguoi-que/ho-chuoi-1890.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – kha-luu-1424",
+   "duong_dan": "prompt-ai/nguoi-que/kha-luu-1424.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – kinh-thanh-hue-1885",
+   "duong_dan": "prompt-ai/nguoi-que/kinh-thanh-hue-1885.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – ky-hoa-1861",
+   "duong_dan": "prompt-ai/nguoi-que/ky-hoa-1861.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – lang-bac-43",
+   "duong_dan": "prompt-ai/nguoi-que/lang-bac-43.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – luy-lau-40",
+   "duong_dan": "prompt-ai/nguoi-que/luy-lau-40.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – nhat-tao-1861",
+   "duong_dan": "prompt-ai/nguoi-que/nhat-tao-1861.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – nhu-nguyet-1077",
    "duong_dan": "prompt-ai/nguoi-que/nhu-nguyet-1077.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – phu-xuan-1786",
+   "duong_dan": "prompt-ai/nguoi-que/phu-xuan-1786.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – quy-nhon-1773",
+   "duong_dan": "prompt-ai/nguoi-que/quy-nhon-1773.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – rach-gam-1785",
    "duong_dan": "prompt-ai/nguoi-que/rach-gam-1785.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – tay-ket-1285",
    "duong_dan": "prompt-ai/nguoi-que/tay-ket-1285.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – thang-long-1786",
+   "duong_dan": "prompt-ai/nguoi-que/thang-long-1786.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – thien-mac-1285",
+   "duong_dan": "prompt-ai/nguoi-que/thien-mac-1285.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – tong-binh-791",
+   "duong_dan": "prompt-ai/nguoi-que/tong-binh-791.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – tot-dong-1426",
+   "duong_dan": "prompt-ai/nguoi-que/tot-dong-1426.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – ung-chau-1075",
+   "duong_dan": "prompt-ai/nguoi-que/ung-chau-1075.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – van-an-722",
+   "duong_dan": "prompt-ai/nguoi-que/van-an-722.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
   },
   {
    "ten": "Người que A5 – van-don-1288",
    "duong_dan": "prompt-ai/nguoi-que/van-don-1288.txt",
-   "mo_ta": "Phase A + prompt từng clip Veo/Flow, khớp giọng Manus."
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – van-xuan-542",
+   "duong_dan": "prompt-ai/nguoi-que/van-xuan-542.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Người que A5 – vu-quang-1894",
+   "duong_dan": "prompt-ai/nguoi-que/vu-quang-1894.txt",
+   "mo_ta": "Phase A + prompt từng clip Veo/Flow."
+  },
+  {
+   "ten": "Prompt AI cả phim – ba-dinh-1887",
+   "duong_dan": "prompt-ai/ba-dinh-1887.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
    "ten": "Prompt AI cả phim – bach-dang-1288",
@@ -188,8 +343,53 @@
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
+   "ten": "Prompt AI cả phim – bai-say-1885",
+   "duong_dan": "prompt-ai/bai-say-1885.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – bo-co-1408",
+   "duong_dan": "prompt-ai/bo-co-1408.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – bo-dien-248",
+   "duong_dan": "prompt-ai/bo-dien-248.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – cau-giay-1873",
+   "duong_dan": "prompt-ai/cau-giay-1873.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – cau-giay-1883",
+   "duong_dan": "prompt-ai/cau-giay-1883.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
    "ten": "Prompt AI cả phim – chi-lang-1427",
    "duong_dan": "prompt-ai/chi-lang-1427.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – chi-lang-981",
+   "duong_dan": "prompt-ai/chi-lang-981.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – da-nang-1858",
+   "duong_dan": "prompt-ai/da-nang-1858.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – da-trach-550",
+   "duong_dan": "prompt-ai/da-trach-550.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – dai-la-931",
+   "duong_dan": "prompt-ai/dai-la-931.txt",
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
@@ -203,13 +403,73 @@
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
+   "ten": "Prompt AI cả phim – ha-noi-1873",
+   "duong_dan": "prompt-ai/ha-noi-1873.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – ha-noi-1882",
+   "duong_dan": "prompt-ai/ha-noi-1882.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – hai-trieu-1390",
+   "duong_dan": "prompt-ai/hai-trieu-1390.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
    "ten": "Prompt AI cả phim – ham-tu-1285",
    "duong_dan": "prompt-ai/ham-tu-1285.txt",
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
+   "ten": "Prompt AI cả phim – ho-chuoi-1890",
+   "duong_dan": "prompt-ai/ho-chuoi-1890.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – kha-luu-1424",
+   "duong_dan": "prompt-ai/kha-luu-1424.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – kinh-thanh-hue-1885",
+   "duong_dan": "prompt-ai/kinh-thanh-hue-1885.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – ky-hoa-1861",
+   "duong_dan": "prompt-ai/ky-hoa-1861.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – lang-bac-43",
+   "duong_dan": "prompt-ai/lang-bac-43.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – luy-lau-40",
+   "duong_dan": "prompt-ai/luy-lau-40.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – nhat-tao-1861",
+   "duong_dan": "prompt-ai/nhat-tao-1861.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
    "ten": "Prompt AI cả phim – nhu-nguyet-1077",
    "duong_dan": "prompt-ai/nhu-nguyet-1077.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – phu-xuan-1786",
+   "duong_dan": "prompt-ai/phu-xuan-1786.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – quy-nhon-1773",
+   "duong_dan": "prompt-ai/quy-nhon-1773.txt",
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
@@ -223,8 +483,48 @@
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {
+   "ten": "Prompt AI cả phim – thang-long-1786",
+   "duong_dan": "prompt-ai/thang-long-1786.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – thien-mac-1285",
+   "duong_dan": "prompt-ai/thien-mac-1285.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – tong-binh-791",
+   "duong_dan": "prompt-ai/tong-binh-791.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – tot-dong-1426",
+   "duong_dan": "prompt-ai/tot-dong-1426.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – ung-chau-1075",
+   "duong_dan": "prompt-ai/ung-chau-1075.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – van-an-722",
+   "duong_dan": "prompt-ai/van-an-722.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
    "ten": "Prompt AI cả phim – van-don-1288",
    "duong_dan": "prompt-ai/van-don-1288.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – van-xuan-542",
+   "duong_dan": "prompt-ai/van-xuan-542.txt",
+   "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
+  },
+  {
+   "ten": "Prompt AI cả phim – vu-quang-1894",
+   "duong_dan": "prompt-ai/vu-quang-1894.txt",
    "mo_ta": "Prompt Veo/Flow/Gemini từng cảnh + ảnh + mô tả đăng."
   },
   {

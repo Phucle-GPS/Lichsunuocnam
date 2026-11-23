@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Khởi nghĩa Lý Bí 542
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Năm 542, Lý Bí khởi nghĩa đánh đuổi chính quyền đô hộ nhà Lương, hai năm sau lên ngôi hoàng đế, đặt tên nước là Vạn Xuân.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Thành Long Biên at the edge of a historic battle, with Liang Chinese soldiers visible far away as tiny silhouettes. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Thành Long Biên at the edge of a historic battle, with Liang Chinese soldiers visible far away as tiny silhouettes. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Lý Bí là hào trưởng đất Thái Bình. Ông liên kết hào kiệt các châu, nổi dậy chống sự cai trị hà khắc của nhà Lương.
+
+▶ Nhân vật – Lý Nam Đế (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Lý Nam Đế, the Vietnamese commander (Người lập nước Vạn Xuân), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lý Nam Đế, the Vietnamese commander (Người lập nước Vạn Xuân), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Nghĩa quân chiếm thành Long Biên, Thứ sử Tiêu Tư bỏ chạy. Nhà Lương hai lần sai quân sang đánh đều bị đánh bại, trận lớn nhất diễn ra ở Hợp Phố.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Thành Long Biên seen from above, a winding river among mountains, with a long column of Liang Chinese soldiers moving along it like an armada. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Thành Long Biên seen from above, a winding river among mountains, with a long column of Liang Chinese soldiers moving along it like an armada. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Theo sử cũ, đầu năm 543 quân Lương kéo sang lần nữa, bị nghĩa quân đón đánh tan tác ở Hợp Phố, mười phần chết đến bảy tám.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Liang Chinese soldiers in lamellar armor with halberds and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums watching silently from cover. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Liang Chinese soldiers in lamellar armor with halberds and banners, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics, bare feet, bronze spears, crossbows and bronze drums watching silently from cover. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Nghĩa quân từ nhiều ngả kéo về vây thành Long Biên. Thứ sử Tiêu Tư khiếp sợ, đem của cải trốn về phương Bắc. Năm 543, quân Lương sang báo thù, Lý Bí sai tướng Phạm Tu đón đánh ở Hợp Phố, quân Lương đại bại. Mùa xuân năm 544, Lý Bí lên ngôi, xưng Lý Nam Đế, đặt quốc hiệu Vạn Xuân.
+
+▶ Diễn biến 1: Hào kiệt các châu cùng nổi dậy (8s)
+VIDEO PROMPT:
+Wide shot at water level. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Hào kiệt các châu cùng nổi dậy. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Hào kiệt các châu cùng nổi dậy. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Vây đánh thành Long Biên (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Vây đánh thành Long Biên. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Vây đánh thành Long Biên. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Tiêu Tư bỏ thành chạy về nước (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Tiêu Tư bỏ thành chạy về nước. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Tiêu Tư bỏ thành chạy về nước. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Đánh tan viện binh Lương ở Hợp Phố (8s)
+VIDEO PROMPT:
+Wide aerial shot. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Đánh tan viện binh Lương ở Hợp Phố. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics fight Liang Chinese soldiers: Đánh tan viện binh Lương ở Hợp Phố. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Chỉ trong hai năm, từ cuộc khởi nghĩa đã ra đời một nhà nước độc lập với quốc hiệu đầy khát vọng.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Chỉ trong hai năm, từ cuộc khởi nghĩa đã ra đời một nhà nước độc lập với quốc hiệu đầy khát vọng. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Chỉ trong hai năm, từ cuộc khởi nghĩa đã ra đời một nhà nước độc lập với quốc hiệu đầy khát vọng. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Việc xưng đế, đặt quốc hiệu Vạn Xuân khẳng định người Việt có giang sơn riêng, ngang hàng với phương Bắc.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Lạc Việt / Vietnamese warriors in brown and indigo wrap tunics raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Thành Long Biên today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Thành Long Biên today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Thành Long Biên, Vietnam, ancient Giao Chỉ, early centuries AD under the Liang dynasty, misty morning over rice fields and rivers. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.

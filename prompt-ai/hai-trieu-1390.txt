@@ -1,0 +1,111 @@
+BỘ PROMPT AI – Hải Triều 1390
+Dùng cho Google Flow / Veo 3.1 (clip 8 giây, khung 16:9 hoặc 9:16), Gemini, Kling, Runway…
+
+HƯỚNG DẪN NHANH
+1. Tạo ảnh khung đầu bằng "Image prompt" (Gemini / Imagen) để giữ nhất quán nhân vật, rồi dùng Frames to Video.
+2. Hoặc dán thẳng "Video prompt" vào Flow (Text to Video). Tắt âm thanh của clip (app đã có giọng đọc & nhạc).
+3. Tải clip về, gắn vào đúng cảnh trong Xưởng Video (Dùng mẫu này làm dự án của bạn → bấm cảnh → Thêm ảnh/video).
+
+PHONG CÁCH CHUNG: Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field.
+NEGATIVE: modern objects, electricity, text, letters, subtitles, watermark, logo, Japanese samurai armor, European ships or soldiers, firearms, anachronistic flags, gore, blood splatter, deformed hands, extra limbs, distorted faces, cartoon, anime, video game look, oversaturated colors
+
+════════ CẢNH 1 · TITLE ════════
+Lời dẫn: Cuối thế kỷ mười bốn, kinh thành Thăng Long nhiều lần bị tấn công. Năm 1390, trên sông Hải Triều, tướng Trần Khát Chân đã chấm dứt mối đe dọa ấy.
+
+▶ Mở đầu – toàn cảnh (8s)
+VIDEO PROMPT:
+Extreme wide aerial establishing shot. A vast Hải Triều at the edge of a historic battle, with Cham warriors with tall headdresses, round shields and spears aboard carved war boats visible far away as tiny silhouettes. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow drone push-in over the water, rising gently to reveal the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A vast Hải Triều at the edge of a historic battle, with Cham warriors with tall headdresses, round shields and spears aboard carved war boats visible far away as tiny silhouettes. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Epic, solemn, awe-inspiring mood; no people in close-up.
+
+════════ CẢNH 2 · HERO ════════
+Lời dẫn: Trần Khát Chân là hậu duệ của danh tướng Trần Bình Trọng, được giao trọng trách đánh giặc khi kinh thành lâm nguy.
+
+▶ Nhân vật – Trần Khát Chân (8s)
+VIDEO PROMPT:
+Medium shot, low angle, then slow push-in to a heroic close-up from the side. Trần Khát Chân, the Vietnamese commander (Tướng nhà Trần), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow dolly in with slight upward tilt; banner flapping. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Trần Khát Chân, the Vietnamese commander (Tướng nhà Trần), a dignified middle-aged general in red-and-gold lacquered lamellar armor and helmet, holding a sword, standing on a hilltop beside a large red command banner rippling in the wind, gazing toward the battlefield. Face partly in shadow, respectful and noble portrayal. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Heroic, determined, reverent mood.
+
+════════ CẢNH 3 · MAP ════════
+Lời dẫn: Quân Chiêm Thành theo đường biển tiến ra, vào sông Hải Triều, tức sông Luộc ngày nay, hướng về kinh thành.
+
+▶ Bối cảnh – nhìn từ trên cao (8s)
+VIDEO PROMPT:
+High aerial top-down drone shot. The Hải Triều seen from above, a winding river among mountains, with a long column of Cham warriors with tall headdresses, round shields and spears aboard carved war boats moving along it like an armada. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow overhead drift following the river, gradually tilting toward the horizon. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The Hải Triều seen from above, a winding river among mountains, with a long column of Cham warriors with tall headdresses, round shields and spears aboard carved war boats moving along it like an armada. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Strategic, documentary mood, like a historical map coming to life.
+
+════════ CẢNH 4 · FORCES ════════
+Lời dẫn: Theo sử cũ, Chế Bồng Nga đem hơn một trăm chiến thuyền ra quan sát trận địa.
+
+▶ Tương quan lực lượng (8s)
+VIDEO PROMPT:
+Tracking shot alongside, medium-wide. A massive force of Cham warriors with tall headdresses, round shields and spears aboard carved war boats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests, conical hats, rattan shields, spears and crossbows; commanders in red-and-gold lacquered armor watching silently from cover. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Smooth lateral tracking shot, then slow rack focus from the enemy to the hidden Vietnamese soldiers in the foreground. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. A massive force of Cham warriors with tall headdresses, round shields and spears aboard carved war boats, banners and weapons gleaming, moving forward in great numbers; intercut feeling with small, agile groups of Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests, conical hats, rattan shields, spears and crossbows; commanders in red-and-gold lacquered armor watching silently from cover. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Tense, ominous mood; contrast between a huge invader and a determined defender.
+
+════════ CẢNH 5 · DIAGRAM ════════
+Lời dẫn: Trần Khát Chân dàn quân chờ ở sông Hải Triều. Theo sử cũ, nhờ có người chỉ điểm chiếc thuyền sơn xanh của Chế Bồng Nga, quân Trần tập trung hỏa khí bắn vào. Chế Bồng Nga trúng đạn chết ngay trên thuyền. Quân Chiêm mất chủ tướng, tan vỡ rút chạy. Từ đó các cuộc tấn công vào Thăng Long chấm dứt.
+
+▶ Diễn biến 1: Thủy quân Chiêm tiến vào sông Hải Triều (8s)
+VIDEO PROMPT:
+Wide shot at water level. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Cham warriors with tall headdresses, round shields and spears aboard carved war boats: Thủy quân Chiêm tiến vào sông Hải Triều. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow push-in, low near the water surface. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Cham warriors with tall headdresses, round shields and spears aboard carved war boats: Thủy quân Chiêm tiến vào sông Hải Triều. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 2: Quân Trần dàn trận chờ sẵn (8s)
+VIDEO PROMPT:
+Dynamic tracking shot. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Cham warriors with tall headdresses, round shields and spears aboard carved war boats: Quân Trần dàn trận chờ sẵn. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Fast handheld tracking with the action, slight camera shake. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Cham warriors with tall headdresses, round shields and spears aboard carved war boats: Quân Trần dàn trận chờ sẵn. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 3: Hỏa khí đồng loạt nhả đạn vào thuyền chỉ huy (8s)
+VIDEO PROMPT:
+Over-the-shoulder shot from the riverbank. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Cham warriors with tall headdresses, round shields and spears aboard carved war boats: Hỏa khí đồng loạt nhả đạn vào thuyền chỉ huy. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Camera rises from behind the soldiers to reveal the battle. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests fight Cham warriors with tall headdresses, round shields and spears aboard carved war boats: Hỏa khí đồng loạt nhả đạn vào thuyền chỉ huy. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+▶ Diễn biến 4: Chế Bồng Nga tử trận, quân Chiêm tan vỡ (8s)
+VIDEO PROMPT:
+Wide aerial shot. Enemy war junks are impaled on the emerging stakes, tilting and sinking, burning with tall flames and black smoke as Vietnamese boats surround them. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow orbiting drone shot over the scene. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting, no gore.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Enemy war junks are impaled on the emerging stakes, tilting and sinking, burning with tall flames and black smoke as Vietnamese boats surround them. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Intense epic battle atmosphere, smoke, embers drifting
+
+════════ CẢNH 6 · TIMELINE ════════
+Lời dẫn: Sau gần hai mươi năm bị đe dọa, chiến thắng Hải Triều đem lại sự yên ổn cho kinh thành.
+
+▶ Cảnh 6 (8s)
+VIDEO PROMPT:
+Cinematic medium-wide shot. DIỄN BIẾN – Sau gần hai mươi năm bị đe dọa, chiến thắng Hải Triều đem lại sự yên ổn cho kinh thành. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow dolly in. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. DIỄN BIẾN – Sau gần hai mươi năm bị đe dọa, chiến thắng Hải Triều đem lại sự yên ổn cho kinh thành. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Documentary mood.
+
+════════ CẢNH 7 · POINTS ════════
+Lời dẫn: Trận Hải Triều là một trong những trận đầu tiên sử sách ghi việc dùng hỏa khí mang tính quyết định trong chiến tranh ở nước ta.
+
+▶ Ý nghĩa – chiến thắng (8s)
+VIDEO PROMPT:
+Wide shot at sunrise. Victorious Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Slow crane up revealing the landscape and the victorious army. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. Victorious Đại Việt soldiers in brown and indigo cotton tunics with leather lamellar vests raising red banners on the riverbank and boats, the morning sun breaking through mist over the battlefield, calm water reflecting the light. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Triumphant, proud, hopeful mood.
+
+════════ CẢNH 8 · END ════════
+Lời dẫn: Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
+
+▶ Kết – tĩnh lặng (8s)
+VIDEO PROMPT:
+Extreme wide shot. The peaceful Hải Triều today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. Very slow pull-back and rise of the drone. Photorealistic cinematic historical epic, shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
+
+IMAGE PROMPT (khung đầu):
+Photorealistic historical film still. The peaceful Hải Triều today-like calm after the battle, mist over the water, a lone small boat drifting. Setting: Hải Triều, Vietnam, 1390 Đại Việt, dramatic overcast sky, river mist. shot on ARRI Alexa with anamorphic lenses, natural film grain, volumetric light and atmospheric haze, muted earthy palette with warm ember highlights, shallow depth of field. Peaceful, reflective, memorial mood.
