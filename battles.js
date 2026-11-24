@@ -421,7 +421,7 @@
       id: 'rach-gam-1785', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/rach-gam-1785/nguon.json
         { file: "01-hook.jpg", slot: "hook", caption: "Sa bàn trận Rạch Gầm – Xoài Mút (1785) – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" },
         { file: "02-map.jpg", slot: "map", caption: "Sông Tiền, đoạn Rạch Gầm – Xoài Mút (Tiền Giang) ngày nay", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" },
-        { file: "03-dienbien.jpg", slot: "dienbien", caption: "Mô hình chiến thuyền Tây Sơn dùng trong trận đánh", credit: "Ảnh: Original uploader was Liftold · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "03-dienbien.jpg", slot: "dienbien", caption: "Mô hình chiến thuyền Tây Sơn dùng trong trận đánh", credit: "Ảnh: Liftold · CC BY-SA 3.0 · Wikimedia Commons" },
         { file: "04-dienbien2.jpg", slot: "dienbien2", caption: "Vũ khí của quân Xiêm để lại sau trận Rạch Gầm – Xoài Mút", credit: "Ảnh: Nguyễn Thanh Quang · Public domain · Wikimedia Commons" },
         { file: "05-moc.jpg", slot: "moc", caption: "Di vật trận Rạch Gầm – Xoài Mút tại nhà trưng bày Tiền Giang", credit: "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons" },
         { file: "06-ynghia.jpg", slot: "ynghia", caption: "Tượng đài chiến thắng Rạch Gầm – Xoài Mút", credit: "Ảnh: Nguyễn Thanh Quang · Public domain · Wikimedia Commons" },
