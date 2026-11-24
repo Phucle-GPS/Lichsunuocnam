@@ -862,7 +862,7 @@
 
     /* 19 */ { id: 'chi-lang-981', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/chi-lang-981/nguon.json
         { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng thờ vua Lê Đại Hành (Lê Hoàn) ở đền Hoa Lư", credit: "Ảnh: Kien1980v · Public domain · Wikimedia Commons" },
-        { file: "02-map.jpg", slot: "map", caption: "Phủ Vườn Thiên ở cố đô Hoa Lư – kinh đô nhà Tiền Lê", credit: "Ảnh: Kien1980v tại Wikipedia Tiếng Việt · Public domain · Wikimedia Commons" },
+        { file: "02-map.jpg", slot: "map", caption: "Phủ Vườn Thiên ở cố đô Hoa Lư – kinh đô nhà Tiền Lê", credit: "Ảnh: Kien1980v · Public domain · Wikimedia Commons" },
         { file: "03-ynghia.jpg", slot: "ynghia", caption: "Đền vua Lê Đại Hành ở cố đô Hoa Lư, Ninh Bình", credit: "Ảnh: Nguoivuban · CC BY-SA 4.0 · Wikimedia Commons" },
         { file: "04-ket.jpg", slot: "ket", caption: "Lăng vua Lê Đại Hành ở Hoa Lư", credit: "Ảnh: Nguyễn Thanh Quang · CC BY-SA 4.0 · Wikimedia Commons" }
       ],
