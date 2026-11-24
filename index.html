@@ -839,6 +839,8 @@ body.render .app{display:none}
       <div class="field"><label>Mã truy cập (API key)</label><input class="inp" id="gKey" type="password" autocomplete="off" placeholder="Dán API key – chỉ lưu trên máy này">
         <div class="hint">Mã chỉ nằm trong trình duyệt của máy này, không đưa lên GitHub. ElevenLabs: <b>elevenlabs.io → Profile → API Keys</b>. voice_id nằm trong file <b>voice_id.txt</b> do script của Manus tạo.</div></div>
       <div class="btnrow"><button class="btn primary" id="gSave">Lưu</button><button class="btn" id="gTry">▶ Đọc thử câu mở đầu</button></div>
+      <div class="hint">Chưa có voice_id? Bấm <b>🧬 Nhân bản giọng</b>: app gửi 20 đoạn lời dẫn Manus gốc của film Lịch Sử Việt Nam lên ElevenLabs để tạo đúng giọng này (cần mã truy cập ElevenLabs, gói có Voice Cloning).</div>
+      <div class="btnrow"><button class="btn" id="gClone">🧬 Nhân bản giọng từ các bản Manus cũ</button></div>
       <div class="summary" id="gStatus"></div>
       <audio id="gOut" controls style="width:100%;display:none;margin-top:8px"></audio>
     </div>
@@ -1889,6 +1891,11 @@ body.render .app{display:none}
   $('gClose').onclick = () => $('giongModal').classList.remove('on');
   $('gProv').onchange = e => { $('gIdF').style.display = e.target.value === 'gemini' ? 'none' : ''; };
   $('gSave').onclick = () => { Giong.save({ provider: $('gProv').value, key: $('gKey').value, voiceId: $('gId').value }); $('gStatus').textContent = Giong.ready() ? '✔ Đã lưu. Trong dự án của bạn: bấm "🎙 Giọng Manus" ở từng cảnh hoặc "Đọc lời dẫn mọi cảnh".' : 'Còn thiếu mã truy cập hoặc voice_id.'; };
+  $('gClone').onclick = async () => {
+    Giong.save({ provider: 'elevenlabs', key: $('gKey').value }); $('gProv').value = 'elevenlabs';
+    try { const id = await Giong.clone(t => $('gStatus').textContent = '⏳ ' + t); $('gId').value = id; $('gStatus').textContent = '✔ Đã nhân bản giọng Manus (voice_id ' + id + '). Bấm Đọc thử để nghe.'; }
+    catch (e) { $('gStatus').textContent = '✖ ' + e.message; }
+  };
   $('gTry').onclick = async () => {
     $('gSave').onclick(); if (!Giong.ready()) return;
     $('gStatus').textContent = '⏳ Đang đọc thử…';

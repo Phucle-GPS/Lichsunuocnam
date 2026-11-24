@@ -4,6 +4,20 @@
  "mo_ta": "Bộ phim 40 trận đánh lừng danh (năm 40 → 1894): bản đồ, sơ đồ trận, giọng Manus, nhạc trống trận, phim người que A5, đăng YouTube/Facebook.",
  "lenh": [
   {
+   "ten": "Nhân bản giọng Manus từ các bản cũ (1 lần)",
+   "lenh": "ELEVENLABS_API_KEY=… node tools/giong-manus.mjs nhan-ban",
+   "mo_ta": "Gửi 20 đoạn Manus sạch nhất lên ElevenLabs, lưu voice_id vào loi-dan/GIONG.json."
+  },
+  {
+   "ten": "Kiểm tra file có đúng giọng Manus",
+   "lenh": "node tools/giong-manus.mjs kiem-tra <file.mp3> \"lời đọc\"",
+   "mo_ta": "So cao độ, tốc độ với hồ sơ giọng."
+  },
+  {
+   "ten": "Phân tích lại hồ sơ giọng Manus",
+   "lenh": "python3 tools/phan-tich-giong.py hoso"
+  },
+  {
    "ten": "Xuất GÓI LÀM VIỆC GOOGLE FLOW của một trận",
    "lenh": "node tools/goi-flow.mjs <id-trận> --out video",
    "mo_ta": "Zip gồm prompt từng clip, ảnh nhân vật (Ingredients), khung mở đầu từng clip (Frames to Video), giọng Manus, nhạc nền, phim người que mẫu và hướng dẫn."
@@ -67,6 +81,12 @@
  ],
  "skill": [
   {
+   "ten": "giong-manus – giọng dẫn chuyện",
+   "duong_dan": ".claude/skills/giong-manus/SKILL.md",
+   "mo_ta": "Hồ sơ giọng Manus, nhân bản từ các bản cũ, đọc tự động, kiểm tra khớp giọng.",
+   "giay_phep": "của dự án"
+  },
+  {
    "ten": "xuong-phim-lich-su",
    "duong_dan": ".claude/skills/xuong-phim-lich-su/SKILL.md",
    "mo_ta": "Quy trình thêm trận, nguồn sử, giọng Manus, xuất & đăng.",
@@ -127,6 +147,11 @@
   }
  ],
  "prompt": [
+  {
+   "ten": "Bộ mẫu nhân bản giọng (3 phút)",
+   "duong_dan": "loi-dan/nhan-ban/giong-manus-mau-3-phut.mp3",
+   "mo_ta": "Tải lên ElevenLabs Instant Voice Clone nếu muốn nhân bản thủ công."
+  },
   {
    "ten": "Người que A5 – ba-dinh-1887",
    "duong_dan": "prompt-ai/nguoi-que/ba-dinh-1887.txt",

@@ -10,6 +10,8 @@
      node tools/giong-manus.mjs dat-id <voice_id>      # đã có voice_id (file voice_id.txt của Manus)
      node tools/giong-manus.mjs thiet-ke               # chưa có: tạo vài giọng nghe thử vào giong-nhap/thiet-ke/
      node tools/giong-manus.mjs chon <số>              # chọn giọng nghe ưng nhất → lưu voice_id
+   Nhân bản giọng từ 48 đoạn Manus gốc (1 lần, ElevenLabs): node tools/giong-manus.mjs nhan-ban [--so-mau=20]
+   Kiểm tra file có khớp giọng Manus: node tools/giong-manus.mjs kiem-tra <file.mp3> "lời đọc"
    Nghe thử 1 câu:        node tools/giong-manus.mjs thu ["câu tùy ý"]
    Tạo lời dẫn còn thiếu: node tools/giong-manus.mjs tao [id-trận,...] [--ghi-de]
 */
@@ -93,11 +95,30 @@ if (cmd === 'dat-id') {
   if (!c.voice_id) die('Không tạo được giọng: ' + JSON.stringify(c).slice(0, 300));
   cfg.voice_id = c.voice_id; cfg.nha_cung_cap = 'elevenlabs'; saveCfg();
   console.log(`✔ Đã lưu giọng (voice_id ${c.voice_id}) vào loi-dan/GIONG.json.`);
+} else if (cmd === 'nhan-ban') {
+  // NHÂN BẢN GIỌNG từ các đoạn Manus gốc (ElevenLabs Instant Voice Clone) → lưu voice_id vào GIONG.json
+  const list = JSON.parse(fs.readFileSync(path.join(LD, 'nhan-ban', 'thu-tu-mau.json'), 'utf8')).slice(0, +(flags.find(f => f.startsWith('--so-mau=')) || '=20').split('=')[1]);
+  const fd = new FormData();
+  fd.append('name', 'Giọng Manus – Sử Việt'); fd.append('description', 'Giọng nam trầm, ấm, kể chuyện phim tài liệu lịch sử – nhân bản từ lời dẫn Manus của Xưởng film Lịch sử Việt Nam');
+  fd.append('remove_background_noise', 'false'); fd.append('labels', JSON.stringify({ language: 'vi', use: 'narration' }));
+  list.forEach(f => fd.append('files', new Blob([fs.readFileSync(path.join(ROOT, f))], { type: 'audio/mpeg' }), f.replace(/^loi-dan\//, '').replace(/\//g, '-')));
+  console.log(`🧬 Gửi ${list.length} đoạn Manus gốc để nhân bản giọng…`);
+  const r = await fetch(`${EL}/voices/add`, { method: 'POST', headers: { 'xi-api-key': KEY_EL }, body: fd });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !j.voice_id) die('ElevenLabs: ' + (JSON.stringify(j.detail || j).slice(0, 400) || 'HTTP ' + r.status));
+  cfg.voice_id = j.voice_id; cfg.nha_cung_cap = 'elevenlabs'; cfg.nhan_ban = { ngay: new Date().toISOString().slice(0, 10), so_mau: list.length, nguon: 'Các đoạn lời dẫn Manus gốc (loi-dan/nhan-ban/thu-tu-mau.json)' }; saveCfg();
+  console.log(`✔ Đã nhân bản giọng – voice_id ${j.voice_id} lưu vào loi-dan/GIONG.json. Đọc thử và kiểm tra: node tools/giong-manus.mjs thu`);
+} else if (cmd === 'kiem-tra') {
+  // so một file giọng mới với hồ sơ giọng Manus (cao độ, tốc độ)
+  const r = spawnSync('python3', [path.join(ROOT, 'tools', 'phan-tich-giong.py'), 'kiemtra', args[0], args.slice(1).join(' ')], { encoding: 'utf8' });
+  process.stdout.write(r.stdout || r.stderr); process.exit(r.status);
 } else if (cmd === 'thu') {
   const b = battles().find(x => x.id === 'bach-dang-1288');
   const text = args.join(' ') || b.scenes[0].say, out = path.join(NHAP, 'thu.mp3');
   await speak(text, out);
   console.log(`🎧 giong-nhap/thu.mp3 – so với bản Manus loi-dan/bach-dang-1288/01.mp3 (cùng câu) để kiểm tra giọng.`);
+  const k = spawnSync('python3', [path.join(ROOT, 'tools', 'phan-tich-giong.py'), 'kiemtra', out, text], { encoding: 'utf8' });
+  console.log(k.status === 0 ? '✔ Khớp hồ sơ giọng Manus (cao độ, tốc độ).' : '⚠ Chưa khớp hồ sơ giọng Manus:\n' + (k.stdout || k.stderr));
 } else if (cmd === 'tao') {
   if (prov !== 'gemini' && !cfg.voice_id) die('Chưa có voice_id. Chạy "dat-id <voice_id>" hoặc "thiet-ke" rồi "chon <số>" trước.');
   const mani = JSON.parse(fs.readFileSync(MANI_F, 'utf8')), all = battles(), ghiDe = flags.includes('--ghi-de');
@@ -112,7 +133,8 @@ if (cmd === 'dat-id') {
       if (fs.existsSync(dst) && !ghiDe) continue;
       process.stdout.write(`🎙 ${b.id} cảnh ${i + 1}/${b.scenes.length}… `);
       const f = path.join(tmp, pad(i + 1) + '.mp3'); await speak(b.scenes[i].say, f);
-      fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(f, dst); made++; n++; console.log('xong');
+      const k = spawnSync('python3', [path.join(ROOT, 'tools', 'phan-tich-giong.py'), 'kiemtra', f, b.scenes[i].say], { encoding: 'utf8' });
+      fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.copyFileSync(f, dst); made++; n++; console.log(k.status === 0 ? 'xong' : 'xong ⚠ lệch hồ sơ giọng – nên nghe lại');
     }
     if (made || !old) {
       mani.tran[b.id] = { nguon: 'manus', so_doan: b.scenes.length, ngay_nap: new Date().toISOString().slice(0, 10), tu_dong: true,
