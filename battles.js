@@ -1013,7 +1013,11 @@
         PTS(['Chuyển hướng chiến lược vào Nghệ An thành công', 'Nghệ thuật nghi binh, phục kích', 'Tạo thế mạnh để tiến ra Bắc'], 'Trận Khả Lưu – Bồ Ải mở ra bước ngoặt, đưa khởi nghĩa Lam Sơn từ thế cầm cự sang thế tấn công.'),
         END('Khả Lưu – Bồ Ải 1424 · Lê Lợi')] },
 
-    /* 25 */ { id: 'tot-dong-1426', year: '1426', name: 'Tốt Động – Chúc Động 1426', who: 'Lê Lợi', vs: 'nhà Minh', seed: 65, series: 'SỬ VIỆT · KHỞI NGHĨA LAM SƠN',
+    /* 25 */ { id: 'tot-dong-1426', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/tot-dong-1426/nguon.json
+        { file: "01-dienbien.jpg", slot: "dienbien", caption: "Súng đồng nhà Minh đúc năm Vĩnh Lạc thứ 7 (1409) – loại hỏa khí quân Minh dùng thời bấy giờ", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "02-moc.jpg", slot: "moc", fit: 'contain', caption: "Minh Tuyên Tông – hoàng đế nhà Minh sai Vương Thông đem quân sang năm 1426", credit: "Ảnh: Khuyết danh · Public domain · Wikimedia Commons" }
+      ],
+      year: '1426', name: 'Tốt Động – Chúc Động 1426', who: 'Lê Lợi', vs: 'nhà Minh', seed: 65, series: 'SỬ VIỆT · KHỞI NGHĨA LAM SƠN',
       sources: ['Đại Việt sử ký toàn thư', 'Lam Sơn thực lục', 'Bình Ngô đại cáo'], hook: 'VƯƠNG THÔNG THẢM BẠI', hookQ: 'VƯƠNG THÔNG THẢM BẠI Ở ĐÂU NĂM 1426?',
       scenes: [
         T('TỐT ĐỘNG – CHÚC ĐỘNG', 'TRẬN TỐT ĐỘNG – CHÚC ĐỘNG NĂM 1426', 'ĐÁNH TAN ĐẠO QUÂN VƯƠNG THÔNG', 'BƯỚC NGOẶT', { say: 'Cuối năm 1426, ở vùng Chương Mỹ ngày nay, nghĩa quân Lam Sơn giáng đòn mạnh vào đạo quân viện binh của Vương Thông.' }),

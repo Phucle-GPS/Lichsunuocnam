@@ -1,0 +1,23 @@
+[
+ {
+  "file": "01-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Súng đồng nhà Minh đúc năm Vĩnh Lạc thứ 7 (1409) – loại hỏa khí quân Minh dùng thời bấy giờ",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ming_Bronze_Gun,_7th_Year_of_Yongle_Reign_(14153037521).jpg",
+  "tep": "Tập tin:Ming Bronze Gun, 7th Year of Yongle Reign (14153037521).jpg"
+ },
+ {
+  "file": "02-moc.jpg",
+  "slot": "moc",
+  "caption": "Minh Tuyên Tông – hoàng đế nhà Minh sai Vương Thông đem quân sang năm 1426",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%E6%98%8E%E5%AE%A3%E5%AE%97%E7%94%BB%E5%83%8F.jpg",
+  "tep": "Tập tin:明宣宗画像.jpg",
+  "fit": "contain"
+ }
+]
