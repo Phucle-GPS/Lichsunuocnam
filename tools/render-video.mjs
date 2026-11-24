@@ -114,7 +114,7 @@ async function renderOne(browser, id) {
     vs.forEach(x => inputs.push('-i', x.v));
     // nhạc tự hạ khi có giọng (sidechain), nâng lại ở khoảng nghỉ
     filter = '[1:a]volume=0.75,aformat=channel_layouts=stereo[m];' + vs.map((x, i) => `[${i + 2}:a]adelay=${Math.round(x.at * 1000)}|${Math.round(x.at * 1000)},aformat=channel_layouts=stereo[v${i}]`).join(';') +
-      ';' + vs.map((_, i) => `[v${i}]`).join('') + `amix=inputs=${vs.length}:normalize=0[vv];[vv]asplit=2[vk][vs];[m][vk]sidechaincompress=threshold=0.02:ratio=8:attack=40:release=600[md];[md][vs]amix=inputs=2:normalize=0[a]`;
+      ';' + vs.map((_, i) => `[v${i}]`).join('') + `amix=inputs=${vs.length}:normalize=0,apad=whole_dur=${info.total.toFixed(2)}[vv];[vv]asplit=2[vk][vs];[m][vk]sidechaincompress=threshold=0.02:ratio=8:attack=40:release=600[md];[md][vs]amix=inputs=2:normalize=0[a]`;
     mixOut = '[a]';
   }
   // chuẩn âm lượng nền tảng video: -14 LUFS, đỉnh -1.5 dBTP (YouTube/Facebook/TikTok không tự hạ giọng)
