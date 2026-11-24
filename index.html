@@ -416,6 +416,15 @@ button{cursor:pointer}
 .card-box{position:absolute;left:140px;top:230px;width:1500px}
 .card-shade.has-media+.card-box{width:900px}
 .card-media.full{width:100%;transform-origin:50% 50%}
+.sc-chuong{background:#0b0907;overflow:hidden}
+.sc-chuong .chg-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(4px) grayscale(.45) brightness(.72) sepia(.35);opacity:0}
+.sc-chuong .chg-shade{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(11,9,7,.25),rgba(11,9,7,.92) 75%)}
+.sc-chuong .chg-num{position:absolute;left:140px;top:250px;font-family:'Playfair Display',serif;font-weight:700;font-size:300px;line-height:1;color:#c9a45c;text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.sc-chuong .chg-kick{position:absolute;left:150px;top:600px;font-family:'Oswald',sans-serif;letter-spacing:.32em;font-size:26px;color:#d9c9a3;opacity:0}
+.sc-chuong .chg-title{position:absolute;left:146px;top:650px;font-family:'Oswald',sans-serif;font-weight:700;font-size:96px;letter-spacing:.04em;color:#f4ead3;opacity:0;text-shadow:0 6px 24px rgba(0,0,0,.7)}
+.sc-chuong .chg-line{position:absolute;left:150px;top:790px;height:4px;width:0;background:linear-gradient(90deg,#c8352b,#c9a45c)}
+.frame.doc .sc-chuong .chg-num{left:80px;top:520px;font-size:260px}.frame.doc .sc-chuong .chg-kick{left:90px;top:840px;font-size:24px}.frame.doc .sc-chuong .chg-title{left:86px;top:890px;font-size:80px;max-width:920px}.frame.doc .sc-chuong .chg-line{left:90px;top:1100px}
+.tt-tran{display:block;margin-top:2px;font-size:11px;opacity:.85}.tt-tran i{font-style:normal}.tt-tran .ok{color:#7fc28a}.tt-tran .cho{color:#d9a441}
 .card-media.doc-blur{filter:blur(28px) brightness(.45) saturate(1.1)}
 .card-media.doc-fit{object-fit:contain}
 .doc-cap{position:absolute;left:90px;bottom:170px;max-width:1100px;font-family:'Playfair Display';font-style:italic;font-size:38px;line-height:1.3;color:#f4ead3;text-shadow:0 2px 8px rgba(0,0,0,.9);border-left:6px solid #c8352b;padding:12px 24px;background:rgba(10,8,6,.62);backdrop-filter:blur(4px)}
@@ -914,7 +923,7 @@ body.render .app{display:none}
     frame.style.position = 'absolute';
     document.fonts.ready.then(() => {
       film.seek(0);
-      window.STUDIO = { total: film.total, W: FW, H: FH, seek: t => film.seek(t), starts: film.scenes.map(s => s.start), nVoice: b.scenes.length, voiceStarts: voiceIdx ? voiceIdx.map(i => film.scenes[i].start) : null, audio: () => Studio.renderAudio(film) };
+      window.STUDIO = { total: film.total, W: FW, H: FH, seek: t => film.seek(t), starts: film.scenes.map(s => s.start), types: film.scenes.map(s => s.sc.type), nVoice: b.scenes.length, voiceStarts: voiceIdx ? voiceIdx.map(i => film.scenes[i].start) : null, audio: () => Studio.renderAudio(film) };
     });
     return;
   }
@@ -944,8 +953,12 @@ body.render .app{display:none}
   function ensureCtx() {
     if (!actx) {
       actx = new (window.AudioContext || window.webkitAudioContext)();
-      mgain = actx.createGain(); mgain.connect(actx.destination);
-      vgain = actx.createGain(); vgain.connect(actx.destination);
+      // tầng master: nén nhẹ + chặn đỉnh (−1,5 dBTP) để giọng & nhạc không vỡ, âm lượng đều như chuẩn nền tảng
+      const comp = actx.createDynamicsCompressor(); comp.threshold.value = -18; comp.knee.value = 12; comp.ratio.value = 3; comp.attack.value = .01; comp.release.value = .25;
+      const lim = actx.createDynamicsCompressor(); lim.threshold.value = -2; lim.knee.value = 0; lim.ratio.value = 20; lim.attack.value = .002; lim.release.value = .1;
+      const mk = actx.createGain(); mk.gain.value = 1.25; comp.connect(mk); mk.connect(lim); lim.connect(actx.destination);
+      mgain = actx.createGain(); mgain.connect(comp);
+      vgain = actx.createGain(); vgain.connect(comp);
       applyVol();
     }
     return actx;
@@ -1096,11 +1109,14 @@ body.render .app{display:none}
   /* dự án thuộc xưởng nào: 'ls' (lịch sử) hay 'hh' (hoạt hình) */
   function xuongOf(p) { return p.from ? 'ls' : p.xuong || (['hoathinh', 'cotich', 'langque', 'vutru'].includes(p.style) || /người que/.test(p.name) || p.scenes.filter(x => x.type === 'stick').length >= 2 ? 'hh' : 'ls'); }
   function buildProjects() {
-    $('projs').innerHTML = BATTLES.map(b => `<button class="proj" data-id="${b.id}"><span class="y">${b.year}</span><span><b>${b.name.replace(/\s\d{3,4}$/, '')}</b><small>${b.who} · quân ${b.vs}</small></span></button>`).join('');
+    // trạng thái từng trận: 🎙 đã có giọng (loi-dan/ hoặc đã nạp trong app) · ⏳ chờ giọng · 🖼 số ảnh tư liệu
+    const napI = window.NapGiong ? NapGiong.index() : {}, coGiong = id => (window._nguon && window._nguon[id]) || napI[id];
+    $('projs').innerHTML = BATTLES.map(b => `<button class="proj" data-id="${b.id}"><span class="y">${b.year}</span><span><b>${b.name.replace(/\s\d{3,4}$/, '')}</b><small>${b.who} · quân ${b.vs}</small><small class="tt-tran">${coGiong(b.id) ? '<i class="ok">🎙 có giọng</i>' : '<i class="cho">⏳ chờ giọng</i>'}${b.anh && b.anh.length ? ` · 🖼 ${b.anh.length} ảnh` : ''}</small></span></button>`).join('');
+    if (!window._nguon) fetch('loi-dan/NGUON.json', { cache: 'no-cache' }).then(r => r.json()).then(j => { window._nguon = j.tran || {}; buildProjects(); }).catch(() => { window._nguon = {}; });
+    { const n = BATTLES.filter(b => coGiong(b.id)).length; $('mauCount').textContent = `${BATTLES.length} trận · ${n} có giọng`; }
     const ls = mine.filter(p => xuongOf(p) === 'ls'), hh = mine.filter(p => xuongOf(p) === 'hh');
     const item = p => `<button class="proj" data-id="${p.id}"><span class="y u">${{ tailieu: '🎞', vientuong: '🚀', hoathinh: '🎨', cotich: '🌕', langque: '🌾', vutru: '🪐' }[p.style] || '🎞'}</span><span><b>${esc(p.name)}</b><small>${Xuong.STYLES[p.style] || ''} · ${p.scenes.length} cảnh${+p.epLen ? ' · chia tập' : ''}</small></span></button>`;
     $('myCount').textContent = ls.length ? ls.length + ' dự án' : '';
-    $('mauCount').textContent = BATTLES.length + ' trận';
     $('lsCount').textContent = (ls.length + BATTLES.length) + ' phim';
     $('hhCount').textContent = hh.length ? hh.length + ' phim' : '';
     $('myProjs').innerHTML = ls.length ? ls.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
@@ -1893,7 +1909,7 @@ body.render .app{display:none}
     const au = $('gStdAudio'); if (s.mauId) { const b = await Xuong.store.getAsset(s.mauId); if (b) au.src = URL.createObjectURL(b); } else au.src = s.mau || 'loi-dan/giong-mau.mp3';
     const I = NapGiong.index(), ks = Object.keys(I);
     $('gList').innerHTML = ks.length ? ks.map(k => { const B = BATTLES.find(x => x.id === k); return `<div>✔ <b>${esc(B ? B.name : k)}</b> – ${I[k].doan.length} đoạn · ${I[k].ngay} <a href="#" data-gdel="${k}">gỡ</a></div>`; }).join('') : 'Chưa nạp trận nào (các trận có giọng Manus gốc dùng bản trong loi-dan/).';
-    document.querySelectorAll('[data-gdel]').forEach(e => e.onclick = async ev => { ev.preventDefault(); if (!confirm('Gỡ giọng đã nạp của trận này?')) return; await NapGiong.remove(e.dataset.gdel); gShowStd(); if (P && P.id === e.dataset.gdel) reload(true); });
+    document.querySelectorAll('[data-gdel]').forEach(e => e.onclick = async ev => { ev.preventDefault(); if (!confirm('Gỡ giọng đã nạp của trận này?')) return; await NapGiong.remove(e.dataset.gdel); gShowStd(); buildProjects(); if (P && P.id === e.dataset.gdel) reload(true); });
   }
   async function openGiong() { $('giongModal').classList.add('on'); popIn($('giongModal')); $('gStatus').textContent = ''; gShowStd(); }
   $('bGiong').onclick = openGiong;
@@ -1934,7 +1950,7 @@ body.render .app{display:none}
   $('gSave').onclick = async () => {
     if (!gPend) return; const ok = gPend.filter(r => r.rows && r.rows.every(x => x.ok)); let i = 0;
     for (const r of ok) { $('gStatus').textContent = `⏳ Đang lưu ${++i}/${ok.length}: ${r.b.name}…`; await NapGiong.save(r.b, r.rows, 'nạp ' + new Date().toLocaleDateString('vi-VN')); }
-    $('gStatus').textContent = `✔ Đã nạp ${ok.length} trận. Mở trận để nghe; Xuất video sẽ dùng giọng này.`; gPend = null; $('gRows').innerHTML = ''; $('gActs').style.display = 'none'; gShowStd();
+    $('gStatus').textContent = `✔ Đã nạp ${ok.length} trận. Mở trận để nghe; Xuất video sẽ dùng giọng này.`; gPend = null; $('gRows').innerHTML = ''; $('gActs').style.display = 'none'; gShowStd(); buildProjects();
     if (P && ok.some(r => r.b.id === P.id)) reload(true);
   };
   $('bFB').onclick = () => { $('fbApp').value = store.get('fbApp', ''); fbFill(); fbWhenUI(); $('fbModal').classList.add('on'); popIn($('fbModal')); };

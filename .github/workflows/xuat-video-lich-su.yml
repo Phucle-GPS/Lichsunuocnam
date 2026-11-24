@@ -1,0 +1,51 @@
+# Xưởng film Lịch sử Việt Nam – XUẤT VIDEO HÀNG LOẠT trên máy chủ GitHub (miễn phí)
+# Cách dùng: GitHub → tab Actions → "Xuất video film Lịch sử Việt Nam" → Run workflow
+#   - trận: "all" (mọi trận đã đủ giọng Manus) hoặc danh sách id cách nhau dấu phẩy, vd: bach-dang-938,nhu-nguyet-1077
+#   - khung: ngang (16:9 YouTube) hoặc doc (9:16 TikTok/Reels/Shorts)
+# Kết quả: tải file zip "video-lich-su" ở cuối trang lần chạy (lưu 14 ngày). Trận chưa có giọng Manus tự bỏ qua.
+name: Xuất video film Lịch sử Việt Nam
+on:
+  workflow_dispatch:
+    inputs:
+      tran:
+        description: 'Trận cần xuất: all hoặc id1,id2,…'
+        default: 'all'
+        required: true
+      khung:
+        description: 'Khung hình'
+        type: choice
+        options: [ngang, doc]
+        default: ngang
+permissions:
+  contents: read
+jobs:
+  xuat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Cài ffmpeg, phông chữ, Playwright
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg fonts-noto-core
+          cd tools && npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Xuất video (giọng Manus + nhạc hùng ca, chuẩn −14 LUFS)
+        env:
+          TRAN: ${{ inputs.tran }}
+          KHUNG: ${{ inputs.khung }}
+        run: |
+          mkdir -p out
+          if [ "$TRAN" = "all" ]; then IDS=$(node -e "const j=require('./loi-dan/NGUON.json');console.log(Object.keys(j.tran).join(' '))"); else IDS=$(echo "$TRAN" | tr ',' ' '); fi
+          for id in $IDS; do
+            y=${id##*-}; DOC=""; [ "$KHUNG" = "doc" ] && DOC="--doc"
+            echo "▶ $id"; node tools/render-video.mjs "$id" --nguoi-dan --nhac "hungca-$y" --fps 30 $DOC --out out || echo "⚠ lỗi $id"
+          done
+          ls -la out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: video-lich-su
+          path: out/*.mp4
+          retention-days: 14

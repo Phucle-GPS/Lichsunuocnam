@@ -43,11 +43,13 @@ const el = (type, style, children) => ({ type, props: { style, children } });
 // chụp khung nền từ video
 const browser = await chromium.launch();
 async function grab(b, W, H) {
+  // trận có ảnh tư liệu: lấy ảnh mạnh nhất (mở đầu → diễn biến → nhân vật) làm nền ảnh bìa
+  const a = (b.anh || []).find(x => x.slot === 'hook') || (b.anh || []).find(x => x.slot === 'dienbien' && !x.fit) || (b.anh || []).find(x => x.slot === 'dienbien2' && !x.fit);
+  if (a) { const f = path.join(ROOT, 'anh', b.id, a.file); if (fs.existsSync(f)) return 'data:image/jpeg;base64,' + fs.readFileSync(f).toString('base64'); }
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
   await page.goto(pathToFileURL(path.join(ROOT, 'index.html')).href + `?render=${b.id}&fx=none`);
   await page.waitForFunction(() => window.STUDIO);
-  const i = b.scenes.findIndex(s => s.type === 'diagram');
-  const t = await page.evaluate(i => { const s = window.STUDIO.starts; return s[i] + (s[i + 1] - s[i]) * .72; }, i);
+  const t = await page.evaluate(() => { const S = window.STUDIO, i = S.types.indexOf('diagram'), s = S.starts; return s[i] + ((s[i + 1] || S.total) - s[i]) * .72; });
   await page.evaluate(x => window.STUDIO.seek(x), t);
   await page.addStyleTag({ content: '.subs,.d-phase,.d-title,.d-legend,.tide{display:none!important}' });
   const png = await page.screenshot({ type: 'jpeg', quality: 85 }); await page.close();

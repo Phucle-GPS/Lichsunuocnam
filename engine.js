@@ -13,6 +13,7 @@
   const ramp = (t, a, b) => clamp((t - a) / (b - a));
   const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
   const eout = x => 1 - Math.pow(1 - x, 3);
+  const eio = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
   const lerp = (a, b, k) => a + (b - a) * k;
   function rng(seed) { let s = seed >>> 0 || 1; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
   function h(tag, attrs, parent, html) {
@@ -673,7 +674,11 @@
       root, update(t, d) {
         bg.style.transform = `scale(${1.05 + t / d * .07})`; bgu.update(t);
         if (media) {
-          media.style.transform = sc.full && media.tagName === 'VIDEO' ? '' : `scale(${1.04 + t / d * .1}) translate(${-t * 3}px,${-t * 1.5}px)`;
+          if (sc.full && media.tagName === 'VIDEO') media.style.transform = '';
+          else if (sc.credit && !blur) {   // ảnh tư liệu: mỗi cảnh một kiểu máy quay (đẩy vào / kéo ra / lia trái / lia phải)
+            const p = eio(clamp(t / d)), m = (sc.cam != null ? sc.cam : (sc._i || 0)) % 4;
+            media.style.transform = m === 0 ? `scale(${1.04 + p * .14})` : m === 1 ? `scale(${1.18 - p * .14})` : m === 2 ? `scale(1.16) translateX(${(p - .5) * -90}px)` : `scale(1.16) translateX(${(p - .5) * 90}px)`;
+          } else media.style.transform = `scale(${1.04 + t / d * .1}) translate(${-t * 3}px,${-t * 1.5}px)`;
           media.style.opacity = eout(ramp(t, 0, .6));
           if (blur) { blur.style.opacity = media.style.opacity; blur.style.transform = `scale(${1.15 + t / d * .05})`; }
           if (media.tagName === 'VIDEO' && media.readyState >= 1 && media.duration) {
@@ -1011,6 +1016,23 @@
   };
   const reveal = (el, t, a, dx = 0, dy = 30) => { const k = eout(ramp(t, a, a + .5)); el.style.opacity = k; el.style.transform = `translate(${(1 - k) * dx}px,${(1 - k) * dy}px)`; return k; };
 
+  /* Thẻ chương phim tài liệu lịch sử: nền ảnh tư liệu mờ + số La Mã + tên chương (Xưởng film Lịch sử) */
+  SCENES.chuong = function (sc, B) {
+    const root = h('div', { class: 'sc sc-chuong' });
+    const bg = sc.bg ? h('img', { class: 'chg-bg', src: sc.bg }, root) : null;
+    h('div', { class: 'chg-shade' }, root);
+    const num = h('div', { class: 'chg-num' }, root, esc(sc.num || 'I'));
+    const kick = h('div', { class: 'chg-kick' }, root, esc(sc.kicker || ''));
+    const title = h('div', { class: 'chg-title' }, root, esc(sc.heading || ''));
+    const line = h('div', { class: 'chg-line' }, root);
+    return { root, update(t, d) {
+      if (bg) { bg.style.transform = `scale(${1.12 + t / d * .06})`; bg.style.opacity = .7 * eout(ramp(t, 0, .8)); }
+      const k = eout(ramp(t, .1, .9)); num.style.opacity = k * .9; num.style.transform = `translateY(${(1 - k) * 40}px) scale(${1.08 - .08 * k})`;
+      reveal(kick, t, .35, 0, -16); reveal(title, t, .55);
+      line.style.width = eout(ramp(t, .7, 1.6)) * 420 + 'px';
+      const out = 1 - eout(ramp(t, d - .5, d)); root.style.opacity = out;
+    } };
+  };
   SCENES.chapter = function (sc, B) {
     const root = h('div', { class: 'sc sc-info sc-chapter' }), bgu = infoBG(root, sc, B, 17);
     const box = h('div', { class: 'ch-box' }, root);
@@ -1599,7 +1621,7 @@
       if (subs._t !== txt) { subs._t = txt; subs.innerHTML = txt ? `<span>${esc(txt)}</span>` : ''; }
       fade.style.opacity = i === 0 ? 1 - ramp(lt, 0, .5) : i === scenes.length - 1 ? ramp(lt, S.d - .6, S.d) : 0;
       brand.style.opacity = ['title', 'map', 'diagram'].includes(S.sc.type) ? 0 : .75;
-      if (pipU) { const on = !['stick', 'title', 'end', 'hero'].includes(S.sc.type) && !(S.sc.media && S.sc.full) && !pair; pipU(t, on, lt, S.d); }
+      if (pipU) { const on = !['stick', 'title', 'end', 'hero', 'chuong'].includes(S.sc.type) && !(S.sc.media && S.sc.full) && !pair; pipU(t, on, lt, S.d); }
       // hạt phim
       const gk = Math.floor(t * 4) % 4;
       if (gk !== grain._k) {
