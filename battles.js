@@ -83,7 +83,13 @@
     },
     /* =================================================================== */
     {
-      id: 'nhu-nguyet-1077', year: '1077', name: 'Như Nguyệt 1077', who: 'Lý Thường Kiệt', vs: 'Tống', seed: 11, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Wikipedia – Trận Như Nguyệt', 'Tạp chí Quản lý Nhà nước'],
+      id: 'nhu-nguyet-1077', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/nhu-nguyet-1077/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Sông Cầu – khúc sông Như Nguyệt xưa là phòng tuyến chặn quân Tống", credit: "Ảnh: Dominic Nelson · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng Lý Thường Kiệt tại Bảo tàng Lịch sử Quân sự Việt Nam", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "03-dienbien.jpg", slot: "dienbien", caption: "Sơ đồ trận Như Nguyệt năm 1077", credit: "Ảnh: Lưu Ly · CC BY 3.0 · Wikimedia Commons" },
+        { file: "04-moc.jpg", slot: "moc", fit: 'contain', caption: "Bia chùa Linh Xứng (1126) ghi công Lý Thường Kiệt – Bảo tàng Lịch sử Quốc gia", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" }
+      ],
+      year: '1077', name: 'Như Nguyệt 1077', who: 'Lý Thường Kiệt', vs: 'Tống', seed: 11, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Wikipedia – Trận Như Nguyệt', 'Tạp chí Quản lý Nhà nước'],
       scenes: [
         { type: 'title', title: 'NHƯ NGUYỆT', sub: 'PHÒNG TUYẾN SÔNG CẦU NĂM 1077', line: 'LÝ THƯỜNG KIỆT · ĐẠI PHÁ QUÂN TỐNG', stamp: 'NAM QUỐC SƠN HÀ', ships: 4,
           say: 'Năm 1077, bên bờ sông Như Nguyệt, quân dân Đại Việt thời Lý đã chặn đứng mười vạn quân Tống, buộc kẻ thù phải rút về nước.' },

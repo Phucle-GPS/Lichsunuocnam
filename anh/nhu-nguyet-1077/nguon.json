@@ -1,0 +1,44 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Sông Cầu – khúc sông Như Nguyệt xưa là phòng tuyến chặn quân Tống",
+  "credit": "Ảnh: Dominic Nelson · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Dominic Nelson",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Th%C3%A1i_Nguy%C3%AAn_-_C%E1%BA%A7u_River_from_B%E1%BA%BFn_T%C6%B0%E1%BB%A3ng_bridge_Feb_2024.jpg",
+  "tep": "File:Thái Nguyên - Cầu River from Bến Tượng bridge Feb 2024.jpg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng Lý Thường Kiệt tại Bảo tàng Lịch sử Quân sự Việt Nam",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ly_Thuong_Kiet_(1019-1105)_Defeated_Song_China_Invasion_of_1077_(9732106811).jpg",
+  "tep": "File:Ly Thuong Kiet (1019-1105) Defeated Song China Invasion of 1077 (9732106811).jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Sơ đồ trận Như Nguyệt năm 1077",
+  "credit": "Ảnh: Lưu Ly · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Lưu Ly (thảo luận)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Tr%E1%BA%ADn_Nh%C6%B0_Nguy%E1%BB%87t.png",
+  "tep": "Tập tin:Trận Như Nguyệt.png"
+ },
+ {
+  "file": "04-moc.jpg",
+  "slot": "moc",
+  "caption": "Bia chùa Linh Xứng (1126) ghi công Lý Thường Kiệt – Bảo tàng Lịch sử Quốc gia",
+  "credit": "Ảnh: Daderot · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Daderot",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Stele_commemorating_the_founding_of_Linh_Xung_pagoda_by_Ly_Thuong_Kiet,_Thanh_Hoa_province,_7th_year_of_the_Thien_Phu_Due_Vo_reign_(1126_AD),_stone_-_National_Museum_of_Vietnamese_History_-_Hanoi,_Vietnam_-_DSC05540.JPG",
+  "tep": "File:Stele commemorating the founding of Linh Xung pagoda by Ly Thuong Kiet, Thanh Hoa province, 7th year of the Thien Phu Due Vo reign (1126 AD), stone - National Museum of Vietnamese History - Hanoi, Vietnam - DSC05540.JPG",
+  "fit": "contain"
+ }
+]
