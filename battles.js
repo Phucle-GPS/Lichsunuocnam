@@ -885,7 +885,12 @@
         PTS(['Đập tan cuộc xâm lược đầu tiên của nhà Tống', 'Bảo vệ nền độc lập non trẻ', 'Kết hợp thủy chiến và bộ chiến tài tình'], 'Chiến thắng năm 981 khiến nhà Tống phải công nhận Đại Cồ Việt, giữ yên bờ cõi suốt nhiều chục năm.'),
         END('Chi Lăng – Bạch Đằng 981 · Lê Hoàn')] },
 
-    /* 20 */ { id: 'ung-chau-1075', year: '1075', name: 'Ung Châu 1075', who: 'Lý Thường Kiệt', vs: 'nhà Tống', seed: 60, series: 'SỬ VIỆT · NHÀ LÝ',
+    /* 20 */ { id: 'ung-chau-1075', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/ung-chau-1075/nguon.json
+        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng Lý Thường Kiệt tại Bảo tàng Lịch sử Quân sự Việt Nam", credit: "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "02-map.jpg", slot: "map", caption: "Tường thành cổ Nam Ninh (Quảng Tây) – vùng đất Ung Châu thời Tống; đoạn tường hiện nay xây thời sau", credit: "Ảnh: EditQ · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "03-ket.jpg", slot: "ket", fit: 'contain', caption: "Bia chùa Linh Xứng (1126) ghi công Lý Thường Kiệt – Bảo tàng Lịch sử Quốc gia", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" }
+      ],
+      year: '1075', name: 'Ung Châu 1075', who: 'Lý Thường Kiệt', vs: 'nhà Tống', seed: 60, series: 'SỬ VIỆT · NHÀ LÝ',
       sources: ['Đại Việt sử ký toàn thư', 'Tống sử', 'Việt sử lược'], hook: 'TIÊN PHÁT CHẾ NHÂN', hookQ: 'VÌ SAO QUÂN LÝ ĐÁNH SANG ĐẤT TỐNG TRƯỚC?',
       scenes: [
         T('UNG CHÂU', 'CUỘC TẬP KÍCH ĐẤT TỐNG 1075 – 1076', 'TIÊN PHÁT CHẾ NHÂN', 'ĐÁNH ĐỂ PHÒNG THỦ', { say: 'Biết nhà Tống đang chuẩn bị xâm lược, cuối năm 1075 Lý Thường Kiệt chủ động đem quân đánh sang các căn cứ của Tống ở Ung Châu, Khâm Châu, Liêm Châu.' }),

@@ -1,0 +1,34 @@
+[
+ {
+  "file": "01-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng Lý Thường Kiệt tại Bảo tàng Lịch sử Quân sự Việt Nam",
+  "credit": "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Phương Huy",
+  "nguon": "https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_L%C3%BD_Th%C6%B0%E1%BB%9Dng_Ki%E1%BB%87t_t%E1%BA%A1i_B%E1%BA%A3o_t%C3%A0ng_l%E1%BB%8Bch_s%E1%BB%AD_qu%C3%A2n_s%E1%BB%B1_Vi%E1%BB%87t_Nam,_H%C3%A0_N%E1%BB%99i_n%C4%83m_2017_(1).jpg",
+  "tep": "File:Tượng Lý Thường Kiệt tại Bảo tàng lịch sử quân sự Việt Nam, Hà Nội năm 2017 (1).jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "02-map.jpg",
+  "slot": "map",
+  "caption": "Tường thành cổ Nam Ninh (Quảng Tây) – vùng đất Ung Châu thời Tống; đoạn tường hiện nay xây thời sau",
+  "credit": "Ảnh: EditQ · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "EditQ",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Old_City_Wall_of_Nanning.jpg",
+  "tep": "File:Old City Wall of Nanning.jpg"
+ },
+ {
+  "file": "03-ket.jpg",
+  "slot": "ket",
+  "caption": "Bia chùa Linh Xứng (1126) ghi công Lý Thường Kiệt – Bảo tàng Lịch sử Quốc gia",
+  "credit": "Ảnh: Daderot · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Daderot",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Stele_commemorating_the_founding_of_Linh_Xung_pagoda_by_Ly_Thuong_Kiet,_Thanh_Hoa_province,_7th_year_of_the_Thien_Phu_Due_Vo_reign_(1126_AD),_stone_-_National_Museum_of_Vietnamese_History_-_Hanoi,_Vietnam_-_DSC05540.JPG",
+  "tep": "File:Stele commemorating the founding of Linh Xung pagoda by Ly Thuong Kiet, Thanh Hoa province, 7th year of the Thien Phu Due Vo reign (1126 AD), stone - National Museum of Vietnamese History - Hanoi, Vietnam - DSC05540.JPG",
+  "fit": "contain"
+ }
+]
