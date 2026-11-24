@@ -239,7 +239,15 @@
       ]
     },
     {
-      id: 'tay-ket-1285', year: '1285', name: 'Tây Kết – Vạn Kiếp 1285', who: 'Trần Hưng Đạo', vs: 'Nguyên Mông', seed: 41, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Wikipedia – Mongol invasions of Vietnam'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
+      id: 'tay-ket-1285', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/tay-ket-1285/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Sa bàn trận Vạn Kiếp 1285 – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng đài Trần Hưng Đạo ở bến Bạch Đằng, TP. Hồ Chí Minh", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "03-dienbien.jpg", slot: "dienbien", caption: "Trận Vạn Kiếp (1285): quân Trần đánh bại quân Nguyên lần thứ hai – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "04-moc.jpg", slot: "moc", caption: "Phù điêu Hịch tướng sĩ – đền thờ Đức Thánh Trần, TP. Hồ Chí Minh", credit: "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "05-ynghia.jpg", slot: "ynghia", caption: "Cổng chính đền Kiếp Bạc – nơi thờ Hưng Đạo Vương ở Vạn Kiếp xưa", credit: "Ảnh: thành viên Wikipedia · CC BY 3.0 · Wikimedia Commons" },
+        { file: "06-ket.jpg", slot: "ket", caption: "Đền Kiếp Bạc năm 1904", credit: "Ảnh: André Salles · Public domain · Wikimedia Commons" }
+      ],
+      year: '1285', name: 'Tây Kết – Vạn Kiếp 1285', who: 'Trần Hưng Đạo', vs: 'Nguyên Mông', seed: 41, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Wikipedia – Mongol invasions of Vietnam'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
       scenes: [
         { type: 'title', title: 'TÂY KẾT', sub: 'TÂY KẾT – VẠN KIẾP NĂM 1285', line: 'HƯNG ĐẠO VƯƠNG ĐẠI PHÁ QUÂN NGUYÊN', stamp: 'SÁT THÁT', ships: 5,
           say: 'Mùa hè năm 1285, Hưng Đạo Vương mở những đòn quyết định ở Tây Kết và Vạn Kiếp, quét sạch quân Nguyên ra khỏi bờ cõi lần thứ hai.' },

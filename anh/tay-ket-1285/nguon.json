@@ -1,0 +1,63 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Sa bàn trận Vạn Kiếp 1285 – Bảo tàng Lịch sử TP. Hồ Chí Minh",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Van_Kiep_Battle,_1285,_Second_Defeat_of_Mongol_Invasion_(9980579844).jpg",
+  "tep": "File:Van Kiep Battle, 1285, Second Defeat of Mongol Invasion (9980579844).jpg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng đài Trần Hưng Đạo ở bến Bạch Đằng, TP. Hồ Chí Minh",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Statue_of_Tran_Hung_Dao_at_Me_Linh_Square.jpg",
+  "tep": "File:Statue of Tran Hung Dao at Me Linh Square.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Trận Vạn Kiếp (1285): quân Trần đánh bại quân Nguyên lần thứ hai – Bảo tàng Lịch sử TP. Hồ Chí Minh",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Van_Kiep_Battle,_1285,_Second_Defeat_of_Mongol_Invasion_(9980689463).jpg",
+  "tep": "File:Van Kiep Battle, 1285, Second Defeat of Mongol Invasion (9980689463).jpg"
+ },
+ {
+  "file": "04-moc.jpg",
+  "slot": "moc",
+  "caption": "Phù điêu Hịch tướng sĩ – đền thờ Đức Thánh Trần, TP. Hồ Chí Minh",
+  "credit": "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Phương Huy",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_th%E1%BB%9D_%C4%90%E1%BB%A9c_Th%C3%A1nh_Tr%E1%BA%A7n,_Qu%E1%BA%ADn_1,_th%C3%A1ng_12_n%C4%83m_2021_(h%E1%BB%8Bch_t%C6%B0%E1%BB%9Bng_s%C4%A9)_(2).jpg",
+  "tep": "File:Đền thờ Đức Thánh Trần, Quận 1, tháng 12 năm 2021 (hịch tướng sĩ) (2).jpg"
+ },
+ {
+  "file": "05-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Cổng chính đền Kiếp Bạc – nơi thờ Hưng Đạo Vương ở Vạn Kiếp xưa",
+  "credit": "Ảnh: thành viên Wikipedia · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Handyhuy (thảo luận) 14:20, ngày 21 tháng 4 năm 2008 (UTC)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Den_kiep_bac.jpg",
+  "tep": "File:Den kiep bac.jpg"
+ },
+ {
+  "file": "06-ket.jpg",
+  "slot": "ket",
+  "caption": "Đền Kiếp Bạc năm 1904",
+  "credit": "Ảnh: André Salles · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "André Salles",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ki%E1%BA%BFp_B%E1%BA%A1c_temple_in_1904.jpg",
+  "tep": "File:Kiếp Bạc temple in 1904.jpg"
+ }
+]
