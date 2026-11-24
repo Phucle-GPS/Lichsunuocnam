@@ -67,18 +67,19 @@ if (!args.includes('--khong-osm')) {
     O.duong && `way["highway"~"^(motorway|trunk|primary)$"](${bb});`,
     O.dia_danh && `node["place"~"^(city|town)$"](${bb});`].filter(Boolean).join('');
   const key = path.join(CACHE, `osm-${id}-${Buffer.from(JSON.stringify([bb, O])).toString('base64url').slice(0, 40)}.json`);
-  if (!fs.existsSync(key)) {
-    const body = `[out:json][timeout:120];(${q});out geom;`;
-    execFileSync('curl', ['-sf', '-m', '180', '-o', key, '--data-urlencode', `data=${body}`, 'https://overpass-api.de/api/interpreter']);
+  const body = `[out:json][timeout:120];(${q});out geom;`;
+  for (const ep of ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter']) {
+    if (fs.existsSync(key)) break;
+    try { execFileSync('curl', ['-sf', '-m', '180', '-o', key + '.tmp', '--data-urlencode', `data=${body}`, ep]); fs.renameSync(key + '.tmp', key); } catch (e) { try { fs.unlinkSync(key + '.tmp'); } catch (x) {} }
   }
-  osm = JSON.parse(fs.readFileSync(key, 'utf8'));
-  console.log(`  OpenStreetMap: ${osm.elements.length} đối tượng`);
+  if (fs.existsSync(key)) { osm = JSON.parse(fs.readFileSync(key, 'utf8')); console.log(`  OpenStreetMap: ${osm.elements.length} đối tượng`); }
+  else console.log('  ⚠ Không kết nối được OpenStreetMap (Overpass) → vẽ sông suối từ chính địa hình (dòng chảy tích lũy)');
 }
 // chiếu sẵn hình học OSM sang tọa độ ảnh
 const geom = osm.elements.map(e => {
   const t = e.tags || {}, kind = t.natural === 'coastline' ? 'bien' : t.natural === 'water' || t.waterway === 'riverbank' ? 'ho' : t.waterway ? (t.waterway === 'stream' ? 'suoi' : 'song') : t.highway ? 'duong' : t.place ? 'noi' : 'khac';
   const lines = e.type === 'node' ? [[proj([e.lon, e.lat])]] : e.type === 'way' ? [(e.geometry || []).map(p => proj([p.lon, p.lat]))] : (e.members || []).filter(m => m.geometry).map(m => m.geometry.map(p => proj([p.lon, p.lat])));
-  return { kind, name: t['name:vi'] || t.name || '', lines };
+  const nm = t['name:vi'] || t.name || ''; return { kind, name: /[\u2E80-\u9FFF\uAC00-\uD7AF]/.test(nm) ? '' : nm, lines };   // bỏ tên chữ Hán/Hàn (sông bên kia biên giới)
 }).filter(g => g.kind !== 'khac');
 
 /* ---------- 3 + 4. vẽ nền & dò tuyến trong trình duyệt không giao diện ---------- */
@@ -86,7 +87,7 @@ const diaDanh = (R.dia_danh || []).map(d => ({ ...d, p: proj([d.lon, d.lat]) }))
 const tuyenIn = (R.tuyen || []).map(t => ({ ...t, P: t.diem.map(proj) }));
 const browser = await chromium.launch(), page = await browser.newPage({ viewport: { width: 400, height: 300 } });
 await page.setContent('<canvas id="c"></canvas>');
-const out = await page.evaluate(async ({ tiles, tx0, ty0, PX0, PY0, SX, SY, W, H, geom, diaDanh, tuyenIn, nuoc, mpp }) => {
+const out = await page.evaluate(async ({ songDH, nguong, tiles, tx0, ty0, PX0, PY0, SX, SY, W, H, geom, diaDanh, tuyenIn, nuoc, mpp }) => {
   /* độ cao toàn vùng ở độ phân giải ảnh */
   const nx = (Math.max(...tiles.map(t => t.x)) - tx0 + 1) * 256, ny = (Math.max(...tiles.map(t => t.y)) - ty0 + 1) * 256;
   const big = new OffscreenCanvas(nx, ny), bg = big.getContext('2d');
@@ -116,6 +117,23 @@ const out = await page.evaluate(async ({ tiles, tx0, ty0, PX0, PY0, SX, SY, W, H
   geom.filter(o => o.kind === 'song').forEach(o => stroke(o.lines, WATER, 4.5));
   geom.filter(o => o.kind === 'bien').forEach(o => stroke(o.lines, '#2f5874', 3));
   geom.filter(o => o.kind === 'duong').forEach(o => stroke(o.lines, 'rgba(120,96,70,.55)', 2.2));
+  /* SÔNG TỪ ĐỊA HÌNH (khi không có OSM): lấp chỗ trũng → hướng chảy D8 → dòng chảy tích lũy → vẽ chỗ gom nước lớn */
+  if (songDH) {
+    const f = 2, gw2 = Math.ceil(W / f), gh2 = Math.ceil(H / f), N = gw2 * gh2, Z2 = new Float32Array(N);
+    for (let y = 0; y < gh2; y++) for (let x = 0; x < gw2; x++) Z2[y * gw2 + x] = E[Math.min(H - 1, y * f) * W + Math.min(W - 1, x * f)];
+    const done = new Uint8Array(N), hp = [], hpush = (z, i) => { hp.push([z, i]); let k = hp.length - 1; while (k) { const p = (k - 1) >> 1; if (hp[p][0] <= hp[k][0]) break; [hp[p], hp[k]] = [hp[k], hp[p]]; k = p; } },
+      hpop = () => { const t = hp[0], l = hp.pop(); if (hp.length) { hp[0] = l; let k = 0; for (;;) { const a = 2 * k + 1, b = a + 1; let m = k; if (a < hp.length && hp[a][0] < hp[m][0]) m = a; if (b < hp.length && hp[b][0] < hp[m][0]) m = b; if (m === k) break; [hp[m], hp[k]] = [hp[k], hp[m]]; k = m; } } return t; };
+    const order = new Int32Array(N); let oi = 0, eps = 1e-3;
+    for (let x = 0; x < gw2; x++) for (const y of [0, gh2 - 1]) { const i = y * gw2 + x; if (!done[i]) { done[i] = 1; hpush(Z2[i], i); } }
+    for (let y = 0; y < gh2; y++) for (const x of [0, gw2 - 1]) { const i = y * gw2 + x; if (!done[i]) { done[i] = 1; hpush(Z2[i], i); } }
+    const DD = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]], down = new Int32Array(N).fill(-1);
+    while (hp.length) { const [z, i] = hpop(); order[oi++] = i; const x = i % gw2, y = (i - x) / gw2;
+      for (const [dx, dy] of DD) { const nx2 = x + dx, ny2 = y + dy; if (nx2 < 0 || ny2 < 0 || nx2 >= gw2 || ny2 >= gh2) continue; const j = ny2 * gw2 + nx2; if (done[j]) continue; done[j] = 1; if (Z2[j] <= z) Z2[j] = z + eps; down[j] = i; hpush(Z2[j], j); } }
+    const acc = new Float32Array(N).fill(1); for (let k = N - 1; k >= 0; k--) { const i = order[k]; if (down[i] >= 0) acc[down[i]] += acc[i]; }
+    const thr = N * nguong; g.lineCap = 'round';
+    for (let i = 0; i < N; i++) { if (acc[i] < thr || down[i] < 0) continue; const j = down[i], w = Math.min(7, 1.2 + Math.log2(acc[i] / thr) * 1.15);
+      g.strokeStyle = WATER; g.lineWidth = w; g.beginPath(); g.moveTo((i % gw2) * f + 1, Math.floor(i / gw2) * f + 1); g.lineTo((j % gw2) * f + 1, Math.floor(j / gw2) * f + 1); g.stroke(); }
+  }
   // lưới nước: điểm ảnh gần sông/hồ (để dò tuyến tránh vượt sông)
   const wc = new OffscreenCanvas(W, H), wg = wc.getContext('2d'); wg.drawImage(cv, 0, 0);
   /* tên sông (mỗi sông 1 lần, chỗ dài nhất) */
@@ -159,7 +177,7 @@ const out = await page.evaluate(async ({ tiles, tx0, ty0, PX0, PY0, SX, SY, W, H
   tuyen.forEach(t => { g.strokeStyle = col[t.ben] || '#333'; g.lineWidth = 9; g.setLineDash(t.ben === 'dich' ? [26, 14] : []); g.lineCap = g.lineJoin = 'round'; g.beginPath(); t.xy.forEach(([x, y], k) => k ? g.lineTo(x, y) : g.moveTo(x, y)); g.stroke(); g.setLineDash([]);
     const [x1, y1] = t.xy[t.xy.length - 1], [x0, y0] = t.xy[Math.max(0, t.xy.length - 6)], an = Math.atan2(y1 - y0, x1 - x0); g.fillStyle = col[t.ben] || '#333'; g.beginPath(); g.moveTo(x1 + Math.cos(an) * 26, y1 + Math.sin(an) * 26); g.lineTo(x1 + Math.cos(an + 2.5) * 24, y1 + Math.sin(an + 2.5) * 24); g.lineTo(x1 + Math.cos(an - 2.5) * 24, y1 + Math.sin(an - 2.5) * 24); g.fill(); });
   return { nen, xem: cv.toDataURL('image/jpeg', .9), tuyen: tuyen.map(t => ({ ten: t.ten, ben: t.ben, cachDi: t.cachDi || 'bo', xy: t.xy.map(([x, y]) => [Math.round(x), Math.round(y)]) })), emax: Math.round(emax) };
-}, { tiles, tx0, ty0, PX0, PY0, SX, SY, W, H, geom, diaDanh, tuyenIn, nuoc: !!R.bien_nuoc, mpp: 40075016 * Math.cos((nam + bac) / 2 * Math.PI / 180) / (256 * 2 ** Z * SX) });
+}, { songDH: !geom.some(g => g.kind === 'song'), nguong: R.nguong_song || 0.0035, tiles, tx0, ty0, PX0, PY0, SX, SY, W, H, geom, diaDanh, tuyenIn, nuoc: !!R.bien_nuoc, mpp: 40075016 * Math.cos((nam + bac) / 2 * Math.PI / 180) / (256 * 2 ** Z * SX) });
 await browser.close();
 
 const save = (f, durl) => fs.writeFileSync(path.join(DIR, f), Buffer.from(durl.split(',')[1], 'base64'));

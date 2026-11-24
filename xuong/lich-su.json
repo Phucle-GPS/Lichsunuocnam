@@ -9,6 +9,11 @@
    "mo_ta": "Tự cắt 8 cảnh, so với giọng chuẩn (cao độ, tốc độ), trận lệch không nạp; tick “làm giọng chuẩn” để lấy giọng này cho mọi video sau. Lưu trong trình duyệt, Xuất video dùng luôn."
   },
   {
+   "ten": "🗺 BẢN ĐỒ TRẬN ĐÁNH (địa hình thật + OpenStreetMap, nền 2K, dò tuyến hành quân) – làm từng trận",
+   "lenh": "node tools/ban-do.mjs <id-trận>",
+   "mo_ta": "Khai báo maps/<id>/region.json (vùng, địa danh lịch sử, tuyến: diem [[kinh độ, vĩ độ]…], ben ta/dich, cachDi bo/thuy/thang) → ra nen-2k.jpg (2560×1440), xem-truoc.jpg, tuyen.json. Địa hình AWS Terrain Tiles; sông hồ OpenStreetMap (không kết nối được thì tính sông từ địa hình). Mẫu: maps/chi-lang-1427/."
+  },
+  {
    "ten": "Nạp giọng anh tự làm (mp3/mp4, theo cảnh hoặc cả trận)",
    "lenh": "node tools/nap-giong-manus.mjs <file.mp4 | thư-mục | goi.zip> --thu",
    "mo_ta": "Đặt tên <id-trận>_<NN>.mp4 hoặc <id-trận>.mp4 (cả trận, nghỉ ~2 giây giữa cảnh – tự cắt). --thu để chạy thử, bỏ --thu để nạp thật."
