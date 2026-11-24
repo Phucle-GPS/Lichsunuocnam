@@ -80,8 +80,8 @@ if (fs.existsSync(ng)) { try { const J = JSON.parse(doc(ng)), arr = Array.isArra
 /* ---------- HyperFrames check ---------- */
 let hf = null;
 if (args.includes('--hf')) {
-  const bin = path.resolve(DIR, '..', 'node_modules', '.bin', 'hyperframes');
-  try { const out = execFileSync(fs.existsSync(bin) ? bin : 'npx', fs.existsSync(bin) ? ['check', '--json'] : ['hyperframes', 'check', '--json'], { cwd: DIR, env: { ...process.env, HYPERFRAMES_NO_TELEMETRY: '1', DO_NOT_TRACK: '1' }, stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 }).toString(); hf = JSON.parse(out); }
+  const bin = path.resolve(DIR, '..', 'node_modules', 'hyperframes', 'bin', 'hyperframes.mjs'); // gọi qua node: chạy được cả Windows (không có .bin/hyperframes không đuôi)
+  try { const out = execFileSync(fs.existsSync(bin) ? process.execPath : 'npx', fs.existsSync(bin) ? [bin, 'check', '--json'] : ['hyperframes', 'check', '--json'], { shell: !fs.existsSync(bin) && process.platform === 'win32', cwd: DIR, env: { ...process.env, HYPERFRAMES_NO_TELEMETRY: '1', DO_NOT_TRACK: '1' }, stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 }).toString(); hf = JSON.parse(out); }
   catch (e) { try { hf = JSON.parse(e.stdout?.toString() || ''); } catch (e2) { add('loi', 'hf_check', 'không chạy được hyperframes check: ' + e.message.split('\n')[0]); } }
   if (hf) for (const k of ['lint', 'runtime', 'layout', 'contrast', 'craft', 'audio']) (hf[k]?.findings || []).forEach(x => { if (x.severity === 'error') add('loi', 'hf_' + x.code, x.message.slice(0, 160), x.sourceFile && path.join(DIR, x.sourceFile)); });
 }

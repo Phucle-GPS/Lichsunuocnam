@@ -107,6 +107,7 @@ function banDo(cid, dur, sau, chu) {
     #${p}-khung .bd-nhan{position:absolute;left:0;top:0;font:800 26px 'Be Vietnam Pro';color:#fff;padding:6px 14px;border-radius:6px;background:rgba(15,12,9,.78);white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,.5)}
     #${p}-khung .bd-nhan.bd-ta{border-left:6px solid #c8352b}
     #${p}-khung .bd-nhan.bd-dich{border-left:6px solid #1f5fa8}
+    #${p}-khung .bd-nhan:not(.bd-dia)::after{content:'';position:absolute;left:50%;top:100%;width:2px;margin-left:-1px;height:var(--chan,0px);background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.2))}
     #${p}-khung .bd-nhan.bd-dia{font:700 22px 'Be Vietnam Pro';color:#2b2118;background:rgba(244,234,211,.88);padding:3px 10px;box-shadow:none}
     #${p}-vien{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(0,0,0,.5))}
     #${p}-the{position:absolute;left:90px;top:80px;font:700 30px 'Oswald VN';letter-spacing:.25em;color:#e9d9b4;text-shadow:0 2px 10px #000}
@@ -180,10 +181,17 @@ const CANH = [['mo-dau', khoi(0)], ['nhan-vat', khoi(1)], ['ban-do', khoi(2, 4)]
 const CAT = CANH.slice(1).map(([, k]) => k.start);
 const muc = (k, t) => {   // vệt mực bắn: các đốm loang có răng cưa (hạt giống cố định)
   let seed = 1234 + k * 97; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const blob = (cx, cy, r) => { const n = 22; let d = ''; for (let i = 0; i <= n; i++) { const a = i / n * Math.PI * 2, rr = r * (.72 + R() * .5); d += (i ? 'L' : 'M') + (cx + Math.cos(a) * rr).toFixed(1) + ' ' + (cy + Math.sin(a) * rr).toFixed(1); } return d + 'Z'; };
-  const dots = []; dots.push(blob(960, 540, 1250)); for (let i = 0; i < 14; i++) dots.push(blob(160 + R() * 1600, 120 + R() * 840, 60 + R() * 170));
-  return `    <div id="muc-${k}" class="clip muc" data-start="${r3(t - .55)}" data-duration="1.1" data-track-index="2" style="z-index:${30 + k}" data-layout-ignore>
-      <svg id="muc-${k}-svg" viewBox="0 0 1920 1080" width="1920" height="1080"><g id="muc-${k}-g" fill="#0b0806">${dots.map((d, i) => `<path id="muc-${k}-p${i}" d="${d}"/>`).join('')}</g></svg>
+  // vệt mực trơn: điểm biên ngẫu nhiên (hạt giống cố định) nối bằng đường cong bậc hai qua trung điểm → mép mềm, không răng cưa
+  const blob = (cx, cy, r, n = 28, gai = .32) => { const p = []; for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2, rr = r * (1 - gai / 2 + R() * gai); p.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]); }
+    const mid = i => [(p[i][0] + p[(i + 1) % n][0]) / 2, (p[i][1] + p[(i + 1) % n][1]) / 2], f = v => v.toFixed(1); let d = `M${f(mid(n - 1)[0])} ${f(mid(n - 1)[1])}`;
+    for (let i = 0; i < n; i++) { const m = mid(i); d += `Q${f(p[i][0])} ${f(p[i][1])} ${f(m[0])} ${f(m[1])}`; } return d + 'Z'; };
+  const cx = 760 + R() * 400, cy = 400 + R() * 280, giot = [];
+  for (let i = 0; i < 16; i++) { const a = R() * Math.PI * 2, d = 380 + R() * 620; giot.push([cx + Math.cos(a) * d, cy + Math.sin(a) * d * .7, 30 + R() * 110]); }
+  return `    <div id="muc-${k}" class="clip muc" data-start="${r3(t - .7)}" data-duration="1.45" data-track-index="2" style="z-index:${30 + k}" data-layout-ignore>
+      <svg id="muc-${k}-svg" viewBox="0 0 1920 1080" width="1920" height="1080"><g id="muc-${k}-g" fill="#0b0806">
+        <path id="muc-${k}-loi" d="${blob(cx, cy, 1750, 36, .2)}" style="transform-origin:${cx.toFixed(0)}px ${cy.toFixed(0)}px"/>
+${giot.map(([x, y, r], i) => `        <path id="muc-${k}-giot${i}" class="muc-${k}-giot" d="${blob(x, y, r, 14, .45)}" style="transform-origin:${x.toFixed(0)}px ${y.toFixed(0)}px"/>`).join('\n')}
+      </g></svg>
     </div>`;
 };
 const index = `<!doctype html>
@@ -211,8 +219,10 @@ ${vd.map((d, i) => `    <audio id="giong-${String(i + 1).padStart(2, '0')}" clas
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-${CAT.map((t, k) => `    tl.fromTo("#muc-${k}-g", { scale: 0, transformOrigin: "50% 50%", rotation: -8 }, { scale: 1, rotation: 0, duration: .5, ease: "power3.in" }, ${r3(t - .55)});
-    tl.to("#muc-${k}-g", { scale: 1.6, opacity: 0, duration: .55, ease: "power2.out" }, ${r3(t - .02)});`).join('\n')}
+${CAT.map((t, k) => `    tl.fromTo(".muc-${k}-giot", { scale: 0 }, { scale: 1, duration: .35, ease: "back.out(2)", stagger: .015 }, ${r3(t - .7)});
+    tl.fromTo("#muc-${k}-loi", { scale: 0 }, { scale: 1, duration: .62, ease: "power2.in" }, ${r3(t - .66)});
+    tl.fromTo("#muc-${k}-g", { opacity: 1 }, { opacity: 0, duration: .7, ease: "sine.inOut" }, ${r3(t + .02)});
+    tl.fromTo("#muc-${k}-loi", { scale: 1 }, { scale: 1.25, duration: .7, ease: "sine.out", immediateRender: false }, ${r3(t + .02)});`).join('\n')}
     window.__timelines["main"] = tl;
   </script>
 </body>

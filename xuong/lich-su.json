@@ -15,13 +15,18 @@
   },
   {
    "ten": "🎞 PHIM BẢN ĐỒ CHIẾN DỊCH (HyperFrames) – làm từng trận, 1 tập mẫu trước",
-   "lenh": "node tools/hf-tap.mjs <id-trận> && node tools/kiem-phim.mjs hyperframes/<id-trận> --hf && cd hyperframes/<id-trận> && ../node_modules/.bin/hyperframes render -o ../<id-trận>.mp4",
-   "mo_ta": "Bản đồ 3D địa hình thật làm xương sống: tướng, cờ, lính, ngựa phi, mũi tên tiến quân, lửa và đất cháy ở lại sau trận; xen ảnh tư liệu; chuyển cảnh mực bắn; giọng Manus + phụ đề + nhạc Hùng ca. Cần maps/<id>/kich-ban-ban-do.json. Skill ban-do-chien-dich."
+   "lenh": "node tools/hf-tap.mjs <id-trận> && node tools/kiem-phim.mjs hyperframes/<id-trận> --hf && cd hyperframes/<id-trận> && node ../node_modules/hyperframes/bin/hyperframes.mjs render -o ../<id-trận>.mp4 && cd ../.. && node tools/kiem-muot.mjs <id-trận> --ban-xem",
+   "mo_ta": "Bản đồ 3D địa hình thật làm xương sống: tướng, lính, kỵ binh là mô hình 3D có khớp (ngựa phi, lính bước, cờ vải bay, bóng đổ), mũi tên tiến quân, lửa + khói và đất cháy ở lại sau trận; máy quay bay mượt (spline); xen ảnh tư liệu; chuyển cảnh mực bắn; giọng Manus + phụ đề + nhạc Hùng ca. Cần maps/<id>/kich-ban-ban-do.json (mẫu chi-lang-1427). Lần đầu: cd hyperframes && npm install; cd tools && npm install && npx playwright install chromium. Skill ban-do-chien-dich."
   },
   {
    "ten": "🔎 TỰ KIỂM PHIM (clip thiếu, tư liệu lặp, đường dẫn máy)",
    "lenh": "node tools/kiem-phim.mjs hyperframes/<id-trận> --hf",
    "mo_ta": "Báo lỗi trước khi render: file thiếu, cảnh hở (màn đen), cùng ảnh dùng nhiều cảnh hoặc trùng nội dung, đường dẫn máy dựng (/home, C:\\, file://, localhost) hay tài nguyên mạng. --hf chạy thêm hyperframes check."
+  },
+  {
+   "ten": "〰 KIỂM ĐỘ MƯỢT video bản đồ đã render + bản xem nhẹ",
+   "lenh": "node tools/kiem-muot.mjs <id-trận> --ban-xem",
+   "mo_ta": "Đo từng cặp khung: báo chỗ NHẢY (nhãn bật/tắt, máy quay giật) và ĐỨNG (khựng) ngoài vùng cố ý (cắt cảnh, mực bắn, đổi phụ đề). --ban-xem xuất hyperframes/<id>-xem.mp4 720p < 30 MB để xem trên điện thoại/web."
   },
   {
    "ten": "Nạp giọng anh tự làm (mp3/mp4, theo cảnh hoặc cả trận)",
