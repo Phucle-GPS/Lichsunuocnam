@@ -913,7 +913,11 @@
         PTS(['Chiến lược "tiên phát chế nhân" độc đáo', 'Phá hủy căn cứ xâm lược của địch', 'Chuẩn bị thế chủ động cho trận Như Nguyệt'], 'Cuộc tập kích Ung Châu là một trong những trận tiến công táo bạo hiếm có trong lịch sử giữ nước của dân tộc.'),
         END('Ung Châu 1075 – 1076 · Lý Thường Kiệt')] },
 
-    /* 21 */ { id: 'thien-mac-1285', year: '1285', sortKey: 1284.5, name: 'Thiên Mạc 1285', who: 'Trần Bình Trọng', vs: 'Nguyên Mông', seed: 61, series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
+    /* 21 */ { id: 'thien-mac-1285', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/thien-mac-1285/nguon.json
+        { file: "01-ynghia.jpg", slot: "ynghia", caption: "Ngai thờ các vua Trần trong Đền Trần, Nam Định", credit: "Ảnh: Hoangvantoanajc · CC0 · Wikimedia Commons" },
+        { file: "02-ket.jpg", slot: "ket", caption: "Đền Trần ở Nam Định – nơi tưởng nhớ vua tôi nhà Trần", credit: "Ảnh: Hoangvantoanajc · CC0 · Wikimedia Commons" }
+      ],
+      year: '1285', sortKey: 1284.5, name: 'Thiên Mạc 1285', who: 'Trần Bình Trọng', vs: 'Nguyên Mông', seed: 61, series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
       sources: ['Đại Việt sử ký toàn thư', 'An Nam chí lược'], hook: 'THÀ LÀM QUỶ NƯỚC NAM', hookQ: 'AI ĐÃ NÓI "THÀ LÀM QUỶ NƯỚC NAM"?',
       scenes: [
         T('THIÊN MẠC', 'TRẬN BÃI THIÊN MẠC NĂM 1285', 'TRẦN BÌNH TRỌNG CHẶN GIẶC CHO VUA RÚT LUI', 'KHÍ TIẾT', { ships: 3, say: 'Đầu năm 1285, khi quân Nguyên ồ ạt tràn xuống, tướng Trần Bình Trọng đã chiến đấu đến cùng ở bãi Thiên Mạc để bảo vệ cuộc rút lui của triều đình.' }),
