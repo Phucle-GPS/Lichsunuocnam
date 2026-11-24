@@ -1,0 +1,20 @@
+{
+  "id": "chi-lang-1427",
+  "ten": "Chi Lăng – Xương Giang 1427",
+  "ghi_chu": "Vùng bản đồ & tuyến hành quân cho tools/ban-do.mjs. Tọa độ theo vị trí di tích hiện nay, sai số vài trăm mét; Cần Trạm là ước lượng.",
+  "vung": { "tay": 106.05, "dong": 106.86, "nam": 21.22, "bac": 22.02 },
+  "osm": { "song": true, "ho": true, "bien": false, "duong": false, "dia_danh": false },
+  "dia_danh": [
+    { "ten": "Ải Pha Lũy", "lon": 106.708, "lat": 21.972, "trai": true },
+    { "ten": "Lạng Sơn", "lon": 106.761, "lat": 21.853 },
+    { "ten": "Ải Chi Lăng", "lon": 106.577, "lat": 21.667 },
+    { "ten": "Núi Mã Yên", "lon": 106.556, "lat": 21.648, "trai": true },
+    { "ten": "Cần Trạm", "lon": 106.262, "lat": 21.405, "trai": true },
+    { "ten": "Thành Xương Giang", "lon": 106.207, "lat": 21.291, "loai": "thanh" }
+  ],
+  "tuyen": [
+    { "ten": "Liễu Thăng tiến quân", "ben": "dich", "diem": [[106.708, 21.972], [106.761, 21.853], [106.577, 21.667]] },
+    { "ten": "Tàn quân Minh chạy về Xương Giang", "ben": "dich", "diem": [[106.577, 21.667], [106.262, 21.405], [106.207, 21.291]] },
+    { "ten": "Nghĩa quân Lam Sơn lên mai phục ở Chi Lăng", "ben": "ta", "diem": [[106.24, 21.33], [106.50, 21.58], [106.565, 21.655]] }
+  ]
+}
