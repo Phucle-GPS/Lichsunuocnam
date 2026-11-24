@@ -848,14 +848,16 @@ body.render .app{display:none}
   <div class="dlg" style="width:min(760px,100%)">
     <header><h2>NẠP GIỌNG – XƯỞNG FILM LỊCH SỬ VIỆT NAM</h2><button class="ibtn" id="gClose" title="Đóng">✕</button></header>
     <div class="body">
-      <div class="field"><label>Giọng chuẩn của xưởng</label><div class="mfile" id="gStd" style="white-space:normal;height:auto;line-height:1.5;padding:8px 12px">…</div><audio id="gStdAudio" controls preload="none" style="width:100%;margin-top:6px"></audio>
-        <div class="hint">Mọi file nạp vào đều được so với giọng chuẩn này. Đoạn nào khác giọng (cao độ) hoặc đọc lệch lời (tốc độ) sẽ báo đỏ và <b>không nạp</b>.</div></div>
-      <div class="drop" id="gDrop"><b>Kéo thả file giọng vào đây</b> hoặc bấm để chọn (chọn được nhiều file, dung lượng lớn)<br><small>mp3 · mp4 · m4a · wav · ogg · webm · hoặc .zip chứa các file đó. Tên file có mã trận: <b>ha-noi-1882.mp3</b> (cả trận, nghỉ ~2 giây giữa cảnh) hoặc <b>ha-noi-1882_01.mp3</b> (từng cảnh).</small><input type="file" id="gFile" multiple accept="audio/*,video/*,.mp3,.mp4,.m4a,.wav,.ogg,.webm,.zip" hidden></div>
-      <label style="display:flex;gap:10px;align-items:flex-start;margin-top:12px;cursor:pointer;font-size:14px;line-height:1.4"><input type="checkbox" id="gMakeStd" style="margin-top:3px;width:18px;height:18px;flex:none"> <span>Lấy giọng của các file này làm <b>giọng chuẩn</b> cho mọi video sau của xưởng</span></label>
+      <div class="field"><label>Skill giọng đang dùng</label>
+        <div class="btnrow" style="margin:0"><select class="sel" id="gSkill" style="flex:1"></select><button class="btn" id="gSkillAdd" title="Đưa skill giọng của bạn vào app">＋ Thêm skill</button><button class="btn ghost" id="gSkillDel" title="Xóa skill đang chọn">Xóa</button><input type="file" id="gSkillFile" accept=".zip,.skill,.md,.txt,audio/*,video/*,.mp3,.mp4,.m4a,.wav" hidden></div>
+        <div class="mfile" id="gStd" style="display:block;white-space:normal;height:auto;line-height:1.5;padding:8px 12px;margin-top:6px">…</div><audio id="gStdAudio" controls preload="none" style="width:100%;margin-top:6px;display:none"></audio>
+        <details id="gSkillDoc" style="display:none;margin-top:6px"><summary>Xem nội dung skill</summary><pre id="gSkillTxt" style="white-space:pre-wrap;max-height:30vh;overflow:auto;font-size:12px"></pre></details>
+        <div class="hint">Skill do bạn tạo (.zip có SKILL.md, file .md/.txt, hoặc file giọng mẫu mp3/mp4) được lưu trong app. Chọn skill nào thì các trận nạp giọng sau sẽ gắn với skill đó; lần sau mở app chọn lại để làm tiếp.</div></div>
+      <div class="drop" id="gDrop"><b>Kéo thả file giọng vào đây</b> hoặc bấm để chọn (chọn được nhiều file, dung lượng lớn)<br><small>Nhận <b>mọi file MP3, MP4</b> (và m4a, wav, ogg, webm, hoặc .zip chứa các file đó). App <b>gán trận theo tên file</b>: mã trận (<b>ha-noi-1882.mp3</b>) hoặc tên trận (<b>Thành Hà Nội 1882.mp4</b>), có dấu hay không dấu đều được. Mỗi trận một file đọc liền 8 cảnh, hoặc từng cảnh thêm đuôi <b>_01 … _08</b>.</small><input type="file" id="gFile" multiple accept="audio/*,video/*,.mp3,.mp4,.m4a,.wav,.ogg,.webm,.zip" hidden></div>
       <div class="summary" id="gStatus"></div>
       <div id="gRows" style="max-height:46vh;overflow:auto"></div>
       <div class="btnrow" id="gActs" style="display:none"><button class="btn primary" id="gSave">💾 Nạp các trận đạt vào app</button><button class="btn" id="gCancel">Bỏ</button></div>
-      <details style="margin-top:10px"><summary>Giọng đã nạp trong app</summary><div id="gList" class="hint"></div><div class="btnrow"><button class="btn ghost" id="gResetStd">Trả giọng chuẩn về giọng Manus gốc</button></div></details>
+      <details style="margin-top:10px"><summary>Giọng đã nạp trong app</summary><div id="gList" class="hint"></div></details>
     </div>
   </div>
 </div>
@@ -1904,11 +1906,15 @@ body.render .app{display:none}
   async function giongReady() { openGiong(); $('gStatus').textContent = 'App không tự đọc giọng. Nạp file giọng đọc (mp3/mp4/zip) cho từng trận ở đây.'; return false; }
   let gPend = null;
   async function gShowStd() {
-    const s = await NapGiong.standard();
-    $('gStd').innerHTML = `<span>🎙</span><b style="white-space:normal;overflow:visible;text-overflow:clip;max-width:none">${esc(s.ten)}</b>&nbsp;· cao độ ${s.f0} Hz ±${s.dung_sai} · ${s.cmg[0]}–${s.cmg[1]} chữ/giây${s.ngay ? ' · ' + s.ngay : ''}`;
-    const au = $('gStdAudio'); if (s.mauId) { const b = await Xuong.store.getAsset(s.mauId); if (b) au.src = URL.createObjectURL(b); } else au.src = s.mau || 'loi-dan/giong-mau.mp3';
+    const L = NapGiong.skills(), k = NapGiong.activeSkill();
+    $('gSkill').innerHTML = '<option value="">— Giọng Manus (mặc định) —</option>' + L.map(x => `<option value="${x.id}"${k && k.id === x.id ? ' selected' : ''}>${esc(x.ten)}</option>`).join('');
+    $('gSkillDel').style.display = k ? '' : 'none';
+    $('gStd').innerHTML = k ? `<span>🎙</span><b style="white-space:normal">${esc(k.ten)}</b>${k.mota ? ' – ' + esc(k.mota) : ''}<br><small>Tệp gốc: ${esc(k.tep)} · thêm ngày ${k.ngay}</small>` : '<span>🎙</span><b>Giọng Manus</b> – giọng dẫn chuyện mặc định của xưởng';
+    const au = $('gStdAudio'); au.style.display = 'none';
+    if (k && k.mauId) { const bl = await Xuong.store.getAsset(k.mauId); if (bl) { au.src = URL.createObjectURL(bl); au.style.display = ''; } } else if (!k) { au.src = 'loi-dan/giong-mau.mp3'; au.style.display = ''; }
+    $('gSkillDoc').style.display = k && k.noidung ? '' : 'none'; $('gSkillTxt').textContent = k ? k.noidung || '' : '';
     const I = NapGiong.index(), ks = Object.keys(I);
-    $('gList').innerHTML = ks.length ? ks.map(k => { const B = BATTLES.find(x => x.id === k); return `<div>✔ <b>${esc(B ? B.name : k)}</b> – ${I[k].doan.length} đoạn · ${I[k].ngay} <a href="#" data-gdel="${k}">gỡ</a></div>`; }).join('') : 'Chưa nạp trận nào (các trận có giọng Manus gốc dùng bản trong loi-dan/).';
+    $('gList').innerHTML = ks.length ? ks.map(k => { const B = BATTLES.find(x => x.id === k); return `<div>✔ <b>${esc(B ? B.name : k)}</b> – ${I[k].doan.length} đoạn · ${I[k].ngay}${I[k].skill ? ' · skill: ' + esc(I[k].skill) : ''} <a href="#" data-gdel="${k}">gỡ</a></div>`; }).join('') : 'Chưa nạp trận nào (các trận có giọng Manus gốc dùng bản trong loi-dan/).';
     document.querySelectorAll('[data-gdel]').forEach(e => e.onclick = async ev => { ev.preventDefault(); if (!confirm('Gỡ giọng đã nạp của trận này?')) return; await NapGiong.remove(e.dataset.gdel); gShowStd(); buildProjects(); if (P && P.id === e.dataset.gdel) reload(true); });
   }
   async function openGiong() { $('giongModal').classList.add('on'); popIn($('giongModal')); $('gStatus').textContent = ''; gShowStd(); }
@@ -1920,27 +1926,23 @@ body.render .app{display:none}
   $('gDrop').ondrop = e => { e.preventDefault(); $('gDrop').classList.remove('hov'); gHandle([...e.dataTransfer.files]); };
   $('gFile').onchange = e => { gHandle([...e.target.files]); e.target.value = ''; };
   $('gCancel').onclick = () => { gPend = null; $('gRows').innerHTML = ''; $('gActs').style.display = 'none'; $('gStatus').textContent = ''; };
-  $('gResetStd').onclick = async () => { if (!confirm('Trả giọng chuẩn về giọng Manus gốc?')) return; NapGiong.resetStandard(); gShowStd(); };
+  $('gSkill').onchange = e => { NapGiong.setActive(e.target.value); gShowStd(); };
+  $('gSkillAdd').onclick = () => $('gSkillFile').click();
+  $('gSkillFile').onchange = async e => { const f = e.target.files[0]; e.target.value = ''; if (!f) return; try { const k = await NapGiong.addSkill(f); $('gStatus').textContent = '✔ Đã lưu skill "' + k.ten + '" và chọn làm giọng cho các trận sau.'; gShowStd(); } catch (er) { $('gStatus').textContent = '✖ ' + er.message; } };
+  $('gSkillDel').onclick = async () => { const k = NapGiong.activeSkill(); if (!k || !confirm('Xóa skill "' + k.ten + '" khỏi app?')) return; await NapGiong.removeSkill(k.id); gShowStd(); };
   async function gHandle(files) {
-    const st = t => $('gStatus').textContent = t, makeStd = $('gMakeStd').checked;
+    const st = t => $('gStatus').textContent = t;
     try {
       st('⏳ Đang đọc file…'); const list = await NapGiong.expand(files), { G, lost } = NapGiong.group(list, BATTLES);
-      let std = await NapGiong.standard(); const res = [];
-      for (const id of Object.keys(G)) { const b = BATTLES.find(x => x.id === id); const r = await NapGiong.analyzeBattle(b, G[id], makeStd ? { f0: 0, dung_sai: 1e9, cmg: [2.28, 4.12] } : std, st); res.push(Object.assign(r, { b })); }
-      if (makeStd) {   // giọng chuẩn mới = hồ sơ của chính các file này (bỏ đoạn lệch lời)
-        const good = res.flatMap(r => r.rows || []).filter(x => !x.miss && x.wps >= 2 && x.wps <= 4.9);
-        if (!good.length) throw new Error('Không có đoạn hợp lệ để làm giọng chuẩn.');
-        const first = good[0]; std = await NapGiong.setStandard(good.map(x => x.f0), good.map(x => x.wps), 'Giọng nạp ' + new Date().toLocaleDateString('vi-VN') + ' (' + res.length + ' trận)', NapGiong.wav(first.buf, first.a, first.b));
-        for (const r of res) if (r.rows) r.rows.forEach(x => { if (x.miss) return; const why = []; if (Math.abs(x.f0 - std.f0) > std.dung_sai) why.push(`cao độ ${Math.round(x.f0)} Hz (chuẩn ${std.f0}±${std.dung_sai})`); if (x.wps < std.cmg[0] - .3 || x.wps > (x.i === r.b.scenes.length - 1 ? 4.9 : std.cmg[1] + .3)) why.push(`tốc độ ${x.wps.toFixed(1)} chữ/giây – có thể lệch lời`); x.ok = !why.length; x.why = why.join(' · '); });
-        gShowStd();
-      }
+      const res = [];
+      for (const id of Object.keys(G)) { const b = BATTLES.find(x => x.id === id); const r = await NapGiong.analyzeBattle(b, G[id], null, st); res.push(Object.assign(r, { b })); }
       gPend = res;
       $('gRows').innerHTML = lost.map(x => `<div class="summary">⚠ ${esc(x.name)}: ${esc(x.err || '')}</div>`).join('') + res.map((r, k) => {
         if (r.err && !r.rows) return `<div class="summary">✖ <b>${esc(r.b.name)}</b>: ${esc(r.err)}</div>`;
         if (r.err) r.rows.forEach(x => { if (x.ok) { x.ok = false; x.why = 'giọng cả trận khác chuẩn'; } });
         const ok = r.rows.every(x => x.ok);
         return `<div class="summary"><b>${ok ? '✔' : '✖'} ${esc(r.b.name)}</b> – ${ok ? 'đạt, sẽ nạp' : esc(r.err || 'có đoạn lệch, KHÔNG nạp trận này')}<div style="display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;margin-top:4px">` +
-          r.rows.map((x, i) => `<span>${x.ok ? '✔' : '✖'} Cảnh ${i + 1}</span><span class="hint" style="margin:0">${x.miss ? 'thiếu file' : x.d.toFixed(1) + ' giây · ' + Math.round(x.f0) + ' Hz · ' + x.wps.toFixed(1) + ' chữ/giây'}${x.why ? ' – <b>' + esc(x.why) + '</b>' : ''}</span>${x.miss ? '<span></span>' : `<button class="btn" data-gplay="${k}_${i}">▶</button>`}`).join('') + '</div></div>';
+          r.rows.map((x, i) => `<span>${x.ok ? '✔' : '✖'} Cảnh ${i + 1}</span><span class="hint" style="margin:0">${x.miss ? 'thiếu file' : x.d.toFixed(1) + ' giây · ' + x.wps.toFixed(1) + ' chữ/giây'}${x.why ? ' – <b>' + esc(x.why) + '</b>' : ''}</span>${x.miss ? '<span></span>' : `<button class="btn" data-gplay="${k}_${i}">▶</button>`}`).join('') + '</div></div>';
       }).join('');
       document.querySelectorAll('[data-gplay]').forEach(e => e.onclick = () => { const [k, i] = e.dataset.gplay.split('_').map(Number), x = gPend[k].rows[i]; const a = new Audio(URL.createObjectURL(NapGiong.wav(x.buf, x.a, x.b))); a.play(); });
       const n = res.filter(r => r.rows && r.rows.every(x => x.ok)).length;
