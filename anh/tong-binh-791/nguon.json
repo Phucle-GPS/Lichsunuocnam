@@ -1,0 +1,43 @@
+[
+ {
+  "file": "01-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng thờ Phùng Hưng ở quê hương Đường Lâm, Sơn Tây",
+  "credit": "Ảnh: Doãn Hiệu at Vietnamese Wikipedia · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Doãn Hiệu at Vietnamese Wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:TuongPhungHung.jpg",
+  "tep": "File:TuongPhungHung.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "02-moc.jpg",
+  "slot": "moc",
+  "caption": "Lăng Phùng Hưng (Phùng đại vương lăng) ở phố Giảng Võ, Hà Nội",
+  "credit": "Ảnh: Doãn Hiệu · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Doãn Hiệu",
+  "nguon": "https://commons.wikimedia.org/wiki/File:L%C4%83ngPh%C3%B9ngH%C6%B0ng3.jpg",
+  "tep": "File:LăngPhùngHưng3.jpg"
+ },
+ {
+  "file": "03-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Đền thờ Phùng Hưng ở thôn Mông Phụ, Đường Lâm",
+  "credit": "Ảnh: Ngokhong · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Ngokhong (thảo luận)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:DenPhungHung.JPG",
+  "tep": "File:DenPhungHung.JPG"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Chính điện đền Phùng Hưng ở Cam Lâm, Đường Lâm",
+  "credit": "Ảnh: vi:User:Doãn Hiệu · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "vi:User:Doãn Hiệu",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ch%C3%ADnh_%C4%90i%E1%BB%87n_%C4%90%E1%BB%81n_Ph%C3%B9ng_H%C6%B0ng.jpg",
+  "tep": "File:Chính Điện Đền Phùng Hưng.jpg"
+ }
+]

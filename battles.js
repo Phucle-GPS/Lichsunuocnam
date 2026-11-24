@@ -796,7 +796,11 @@
         PTS(['Cách đánh du kích dựa vào địa hình', 'Lấy ít địch nhiều, lấy yếu thắng mạnh', 'Giữ vững độc lập cho nước Vạn Xuân'], 'Đầm Dạ Trạch là một trong những căn cứ du kích sớm nhất trong lịch sử, cho thấy trí tuệ dựa vào thiên nhiên để đánh giặc.'),
         END('Đầm Dạ Trạch · Triệu Quang Phục')] },
 
-    /* 16 */ { id: 'van-an-722', year: '722', name: 'Khởi nghĩa Mai Thúc Loan 722', who: 'Mai Thúc Loan', vs: 'nhà Đường', seed: 56, series: BAC,
+    /* 16 */ { id: 'van-an-722', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/van-an-722/nguon.json
+        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng đài Mai Hắc Đế", credit: "Ảnh: Bảo bảo 123456789 · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "02-ket.jpg", slot: "ket", caption: "Cổng một đền thờ Mai Hắc Đế", credit: "Ảnh: Vuong Tri Binh · CC BY-SA 4.0 · Wikimedia Commons" }
+      ],
+      year: '722', name: 'Khởi nghĩa Mai Thúc Loan 722', who: 'Mai Thúc Loan', vs: 'nhà Đường', seed: 56, series: BAC,
       sources: ['Đại Việt sử ký toàn thư', 'Cựu Đường thư', 'Tân Đường thư'], hook: 'MAI HẮC ĐẾ ĐÁNH CHIẾM TỐNG BÌNH', hookQ: 'NGƯỜI GÁNH MUỐI NÀO TRỞ THÀNH HOÀNG ĐẾ?',
       scenes: [
         T('MAI HẮC ĐẾ', 'KHỞI NGHĨA HOAN CHÂU NĂM 722', 'ĐÁNH CHIẾM PHỦ THÀNH TỐNG BÌNH', 'NỔI DẬY', { say: 'Năm 722, từ đất Hoan Châu, Mai Thúc Loan dựng cờ khởi nghĩa chống nhà Đường. Tương truyền, ông kêu gọi những người phu gánh vải quả cống nộp cùng nổi dậy.' }),
@@ -814,7 +818,13 @@
         PTS(['Từ người lao động nghèo trở thành thủ lĩnh', 'Đánh chiếm trung tâm đô hộ của nhà Đường', 'Đền thờ Mai Hắc Đế ở Nam Đàn, Nghệ An'], 'Mai Hắc Đế được nhân dân Nghệ An tôn thờ, cuộc khởi nghĩa là minh chứng cho sức mạnh của những người lao động bị áp bức.'),
         END('Mai Hắc Đế · năm 722')] },
 
-    /* 17 */ { id: 'tong-binh-791', year: '791', name: 'Khởi nghĩa Phùng Hưng 791', who: 'Phùng Hưng', vs: 'nhà Đường', seed: 57, series: BAC,
+    /* 17 */ { id: 'tong-binh-791', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/tong-binh-791/nguon.json
+        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng thờ Phùng Hưng ở quê hương Đường Lâm, Sơn Tây", credit: "Ảnh: Doãn Hiệu at Vietnamese Wikipedia · CC BY 3.0 · Wikimedia Commons" },
+        { file: "02-moc.jpg", slot: "moc", caption: "Lăng Phùng Hưng (Phùng đại vương lăng) ở phố Giảng Võ, Hà Nội", credit: "Ảnh: Doãn Hiệu · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "03-ynghia.jpg", slot: "ynghia", caption: "Đền thờ Phùng Hưng ở thôn Mông Phụ, Đường Lâm", credit: "Ảnh: Ngokhong · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "04-ket.jpg", slot: "ket", caption: "Chính điện đền Phùng Hưng ở Cam Lâm, Đường Lâm", credit: "Ảnh: vi:User:Doãn Hiệu · CC BY 3.0 · Wikimedia Commons" }
+      ],
+      year: '791', name: 'Khởi nghĩa Phùng Hưng 791', who: 'Phùng Hưng', vs: 'nhà Đường', seed: 57, series: BAC,
       sources: ['Đại Việt sử ký toàn thư', 'Việt điện u linh', 'Tân Đường thư'], hook: 'BỐ CÁI ĐẠI VƯƠNG GIẢI PHÓNG TỐNG BÌNH', hookQ: 'VÌ SAO NHÂN DÂN TÔN PHÙNG HƯNG LÀ BỐ CÁI?',
       scenes: [
         T('PHÙNG HƯNG', 'KHỞI NGHĨA ĐƯỜNG LÂM NĂM 791', 'VÂY THÀNH TỐNG BÌNH, ĐUỔI CAO CHÍNH BÌNH', 'BỐ CÁI ĐẠI VƯƠNG', { say: 'Cuối thế kỷ tám, từ đất Đường Lâm, Phùng Hưng cùng em là Phùng Hải dấy binh chống chính sách vơ vét của nhà Đường.' }),

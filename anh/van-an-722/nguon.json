@@ -1,0 +1,23 @@
+[
+ {
+  "file": "01-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng đài Mai Hắc Đế",
+  "credit": "Ảnh: Bảo bảo 123456789 · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Bảo bảo 123456789",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Mai_h%E1%BA%AFc_%C4%91%E1%BA%BF.png",
+  "tep": "Tập tin:Mai hắc đế.png",
+  "fit": "contain"
+ },
+ {
+  "file": "02-ket.jpg",
+  "slot": "ket",
+  "caption": "Cổng một đền thờ Mai Hắc Đế",
+  "credit": "Ảnh: Vuong Tri Binh · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Vuong Tri Binh",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Mai_Hac_De_temple_gate_in_2014.jpg",
+  "tep": "File:Mai Hac De temple gate in 2014.jpg"
+ }
+]
