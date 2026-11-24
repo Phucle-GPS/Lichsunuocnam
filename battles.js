@@ -480,7 +480,7 @@
       id: 'dong-da-1789', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/dong-da-1789/nguon.json
         { file: "01-hook.jpg", slot: "hook", caption: "Tranh cung đình nhà Thanh vẽ trận đánh bên sông Thọ Xương năm 1789", credit: "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons" },
         { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng vua Quang Trung – Bảo tàng Quang Trung, Bình Định", credit: "Ảnh: thành viên Wikipedia · CC BY-SA 3.0 · Wikimedia Commons" },
-        { file: "03-map.jpg", slot: "map", fit: 'contain', caption: "Cục diện Đại Việt cuối thế kỷ XVIII", credit: "Ảnh: A (thảo luận · đóng góp) · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "03-map.jpg", slot: "map", fit: 'contain', caption: "Cục diện Đại Việt cuối thế kỷ XVIII", credit: "Ảnh: thành viên Wikipedia · CC BY-SA 4.0 · Wikimedia Commons" },
         { file: "04-dienbien.jpg", slot: "dienbien", caption: "Gươm và súng của quân Tây Sơn", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY 3.0 · Wikimedia Commons" },
         { file: "05-moc.jpg", slot: "moc", caption: "Gò Đống Đa, Hà Nội – nơi ghi dấu chiến thắng Kỷ Dậu 1789", credit: "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons" },
         { file: "06-ynghia.jpg", slot: "ynghia", fit: 'contain', caption: "Tượng đài Hoàng đế Quang Trung tại quê hương Tây Sơn, Bình Định", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 4.0 · Wikimedia Commons" },
