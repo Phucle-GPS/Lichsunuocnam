@@ -751,7 +751,12 @@
         PTS(['Tiếp nối ngọn lửa của Hai Bà Trưng', 'Khí phách bất khuất của phụ nữ Việt', 'Lăng mộ và đền thờ ở Hậu Lộc, Thanh Hóa'], 'Khởi nghĩa Bà Triệu tuy thất bại nhưng khiến chính quyền đô hộ phải dè chừng, và để lại tấm gương sáng ngời cho muôn đời sau.'),
         END('Khởi nghĩa Bà Triệu · năm 248')] },
 
-    /* 14 */ { id: 'van-xuan-542', year: '542', name: 'Khởi nghĩa Lý Bí 542', who: 'Lý Bí', vs: 'nhà Lương', seed: 54, series: BAC,
+    /* 14 */ { id: 'van-xuan-542', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/van-xuan-542/nguon.json
+        { file: "01-hero.jpg", slot: "hero", caption: "Tranh thờ vua Lý Nam Đế và hoàng hậu (thế kỷ XVIII, Thái Bình)", credit: "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons" },
+        { file: "02-map.jpg", slot: "map", fit: 'contain', caption: "Nhà Lương (màu hồng) và các nước phương Bắc giữa thế kỷ VI", credit: "Ảnh: thành viên Wikipedia · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "03-ket.jpg", slot: "ket", caption: "Chùa Trấn Quốc, Hà Nội – tương truyền dựng từ thời Lý Nam Đế với tên Khai Quốc", credit: "Ảnh: shankar s. · CC BY 2.0 · Wikimedia Commons" }
+      ],
+      year: '542', name: 'Khởi nghĩa Lý Bí 542', who: 'Lý Bí', vs: 'nhà Lương', seed: 54, series: BAC,
       sources: ['Đại Việt sử ký toàn thư', 'Lương thư', 'Khâm định Việt sử thông giám cương mục'], hook: 'NHÀ NƯỚC VẠN XUÂN RA ĐỜI', hookQ: 'AI LÀ NGƯỜI ĐẦU TIÊN XƯNG ĐẾ CỦA NƯỚC VIỆT?',
       scenes: [
         T('VẠN XUÂN', 'KHỞI NGHĨA LÝ BÍ 542 – 544', 'ĐÁNH ĐUỔI QUÂN LƯƠNG, DỰNG NƯỚC VẠN XUÂN', 'NAM VIỆT ĐẾ', { say: 'Năm 542, Lý Bí khởi nghĩa đánh đuổi chính quyền đô hộ nhà Lương, hai năm sau lên ngôi hoàng đế, đặt tên nước là Vạn Xuân.' }),
@@ -769,7 +774,11 @@
         PTS(['Lần đầu tiên người Việt xưng đế, đặt quốc hiệu', 'Quốc hiệu Vạn Xuân – mong nước muôn đời bền vững', 'Khẳng định ý thức độc lập, tự chủ'], 'Việc xưng đế, đặt quốc hiệu Vạn Xuân khẳng định người Việt có giang sơn riêng, ngang hàng với phương Bắc.'),
         END('Khởi nghĩa Lý Bí · 542 – 544')] },
 
-    /* 15 */ { id: 'da-trach-550', year: '550', name: 'Đầm Dạ Trạch 550', who: 'Triệu Quang Phục', vs: 'nhà Lương', seed: 55, series: BAC,
+    /* 15 */ { id: 'da-trach-550', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/da-trach-550/nguon.json
+        { file: "01-ynghia.jpg", slot: "ynghia", caption: "Khuôn viên đền thờ Triệu Việt Vương ở Hưng Yên", credit: "Ảnh: Wkpd.donhat89 · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "02-ket.jpg", slot: "ket", caption: "Cổng đền thờ Triệu Việt Vương ở Hưng Yên", credit: "Ảnh: Wkpd.donhat89 · CC BY-SA 4.0 · Wikimedia Commons" }
+      ],
+      year: '550', name: 'Đầm Dạ Trạch 550', who: 'Triệu Quang Phục', vs: 'nhà Lương', seed: 55, series: BAC,
       sources: ['Đại Việt sử ký toàn thư', 'Khâm định Việt sử thông giám cương mục'], hook: 'ĐẦM LẦY THÀNH MỒ CHÔN GIẶC', hookQ: 'VÌ SAO QUÂN LƯƠNG KHÔNG THỂ VÀO ĐẦM DẠ TRẠCH?',
       scenes: [
         T('DẠ TRẠCH', 'CĂN CỨ ĐẦM DẠ TRẠCH 546 – 550', 'TRIỆU QUANG PHỤC GIỮ NƯỚC VẠN XUÂN', 'DẠ TRẠCH VƯƠNG', { ships: 3, say: 'Giữa vùng đầm lầy mênh mông bên sông Hồng, Triệu Quang Phục đã dùng lối đánh du kích, bảo vệ nền độc lập của nước Vạn Xuân.' }),

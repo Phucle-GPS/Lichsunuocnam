@@ -1,0 +1,33 @@
+[
+ {
+  "file": "01-hero.jpg",
+  "slot": "hero",
+  "caption": "Tranh thờ vua Lý Nam Đế và hoàng hậu (thế kỷ XVIII, Thái Bình)",
+  "credit": "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Original artists Unknown authorUnknown author",
+  "nguon": "https://commons.wikimedia.org/wiki/File:King_Ly_Nam_De_and_the_Queen,_Thai_Binh_province,_18th_century_AD,_varnished_wood_-_Vietnam_National_Museum_of_Fine_Arts_-_Hanoi,_Vietnam_-_DSC05092.JPG",
+  "tep": "File:King Ly Nam De and the Queen, Thai Binh province, 18th century AD, varnished wood - Vietnam National Museum of Fine Arts - Hanoi, Vietnam - DSC05092.JPG"
+ },
+ {
+  "file": "02-map.jpg",
+  "slot": "map",
+  "caption": "Nhà Lương (màu hồng) và các nước phương Bắc giữa thế kỷ VI",
+  "credit": "Ảnh: thành viên Wikipedia · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "The original uploader was 俊武 tại Wikipedia Tiếng Nhật.",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E9%AD%8F%EF%BD%A5%E6%9D%B1%E9%AD%8F%EF%BD%A5%E6%A2%81.PNG",
+  "tep": "Tập tin:西魏･東魏･梁.PNG",
+  "fit": "contain"
+ },
+ {
+  "file": "03-ket.jpg",
+  "slot": "ket",
+  "caption": "Chùa Trấn Quốc, Hà Nội – tương truyền dựng từ thời Lý Nam Đế với tên Khai Quốc",
+  "credit": "Ảnh: shankar s. · CC BY 2.0 · Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "artist": "shankar s. from Dubai, united arab emirates",
+  "nguon": "https://commons.wikimedia.org/wiki/File:An_impressive_arch_leads_up_to_the_temple_(31417104356).jpg",
+  "tep": "File:An impressive arch leads up to the temple (31417104356).jpg"
+ }
+]
