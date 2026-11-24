@@ -948,7 +948,12 @@
         PTS(['Tấm gương trung nghĩa bất khuất', 'Bảo vệ an toàn cho triều đình rút lui', 'Góp phần vào thắng lợi năm 1285'], 'Chỉ vài tháng sau, quân dân nhà Trần phản công, thắng lớn ở Hàm Tử, Chương Dương, Tây Kết, đuổi quân Nguyên về nước.'),
         END('Thiên Mạc 1285 · Trần Bình Trọng')] },
 
-    /* 22 */ { id: 'hai-trieu-1390', year: '1390', name: 'Hải Triều 1390', who: 'Trần Khát Chân', vs: 'Chiêm Thành', seed: 62, series: 'SỬ VIỆT · NHÀ TRẦN',
+    /* 22 */ { id: 'hai-trieu-1390', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/hai-trieu-1390/nguon.json
+        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Sắc phong thời vua Thành Thái truy phong Trần Khát Chân", credit: "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons" },
+        { file: "02-map.jpg", slot: "map", fit: 'contain', caption: "Đông Nam Á khoảng năm 1300: Đại Việt và Chăm-pa", credit: "Ảnh: Javierfv1212 · CC0 · Wikimedia Commons" },
+        { file: "03-moc.jpg", slot: "moc", fit: 'contain', caption: "Tượng thần Shiva phong cách Tháp Mẫm (thế kỷ XIII – XIV) – nghệ thuật Chăm-pa cùng thời", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" }
+      ],
+      year: '1390', name: 'Hải Triều 1390', who: 'Trần Khát Chân', vs: 'Chiêm Thành', seed: 62, series: 'SỬ VIỆT · NHÀ TRẦN',
       sources: ['Đại Việt sử ký toàn thư', 'Khâm định Việt sử thông giám cương mục'], hook: 'HỎA KHÍ HẠ CHẾ BỒNG NGA', hookQ: 'LOẠT HỎA KHÍ NÀO CHẤM DỨT NHỮNG CUỘC TẤN CÔNG VÀO THĂNG LONG?',
       scenes: [
         T('HẢI TRIỀU', 'TRẬN SÔNG HẢI TRIỀU NĂM 1390', 'CHẤM DỨT NHỮNG CUỘC TẤN CÔNG VÀO THĂNG LONG', 'BẢO VỆ KINH THÀNH', { ships: 6, say: 'Cuối thế kỷ mười bốn, kinh thành Thăng Long nhiều lần bị tấn công. Năm 1390, trên sông Hải Triều, tướng Trần Khát Chân đã chấm dứt mối đe dọa ấy.' }),

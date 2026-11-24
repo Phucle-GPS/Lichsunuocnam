@@ -1,0 +1,35 @@
+[
+ {
+  "file": "01-hero.jpg",
+  "slot": "hero",
+  "caption": "Sắc phong thời vua Thành Thái truy phong Trần Khát Chân",
+  "credit": "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "The imperial government of the Nguyễn Dynasty, French Indo-China.",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Th%C3%A0nh_Th%C3%A1i_(%E6%88%90%E6%B3%B0)_period_S%E1%BA%AFc_phong_(%E6%95%95%E5%B0%81)_of_Tr%E1%BA%A7n_Kh%C3%A1t_Ch%C3%A2n_(%E9%99%B3%E6%B8%B4%E7%9C%9F)_01.png",
+  "tep": "File:Thành Thái (成泰) period Sắc phong (敕封) of Trần Khát Chân (陳渴真) 01.png",
+  "fit": "contain"
+ },
+ {
+  "file": "02-map.jpg",
+  "slot": "map",
+  "caption": "Đông Nam Á khoảng năm 1300: Đại Việt và Chăm-pa",
+  "credit": "Ảnh: Javierfv1212 · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Javierfv1212",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Map-of-southeast-asia_1300_CE.png",
+  "tep": "File:Map-of-southeast-asia 1300 CE.png",
+  "fit": "contain"
+ },
+ {
+  "file": "03-moc.jpg",
+  "slot": "moc",
+  "caption": "Tượng thần Shiva phong cách Tháp Mẫm (thế kỷ XIII – XIV) – nghệ thuật Chăm-pa cùng thời",
+  "credit": "Ảnh: Daderot · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Daderot",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Shiva,_Thap_Mam,_13th-14th_century,_Binh_Dinh_-_Museum_of_Cham_Sculpture_-_Danang,_Vietnam_-_DSC01425.JPG",
+  "tep": "File:Shiva, Thap Mam, 13th-14th century, Binh Dinh - Museum of Cham Sculpture - Danang, Vietnam - DSC01425.JPG",
+  "fit": "contain"
+ }
+]
