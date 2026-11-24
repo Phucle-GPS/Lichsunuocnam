@@ -1,0 +1,82 @@
+[
+ {
+  "file": "01-tranh-dong-ho.jpg",
+  "slot": "hook",
+  "caption": "Tranh dân gian Đông Hồ: Ngô Quyền đại phá quân Nam Hán trên sông Bạch Đằng",
+  "credit": "Ảnh: Nghệ nhân làng Đông Hồ (khuyết danh) · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Nghệ nhân làng Đông Hồ (khuyết danh)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ng%C3%B4_Quy%E1%BB%81n_%C4%91%E1%BA%A1i_ph%C3%A1_qu%C3%A2n_Nam_H%C3%A1n_tr%C3%AAn_s%C3%B4ng_B%E1%BA%A1ch_%C4%90%E1%BA%B1ng.jpg",
+  "tep": "Tập tin:Ngô Quyền đại phá quân Nam Hán trên sông Bạch Đằng.jpg"
+ },
+ {
+  "file": "f-tuong.jpg",
+  "slot": "hero",
+  "fit": "contain",
+  "caption": "Tượng bán thân Ngô Quyền",
+  "credit": "Ảnh: Gary Lee Todd · CC0 · Flickr",
+  "license": "CC0 1.0",
+  "artist": "Gary Lee Todd, Ph.D.",
+  "nguon": "https://www.flickr.com/photos/101561334@N08/9732108093"
+ },
+ {
+  "file": "03-cua-song.jpg",
+  "slot": "map",
+  "caption": "Sông Bạch Đằng đoạn gần cửa biển ngày nay",
+  "credit": "Ảnh: Viethavvh (vi.wikipedia) · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Viethavvh (vi.wikipedia)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Cua_song_Bach_Dang.JPG",
+  "tep": "Tập tin:Cua song Bach Dang.JPG"
+ },
+ {
+  "file": "04-tranh-ghep.jpg",
+  "slot": "dienbien",
+  "caption": "Tranh ghép tái hiện trận Bạch Đằng năm 938",
+  "credit": "Ảnh: thành viên Wikipedia tiếng Việt · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Kinh nghiệm - bán không ai mua, mua không ai bán (thảo luận)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A1ch_%C4%90%E1%BA%B1ng_Giang_chi_chi%E1%BA%BFn_(938).jpg",
+  "tep": "Tập tin:Bạch Đằng Giang chi chiến (938).jpg"
+ },
+ {
+  "file": "f-coc.jpg",
+  "slot": "dienbien2",
+  "fit": "contain",
+  "caption": "Cọc gỗ trận Bạch Đằng 1288 – kế cọc ngầm Ngô Quyền dùng đầu tiên năm 938",
+  "credit": "Ảnh: Gary Lee Todd · CC0 · Flickr",
+  "license": "CC0 1.0",
+  "artist": "Gary Lee Todd, Ph.D.",
+  "nguon": "https://www.flickr.com/photos/101561334@N08 (Wood Stakes Used to Destroy Mongol Fleet at Bach Dang, 1288)"
+ },
+ {
+  "file": "06-phu-dieu.jpg",
+  "slot": "moc",
+  "caption": "Phù điêu: Ngô Quyền đại phá quân Nam Hán",
+  "credit": "Ảnh: thành viên Wikipedia tiếng Việt · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Đói ăn - khát uống - có bệnh chữa - sai sửa (thảo luận)",
+  "nguon": "https://vi.wikipedia.org/wiki/T%E1%BA%ADp_tin:Ng%C3%B4_Quy%E1%BB%81n_%C4%91%E1%BA%A1i_ph%C3%A1_qu%C3%A2n_Nam_H%C3%A1n.jpg",
+  "tep": "Tập tin:Ngô Quyền đại phá quân Nam Hán.jpg"
+ },
+ {
+  "file": "07-den-tho.jpg",
+  "slot": "ynghia",
+  "caption": "Đền thờ Ngô Quyền ở làng cổ Đường Lâm, Hà Nội",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_th%E1%BB%9D_Ng%C3%B4_Quy%E1%BB%81n_2.jpg",
+  "tep": "Tập tin:Đền thờ Ngô Quyền 2.jpg"
+ },
+ {
+  "file": "08-lang.jpg",
+  "slot": "ket",
+  "caption": "Lăng Ngô Quyền ở Đường Lâm – nơi hậu thế tưởng nhớ vị vua mở nền độc lập",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_Ng%C3%B4_Quy%E1%BB%81n.jpg",
+  "tep": "Tập tin:Lăng Ngô Quyền.jpg"
+ }
+]

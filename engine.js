@@ -644,14 +644,16 @@
 
   /* ----- Thẻ nội dung (dự án tự tạo): nền theo phong cách + ảnh/video + tiêu đề + câu nổi bật ----- */
   SCENES.card = function (sc, B) {
-    const root = h('div', { class: 'sc sc-card' });
+    const root = h('div', { class: 'sc sc-card' + (sc.credit ? ' doc' + (sc.heading ? ' doc-h' : '') : '') });
     const bg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'bgsvg', preserveAspectRatio: 'xMidYMid slice' }, root);
     const bgu = styleBG(bg, B.style, (B.seed || 7) + sc._i * 13, { ships: 2 });
     let media = null;
+    // ảnh dọc (fit:'contain'): nền là chính ảnh đó phóng to + làm mờ, ảnh thật nằm giữa không bị cắt
+    const blur = sc.media && sc.media.url && sc.full && sc.fit === 'contain' && sc.media.kind !== 'video' ? h('img', { class: 'card-media full doc-blur', src: sc.media.url }, root) : null;
     if (sc.media && sc.media.url) {
       media = sc.media.kind === 'video'
         ? h('video', { class: 'card-media' + (sc.full ? ' full' : ''), src: sc.media.url, muted: '', playsinline: '', preload: 'auto' }, root)
-        : h('img', { class: 'card-media' + (sc.full ? ' full' : ''), src: sc.media.url }, root);
+        : h('img', { class: 'card-media' + (sc.full ? ' full' : '') + (blur ? ' doc-fit' : ''), src: sc.media.url }, root);
       if (media.tagName === 'VIDEO') media.muted = true;
     }
     h('div', { class: 'shade card-shade' + (media ? ' has-media' : '') + (media && sc.full ? ' full' : '') }, root);
@@ -673,6 +675,7 @@
         if (media) {
           media.style.transform = sc.full && media.tagName === 'VIDEO' ? '' : `scale(${1.04 + t / d * .1}) translate(${-t * 3}px,${-t * 1.5}px)`;
           media.style.opacity = eout(ramp(t, 0, .6));
+          if (blur) { blur.style.opacity = media.style.opacity; blur.style.transform = `scale(${1.15 + t / d * .05})`; }
           if (media.tagName === 'VIDEO' && media.readyState >= 1 && media.duration) {
             const want = t % media.duration;
             if (Math.abs(media.currentTime - want) > .3) media.currentTime = want;

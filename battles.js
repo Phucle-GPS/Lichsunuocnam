@@ -46,7 +46,17 @@
   window.BATTLES = [
     /* =================================================================== */
     {
-      id: 'bach-dang-938', year: '938', name: 'Bạch Đằng 938', who: 'Ngô Quyền', vs: 'Nam Hán', seed: 3, sources: ['Đại Việt sử ký toàn thư', 'Wikipedia – Trận Bạch Đằng (938)', 'Báo Nhân Dân', 'Báo Giáo dục Việt Nam'],
+      id: 'bach-dang-938', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/bach-dang-938/nguon.json
+        { file: "01-tranh-dong-ho.jpg", slot: "hook", caption: "Tranh dân gian Đông Hồ: Ngô Quyền đại phá quân Nam Hán trên sông Bạch Đằng", credit: "Ảnh: Nghệ nhân làng Đông Hồ (khuyết danh) · Public domain · Wikimedia Commons" },
+        { file: "f-tuong.jpg", slot: "hero", fit: 'contain', caption: "Tượng bán thân Ngô Quyền", credit: "Ảnh: Gary Lee Todd · CC0 · Flickr" },
+        { file: "03-cua-song.jpg", slot: "map", caption: "Sông Bạch Đằng đoạn gần cửa biển ngày nay", credit: "Ảnh: Viethavvh (vi.wikipedia) · Public domain · Wikimedia Commons" },
+        { file: "04-tranh-ghep.jpg", slot: "dienbien", caption: "Tranh ghép tái hiện trận Bạch Đằng năm 938", credit: "Ảnh: thành viên Wikipedia tiếng Việt · Public domain · Wikimedia Commons" },
+        { file: "f-coc.jpg", slot: "dienbien2", fit: 'contain', caption: "Cọc gỗ trận Bạch Đằng 1288 – kế cọc ngầm Ngô Quyền dùng đầu tiên năm 938", credit: "Ảnh: Gary Lee Todd · CC0 · Flickr" },
+        { file: "06-phu-dieu.jpg", slot: "moc", caption: "Phù điêu: Ngô Quyền đại phá quân Nam Hán", credit: "Ảnh: thành viên Wikipedia tiếng Việt · CC0 · Wikimedia Commons" },
+        { file: "07-den-tho.jpg", slot: "ynghia", caption: "Đền thờ Ngô Quyền ở làng cổ Đường Lâm, Hà Nội", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "08-lang.jpg", slot: "ket", caption: "Lăng Ngô Quyền ở Đường Lâm – nơi hậu thế tưởng nhớ vị vua mở nền độc lập", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" }
+      ],
+      year: '938', name: 'Bạch Đằng 938', who: 'Ngô Quyền', vs: 'Nam Hán', seed: 3, sources: ['Đại Việt sử ký toàn thư', 'Wikipedia – Trận Bạch Đằng (938)', 'Báo Nhân Dân', 'Báo Giáo dục Việt Nam'],
       scenes: [
         { type: 'title', title: 'BẠCH ĐẰNG', sub: 'TRẬN THỦY CHIẾN NĂM 938', line: 'NGÔ QUYỀN · KẾT THÚC HƠN MỘT NGHÌN NĂM BẮC THUỘC', stamp: 'CHIẾN THẮNG LỊCH SỬ', stakes: 1,
           say: 'Năm 938, trên dòng sông Bạch Đằng, quân dân ta dưới sự chỉ huy của Ngô Quyền đã đánh tan đạo thủy quân Nam Hán, mở ra kỷ nguyên độc lập lâu dài cho dân tộc.' },
