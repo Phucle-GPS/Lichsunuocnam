@@ -140,7 +140,12 @@
 
     /* ======================= HƯNG ĐẠO VƯƠNG & BA LẦN KHÁNG CHIẾN CHỐNG NGUYÊN MÔNG ======================= */
     {
-      id: 'dong-bo-dau-1258', year: '1258', name: 'Đông Bộ Đầu 1258', who: 'Trần Thái Tông', vs: 'Mông Cổ', seed: 31, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Báo Giáo dục Việt Nam', 'Wikipedia – Trận Bình Lệ Nguyên'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
+      id: 'dong-bo-dau-1258', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/dong-bo-dau-1258/nguon.json
+        { file: "01-dienbien.jpg", slot: "dienbien", caption: "Sa bàn: dân binh Quy Hóa do Hà Bổng chỉ huy chặn đánh quân Mông Cổ rút chạy – Bảo tàng Lịch sử Quốc gia", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" },
+        { file: "02-ynghia.jpg", slot: "ynghia", caption: "Đền Trần ở Hưng Hà, Thái Bình – nơi có lăng mộ vua Trần Thái Tông", credit: "Ảnh: Kien1980v · Public domain · Wikimedia Commons" },
+        { file: "03-ket.jpg", slot: "ket", caption: "Đền Thái Vi (Ninh Bình) thờ các vua Trần", credit: "Ảnh: Kien1980v · Public domain · Wikimedia Commons" }
+      ],
+      year: '1258', name: 'Đông Bộ Đầu 1258', who: 'Trần Thái Tông', vs: 'Mông Cổ', seed: 31, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Báo Giáo dục Việt Nam', 'Wikipedia – Trận Bình Lệ Nguyên'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
       scenes: [
         { type: 'title', title: 'ĐÔNG BỘ ĐẦU', sub: 'TRẬN PHẢN CÔNG NĂM 1258', line: 'LẦN THỨ NHẤT ĐÁNH BẠI QUÂN MÔNG CỔ', stamp: 'ĐẦU THẦN CHƯA RƠI', ships: 3,
           say: 'Đầu năm 1258, đạo quân Mông Cổ đang trên đà chinh phục nhiều nước châu Á tràn vào Đại Việt. Chưa đầy hai tuần sau, chúng bị đánh tan ở bến Đông Bộ Đầu, phải rút chạy về nước.' },
