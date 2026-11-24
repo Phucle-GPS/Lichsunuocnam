@@ -1,0 +1,33 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Tượng Hai Bà Trưng cưỡi voi ra trận (công trình tại Suối Tiên, TP. Hồ Chí Minh)",
+  "credit": "Ảnh: TDA at Vietnamese Wikipedia · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "TDA at Vietnamese Wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_Hai_B%C3%A0_Tr%C6%B0ng_%E1%BB%9F_Su%E1%BB%91i_Ti%C3%AAn.JPG",
+  "tep": "File:Tượng Hai Bà Trưng ở Suối Tiên.JPG"
+ },
+ {
+  "file": "02-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Đền thờ Hai Bà Trưng ở Hà Nội",
+  "credit": "Ảnh: Guerinf · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Guerinf",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Temple_Hai_B%C3%A0_Tr%C6%B0ng_(2).jpg",
+  "tep": "File:Temple Hai Bà Trưng (2).jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-ket.jpg",
+  "slot": "ket",
+  "caption": "Cổng đền Hai Bà Trưng, Hà Nội",
+  "credit": "Ảnh: Tttrung · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Tttrung",
+  "nguon": "https://commons.wikimedia.org/wiki/File:C%E1%BB%95ng_%C4%91%E1%BB%81n_Hai_B%C3%A0_Tr%C6%B0ng,_qu%E1%BA%ADn_Hai_B%C3%A0_Tr%C6%B0ng,_H%C3%A0_N%E1%BB%99i.jpg",
+  "tep": "File:Cổng đền Hai Bà Trưng, quận Hai Bà Trưng, Hà Nội.jpg"
+ }
+]

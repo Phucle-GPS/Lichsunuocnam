@@ -1,0 +1,75 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Tranh dân gian Đông Hồ: Hai Bà Trưng cưỡi voi đánh giặc",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Hai_B%C3%A0_Tr%C6%B0ng_(tranh_%C4%90%C3%B4ng_H%E1%BB%93).jpeg",
+  "tep": "File:Hai Bà Trưng (tranh Đông Hồ).jpeg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng thờ Trưng Trắc vương ở chùa Giác Hải, TP. Hồ Chí Minh",
+  "credit": "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Phương Huy",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Gi%C3%A1c_H%E1%BA%A3i_n%C4%83m_2022_(t%C6%B0%E1%BB%A3ng_th%E1%BB%9D_Tr%C6%B0ng_Tr%E1%BA%AFc_v%C6%B0%C6%A1ng)_(3).jpg",
+  "tep": "File:Chùa Giác Hải năm 2022 (tượng thờ Trưng Trắc vương) (3).jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-map.jpg",
+  "slot": "map",
+  "caption": "Lãnh thổ Lĩnh Nam thế kỷ thứ nhất",
+  "credit": "Ảnh: Capon · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Capon (thảo luận)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_%C4%91%E1%BB%93_L%C4%A9nh_Nam_02.png",
+  "tep": "Tập tin:Bản đồ Lĩnh Nam 02.png",
+  "fit": "contain"
+ },
+ {
+  "file": "04-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Tranh vẽ Hai Bà Trưng đánh đuổi quân Hán",
+  "credit": "Ảnh: Phucam1999 · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Phucam1999",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Hai_Ba_Trung_%C4%91%C3%A1nh_%C4%91u%E1%BB%95i_gi%E1%BA%B7c_H%C3%A1n.jpg",
+  "tep": "File:Hai Ba Trung đánh đuổi giặc Hán.jpg"
+ },
+ {
+  "file": "05-moc.jpg",
+  "slot": "moc",
+  "caption": "Bản đồ Lĩnh Nam thời Trưng Vương (40 – 43)",
+  "credit": "Ảnh: I Love Triệu Đà · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "I Love Triệu Đà",
+  "nguon": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_%C4%91%E1%BB%93_L%C4%A9nh_Nam_th%E1%BB%9Di_Tr%C6%B0ng_V%C6%B0%C6%A1ng-Hai_B%C3%A0_Tr%C6%B0ng.jpg",
+  "tep": "Tập tin:Bản đồ Lĩnh Nam thời Trưng Vương-Hai Bà Trưng.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "06-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Rước voi trong lễ hội đền Đồng Nhân thờ Hai Bà Trưng, Hà Nội (ảnh xưa)",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Hai_Ba_Trung_festival_elephant.webp",
+  "tep": "File:Hai Ba Trung festival elephant.webp"
+ },
+ {
+  "file": "07-ket.jpg",
+  "slot": "ket",
+  "caption": "Đền Hai Bà Trưng (đền Đồng Nhân), Hà Nội",
+  "credit": "Ảnh: Tttrung · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Tttrung",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ch%C3%ADnh_%C4%91i%E1%BB%87n,_%C4%91%E1%BB%81n_Hai_B%C3%A0_Tr%C6%B0ng,_qu%E1%BA%ADn_Hai_B%C3%A0_Tr%C6%B0ng,_H%C3%A0_N%E1%BB%99i.jpg",
+  "tep": "File:Chính điện, đền Hai Bà Trưng, quận Hai Bà Trưng, Hà Nội.jpg"
+ }
+]

@@ -679,7 +679,16 @@
   const BAC = 'SỬ VIỆT · THỜI BẮC THUỘC', TU_CHU = 'SỬ VIỆT · DỰNG NỀN TỰ CHỦ', PHAP = 'SỬ VIỆT · CHỐNG PHÁP', TS = 'SỬ VIỆT · TÂY SƠN';
 
   const NEW = [
-    /* 11 */ { id: 'luy-lau-40', year: '40', name: 'Khởi nghĩa Hai Bà Trưng 40', who: 'Hai Bà Trưng', vs: 'nhà Đông Hán', seed: 51, series: BAC,
+    /* 11 */ { id: 'luy-lau-40', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/luy-lau-40/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Tranh dân gian Đông Hồ: Hai Bà Trưng cưỡi voi đánh giặc", credit: "Ảnh: Khuyết danh · Public domain · Wikimedia Commons" },
+        { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng thờ Trưng Trắc vương ở chùa Giác Hải, TP. Hồ Chí Minh", credit: "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "03-map.jpg", slot: "map", fit: 'contain', caption: "Lãnh thổ Lĩnh Nam thế kỷ thứ nhất", credit: "Ảnh: Capon · CC BY 3.0 · Wikimedia Commons" },
+        { file: "04-dienbien.jpg", slot: "dienbien", caption: "Tranh vẽ Hai Bà Trưng đánh đuổi quân Hán", credit: "Ảnh: Phucam1999 · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "05-moc.jpg", slot: "moc", fit: 'contain', caption: "Bản đồ Lĩnh Nam thời Trưng Vương (40 – 43)", credit: "Ảnh: I Love Triệu Đà · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "06-ynghia.jpg", slot: "ynghia", caption: "Rước voi trong lễ hội đền Đồng Nhân thờ Hai Bà Trưng, Hà Nội (ảnh xưa)", credit: "Ảnh: Khuyết danh · Public domain · Wikimedia Commons" },
+        { file: "07-ket.jpg", slot: "ket", caption: "Đền Hai Bà Trưng (đền Đồng Nhân), Hà Nội", credit: "Ảnh: Tttrung · CC BY-SA 4.0 · Wikimedia Commons" }
+      ],
+      year: '40', name: 'Khởi nghĩa Hai Bà Trưng 40', who: 'Hai Bà Trưng', vs: 'nhà Đông Hán', seed: 51, series: BAC,
       sources: ['Hậu Hán thư', 'Đại Việt sử ký toàn thư', 'Thiên Nam ngữ lục'], hook: 'HAI NỮ TƯỚNG ĐẦU TIÊN DẤY BINH', hookQ: 'AI LÀ HAI NỮ TƯỚNG ĐẦU TIÊN CỦA SỬ VIỆT?',
       scenes: [
         T('HAI BÀ TRƯNG', 'KHỞI NGHĨA MÙA XUÂN NĂM 40', 'ĐÁNH ĐUỔI THÁI THÚ TÔ ĐỊNH', 'GIÀNH LẠI ĐỘC LẬP', { ships: 2, say: 'Mùa xuân năm 40, từ đất Mê Linh, hai chị em Trưng Trắc và Trưng Nhị phất cờ khởi nghĩa, mở đầu cuộc khởi nghĩa lớn đầu tiên của người Việt thời Bắc thuộc.' }),
@@ -697,7 +706,12 @@
         PTS(['Lần đầu giành lại độc lập sau thời gian dài bị nhà Hán đô hộ', 'Khẳng định vai trò to lớn của phụ nữ Việt Nam', 'Mở đầu truyền thống đấu tranh chống đô hộ'], 'Cuộc khởi nghĩa Hai Bà Trưng chứng tỏ người Việt không chịu khuất phục, và phụ nữ Việt Nam có vai trò to lớn trong sự nghiệp giữ nước.'),
         END('Khởi nghĩa Hai Bà Trưng · năm 40')] },
 
-    /* 12 */ { id: 'lang-bac-43', year: '43', name: 'Lãng Bạc 43', who: 'Hai Bà Trưng', vs: 'nhà Đông Hán', seed: 52, series: BAC,
+    /* 12 */ { id: 'lang-bac-43', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/lang-bac-43/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Tượng Hai Bà Trưng cưỡi voi ra trận (công trình tại Suối Tiên, TP. Hồ Chí Minh)", credit: "Ảnh: TDA at Vietnamese Wikipedia · Public domain · Wikimedia Commons" },
+        { file: "02-ynghia.jpg", slot: "ynghia", fit: 'contain', caption: "Đền thờ Hai Bà Trưng ở Hà Nội", credit: "Ảnh: Guerinf · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "03-ket.jpg", slot: "ket", caption: "Cổng đền Hai Bà Trưng, Hà Nội", credit: "Ảnh: Tttrung · CC BY-SA 4.0 · Wikimedia Commons" }
+      ],
+      year: '43', name: 'Lãng Bạc 43', who: 'Hai Bà Trưng', vs: 'nhà Đông Hán', seed: 52, series: BAC,
       sources: ['Hậu Hán thư – Mã Viện truyện', 'Đại Việt sử ký toàn thư'], hook: 'TRẬN CHIẾN CUỐI CÙNG CỦA HAI BÀ', hookQ: 'VÌ SAO HAI BÀ TRƯNG TUẪN TIẾT Ở HÁT MÔN?',
       scenes: [
         T('LÃNG BẠC', 'TRẬN LÃNG BẠC NĂM 42 – 43', 'HAI BÀ CHỐNG QUÂN MÃ VIỆN', 'BI TRÁNG', { say: 'Năm 42, nhà Hán sai Mã Viện đem đại quân sang đàn áp. Trận Lãng Bạc là cuộc đối đầu bi tráng giữa nghĩa quân Hai Bà Trưng và quân xâm lược.' }),
@@ -715,7 +729,11 @@
         PTS(['Tinh thần chiến đấu không khuất phục', 'Hai Bà được thờ phụng khắp nơi', 'Ngọn lửa độc lập tiếp tục được thắp lên'], 'Dù thất bại, cuộc kháng chiến của Hai Bà là bản anh hùng ca, nhân dân lập đền thờ Hai Bà ở nhiều nơi, tiêu biểu là đền Hát Môn và đền Đồng Nhân.'),
         END('Lãng Bạc 42 – 43 · Hai Bà Trưng')] },
 
-    /* 13 */ { id: 'bo-dien-248', year: '248', name: 'Khởi nghĩa Bà Triệu 248', who: 'Bà Triệu', vs: 'nhà Đông Ngô', seed: 53, series: BAC,
+    /* 13 */ { id: 'bo-dien-248', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/bo-dien-248/nguon.json
+        { file: "01-ynghia.jpg", slot: "ynghia", caption: "Đền Bà Triệu ở Triệu Lộc, Hậu Lộc, Thanh Hóa", credit: "Ảnh: Linhcandng · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "02-ket.jpg", slot: "ket", caption: "Lăng mộ Bà Triệu trên núi Tùng, Hậu Lộc, Thanh Hóa", credit: "Ảnh: Linhcandng · CC BY-SA 3.0 · Wikimedia Commons" }
+      ],
+      year: '248', name: 'Khởi nghĩa Bà Triệu 248', who: 'Bà Triệu', vs: 'nhà Đông Ngô', seed: 53, series: BAC,
       sources: ['Đại Việt sử ký toàn thư', 'Việt điện u linh', 'Tam quốc chí – Ngô thư'], hook: 'CƯỠI VOI ĐÁNH GIẶC ĐÔNG NGÔ', hookQ: 'NỮ TƯỚNG CƯỠI VOI NÀO KHIẾN GIẶC KHIẾP SỢ?',
       scenes: [
         T('BÀ TRIỆU', 'KHỞI NGHĨA NĂM 248', 'NỮ TƯỚNG CƯỠI VOI ĐÁNH GIẶC ĐÔNG NGÔ', 'KHÍ PHÁCH', { say: 'Năm 248, ở quận Cửu Chân, Triệu Thị Trinh dựng cờ khởi nghĩa chống ách đô hộ của nhà Đông Ngô.' }),
