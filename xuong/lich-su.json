@@ -86,6 +86,12 @@
  ],
  "skill": [
   {
+   "ten": "viet-su-ke-chuyen – viết lời thuyết minh",
+   "duong_dan": ".claude/skills/viet-su-ke-chuyen/SKILL.md",
+   "mo_ta": "Skill của bạn: cấu trúc mốc → nhân vật → diễn biến → kết quả → ý nghĩa, câu ngắn dễ đọc, tự kiểm tra dữ kiện. Dùng cho mọi kịch bản mới của xưởng.",
+   "giay_phep": "của bạn"
+  },
+  {
    "ten": "giong-manus – giọng dẫn chuyện",
    "duong_dan": ".claude/skills/giong-manus/SKILL.md",
    "mo_ta": "Hồ sơ giọng Manus, nhân bản từ các bản cũ, đọc tự động, kiểm tra khớp giọng.",
@@ -152,6 +158,11 @@
   }
  ],
  "prompt": [
+  {
+   "ten": "Bản chép lời giọng mẫu (nhịp kể tham khảo)",
+   "duong_dan": ".claude/skills/viet-su-ke-chuyen/references/transcript-tham-khao.md",
+   "mo_ta": "Chỉ tham khảo nhịp kể, không dùng làm nguồn sử."
+  },
   {
    "ten": "Bộ mẫu nhân bản giọng (3 phút)",
    "duong_dan": "loi-dan/nhan-ban/giong-manus-mau-3-phut.mp3",

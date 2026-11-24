@@ -10,6 +10,7 @@ Phạm vi: khi người dùng gọi "film Lịch Sử Việt Nam" CHỈ làm tro
 Mọi thứ của xưởng này được liệt kê trong `xuong/lich-su.json` (app đọc file đó để hiện **🧰 Lệnh · Skill · Prompt**). Khi thêm lệnh/prompt mới, cập nhật file đó.
 
 ## Nguyên tắc
+- **Viết lời dẫn theo skill `viet-su-ke-chuyen`** (skill của người dùng): câu ngắn, rõ mốc – nhân vật – diễn biến – kết quả – ý nghĩa, tự kiểm tra trước khi đưa vào `battles.js`.
 - **Đúng sử:** mỗi trận có `sources` (Đại Việt sử ký toàn thư, Khâm định Việt sử, Nguyên sử…). Chi tiết chưa chắc viết "tương truyền", "theo sử cũ". Số liệu cổ là ước lượng.
 - **Giọng đọc: CHỈ giọng Manus** (xem CLAUDE.md, `loi-dan/NGUON.json`, `loi-dan/GIONG.json`).
 - **Tất định theo thời gian t** để xuất từng khung (GSAP: timeline `paused` + `tl.time(t)`).
