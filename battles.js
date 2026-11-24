@@ -990,7 +990,7 @@
         END('Bô Cô 1408 · Đặng Tất')] },
 
     /* 24 */ { id: 'kha-luu-1424', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/kha-luu-1424/nguon.json
-        { file: "01-map.jpg", slot: "map", fit: 'contain', caption: "Lược đồ khởi nghĩa Lam Sơn (1418 – 1427)", credit: "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons" },
+        { file: "01-map.jpg", slot: "map", fit: 'contain', caption: "Lược đồ khởi nghĩa Lam Sơn", credit: "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons" },
         { file: "02-moc.jpg", slot: "moc", fit: 'contain', caption: "Bản đồ Giao Chỉ thời thuộc Minh", credit: "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons" },
         { file: "03-ket.jpg", slot: "ket", fit: 'contain', caption: "Tượng hổ đá ở lăng Lê Lợi, Lam Kinh, Thanh Hóa (1433)", credit: "Ảnh: Khuyết danh · CC BY-SA 3.0 · Wikimedia Commons" }
       ],
