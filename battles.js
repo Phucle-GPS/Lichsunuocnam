@@ -297,7 +297,12 @@
       ]
     },
     {
-      id: 'van-don-1288', year: '1288', name: 'Vân Đồn 1288', who: 'Trần Khánh Dư', vs: 'Nguyên Mông', seed: 43, sources: ['Đại Việt sử ký toàn thư', 'Nguyên sử', 'Báo Giáo dục Việt Nam', 'Znews', 'Wikipedia – Trần Khánh Dư'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
+      id: 'van-don-1288', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/van-don-1288/nguon.json
+        { file: "01-map.jpg", slot: "map", caption: "Đảo Quan Lạn, Vân Đồn (Quảng Ninh) – vùng biển đảo nơi diễn ra trận đánh", credit: "Ảnh: Original uploader was Viethavvh · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "02-dienbien.jpg", slot: "dienbien", caption: "Vịnh Bái Tử Long nhìn từ đền Cửa Ông – vùng biển Đông Bắc do Trần Khánh Dư trấn giữ", credit: "Ảnh: Hoangkid · CC BY 3.0 · Wikimedia Commons" },
+        { file: "03-ynghia.jpg", slot: "ynghia", caption: "Đền Cửa Ông thờ Trần Quốc Tảng, con trai Hưng Đạo Vương, người trấn giữ miền biển Đông Bắc", credit: "Ảnh: Hoangkid · CC BY 3.0 · Wikimedia Commons" }
+      ],
+      year: '1288', name: 'Vân Đồn 1288', who: 'Trần Khánh Dư', vs: 'Nguyên Mông', seed: 43, sources: ['Đại Việt sử ký toàn thư', 'Nguyên sử', 'Báo Giáo dục Việt Nam', 'Znews', 'Wikipedia – Trần Khánh Dư'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
       scenes: [
         { type: 'title', title: 'VÂN ĐỒN', sub: 'TRẬN VÂN ĐỒN CUỐI 1287 – ĐẦU 1288', line: 'NHẤN CHÌM ĐOÀN THUYỀN LƯƠNG QUÂN NGUYÊN', stamp: 'CẮT ĐỨT HẬU CẦN', ships: 8,
           say: 'Giữa vùng biển đảo Vân Đồn, một trận đánh chớp nhoáng đã cắt đứt nguồn lương thực của quân Nguyên, mở đường cho đại thắng Bạch Đằng năm 1288.' },

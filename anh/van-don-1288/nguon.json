@@ -1,0 +1,32 @@
+[
+ {
+  "file": "01-map.jpg",
+  "slot": "map",
+  "caption": "Đảo Quan Lạn, Vân Đồn (Quảng Ninh) – vùng biển đảo nơi diễn ra trận đánh",
+  "credit": "Ảnh: Original uploader was Viethavvh · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Original uploader was Viethavvh at vi.wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Quan_Lan_Island,_V%C3%A2n_%C4%90%E1%BB%93n_District.jpg",
+  "tep": "File:Quan Lan Island, Vân Đồn District.jpg"
+ },
+ {
+  "file": "02-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Vịnh Bái Tử Long nhìn từ đền Cửa Ông – vùng biển Đông Bắc do Trần Khánh Dư trấn giữ",
+  "credit": "Ảnh: Hoangkid · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Hoangkid",
+  "nguon": "https://commons.wikimedia.org/wiki/File:View_from_C%E1%BB%ADa_%C3%94ng_Temple.jpg",
+  "tep": "File:View from Cửa Ông Temple.jpg"
+ },
+ {
+  "file": "03-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Đền Cửa Ông thờ Trần Quốc Tảng, con trai Hưng Đạo Vương, người trấn giữ miền biển Đông Bắc",
+  "credit": "Ảnh: Hoangkid · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Hoangkid",
+  "nguon": "https://commons.wikimedia.org/wiki/File:C%E1%BB%ADa_%C3%94ng_Temple_2017.jpg",
+  "tep": "File:Cửa Ông Temple 2017.jpg"
+ }
+]
