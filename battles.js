@@ -860,7 +860,13 @@
         PTS(['Tiếp nối nền tự chủ của họ Khúc', 'Đào tạo lớp tướng tài như Ngô Quyền', 'Mở đường cho chiến thắng Bạch Đằng 938'], 'Chiến thắng Đại La giữ vững quyền tự chủ, là bước chuẩn bị quan trọng cho nền độc lập lâu dài của dân tộc.'),
         END('Đại La 931 · Dương Đình Nghệ')] },
 
-    /* 19 */ { id: 'chi-lang-981', year: '981', name: 'Chi Lăng – Bạch Đằng 981', who: 'Lê Hoàn', vs: 'nhà Tống', seed: 59, series: TU_CHU,
+    /* 19 */ { id: 'chi-lang-981', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/chi-lang-981/nguon.json
+        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng thờ vua Lê Đại Hành (Lê Hoàn) ở đền Hoa Lư", credit: "Ảnh: Kien1980v · Public domain · Wikimedia Commons" },
+        { file: "02-map.jpg", slot: "map", caption: "Phủ Vườn Thiên ở cố đô Hoa Lư – kinh đô nhà Tiền Lê", credit: "Ảnh: Kien1980v tại Wikipedia Tiếng Việt · Public domain · Wikimedia Commons" },
+        { file: "03-ynghia.jpg", slot: "ynghia", caption: "Đền vua Lê Đại Hành ở cố đô Hoa Lư, Ninh Bình", credit: "Ảnh: Nguoivuban · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "04-ket.jpg", slot: "ket", caption: "Lăng vua Lê Đại Hành ở Hoa Lư", credit: "Ảnh: Nguyễn Thanh Quang · CC BY-SA 4.0 · Wikimedia Commons" }
+      ],
+      year: '981', name: 'Chi Lăng – Bạch Đằng 981', who: 'Lê Hoàn', vs: 'nhà Tống', seed: 59, series: TU_CHU,
       sources: ['Đại Việt sử ký toàn thư', 'Tống sử'], hook: 'LẦN ĐẦU ĐÁNH BẠI QUÂN TỐNG', hookQ: 'VÌ SAO HẦU NHÂN BẢO BỎ MẠNG Ở CHI LĂNG?',
       scenes: [
         T('CHI LĂNG – BẠCH ĐẰNG', 'KHÁNG CHIẾN CHỐNG TỐNG NĂM 981', 'LÊ HOÀN PHÁ TAN QUÂN XÂM LƯỢC', 'TRẬN ĐẦU CHỐNG TỐNG', { stakes: 1, ships: 5, say: 'Năm 981, nhà Tống chia hai đường thủy bộ sang xâm lược. Lê Hoàn chỉ huy quân dân Đại Cồ Việt đánh bại cuộc xâm lược đầu tiên của nhà Tống.' }),

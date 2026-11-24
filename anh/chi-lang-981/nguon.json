@@ -1,0 +1,43 @@
+[
+ {
+  "file": "01-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng thờ vua Lê Đại Hành (Lê Hoàn) ở đền Hoa Lư",
+  "credit": "Ảnh: Kien1980v · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Kien1980v at Vietnamese Wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ledaihanh.jpg",
+  "tep": "File:Ledaihanh.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "02-map.jpg",
+  "slot": "map",
+  "caption": "Phủ Vườn Thiên ở cố đô Hoa Lư – kinh đô nhà Tiền Lê",
+  "credit": "Ảnh: Kien1980v tại Wikipedia Tiếng Việt · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Kien1980v tại Wikipedia Tiếng Việt",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Phuvuonthien1.jpg",
+  "tep": "Tập tin:Phuvuonthien1.jpg"
+ },
+ {
+  "file": "03-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Đền vua Lê Đại Hành ở cố đô Hoa Lư, Ninh Bình",
+  "credit": "Ảnh: Nguoivuban · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Nguoivuban",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_vua_L%C3%AA_Ho%C3%A0n.jpg",
+  "tep": "File:Đền vua Lê Hoàn.jpg"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Lăng vua Lê Đại Hành ở Hoa Lư",
+  "credit": "Ảnh: Nguyễn Thanh Quang · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Nguyễn Thanh Quang",
+  "nguon": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_L%C3%AA_%C4%90%E1%BA%A1i_H%C3%A0nh.JPG",
+  "tep": "File:Lăng Lê Đại Hành.JPG"
+ }
+]
