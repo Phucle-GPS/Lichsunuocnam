@@ -596,7 +596,6 @@ body.render .app{display:none}
       <div class="xw-bar"><button class="btn add" id="bNew">＋ Dự án lịch sử mới</button><button class="btn kit" data-kit="lich-su" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
       <div class="xw-sub">Dự án của bạn <small id="myCount"></small></div><div id="myProjs"></div>
       <div class="xw-sub">Mẫu: trận đánh lừng danh <small id="mauCount"></small></div><div id="projs"></div>
-      <div class="xw-sub">Phim người que A5 (skill kaomei)</div><div id="lsStick"></div>
     </div></div>
     <div class="sec xw xw-nh" data-fold="nhac"><h3 class="fold"><span class="l">🎧 Xưởng nhạc AI tự động</span><small id="songCount"></small></h3><div class="fold-body">
       <div class="xw-bar"><button class="btn add" id="bSong">♫ Sáng tác nhạc nền mới</button><button class="btn kit" data-kit="nhac-ai" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
@@ -906,8 +905,8 @@ body.render .app{display:none}
     const frame = document.createElement('div'); document.body.appendChild(frame);
     let durs = (Q.get('durs') || '').split(',').map(x => +x || 0), B2 = b, voiceIdx = null;
     // bản PHIM NGƯỜI QUE của trận: mỗi cảnh gốc thành 1 khối, các thẻ trong khối chia nhau giọng Manus theo tỉ trọng w
-    if (Q.get('nguoique') === '1') {
-      const sc = Xuong.stickFilm(b); B2 = Object.assign({}, b, { scenes: sc, series: (b.series || 'SỬ VIỆT') + ' · PHIM NGƯỜI QUE' });
+    if (Q.get('nguoique') !== '0') {
+      const sc = Xuong.stickFilm(b); B2 = Object.assign({}, b, { scenes: sc });
       voiceIdx = sc.map((x, i) => x.blkFirst ? i : -1).filter(i => i >= 0);
       const vd = durs; durs = sc.map(() => 0);
       voiceIdx.forEach((fi, k) => { let j = fi + 1; while (j < sc.length && !sc[j].blkFirst) j++; const ws = sc.slice(fi, j).map(x => +x.w || 1), W = ws.reduce((a, c) => a + c, 0), tot = vd[k] || ws.length * 5; ws.forEach((w, q) => durs[fi + q] = Math.max(2.5, tot * w / W)); });
@@ -1013,6 +1012,10 @@ body.render .app{display:none}
     }
   }
 
+  /* Trận đánh lừng danh = MỘT phim tài liệu: ảnh tư liệu + người que A5 + bản đồ/sơ đồ + giọng Manus.
+     Mỗi cảnh gốc thành 1 khối; giọng Manus của cảnh gốc đặt ở thẻ đầu khối (blkFirst). */
+  const docCache = {};
+  function docFilm(T) { return docCache[T.id] || (docCache[T.id] = Object.assign({}, T, { scenes: Xuong.stickFilm(T), doc: true })); }
   /* ---------- nạp dự án ---------- */
   async function loadPack(b) {
     ensureCtx();
@@ -1020,9 +1023,11 @@ body.render .app{display:none}
       const bufs = await Promise.all(b.scenes.map(sc => sc.voiceId ? voiceBuf(sc.voiceId) : null));
       return bufs.some(Boolean) ? bufs : null;
     }
-    const bufs = await Promise.all(b.scenes.map(async (_, i) => {
+    const T = BATTLES.find(x => x.id === b.id) || b;
+    const raw = await Promise.all(T.scenes.map(async (_, i) => {
       try { const r = await fetch(`loi-dan/${b.id}/${String(i + 1).padStart(2, '0')}.mp3`); if (!r.ok) return null; return await actx.decodeAudioData(await r.arrayBuffer()); } catch (e) { return null; }
     }));
+    let k = 0; const bufs = b.doc ? b.scenes.map(sc => sc.blkFirst ? raw[k++] || null : null) : raw;
     return bufs.some(Boolean) ? bufs : null;
   }
   /* thời lượng cảnh; các thẻ cùng một khối (blk) chia nhau giọng của khối theo tỉ trọng w */
@@ -1056,7 +1061,7 @@ body.render .app{display:none}
     if (P.custom) {
       await prepareCustom(P); if (my !== loadId) return;
       B = Xuong.filmSource(P, epIdx, id => mediaURLs[id]); epIdx = B.ep;
-    } else B = P;
+    } else B = docFilm(P);
     if (voiceMode === 'pack') { packBufs = await loadPack(B); if (my !== loadId) return; if (!packBufs && !P.custom) note('Trận này đang chờ giọng dẫn chuyện Manus – tạm thời chỉ có phụ đề.', 6000); }
     const durs = groupDurs(B, packBufs);
     ({ film, FW, FH } = mount(frame, B, format, durs, $('trSel').value, $('fxSel').value, $('swPip').checked));
@@ -1100,10 +1105,6 @@ body.render .app{display:none}
     $('hhCount').textContent = hh.length ? hh.length + ' phim' : '';
     $('myProjs').innerHTML = ls.length ? ls.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
     $('hhProjs').innerHTML = hh.length ? hh.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có phim hoạt hình. Bấm nút trên để tạo từ kịch bản.</div>';
-    // Xưởng film Lịch sử Việt Nam: phim người que A5 – dựng trong app hoặc tải prompt Veo/Flow
-    $('lsStick').innerHTML = BATTLES.map(b => `<div class="qk"><span class="y">${b.year}</span><span style="flex:1">${b.name.replace(/\s\d{3,4}$/, '')}</span><button class="btn" data-qk="${b.id}" title="Dựng phim người que trong app (giữ giọng Manus)">🕺 Dựng</button><button class="btn" data-a5="${b.id}" title="Tải prompt Veo / Google Flow phong cách A5">✨ A5</button></div>`).join('');
-    document.querySelectorAll('[data-qk]').forEach(e => e.onclick = async () => { if (await open(e.dataset.qk)) cloneStick(); });
-    document.querySelectorAll('[data-a5]').forEach(e => e.onclick = async () => { if (await open(e.dataset.a5)) downloadA5(); });
     document.querySelectorAll('.proj').forEach(e => { e.onclick = () => open(e.dataset.id); e.classList.toggle('on', P && e.dataset.id === P.id); });
   }
   function buildScenes() {

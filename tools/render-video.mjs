@@ -9,6 +9,8 @@
    --voice D   thư mục chứa file thu âm lời dẫn cho từng cảnh: D/<id>/01.mp3, 02.mp3 ...
                (mặc định: thư mục loi-dan/ trong kho; --no-voice để tắt giọng)
                (thu bằng điện thoại hoặc AI giọng đọc). Cảnh sẽ tự kéo dài theo độ dài file.
+   (mặc định: PHIM TÀI LIỆU – ảnh tư liệu anh/<id>/ + người que A5 + bản đồ/sơ đồ + giọng Manus; --ban-cu: bản cũ chỉ có bản đồ/sơ đồ)
+   --nguoi-dan người dẫn chuyện nhỏ ở góc · --nhac hungca-<seed> nhạc nền
    --preview   chỉ xuất ảnh PNG giữa mỗi cảnh để duyệt nhanh
    --cho-phep-thieu-giong  vẫn xuất khi trận chưa đủ giọng Manus (chỉ phụ đề, dùng để duyệt hình)
    --page F    trang dựng (mặc định index.html; phim 3D: --page phim3d.html bach-dang-1288 --fps 24)
@@ -35,7 +37,7 @@ const preview = args.includes('--preview');
 fs.mkdirSync(outDir, { recursive: true });
 
 const pageFile = flag('--page', 'index.html');
-const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}` + (args.includes('--nguoi-dan') ? '&pip=1' : '') + (args.includes('--nguoi-que') ? '&nguoique=1' : '') + (args.includes('--nhac') ? '&nhac=' + args[args.indexOf('--nhac') + 1] : '');
+const page_url = id => pathToFileURL(path.join(ROOT, pageFile)).href + `?render=${id}&format=${format}` + (args.includes('--nguoi-dan') ? '&pip=1' : '') + (args.includes('--ban-cu') ? '&nguoique=0' : '') + (args.includes('--nhac') ? '&nhac=' + args[args.indexOf('--nhac') + 1] : '');
 
 function probe(f) { return Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim()); }
 
@@ -70,7 +72,7 @@ async function renderOne(browser, id) {
   await page.goto(url);
   await page.waitForFunction(() => window.STUDIO);
   const info = await page.evaluate(() => ({ total: window.STUDIO.total, starts: window.STUDIO.starts, vstarts: window.STUDIO.voiceStarts }));
-  const base = path.join(outDir, `${id}${pageFile !== 'index.html' ? '-' + path.basename(pageFile, '.html') : ''}${format === 'doc' ? '-doc' : ''}${args.includes('--nguoi-que') ? '-nguoi-que' : ''}`);
+  const base = path.join(outDir, `${id}${pageFile !== 'index.html' ? '-' + path.basename(pageFile, '.html') : ''}${format === 'doc' ? '-doc' : ''}${args.includes('--ban-cu') ? '-ban-cu' : ''}`);
 
   if (preview) {
     const ends = [...info.starts.slice(1), info.total];

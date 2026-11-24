@@ -32,7 +32,7 @@ Mọi thứ của xưởng này được liệt kê trong `xuong/lich-su.json` (
 Nguồn: `.claude/skills/directing-stickman-videos/` (đọc `references/historical-cartoon.md` = Style **A5 Historical Cartoon**).
 - **Trong app (tự vẽ, không cần AI ngoài):** cột trái, Xưởng film Lịch sử Việt Nam → mục *Phim người que A5* → nút *🕺 Dựng* (hoặc *✨ A5* để tải prompt).
 - Người que kiểu A5 (`stickFig`, `drawHorseStick`) và gói Google Flow (`tools/goi-flow.mjs`) chỉ thuộc xưởng này.
-- **Bằng Veo / Google Flow (hình đẹp kiểu A5):** `node tools/prompt-nguoi-que.mjs <id|all>` → `prompt-ai/nguoi-que/<id>.txt` (hoặc nút *✨ A5* trong mục Phim người que A5). File gồm:
+- **Bằng Veo / Google Flow (hình đẹp kiểu A5):** `node tools/prompt-nguoi-que.mjs <id|all>` → `prompt-ai/nguoi-que/<id>.txt` (hoặc nút 🧰 của xưởng). File gồm:
   - **Phase A – đề xuất đạo diễn:** era pack (thời kỳ, bối cảnh, màu, nhạc), cast card đầy đủ (chỉ huy theo thời kỳ, quân Đại Việt, quân địch), giọng Manus là bản thu ngoài, tách sự thật/minh họa.
   - **Phase B – prompt từng clip 8 giây:** lặp NGUYÊN VĂN khối vẽ A5 (`lib/a5-anchor.js`) + cast card đầy đủ + hành động có mốc giây + âm thanh + cấm kỵ. Hành động chọn theo lời dẫn (`Xuong.guessAction`) và loại cảnh.
 - Quy tắc A5 phải giữ: đầu trắng nối cổ ngắn liền mạch, bàn tay đen hình găng không ngón, không chữ/không máu, giọng kể giữ nguyên cả phim (Manus). Khuyên người dùng tự tạo ảnh tham chiếu nhân vật (chính diện/nghiêng/sau) và đính kèm mỗi lần tạo.
