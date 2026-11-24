@@ -1,0 +1,86 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Tranh trận Bạch Đằng 1288 – Bảo tàng Lịch sử TP. Hồ Chí Minh",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Bach_Dang_River_Victory_over_Mongols,_1288_(9980691453).jpg",
+  "tep": "File:Bach Dang River Victory over Mongols, 1288 (9980691453).jpg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tranh chân dung Hưng Đạo Đại vương Trần Quốc Tuấn (thời Nguyễn)",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Painting_of_Tr%E1%BA%A7n_H%C6%B0ng_%C4%90%E1%BA%A1o_(1228_-_1300),_Nguy%E1%BB%85n_dynasty,_Vietnam.jpg",
+  "tep": "File:Painting of Trần Hưng Đạo (1228 - 1300), Nguyễn dynasty, Vietnam.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-map.jpg",
+  "slot": "map",
+  "caption": "Sông Bạch Đằng đoạn gần cửa biển ngày nay",
+  "credit": "Ảnh: Viethavvh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Viethavvh at vi.wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Cua_song_Bach_Dang.JPG",
+  "tep": "File:Cua song Bach Dang.JPG"
+ },
+ {
+  "file": "04-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Cọc gỗ Bạch Đằng trưng bày trước tranh trận đánh năm 1288",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Bach_Dang_River_Victory_over_Mongols,_1288_(9980692603).jpg",
+  "tep": "File:Bach Dang River Victory over Mongols, 1288 (9980692603).jpg"
+ },
+ {
+  "file": "05-dienbien2.jpg",
+  "slot": "dienbien2",
+  "caption": "Mô hình chiến thuyền Đại Việt – chùa Keo, Thái Bình",
+  "credit": "Ảnh: Ptdtch · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Ptdtch at vi.wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:ThuyenchienDaiViet2.JPG",
+  "tep": "File:ThuyenchienDaiViet2.JPG"
+ },
+ {
+  "file": "06-moc.jpg",
+  "slot": "moc",
+  "caption": "Phù điêu bãi cọc Bạch Đằng – đền thờ Đức Thánh Trần, TP. Hồ Chí Minh",
+  "credit": "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Phương Huy",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_th%E1%BB%9D_%C4%90%E1%BB%A9c_Th%C3%A1nh_Tr%E1%BA%A7n,_Qu%E1%BA%ADn_1,_th%C3%A1ng_12_n%C4%83m_2021_(ph%C3%B9_%C4%91i%C3%AAu_b%C3%A3i_c%E1%BB%8Dc_B%E1%BA%A1ch_%C4%90%E1%BA%B1ng)_(1).jpg",
+  "tep": "File:Đền thờ Đức Thánh Trần, Quận 1, tháng 12 năm 2021 (phù điêu bãi cọc Bạch Đằng) (1).jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "07-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Tượng Trần Hưng Đạo ở Nha Trang",
+  "credit": "Ảnh: Odessey · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Odessey",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Tran_Hung_Dao_-_Nha_Trang_-_2.jpg",
+  "tep": "File:Tran Hung Dao - Nha Trang - 2.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "08-ket.jpg",
+  "slot": "ket",
+  "caption": "Tượng bán thân Trần Hưng Đạo – Bảo tàng Lịch sử Quân sự Việt Nam",
+  "credit": "Ảnh: Gary Todd · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Tran_Hung_Dao_(1129-1300)_Defeated_Mongol_Invasion_at_Bach_Dang,_1288_(9732105763).jpg",
+  "tep": "File:Tran Hung Dao (1129-1300) Defeated Mongol Invasion at Bach Dang, 1288 (9732105763).jpg",
+  "fit": "contain"
+ }
+]

@@ -328,7 +328,17 @@
     },
     /* =================================================================== */
     {
-      id: 'bach-dang-1288', year: '1288', name: 'Bạch Đằng 1288', who: 'Trần Hưng Đạo', vs: 'Nguyên Mông', seed: 7, sources: ['Đại Việt sử ký toàn thư', 'Wikipedia – Trận Bạch Đằng (1288)', 'Báo Giáo dục Việt Nam'],
+      id: 'bach-dang-1288', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/bach-dang-1288/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Tranh trận Bạch Đằng 1288 – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tranh chân dung Hưng Đạo Đại vương Trần Quốc Tuấn (thời Nguyễn)", credit: "Ảnh: Khuyết danh · Public domain · Wikimedia Commons" },
+        { file: "03-map.jpg", slot: "map", caption: "Sông Bạch Đằng đoạn gần cửa biển ngày nay", credit: "Ảnh: Viethavvh · Public domain · Wikimedia Commons" },
+        { file: "04-dienbien.jpg", slot: "dienbien", caption: "Cọc gỗ Bạch Đằng trưng bày trước tranh trận đánh năm 1288", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "05-dienbien2.jpg", slot: "dienbien2", caption: "Mô hình chiến thuyền Đại Việt – chùa Keo, Thái Bình", credit: "Ảnh: Ptdtch · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "06-moc.jpg", slot: "moc", fit: 'contain', caption: "Phù điêu bãi cọc Bạch Đằng – đền thờ Đức Thánh Trần, TP. Hồ Chí Minh", credit: "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "07-ynghia.jpg", slot: "ynghia", fit: 'contain', caption: "Tượng Trần Hưng Đạo ở Nha Trang", credit: "Ảnh: Odessey · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "08-ket.jpg", slot: "ket", fit: 'contain', caption: "Tượng bán thân Trần Hưng Đạo – Bảo tàng Lịch sử Quân sự Việt Nam", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" }
+      ],
+      year: '1288', name: 'Bạch Đằng 1288', who: 'Trần Hưng Đạo', vs: 'Nguyên Mông', seed: 7, sources: ['Đại Việt sử ký toàn thư', 'Wikipedia – Trận Bạch Đằng (1288)', 'Báo Giáo dục Việt Nam'],
       scenes: [
         { type: 'title', title: 'BẠCH ĐẰNG', sub: 'TRẬN THỦY CHIẾN NĂM 1288', line: 'BA LẦN ĐẠI THẮNG QUÂN NGUYÊN MÔNG', stamp: 'CHIẾN THẮNG VĨ ĐẠI', stakes: 1, ships: 7,
           say: 'Trận chiến Bạch Đằng năm 1288 là một trong những chiến thắng quân sự vĩ đại nhất trong lịch sử dân tộc Việt Nam.' },
