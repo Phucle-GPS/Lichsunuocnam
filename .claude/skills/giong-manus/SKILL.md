@@ -22,7 +22,10 @@ Phạm vi: chỉ Xưởng film Lịch sử Việt Nam. Lời dẫn các trận C
 2. **Đọc thử & kiểm tra:** `node tools/giong-manus.mjs thu` (tự so với hồ sơ giọng); kiểm tra file bất kỳ: `node tools/giong-manus.mjs kiem-tra <file.mp3> "lời đọc"`.
 3. **Đọc lời dẫn trận mới:** `node tools/giong-manus.mjs tao <id-trận>` – chỉ đọc cảnh còn thiếu, giữ nguyên bản Manus gửi, cảnh nào lệch hồ sơ giọng sẽ được cảnh báo để nghe lại.
 4. **Làm mẫu trước, đồng loạt sau:** xuất 1 video mẫu (`node tools/render-video.mjs <id>`), chờ người dùng duyệt rồi mới chạy `tao`/`render-video` cho cả loạt.
-5. Chưa có khóa: `node tools/nap-giong-manus.mjs --yeu-cau` → gửi `loi-dan/CAN-GUI-MANUS.txt` cho Manus → `node tools/nap-giong-manus.mjs goi.zip`.
+5. **Người dùng tự làm giọng rồi gửi file (mp3 / mp4 / m4a / wav, video thì lấy phần tiếng):**
+   - Mỗi cảnh một file `<id-trận>_<NN>.<đuôi>`, hoặc mỗi trận một file `<id-trận>.<đuôi>` đọc liền các cảnh, nghỉ ~2 giây giữa cảnh → tự cắt theo khoảng lặng và độ dài lời dẫn.
+   - Chạy thử trước: `node tools/nap-giong-manus.mjs <file|thư-mục|zip> --thu` (ra `giong-nhap/thu-nap/`), ổn thì chạy lại không có `--thu` để nạp vào `loi-dan/`. Mỗi cảnh được so với hồ sơ giọng Manus.
+6. Chưa có khóa: `node tools/nap-giong-manus.mjs --yeu-cau` → gửi `loi-dan/CAN-GUI-MANUS.txt` cho Manus → `node tools/nap-giong-manus.mjs goi.zip`.
 
 ## Lưu ý
 - Không ghi mã truy cập vào repo; dùng biến môi trường hoặc Network secrets của môi trường.

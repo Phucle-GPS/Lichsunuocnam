@@ -7,7 +7,7 @@ Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dư�
 - Phong cách: kể chuyện lịch sử chậm rãi, như người dẫn phim tài liệu; ngắt nghỉ rõ ở dấu phẩy, dấu chấm; nhấn nhẹ vào tên người, địa danh, năm tháng.
 - Tốc độ: chậm hơn mức bình thường một chút (khoảng 0,9).
 - Không bắt chước giọng của bất kỳ người thật hay kênh nào; dùng giọng AI có quyền sử dụng thương mại.
-- Mỗi đoạn xuất thành MỘT file mp3 riêng, đặt tên ĐÚNG như tên trong ngoặc vuông.
+- Mỗi đoạn xuất thành MỘT file riêng (mp3 hoặc mp4), đặt tên ĐÚNG như tên trong ngoặc vuông (đổi đuôi .mp4 nếu là video). Hoặc mỗi trận MỘT file đọc liền các cảnh theo thứ tự, nghỉ khoảng 2 giây giữa các cảnh, đặt tên <id-trận>.mp3 / .mp4.
 - Đọc nguyên văn, không thêm, không bớt chữ. Không chèn nhạc nền.
 - Gói tất cả 272 file vào một file .zip để tải về.
 

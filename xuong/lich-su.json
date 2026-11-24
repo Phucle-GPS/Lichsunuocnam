@@ -4,6 +4,11 @@
  "mo_ta": "Bộ phim 40 trận đánh lừng danh (năm 40 → 1894): bản đồ, sơ đồ trận, giọng Manus, nhạc trống trận, phim người que A5, đăng YouTube/Facebook.",
  "lenh": [
   {
+   "ten": "Nạp giọng anh tự làm (mp3/mp4, theo cảnh hoặc cả trận)",
+   "lenh": "node tools/nap-giong-manus.mjs <file.mp4 | thư-mục | goi.zip> --thu",
+   "mo_ta": "Đặt tên <id-trận>_<NN>.mp4 hoặc <id-trận>.mp4 (cả trận, nghỉ ~2 giây giữa cảnh – tự cắt). --thu để chạy thử, bỏ --thu để nạp thật."
+  },
+  {
    "ten": "Nhân bản giọng Manus từ các bản cũ (1 lần)",
    "lenh": "ELEVENLABS_API_KEY=… node tools/giong-manus.mjs nhan-ban",
    "mo_ta": "Gửi 20 đoạn Manus sạch nhất lên ElevenLabs, lưu voice_id vào loi-dan/GIONG.json."
