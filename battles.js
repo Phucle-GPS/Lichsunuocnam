@@ -49,7 +49,7 @@
       id: 'bach-dang-938', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/bach-dang-938/nguon.json
         { file: "01-tranh-dong-ho.jpg", slot: "hook", caption: "Tranh dân gian Đông Hồ: Ngô Quyền đại phá quân Nam Hán trên sông Bạch Đằng", credit: "Ảnh: Nghệ nhân làng Đông Hồ (khuyết danh) · Public domain · Wikimedia Commons" },
         { file: "f-tuong.jpg", slot: "hero", fit: 'contain', caption: "Tượng bán thân Ngô Quyền", credit: "Ảnh: Gary Lee Todd · CC0 · Flickr" },
-        { file: "03-cua-song.jpg", slot: "map", caption: "Sông Bạch Đằng đoạn gần cửa biển ngày nay", credit: "Ảnh: Viethavvh (vi.wikipedia) · Public domain · Wikimedia Commons" },
+        { file: "03-cua-song.jpg", slot: "map", caption: "Sông Bạch Đằng đoạn gần cửa biển ngày nay", credit: "Ảnh: Viethavvh · Public domain · Wikimedia Commons" },
         { file: "04-tranh-ghep.jpg", slot: "dienbien", caption: "Tranh ghép tái hiện trận Bạch Đằng năm 938", credit: "Ảnh: thành viên Wikipedia tiếng Việt · Public domain · Wikimedia Commons" },
         { file: "f-coc.jpg", slot: "dienbien2", fit: 'contain', caption: "Cọc gỗ trận Bạch Đằng 1288 – kế cọc ngầm Ngô Quyền dùng đầu tiên năm 938", credit: "Ảnh: Gary Lee Todd · CC0 · Flickr" },
         { file: "06-phu-dieu.jpg", slot: "moc", caption: "Phù điêu: Ngô Quyền đại phá quân Nam Hán", credit: "Ảnh: thành viên Wikipedia tiếng Việt · CC0 · Wikimedia Commons" },
@@ -707,7 +707,7 @@
         END('Khởi nghĩa Hai Bà Trưng · năm 40')] },
 
     /* 12 */ { id: 'lang-bac-43', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/lang-bac-43/nguon.json
-        { file: "01-hook.jpg", slot: "hook", caption: "Tượng Hai Bà Trưng cưỡi voi ra trận (công trình tại Suối Tiên, TP. Hồ Chí Minh)", credit: "Ảnh: TDA at Vietnamese Wikipedia · Public domain · Wikimedia Commons" },
+        { file: "01-hook.jpg", slot: "hook", caption: "Tượng Hai Bà Trưng cưỡi voi ra trận (công trình tại Suối Tiên, TP. Hồ Chí Minh)", credit: "Ảnh: TDA · Public domain · Wikimedia Commons" },
         { file: "02-ynghia.jpg", slot: "ynghia", fit: 'contain', caption: "Đền thờ Hai Bà Trưng ở Hà Nội", credit: "Ảnh: Guerinf · CC BY-SA 4.0 · Wikimedia Commons" },
         { file: "03-ket.jpg", slot: "ket", caption: "Cổng đền Hai Bà Trưng, Hà Nội", credit: "Ảnh: Tttrung · CC BY-SA 4.0 · Wikimedia Commons" }
       ],
@@ -819,10 +819,10 @@
         END('Mai Hắc Đế · năm 722')] },
 
     /* 17 */ { id: 'tong-binh-791', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/tong-binh-791/nguon.json
-        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng thờ Phùng Hưng ở quê hương Đường Lâm, Sơn Tây", credit: "Ảnh: Doãn Hiệu at Vietnamese Wikipedia · CC BY 3.0 · Wikimedia Commons" },
+        { file: "01-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng thờ Phùng Hưng ở quê hương Đường Lâm, Sơn Tây", credit: "Ảnh: Doãn Hiệu · CC BY 3.0 · Wikimedia Commons" },
         { file: "02-moc.jpg", slot: "moc", caption: "Lăng Phùng Hưng (Phùng đại vương lăng) ở phố Giảng Võ, Hà Nội", credit: "Ảnh: Doãn Hiệu · CC BY-SA 4.0 · Wikimedia Commons" },
         { file: "03-ynghia.jpg", slot: "ynghia", caption: "Đền thờ Phùng Hưng ở thôn Mông Phụ, Đường Lâm", credit: "Ảnh: Ngokhong · CC BY-SA 3.0 · Wikimedia Commons" },
-        { file: "04-ket.jpg", slot: "ket", caption: "Chính điện đền Phùng Hưng ở Cam Lâm, Đường Lâm", credit: "Ảnh: vi:User:Doãn Hiệu · CC BY 3.0 · Wikimedia Commons" }
+        { file: "04-ket.jpg", slot: "ket", caption: "Chính điện đền Phùng Hưng ở Cam Lâm, Đường Lâm", credit: "Ảnh: Doãn Hiệu · CC BY 3.0 · Wikimedia Commons" }
       ],
       year: '791', name: 'Khởi nghĩa Phùng Hưng 791', who: 'Phùng Hưng', vs: 'nhà Đường', seed: 57, series: BAC,
       sources: ['Đại Việt sử ký toàn thư', 'Việt điện u linh', 'Tân Đường thư'], hook: 'BỐ CÁI ĐẠI VƯƠNG GIẢI PHÓNG TỐNG BÌNH', hookQ: 'VÌ SAO NHÂN DÂN TÔN PHÙNG HƯNG LÀ BỐ CÁI?',
