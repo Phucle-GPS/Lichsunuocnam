@@ -1,0 +1,76 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Tranh cung đình nhà Thanh vẽ trận đánh bên sông Thọ Xương năm 1789",
+  "credit": "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "A collaboration between Chinese and European painters. The Jesuit missionaries involved in producing the drawings in Chi",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Battle_at_the_River_Tho-xuong.jpg",
+  "tep": "Tập tin:Battle at the River Tho-xuong.jpg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng vua Quang Trung – Bảo tàng Quang Trung, Bình Định",
+  "credit": "Ảnh: thành viên Wikipedia · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Tượng_đài_Quang_Trung_tại_Bảo_tàng_Quang_Trung.JPG: The original uploader was Liftold tại Wikipedia Tiếng Việt. derivati",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Quang_Trung_statue_02.jpg",
+  "tep": "Tập tin:Quang Trung statue 02.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-map.jpg",
+  "slot": "map",
+  "caption": "Cục diện Đại Việt cuối thế kỷ XVIII",
+  "credit": "Ảnh: A (thảo luận · đóng góp) · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "A (thảo luận · đóng góp)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Vietnam_at_the_end_of_18th_century_(Vi).png",
+  "tep": "Tập tin:Vietnam at the end of 18th century (Vi).png",
+  "fit": "contain"
+ },
+ {
+  "file": "04-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Gươm và súng của quân Tây Sơn",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:V%C5%A9_kh%C3%AD_T%C3%A2y_S%C6%A1n.jpg",
+  "tep": "Tập tin:Vũ khí Tây Sơn.jpg"
+ },
+ {
+  "file": "05-moc.jpg",
+  "slot": "moc",
+  "caption": "Gò Đống Đa, Hà Nội – nơi ghi dấu chiến thắng Kỷ Dậu 1789",
+  "credit": "Ảnh: thành viên Wikipedia · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "The original uploader was Bình Giang at Vietnamese Wikipedia.",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Go_Dong_Da_3.JPG",
+  "tep": "File:Go Dong Da 3.JPG"
+ },
+ {
+  "file": "06-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Tượng đài Hoàng đế Quang Trung tại quê hương Tây Sơn, Bình Định",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_%C4%91%C3%A0i_Ho%C3%A0ng_%C4%91%E1%BA%BF_Quang_Trung.jpg",
+  "tep": "Tập tin:Tượng đài Hoàng đế Quang Trung.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "07-ket.jpg",
+  "slot": "ket",
+  "caption": "Tượng Quang Trung – Nguyễn Huệ ở Gò Đống Đa",
+  "credit": "Ảnh: Nguyễn Thanh Quang · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Nguyễn Thanh Quang",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Quang_Trung_Nguy%E1%BB%85n_Hu%E1%BB%87,_G%C3%B2_%C4%90%E1%BB%91ng_%C4%90a.JPG",
+  "tep": "File:Quang Trung Nguyễn Huệ, Gò Đống Đa.JPG",
+  "fit": "contain"
+ }
+]
