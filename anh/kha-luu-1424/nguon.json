@@ -1,0 +1,35 @@
+[
+ {
+  "file": "01-map.jpg",
+  "slot": "map",
+  "caption": "Lược đồ khởi nghĩa Lam Sơn (1418 – 1427)",
+  "credit": "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "artist": "Leeaan",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Map_of_the_Lam_S%C6%A1n_uprising_(2).png",
+  "tep": "Tập tin:Map of the Lam Sơn uprising (2).png",
+  "fit": "contain"
+ },
+ {
+  "file": "02-moc.jpg",
+  "slot": "moc",
+  "caption": "Bản đồ Giao Chỉ thời thuộc Minh",
+  "credit": "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "artist": "Leeaan",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Map_of_the_Jiaozhi_Province_of_the_Ming_Dynasty_(vi).png",
+  "tep": "Tập tin:Map of the Jiaozhi Province of the Ming Dynasty (vi).png",
+  "fit": "contain"
+ },
+ {
+  "file": "03-ket.jpg",
+  "slot": "ket",
+  "caption": "Tượng hổ đá ở lăng Lê Lợi, Lam Kinh, Thanh Hóa (1433)",
+  "credit": "Ảnh: Khuyết danh · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Unknown authorUnknown author.",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Statue_of_a_tiger,_L%C3%AA_L%E1%BB%A3i_mausoleum,_Thanh_H%C3%B3a_Province_(1433),_Vietnam_National_Museum_of_Fine_Arts,_Hanoi,_Vietnam_-_20131030.JPG",
+  "tep": "File:Statue of a tiger, Lê Lợi mausoleum, Thanh Hóa Province (1433), Vietnam National Museum of Fine Arts, Hanoi, Vietnam - 20131030.JPG",
+  "fit": "contain"
+ }
+]

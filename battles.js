@@ -989,7 +989,12 @@
         PTS(['Chiến thắng lớn đầu tiên trước quân Minh', 'Tinh thần quật cường sau khi nhà Hồ thất bại', 'Tiếp nối ý chí độc lập cho khởi nghĩa Lam Sơn'], 'Tuy nhà Hậu Trần sau đó thất bại, chiến thắng Bô Cô vẫn là minh chứng cho ý chí không chịu làm nô lệ của người Việt.'),
         END('Bô Cô 1408 · Đặng Tất')] },
 
-    /* 24 */ { id: 'kha-luu-1424', year: '1424', name: 'Khả Lưu – Bồ Ải 1424', who: 'Lê Lợi', vs: 'nhà Minh', seed: 64, series: 'SỬ VIỆT · KHỞI NGHĨA LAM SƠN',
+    /* 24 */ { id: 'kha-luu-1424', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/kha-luu-1424/nguon.json
+        { file: "01-map.jpg", slot: "map", fit: 'contain', caption: "Lược đồ khởi nghĩa Lam Sơn (1418 – 1427)", credit: "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons" },
+        { file: "02-moc.jpg", slot: "moc", fit: 'contain', caption: "Bản đồ Giao Chỉ thời thuộc Minh", credit: "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons" },
+        { file: "03-ket.jpg", slot: "ket", fit: 'contain', caption: "Tượng hổ đá ở lăng Lê Lợi, Lam Kinh, Thanh Hóa (1433)", credit: "Ảnh: Khuyết danh · CC BY-SA 3.0 · Wikimedia Commons" }
+      ],
+      year: '1424', name: 'Khả Lưu – Bồ Ải 1424', who: 'Lê Lợi', vs: 'nhà Minh', seed: 64, series: 'SỬ VIỆT · KHỞI NGHĨA LAM SƠN',
       sources: ['Đại Việt sử ký toàn thư', 'Lam Sơn thực lục'], hook: 'ĐỐT TRẠI GIẢ RÚT, PHỤC KÍCH DIỆT ĐỊCH', hookQ: 'MẸO ĐỐT TRẠI NÀO KHIẾN QUÂN MINH SẬP BẪY?',
       scenes: [
         T('KHẢ LƯU', 'TRẬN KHẢ LƯU – BỒ ẢI CUỐI NĂM 1424', 'NGHĨA QUÂN LAM SƠN TIẾN VÀO NGHỆ AN', 'MƯU KẾ', { ships: 2, say: 'Cuối năm 1424, nghĩa quân Lam Sơn chuyển vào Nghệ An. Ở Khả Lưu và Bồ Ải, Lê Lợi dùng mưu đốt trại giả rút để đánh bại quân Minh.' }),
