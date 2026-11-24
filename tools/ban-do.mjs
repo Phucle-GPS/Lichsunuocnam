@@ -96,7 +96,11 @@ const out = await page.evaluate(async ({ songDH, nguong, tiles, tx0, ty0, PX0, P
   const elevAt = (X, Y) => { const i = (Math.max(0, Math.min(ny - 1, Y | 0)) * nx + Math.max(0, Math.min(nx - 1, X | 0))) * 4; return px[i] * 256 + px[i + 1] + px[i + 2] / 256 - 32768; };
   const E = new Float32Array(W * H);
   for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) E[y * W + x] = elevAt(ox + x / SX, oy + y / SY);
-  let emax = 0; for (const e of E) if (e > emax) emax = e;
+  let emax = 0, emin = 1e9; for (const e of E) { if (e > emax) emax = e; if (e < emin) emin = e; }
+  /* bản đồ độ cao 1024×576 (xám 8 bit, 0 = thấp nhất, 255 = cao nhất) để dựng địa hình 3D nổi khối */
+  const hw = 1024, hh = 576, hc = new OffscreenCanvas(hw, hh), hg = hc.getContext('2d'), hd = hg.createImageData(hw, hh);
+  for (let y = 0; y < hh; y++) for (let x = 0; x < hw; x++) { const v = Math.round((E[Math.floor(y * H / hh) * W + Math.floor(x * W / hw)] - emin) / Math.max(1, emax - emin) * 255); const i = (y * hw + x) * 4; hd.data[i] = hd.data[i + 1] = hd.data[i + 2] = v; hd.data[i + 3] = 255; }
+  hg.putImageData(hd, 0, 0); const hb = await hc.convertToBlob({ type: 'image/png' }), docao = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(hb); });
   /* màu theo độ cao + đổ bóng núi (nguồn sáng tây bắc) */
   const cv = document.getElementById('c'); cv.width = W; cv.height = H; const g = cv.getContext('2d'), img = g.createImageData(W, H), d = img.data;
   const ramp = [[-50, [70, 110, 140]], [0, [96, 138, 160]], [1, [142, 158, 118]], [60, [158, 168, 120]], [200, [172, 164, 118]], [500, [160, 138, 100]], [900, [140, 116, 90]], [1500, [170, 160, 150]], [2500, [225, 222, 215]]];
@@ -143,7 +147,9 @@ const out = await page.evaluate(async ({ songDH, nguong, tiles, tx0, ty0, PX0, P
   /* viền tối (vignette) cho chất phim tài liệu */
   const vg = g.createRadialGradient(W / 2, H / 2, H * .35, W / 2, H / 2, H * .95); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(15,10,5,.45)'); g.fillStyle = vg; g.fillRect(0, 0, W, H);
   /* địa danh lịch sử */
-  diaDanh.forEach(dd => { const [x, y] = dd.p; g.fillStyle = dd.loai === 'thanh' ? '#7a1f1a' : '#2b2118'; g.beginPath(); if (dd.loai === 'thanh') g.rect(x - 9, y - 9, 18, 18); else g.arc(x, y, 8, 0, 7); g.fill(); g.strokeStyle = '#f4ead3'; g.lineWidth = 3; g.stroke();
+  diaDanh.forEach(dd => { const [x, y] = dd.p; g.fillStyle = dd.loai === 'thanh' ? '#7a1f1a' : '#2b2118'; g.beginPath(); if (dd.loai === 'thanh') g.rect(x - 9, y - 9, 18, 18); else g.arc(x, y, 8, 0, 7); g.fill(); g.strokeStyle = '#f4ead3'; g.lineWidth = 3; g.stroke(); });
+  const nen3d = cv.toDataURL('image/jpeg', .92);   // nền cho bản đồ 3D: không chữ địa danh (nhãn nổi thay)
+  diaDanh.forEach(dd => { const [x, y] = dd.p;
     g.font = '700 30px "Be Vietnam Pro", Arial, sans-serif'; g.lineWidth = 7; g.strokeStyle = 'rgba(244,234,211,.92)'; g.fillStyle = '#2b2118'; const tx = x + (dd.trai ? -16 - g.measureText(dd.ten).width : 16); g.strokeText(dd.ten, tx, y + 10); g.fillText(dd.ten, tx, y + 10); });
   const nen = cv.toDataURL('image/jpeg', .92);
 
@@ -176,15 +182,16 @@ const out = await page.evaluate(async ({ songDH, nguong, tiles, tx0, ty0, PX0, P
   const col = { ta: '#c8352b', dich: '#1f4f86' };
   tuyen.forEach(t => { g.strokeStyle = col[t.ben] || '#333'; g.lineWidth = 9; g.setLineDash(t.ben === 'dich' ? [26, 14] : []); g.lineCap = g.lineJoin = 'round'; g.beginPath(); t.xy.forEach(([x, y], k) => k ? g.lineTo(x, y) : g.moveTo(x, y)); g.stroke(); g.setLineDash([]);
     const [x1, y1] = t.xy[t.xy.length - 1], [x0, y0] = t.xy[Math.max(0, t.xy.length - 6)], an = Math.atan2(y1 - y0, x1 - x0); g.fillStyle = col[t.ben] || '#333'; g.beginPath(); g.moveTo(x1 + Math.cos(an) * 26, y1 + Math.sin(an) * 26); g.lineTo(x1 + Math.cos(an + 2.5) * 24, y1 + Math.sin(an + 2.5) * 24); g.lineTo(x1 + Math.cos(an - 2.5) * 24, y1 + Math.sin(an - 2.5) * 24); g.fill(); });
-  return { nen, xem: cv.toDataURL('image/jpeg', .9), tuyen: tuyen.map(t => ({ ten: t.ten, ben: t.ben, cachDi: t.cachDi || 'bo', xy: t.xy.map(([x, y]) => [Math.round(x), Math.round(y)]) })), emax: Math.round(emax) };
+  return { nen, nen3d, xem: cv.toDataURL('image/jpeg', .9), tuyen: tuyen.map(t => ({ ten: t.ten, ben: t.ben, cachDi: t.cachDi || 'bo', xy: t.xy.map(([x, y]) => [Math.round(x), Math.round(y)]) })), emax: Math.round(emax), emin: Math.round(emin), docao };
 }, { songDH: !geom.some(g => g.kind === 'song'), nguong: R.nguong_song || 0.0035, tiles, tx0, ty0, PX0, PY0, SX, SY, W, H, geom, diaDanh, tuyenIn, nuoc: !!R.bien_nuoc, mpp: 40075016 * Math.cos((nam + bac) / 2 * Math.PI / 180) / (256 * 2 ** Z * SX) });
 await browser.close();
 
 const save = (f, durl) => fs.writeFileSync(path.join(DIR, f), Buffer.from(durl.split(',')[1], 'base64'));
-save('nen-2k.jpg', out.nen); save('xem-truoc.jpg', out.xem);
+save('nen-2k.jpg', out.nen); save('nen-3d.jpg', out.nen3d); save('xem-truoc.jpg', out.xem); save('do-cao.png', out.docao);
 // tuyến: tọa độ ảnh 2560×1440 + kinh/vĩ độ (để dùng lại ở mọi khung hình)
 const unproj = ([x, y]) => [+x2lon(x / SX + PX0, Z).toFixed(5), +y2lat(y / SY + PY0, Z).toFixed(5)];
-fs.writeFileSync(path.join(DIR, 'tuyen.json'), JSON.stringify({ id, ten: R.ten, khung: { rong: W, cao: H, tay, dong, nam, bac, zoom: Z },
+fs.writeFileSync(path.join(DIR, 'tuyen.json'), JSON.stringify({ id, ten: R.ten, khung: { rong: W, cao: H, tay, dong, nam, bac, zoom: Z, do_cao: { file: 'do-cao.png', thap: out.emin, cao: out.emax, met_moi_diem: +(40075016 * Math.cos((nam + bac) / 2 * Math.PI / 180) / (256 * 2 ** Z * SX)).toFixed(2) } },
+  dia_danh: diaDanh.map(d => ({ ten: d.ten, loai: d.loai || '', xy: d.p.map(Math.round), lonlat: [d.lon, d.lat] })),
   nguon: '© OpenStreetMap contributors (ODbL); địa hình: Terrain Tiles trên AWS (SRTM, GMTED, ETOPO1…)',
   tuyen: out.tuyen.map(t => ({ ...t, lonlat: t.xy.map(unproj) })) }, null, 1));
 console.log(`  ✔ maps/${id}/nen-2k.jpg · xem-truoc.jpg · tuyen.json (${out.tuyen.length} tuyến; đỉnh cao nhất ${out.emax} m)`);

@@ -14,6 +14,16 @@
    "mo_ta": "Khai báo maps/<id>/region.json (vùng, địa danh lịch sử, tuyến: diem [[kinh độ, vĩ độ]…], ben ta/dich, cachDi bo/thuy/thang) → ra nen-2k.jpg (2560×1440), xem-truoc.jpg, tuyen.json. Địa hình AWS Terrain Tiles; sông hồ OpenStreetMap (không kết nối được thì tính sông từ địa hình). Mẫu: maps/chi-lang-1427/."
   },
   {
+   "ten": "🎞 PHIM BẢN ĐỒ CHIẾN DỊCH (HyperFrames) – làm từng trận, 1 tập mẫu trước",
+   "lenh": "node tools/hf-tap.mjs <id-trận> && node tools/kiem-phim.mjs hyperframes/<id-trận> --hf && cd hyperframes/<id-trận> && ../node_modules/.bin/hyperframes render -o ../<id-trận>.mp4",
+   "mo_ta": "Bản đồ 3D địa hình thật làm xương sống: tướng, cờ, lính, ngựa phi, mũi tên tiến quân, lửa và đất cháy ở lại sau trận; xen ảnh tư liệu; chuyển cảnh mực bắn; giọng Manus + phụ đề + nhạc Hùng ca. Cần maps/<id>/kich-ban-ban-do.json. Skill ban-do-chien-dich."
+  },
+  {
+   "ten": "🔎 TỰ KIỂM PHIM (clip thiếu, tư liệu lặp, đường dẫn máy)",
+   "lenh": "node tools/kiem-phim.mjs hyperframes/<id-trận> --hf",
+   "mo_ta": "Báo lỗi trước khi render: file thiếu, cảnh hở (màn đen), cùng ảnh dùng nhiều cảnh hoặc trùng nội dung, đường dẫn máy dựng (/home, C:\\, file://, localhost) hay tài nguyên mạng. --hf chạy thêm hyperframes check."
+  },
+  {
    "ten": "Nạp giọng anh tự làm (mp3/mp4, theo cảnh hoặc cả trận)",
    "lenh": "node tools/nap-giong-manus.mjs <file.mp4 | thư-mục | goi.zip> --thu",
    "mo_ta": "Đặt tên <id-trận>_<NN>.mp4 hoặc <id-trận>.mp4 (cả trận, nghỉ ~2 giây giữa cảnh – tự cắt). --thu để chạy thử, bỏ --thu để nạp thật."
@@ -112,6 +122,12 @@
    "duong_dan": ".claude/skills/xuong-phim-lich-su/SKILL.md",
    "mo_ta": "Quy trình thêm trận, nguồn sử, giọng Manus, xuất & đăng.",
    "giay_phep": "của dự án"
+  },
+  {
+   "ten": "ban-do-chien-dich – phim bản đồ chiến dịch (HyperFrames)",
+   "duong_dan": ".claude/skills/ban-do-chien-dich/SKILL.md",
+   "mo_ta": "Bản đồ 3D làm xương sống, tướng/cờ/lính, ngựa, mũi tên tiến quân, máy bay ném bom (chỉ thế kỷ 20), đất cháy sau trận, xen tư liệu, chuyển cảnh mực bắn; render HyperFrames + tự kiểm phim.",
+   "giay_phep": "của dự án · HyperFrames Apache-2.0"
   },
   {
    "ten": "directing-stickman-videos – A5 Historical Cartoon",

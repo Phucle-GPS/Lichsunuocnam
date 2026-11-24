@@ -3,3 +3,7 @@ node_modules/
 loi-dan-tmp-*/
 giong-nhap/
 maps/_cache/
+hyperframes/*/
+!hyperframes/_chung/
+hyperframes/*.mp4
+.hyperframes/

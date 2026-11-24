@@ -8,8 +8,88 @@
   "dong": 107.21993334715728,
   "nam": 21.22000000000001,
   "bac": 22.02,
-  "zoom": 11
+  "zoom": 11,
+  "do_cao": {
+   "file": "do-cao.png",
+   "thap": -102,
+   "cao": 1516,
+   "met_moi_diem": 61.84
+  }
  },
+ "dia_danh": [
+  {
+   "ten": "Ải Pha Lũy",
+   "loai": "",
+   "xy": [
+    1703,
+    87
+   ],
+   "lonlat": [
+    106.708,
+    21.972
+   ]
+  },
+  {
+   "ten": "Lạng Sơn",
+   "loai": "",
+   "xy": [
+    1792,
+    301
+   ],
+   "lonlat": [
+    106.761,
+    21.853
+   ]
+  },
+  {
+   "ten": "Ải Chi Lăng",
+   "loai": "",
+   "xy": [
+    1484,
+    636
+   ],
+   "lonlat": [
+    106.577,
+    21.667
+   ]
+  },
+  {
+   "ten": "Núi Mã Yên",
+   "loai": "",
+   "xy": [
+    1449,
+    671
+   ],
+   "lonlat": [
+    106.556,
+    21.648
+   ]
+  },
+  {
+   "ten": "Cần Trạm",
+   "loai": "",
+   "xy": [
+    957,
+    1108
+   ],
+   "lonlat": [
+    106.262,
+    21.405
+   ]
+  },
+  {
+   "ten": "Thành Xương Giang",
+   "loai": "thanh",
+   "xy": [
+    865,
+    1313
+   ],
+   "lonlat": [
+    106.207,
+    21.291
+   ]
+  }
+ ],
  "nguon": "© OpenStreetMap contributors (ODbL); địa hình: Terrain Tiles trên AWS (SRTM, GMTED, ETOPO1…)",
  "tuyen": [
   {
