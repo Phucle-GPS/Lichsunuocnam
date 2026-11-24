@@ -1,0 +1,72 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Sa bàn trận Rạch Gầm – Xoài Mút (1785) – Bảo tàng Lịch sử TP. Hồ Chí Minh",
+  "credit": "Ảnh: Daderot · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Daderot",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Battle_of_R%E1%BA%A1ch_G%E1%BA%A7m-Xo%C3%A0i_M%C3%BAt_(1785),_display_-_Museum_of_Vietnamese_History_-_Ho_Chi_Minh_City_-_DSC05973.JPG",
+  "tep": "File:Battle of Rạch Gầm-Xoài Mút (1785), display - Museum of Vietnamese History - Ho Chi Minh City - DSC05973.JPG"
+ },
+ {
+  "file": "02-map.jpg",
+  "slot": "map",
+  "caption": "Sông Tiền, đoạn Rạch Gầm – Xoài Mút (Tiền Giang) ngày nay",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:S%C3%B4ng_Ti%E1%BB%81n,_%C4%91o%E1%BA%A1n_R%E1%BA%A1ch_G%E1%BA%A7m-Xo%C3%A0i_M%C3%BAt.jpg",
+  "tep": "Tập tin:Sông Tiền, đoạn Rạch Gầm-Xoài Mút.jpg"
+ },
+ {
+  "file": "03-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Mô hình chiến thuyền Tây Sơn dùng trong trận đánh",
+  "credit": "Ảnh: Original uploader was Liftold · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Original uploader was Liftold at vi.wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:T%C3%A0u_chi%E1%BA%BFn_trong_tr%E1%BA%ADn_Xo%C3%A0i_M%C3%BAt.JPG",
+  "tep": "Tập tin:Tàu chiến trong trận Xoài Mút.JPG"
+ },
+ {
+  "file": "04-dienbien2.jpg",
+  "slot": "dienbien2",
+  "caption": "Vũ khí của quân Xiêm để lại sau trận Rạch Gầm – Xoài Mút",
+  "credit": "Ảnh: Nguyễn Thanh Quang · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Nguyễn Thanh Quang",
+  "nguon": "https://commons.wikimedia.org/wiki/File:R%E1%BA%A1ch_G%E1%BA%A7m-Xo%C3%A0i_M%C3%BAt_2.JPG",
+  "tep": "Tập tin:Rạch Gầm-Xoài Mút 2.JPG"
+ },
+ {
+  "file": "05-moc.jpg",
+  "slot": "moc",
+  "caption": "Di vật trận Rạch Gầm – Xoài Mút tại nhà trưng bày Tiền Giang",
+  "credit": "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Phương Huy",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Di_v%E1%BA%ADt_tr%E1%BA%ADn_R%E1%BA%A1ch_G%E1%BA%A7m_Xo%C3%A0i_M%C3%BAt_t%E1%BA%A1i_Ti%E1%BB%81n_Giang_ng%C3%A0y_29_th%C3%A1ng_5_n%C4%83m_2016_(1).jpg",
+  "tep": "File:Di vật trận Rạch Gầm Xoài Mút tại Tiền Giang ngày 29 tháng 5 năm 2016 (1).jpg"
+ },
+ {
+  "file": "06-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Tượng đài chiến thắng Rạch Gầm – Xoài Mút",
+  "credit": "Ảnh: Nguyễn Thanh Quang · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Nguyễn Thanh Quang",
+  "nguon": "https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_%C4%91%C3%A0i_R%E1%BA%A1ch_G%E1%BA%A7m-Xo%C3%A0i_M%C3%BAt.JPG",
+  "tep": "Tập tin:Tượng đài Rạch Gầm-Xoài Mút.JPG"
+ },
+ {
+  "file": "07-ket.jpg",
+  "slot": "ket",
+  "caption": "Khu di tích chiến thắng Rạch Gầm – Xoài Mút, Châu Thành, Tiền Giang",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Khu_di_t%C3%ADch_chi%E1%BA%BFn_th%E1%BA%AFng_G%E1%BA%A1ch_G%E1%BA%A7m_Xo%C3%A0i_M%C3%BAt.jpg",
+  "tep": "Tập tin:Khu di tích chiến thắng Gạch Gầm Xoài Mút.jpg"
+ }
+]

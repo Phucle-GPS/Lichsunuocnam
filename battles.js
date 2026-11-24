@@ -418,7 +418,16 @@
     },
     /* =================================================================== */
     {
-      id: 'rach-gam-1785', year: '1785', name: 'Rạch Gầm – Xoài Mút 1785', who: 'Nguyễn Huệ', vs: 'Xiêm', seed: 23, sources: ['SGK Lịch sử 7', 'Báo Giáo dục Việt Nam', 'Wikipedia – Trận Rạch Gầm – Xoài Mút'],
+      id: 'rach-gam-1785', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/rach-gam-1785/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Sa bàn trận Rạch Gầm – Xoài Mút (1785) – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" },
+        { file: "02-map.jpg", slot: "map", caption: "Sông Tiền, đoạn Rạch Gầm – Xoài Mút (Tiền Giang) ngày nay", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "03-dienbien.jpg", slot: "dienbien", caption: "Mô hình chiến thuyền Tây Sơn dùng trong trận đánh", credit: "Ảnh: Original uploader was Liftold · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "04-dienbien2.jpg", slot: "dienbien2", caption: "Vũ khí của quân Xiêm để lại sau trận Rạch Gầm – Xoài Mút", credit: "Ảnh: Nguyễn Thanh Quang · Public domain · Wikimedia Commons" },
+        { file: "05-moc.jpg", slot: "moc", caption: "Di vật trận Rạch Gầm – Xoài Mút tại nhà trưng bày Tiền Giang", credit: "Ảnh: Phương Huy · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "06-ynghia.jpg", slot: "ynghia", caption: "Tượng đài chiến thắng Rạch Gầm – Xoài Mút", credit: "Ảnh: Nguyễn Thanh Quang · Public domain · Wikimedia Commons" },
+        { file: "07-ket.jpg", slot: "ket", caption: "Khu di tích chiến thắng Rạch Gầm – Xoài Mút, Châu Thành, Tiền Giang", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" }
+      ],
+      year: '1785', name: 'Rạch Gầm – Xoài Mút 1785', who: 'Nguyễn Huệ', vs: 'Xiêm', seed: 23, sources: ['SGK Lịch sử 7', 'Báo Giáo dục Việt Nam', 'Wikipedia – Trận Rạch Gầm – Xoài Mút'],
       scenes: [
         { type: 'title', title: 'RẠCH GẦM', sub: 'RẠCH GẦM – XOÀI MÚT NĂM 1785', line: 'NGUYỄN HUỆ · TRẬN THỦY CHIẾN TRÊN SÔNG TIỀN', stamp: 'ĐẠI PHÁ QUÂN XIÊM', ships: 8,
           say: 'Đầu năm 1785, trên sông Tiền, nghĩa quân Tây Sơn do Nguyễn Huệ chỉ huy đã tiêu diệt gần như toàn bộ đạo quân xâm lược Xiêm.' },
