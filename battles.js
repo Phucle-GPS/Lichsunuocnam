@@ -366,7 +366,17 @@
     },
     /* =================================================================== */
     {
-      id: 'chi-lang-1427', year: '1427', name: 'Chi Lăng – Xương Giang 1427', who: 'Lê Lợi', vs: 'Minh', seed: 19, sources: ['Đại Việt sử ký toàn thư', 'Lam Sơn thực lục', 'Tạp chí Quốc phòng toàn dân', 'Wikipedia – Trận Chi Lăng'],
+      id: 'chi-lang-1427', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/chi-lang-1427/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Sa bàn chiến thắng của Lê Lợi trước 10 vạn quân Minh năm 1427 – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" },
+        { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tượng đài Lê Lợi tại TP. Hồ Chí Minh", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" },
+        { file: "03-map.jpg", slot: "map", fit: 'contain', caption: "Sơ đồ trận Chi Lăng – Xương Giang năm 1427", credit: "Ảnh: Lưu Ly · CC BY 3.0 · Wikimedia Commons" },
+        { file: "04-dienbien.jpg", slot: "dienbien", caption: "Ải Chi Lăng (Lạng Sơn) – đường độc đạo kẹp giữa núi đá", credit: "Ảnh: Viethavvh · Public domain · Wikimedia Commons" },
+        { file: "05-dienbien2.jpg", slot: "dienbien2", caption: "Sơ đồ khu di tích lịch sử Chi Lăng", credit: "Ảnh: Viethavvh · Public domain · Wikimedia Commons" },
+        { file: "06-moc.jpg", slot: "moc", caption: "Đồng tiền Thuận Thiên nguyên bảo do vua Lê Thái Tổ cho đúc", credit: "Ảnh: Vtduc · CC BY-SA 4.0 · Wikimedia Commons" },
+        { file: "07-ynghia.jpg", slot: "ynghia", caption: "Tượng voi, tê giác, ngựa đá ở lăng Lê Lợi (Lam Kinh, Thanh Hóa)", credit: "Ảnh: Daderot · CC0 · Wikimedia Commons" },
+        { file: "08-ket.jpg", slot: "ket", caption: "Cánh đồng Chi Lăng xưa nay lúa đã xanh", credit: "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons" }
+      ],
+      year: '1427', name: 'Chi Lăng – Xương Giang 1427', who: 'Lê Lợi', vs: 'Minh', seed: 19, sources: ['Đại Việt sử ký toàn thư', 'Lam Sơn thực lục', 'Tạp chí Quốc phòng toàn dân', 'Wikipedia – Trận Chi Lăng'],
       scenes: [
         { type: 'title', title: 'CHI LĂNG', sub: 'CHI LĂNG – XƯƠNG GIANG NĂM 1427', line: 'KHỞI NGHĨA LAM SƠN · KẾT THÚC 20 NĂM ĐÔ HỘ CỦA NHÀ MINH', stamp: 'BÌNH NGÔ', ships: 2,
           say: 'Mùa thu năm 1427, nghĩa quân Lam Sơn tiêu diệt hơn mười vạn viện binh nhà Minh tại ải Chi Lăng và thành Xương Giang, kết thúc hai mươi năm đô hộ.' },

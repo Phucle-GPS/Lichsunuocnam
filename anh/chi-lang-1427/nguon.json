@@ -1,0 +1,84 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Sa bàn chiến thắng của Lê Lợi trước 10 vạn quân Minh năm 1427 – Bảo tàng Lịch sử TP. Hồ Chí Minh",
+  "credit": "Ảnh: Daderot · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Daderot",
+  "nguon": "https://commons.wikimedia.org/wiki/File:L%C3%AA_L%E1%BB%A3i%27s_victory_over_100,000_Ming_invaders_from_China_in_1427_AD_-_Chi_Lang_Pass_(%E1%BA%A2i_Chi_L%C4%83ng)_-_Museum_of_Vietnamese_History_-_Ho_Chi_Minh_City_-_DSC06005.JPG",
+  "tep": "Tập tin:Lê Lợi's victory over 100,000 Ming invaders from China in 1427 AD - Chi Lang Pass (Ải Chi Lăng) - Museum of Vietnamese History - Ho Chi Minh City - DSC06005.JPG"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng đài Lê Lợi tại TP. Hồ Chí Minh",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Statue_of_L%C3%AA_L%E1%BB%A3i.jpg",
+  "tep": "Tập tin:Statue of Lê Lợi.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-map.jpg",
+  "slot": "map",
+  "caption": "Sơ đồ trận Chi Lăng – Xương Giang năm 1427",
+  "credit": "Ảnh: Lưu Ly · CC BY 3.0 · Wikimedia Commons",
+  "license": "CC BY 3.0",
+  "artist": "Lưu Ly (thảo luận)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Tr%E1%BA%ADn_Chi_L%C4%83ng_-_X%C6%B0%C6%A1ng_Giang.png",
+  "tep": "Tập tin:Trận Chi Lăng - Xương Giang.png",
+  "fit": "contain"
+ },
+ {
+  "file": "04-dienbien.jpg",
+  "slot": "dienbien",
+  "caption": "Ải Chi Lăng (Lạng Sơn) – đường độc đạo kẹp giữa núi đá",
+  "credit": "Ảnh: Viethavvh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Viethavvh at vi.wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:AiChiLang.JPG",
+  "tep": "File:AiChiLang.JPG"
+ },
+ {
+  "file": "05-dienbien2.jpg",
+  "slot": "dienbien2",
+  "caption": "Sơ đồ khu di tích lịch sử Chi Lăng",
+  "credit": "Ảnh: Viethavvh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Viethavvh at vi.wikipedia",
+  "nguon": "https://commons.wikimedia.org/wiki/File:AiChiLang_map.JPG",
+  "tep": "File:AiChiLang map.JPG"
+ },
+ {
+  "file": "06-moc.jpg",
+  "slot": "moc",
+  "caption": "Đồng tiền Thuận Thiên nguyên bảo do vua Lê Thái Tổ cho đúc",
+  "credit": "Ảnh: Vtduc · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Vtduc",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%93ng_ti%E1%BB%81n_%22thu%E1%BA%ADn_thi%C3%AAn_nguy%C3%AAn_b%E1%BA%A3o%22_2_m%E1%BA%B7t.jpg",
+  "tep": "Tập tin:Đồng tiền \"thuận thiên nguyên bảo\" 2 mặt.jpg"
+ },
+ {
+  "file": "07-ynghia.jpg",
+  "slot": "ynghia",
+  "caption": "Tượng voi, tê giác, ngựa đá ở lăng Lê Lợi (Lam Kinh, Thanh Hóa)",
+  "credit": "Ảnh: Daderot · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Daderot",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Elephant,_rhino,_and_horse,_Le_Loi_mausoleum,_Thanh_Hoa_province,_1433_AD,_stone_-_Vietnam_National_Museum_of_Fine_Arts_-_Hanoi,_Vietnam_-_DSC04853.JPG",
+  "tep": "File:Elephant, rhino, and horse, Le Loi mausoleum, Thanh Hoa province, 1433 AD, stone - Vietnam National Museum of Fine Arts - Hanoi, Vietnam - DSC04853.JPG"
+ },
+ {
+  "file": "08-ket.jpg",
+  "slot": "ket",
+  "caption": "Cánh đồng Chi Lăng xưa nay lúa đã xanh",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Chi_L%C4%83ng_2.jpg",
+  "tep": "File:Chi Lăng 2.jpg"
+ }
+]
