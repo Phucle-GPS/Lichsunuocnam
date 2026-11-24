@@ -663,6 +663,9 @@
     if (pull.length > 110) pull = pull.slice(0, 107).replace(/\s+\S*$/, '') + '…';
     const pw = (sc.heading && !sc.pull) || (media && sc.full) ? [] : pull.split(' ').map(w => h('span', null, null, esc(w) + ' '));
     const pd = pw.length ? h('div', { class: 'card-pull' }, box) : null;
+    // ảnh tư liệu: chú thích + nguồn/giấy phép (bắt buộc với ảnh CC BY / CC BY-SA)
+    const cap = sc.caption ? h('div', { class: 'doc-cap' }, root, esc(sc.caption)) : null;
+    if (sc.credit) h('div', { class: 'doc-credit' }, root, esc(sc.credit));
     pw.forEach(w => pd.appendChild(w));
     return {
       root, update(t, d) {
@@ -676,6 +679,7 @@
           }
         }
         if (kick) kick.style.opacity = eout(ramp(t, .2, .7));
+        if (cap) { const k = eout(ramp(t, .4, 1)); cap.style.opacity = k; cap.style.transform = `translateY(${(1 - k) * 16}px)`; }
         if (head) { const k = eout(ramp(t, .35, 1)); head.style.opacity = k; head.style.transform = `translateY(${(1 - k) * 30}px)`; }
         bar.style.width = eout(ramp(t, .8, 1.6)) * 260 + 'px';
         if (pd) { const k = eout(ramp(t, .8, 1.2)); pd.style.opacity = k; pd.style.transform = `scale(${.92 + k * .08})`; pd.style.transformOrigin = '0 50%'; }
