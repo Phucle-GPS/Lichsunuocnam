@@ -37,12 +37,17 @@ const DU = JSON.parse(fs.readFileSync(path.join(ROOT, 'maps', id, 'tuyen.json'),
 fs.writeFileSync(path.join(A, 'du-lieu.js'), `/* dữ liệu bản đồ ${id} (tools/ban-do.mjs) + kịch bản (maps/${id}/kich-ban-ban-do.json) */\nwindow.BANDO = ${JSON.stringify({ du_lieu: { khung: DU.khung, tuyen: DU.tuyen.map(t => ({ ten: t.ten, ben: t.ben, xy: t.xy })), dia_danh: DU.dia_danh }, kich_ban: KB })};\n`);
 const ANH = Object.fromEntries((B.anh || []).map(a => [a.slot, a])), anh = slot => { const a = ANH[slot]; if (!a) return null; cp(`anh/${id}/${a.file}`, `anh/${a.file}`); return a; };
 
-/* ---------- nhạc nền Hùng ca (bộ tổng hợp của app) → assets/nhac.wav ---------- */
+/* ---------- nhạc nền Hùng ca (bộ tổng hợp của app) → maps/<id>/nhac-nen.mp3 (lưu lại, máy khác khỏi cần Playwright) ---------- */
 {
-  const { chromium } = (() => { try { return require('playwright'); } catch (e) { return require(path.join(ROOT, 'tools', 'node_modules', 'playwright')); } })();
-  const br = await chromium.launch(), pg = await br.newPage();
-  await pg.goto(pathToFileURL(path.join(ROOT, 'index.html')).href + `?render=${id}&nhac=hungca-${(B.year.match(/\d+/) || ['7'])[0]}`); await pg.waitForFunction(() => window.STUDIO);
-  fs.writeFileSync(path.join(A, 'nhac.wav'), Buffer.from(await pg.evaluate(() => window.STUDIO.audio()), 'base64')); await br.close();
+  const luu = path.join(ROOT, 'maps', id, 'nhac-nen.mp3');
+  if (!fs.existsSync(luu)) {
+    const { chromium } = (() => { try { return require('playwright'); } catch (e) { return require(path.join(ROOT, 'tools', 'node_modules', 'playwright')); } })();
+    const br = await chromium.launch(), pg = await br.newPage();
+    await pg.goto(pathToFileURL(path.join(ROOT, 'index.html')).href + `?render=${id}&nhac=hungca-${(B.year.match(/\d+/) || ['7'])[0]}`); await pg.waitForFunction(() => window.STUDIO);
+    const wav = path.join(A, '_nhac.wav'); fs.writeFileSync(wav, Buffer.from(await pg.evaluate(() => window.STUDIO.audio()), 'base64')); await br.close();
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', wav, '-c:a', 'libmp3lame', '-b:a', '192k', luu]); fs.rmSync(wav);
+  }
+  fs.copyFileSync(luu, path.join(A, 'nhac.mp3'));
 }
 
 /* ---------- phần CSS dùng chung cho mọi cảnh ---------- */
@@ -202,7 +207,7 @@ ${CANH.map(([cid, k], i) => `    <div id="${cid}" data-composition-id="${cid}" d
     <div id="phu-de" data-composition-id="phu-de" data-composition-src="compositions/phu-de.html" data-start="0" data-duration="${TOTAL}" data-track-index="3" data-track-kind="captions" data-width="1920" data-height="1080" style="z-index:20"></div>
 ${CAT.map((t, k) => muc(k, t)).join('\n')}
 ${vd.map((d, i) => `    <audio id="giong-${String(i + 1).padStart(2, '0')}" class="clip" src="assets/giong-${String(i + 1).padStart(2, '0')}.mp3" data-start="${r3(S[i] + .4)}" data-duration="${r3(d)}" data-track-index="4" data-volume="1"></audio>`).join('\n')}
-    <audio id="nhac" class="clip" src="assets/nhac.wav" data-start="0" data-duration="${TOTAL}" data-track-index="5" data-volume="0.32" data-fade-in="1.5" data-fade-out="3"></audio>
+    <audio id="nhac" class="clip" src="assets/nhac.mp3" data-start="0" data-duration="${TOTAL}" data-track-index="5" data-volume="0.32" data-fade-in="1.5" data-fade-out="3"></audio>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
