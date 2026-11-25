@@ -1,0 +1,216 @@
+{
+  "id": "nhu-nguyet-1077",
+  "che_do": "co",
+  "ten": "Như Nguyệt 1077",
+  "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển/hồ thời xưa khai báo tay theo sử liệu, điểm sông được hút về đáy thung lũng trên địa hình thật. Độ rộng sông có thuyền đi được PHÓNG ĐẠI để đội thuyền hiển thị được (rong_m là độ rộng hiển thị). Phòng tuyến sông Như Nguyệt (sông Cầu); đường quân Tống từ Lạng Sơn xuống. Ung Châu, Khâm Châu, Liêm Châu ở ngoài khung (Quảng Tây) – chỉ bằng mũi tên.",
+  "vung": {
+    "tay": 105.75,
+    "dong": 107.05,
+    "nam": 20.98,
+    "bac": 21.98
+  },
+  "song_xua": [
+    {
+      "ten": "Sông Như Nguyệt",
+      "rong_m": 1300,
+      "diem": [
+        [
+          105.84,
+          21.62
+        ],
+        [
+          105.88,
+          21.5
+        ],
+        [
+          105.93,
+          21.38
+        ],
+        [
+          105.98,
+          21.27
+        ],
+        [
+          106.02,
+          21.225
+        ],
+        [
+          106.08,
+          21.2
+        ],
+        [
+          106.18,
+          21.16
+        ],
+        [
+          106.3,
+          21.11
+        ],
+        [
+          106.4,
+          21.08
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Thương",
+      "rong_m": 600,
+      "diem": [
+        [
+          106.58,
+          21.67
+        ],
+        [
+          106.48,
+          21.57
+        ],
+        [
+          106.38,
+          21.48
+        ],
+        [
+          106.28,
+          21.38
+        ],
+        [
+          106.21,
+          21.29
+        ],
+        [
+          106.22,
+          21.2
+        ],
+        [
+          106.3,
+          21.11
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Thiên Đức",
+      "rong_m": 700,
+      "diem": [
+        [
+          105.87,
+          21.06
+        ],
+        [
+          105.98,
+          21.06
+        ],
+        [
+          106.1,
+          21.05
+        ],
+        [
+          106.2,
+          21.07
+        ],
+        [
+          106.3,
+          21.11
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Nhị Hà",
+      "rong_m": 1200,
+      "diem": [
+        [
+          105.7,
+          21.11
+        ],
+        [
+          105.8,
+          21.08
+        ],
+        [
+          105.86,
+          21.04
+        ],
+        [
+          105.9,
+          20.97
+        ]
+      ]
+    }
+  ],
+  "dia_danh": [
+    {
+      "ten": "Ải Chi Lăng",
+      "lon": 106.577,
+      "lat": 21.667
+    },
+    {
+      "ten": "Phòng tuyến Như Nguyệt",
+      "lon": 105.99,
+      "lat": 21.215,
+      "trai": true
+    },
+    {
+      "ten": "Thăng Long",
+      "lon": 105.84,
+      "lat": 21.035,
+      "loai": "thanh",
+      "trai": true
+    }
+  ],
+  "tuyen": [
+    {
+      "ten": "Quân Tống tiến xuống bờ bắc Như Nguyệt",
+      "ben": "dich",
+      "diem": [
+        [
+          106.76,
+          21.95
+        ],
+        [
+          106.577,
+          21.667
+        ],
+        [
+          106.25,
+          21.4
+        ],
+        [
+          106.06,
+          21.25
+        ]
+      ]
+    },
+    {
+      "ten": "Quân Tống đóng bè vượt sông",
+      "ben": "dich",
+      "cachDi": "thang",
+      "diem": [
+        [
+          106.035,
+          21.228
+        ],
+        [
+          106.018,
+          21.212
+        ]
+      ]
+    },
+    {
+      "ten": "Lý Thường Kiệt phản công sang bờ bắc",
+      "ben": "ta",
+      "cachDi": "thang",
+      "diem": [
+        [
+          105.99,
+          21.19
+        ],
+        [
+          106.03,
+          21.24
+        ],
+        [
+          106.09,
+          21.27
+        ]
+      ]
+    }
+  ]
+}

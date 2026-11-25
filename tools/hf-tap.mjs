@@ -67,7 +67,7 @@ function tuLieu(cid, slot, dur, opt = {}) {
     #${p}-hat{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.55))}
     #${p}-cap{position:absolute;left:110px;bottom:200px;max-width:1000px;font:italic 600 34px/1.35 'Be Vietnam Pro';color:#f4ead3;border-left:6px solid #c8352b;padding:10px 22px;background:rgba(10,8,6,.55)}
     #${p}-credit{position:absolute;right:30px;bottom:18px;font:600 16px 'Be Vietnam Pro';color:rgba(244,234,211,.7)}
-    #${p}-kick{position:absolute;left:110px;top:150px;font:700 30px 'Oswald VN';letter-spacing:.3em;color:#d9c9a3}
+    #${p}-kick{position:absolute;left:110px;top:118px;font:700 30px 'Oswald VN';letter-spacing:.3em;color:#d9c9a3}
     #${p}-tua{position:absolute;left:104px;top:196px;max-width:1500px;font:700 104px/1.05 'Oswald VN';color:#f4ead3;text-shadow:0 6px 30px rgba(0,0,0,.8)}
     #${p}-gach{position:absolute;left:110px;top:${opt.tua && opt.tua.length > 26 ? 440 : 330}px;height:6px;width:0;background:linear-gradient(90deg,#c8352b,#c9a45c)}
     #${p}-trich{position:absolute;left:180px;right:180px;top:300px;font:italic 600 54px/1.45 'Be Vietnam Pro';color:#f4ead3;text-shadow:0 4px 20px #000}

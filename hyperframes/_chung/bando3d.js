@@ -52,11 +52,11 @@
     const geo = new THREE.PlaneGeometry(SW, SH, 512, Math.round(512 * H / W)); geo.rotateX(-Math.PI / 2);
     /* mép bản đồ hạ dần về 0 (không lộ vách cắt) */
     const pos = geo.attributes.position; for (let i = 0; i < pos.count; i++) { const u = pos.getX(i) / SW + .5, v = pos.getZ(i) / SH + .5, x = u * W, y = v * H;
-      pos.setY(i, Math.max(0, cao1(x, y)) * muot(clamp(Math.min(u, 1 - u, v, 1 - v) / .03))); }
+      pos.setY(i, Math.max(0, cao1(x, y)) * muot(clamp(Math.min(u, 1 - u, v, 1 - v) / .08))); }   // dải 8% sát mép thoải dần (3% tạo vách tối)
     geo.computeVertexNormals();
     /* vùng bao quanh: ảnh nền lặp đối xứng (liền mép) + tông tối hơn → máy quay ra rộng không thấy "tấm bản đồ" trơ trọi */
     { const tx = new THREE.Texture(o.nen); tx.needsUpdate = true; tx.colorSpace = THREE.SRGBColorSpace; tx.wrapS = tx.wrapT = THREE.MirroredRepeatWrapping; tx.repeat.set(7, 7); tx.offset.set(-3, -3); tx.anisotropy = 4;
-      const ngoai = new THREE.Mesh(new THREE.PlaneGeometry(SW * 7, SH * 7), new THREE.MeshLambertMaterial({ map: tx, color: '#ece6da' })); ngoai.rotation.x = -Math.PI / 2; ngoai.position.y = -0.4; scene.add(ngoai); }
+      const ngoai = new THREE.Mesh(new THREE.PlaneGeometry(SW * 7, SH * 7), new THREE.MeshLambertMaterial({ map: tx, color: '#f8f5ef' })); ngoai.rotation.x = -Math.PI / 2; ngoai.position.y = -0.4; scene.add(ngoai); }
     /* nền phủ là canvas động: ảnh nền 2K + mũi tên + vết cháy vẽ lại theo t */
     const nc = document.createElement('canvas'); nc.width = W; nc.height = H; const ng = nc.getContext('2d');
     const ntx = new THREE.CanvasTexture(nc); ntx.colorSpace = THREE.SRGBColorSpace; ntx.anisotropy = 8;
@@ -173,6 +173,81 @@
       bongDuoi(n.g, 1.1, .45); n.g.scale.setScalar(TL * 1.45); n.g.rotation.order = 'YXZ'; nhomMH.add(n.g); return n; }
     const taoCoCam = (ben) => () => { const g = new THREE.Group(), co = taoCo(ben, ben === 'ta' ? (K.chu_co_ta || '') : '', g, 4.2, 1.9); bongDuoi(g, .5, .5); g.scale.setScalar(TL * 1.5); return { g, co }; };
 
+    /* ---------- THUYỀN CHIẾN: thân gỗ thon hai đầu, mái chèo hai bên, lính trên boong.
+       lon = thuyền lớn (lâu thuyền phương Bắc: buồm cánh dơi, lầu ở đuôi); nhỏ = thuyền nhẹ của ta (chèo nhanh) ---------- */
+    VL.go2 = L('#6b4a2c'); VL.goToi = L('#3e2a19'); VL.buom = { ta: L('#c9a46a', { side: THREE.DoubleSide }), dich: L('#b8794a', { side: THREE.DoubleSide }) }; VL.mai = L('#5b4030');
+    const vo = (dai, rong, cao2) => gq(`vo${dai},${rong},${cao2}`, () => {   // mặt cắt dọc: mạn cong lên ở mũi & đuôi; thon bề ngang về hai đầu
+      const s = new THREE.Shape(), d = dai / 2; s.moveTo(-d, cao2 * 1.25); s.quadraticCurveTo(-d * .7, -cao2 * .1, -d * .35, 0); s.lineTo(d * .4, 0); s.quadraticCurveTo(d * .8, 0, d * 1.02, cao2 * 1.45); s.lineTo(d * .6, cao2); s.lineTo(-d * .6, cao2); s.closePath();
+      const g = new THREE.ExtrudeGeometry(s, { depth: rong, bevelEnabled: false, steps: 1, curveSegments: 8 }); g.translate(0, 0, -rong / 2);
+      const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const x = p.getX(i), k = 1 - Math.pow(Math.abs(x) / d, 2.2) * .85; p.setZ(i, p.getZ(i) * Math.max(.12, k)); } g.computeVertexNormals(); return g; });
+    function taoThuyen(ben, lon, chu) {
+      const g = new THREE.Group(), than = N(g, 0, -.35, 0), j = { g, than, chèo: [], lon }, dai = lon ? 10 : 6.5, rong = lon ? 2.6 : 1.5, cao2 = lon ? 1.2 : .7;
+      M(vo(dai, rong, cao2), lon ? VL.goToi : VL.go2, than); M(box(dai * .78, .06, rong * .78), VL.go2, than, 0, cao2 - .02, 0);   // boong
+      M(box(dai * .9, .08, .05), VL.ao[ben], than, 0, cao2 * .8, rong * .47); M(box(dai * .9, .08, .05), VL.ao[ben], than, 0, cao2 * .8, -rong * .47);   // dải màu mạn thuyền (nhận ra phe)
+      const nC = lon ? 5 : 4; for (let s = -1; s <= 1; s += 2) for (let i = 0; i < nC; i++) { const ch = N(than, (i - (nC - 1) / 2) * dai * .15, cao2 * .9, s * rong * .45); M(cyl(.035, .035, 2.2, 5), VL.go, ch, 0, -.15, s * 1.05, Math.PI / 2, 0, 0); M(box(.05, .32, .14), VL.go, ch, 0, -.15, s * 2.1); j.chèo.push({ ch, s }); }
+      if (lon) { const lau = N(than, -dai * .3, cao2, 0); M(box(2.2, 1.3, rong * .8), VL.giap[ben], lau, 0, .65, 0); M(box(2.6, .14, rong * .95), VL.mai, lau, 0, 1.36, 0);
+        [-.05, .3].forEach((x, i) => { const cot = N(than, x * dai, cao2, 0); M(cyl(.07, .09, i ? 6 : 7.5, 6), VL.go, cot, 0, (i ? 6 : 7.5) / 2, 0);
+          const b = new THREE.PlaneGeometry(i ? 2.6 : 3.2, i ? 3.6 : 4.4, 1, 5); const p = b.attributes.position; for (let k = 0; k < p.count; k++) { const y = p.getY(k); p.setX(k, p.getX(k) * (1 + y * .06)); } b.computeVertexNormals();
+          const bm = M(b, VL.buom[ben], cot, 0, (i ? 6 : 7.5) - (i ? 2 : 2.4), 0, 0, Math.PI / 2 + .25, 0); for (let k = 0; k < 4; k++) M(box(.04, .05, (i ? 2.6 : 3.2) * 1.05), VL.goToi, cot, 0, (i ? 6 : 7.5) - .6 - k * (i ? .95 : 1.15), 0, 0, .25, 0); j['buom' + i] = bm; }); }
+      const so = lon ? 3 : 2; j.linh = []; for (let i = 0; i < so; i++) { const n = taoNguoi(ben, 'linh', false); n.g.position.set((i - (so - 1) / 2) * dai * .22 + (lon ? dai * .12 : 0), cao2 - .02, (i % 2 ? .25 : -.25) * rong); n.g.rotation.y = i % 2 ? .4 : -.4; than.add(n.g); j.linh.push(n); }
+      if (chu != null) { const co = taoCo(ben, chu, than, lon ? 5 : 4, lon ? 2 : 1.6); co.g.position.set(-dai * .46, cao2, 0); co.g.rotation.order = 'YXZ'; co.g.rotation.set(0, Math.PI, .08); j.coT = co; }
+      M(dia(), VL.bong, g, 0, .08, 0, 0, 0, 0, [dai * .55, 1, rong * .7]);
+      return j;
+    }
+    function tuTheThuyen(j, t, ph, chay) {   // nhấp nhô theo sóng, mái chèo khua theo nhịp
+      j.than.rotation.x = Math.sin(t * 1.3 + ph * 7) * .04; j.than.rotation.z = Math.sin(t * 1.1 + ph * 5) * .025; j.than.position.y = -.35 + Math.sin(t * 1.7 + ph * 3) * .06;
+      j.chèo.forEach(({ ch, s }, i) => { const a = (t * (chay ? 1.6 : .4) + ph) * PI2; ch.rotation.y = Math.sin(a) * .45 * s; ch.rotation.x = (Math.cos(a) * .18 - .05) * s; });
+    }
+    const TLT = () => TL * (K.ti_le_thuyen || .6);
+    const taoTh = (ben, lon) => () => { const j = taoThuyen(ben, lon, null); j.g.scale.setScalar(TLT()); return j; };
+
+    /* ---------- VOI CHIẾN: thân, đầu, vòi cong 3 đốt, tai, ngà, 4 chân cột bước đi; bành có lọng + người cưỡi ---------- */
+    VL.voi = L('#7c7470'); VL.nga = L('#ece3cf'); VL.banh = { ta: L('#b5352a'), dich: L('#2f5591') };
+    function taoVoi(ben, coNguoi) {
+      const g = new THREE.Group(), than = N(g, 0, 2.05, 0), j = { g, than, chan: [], voi: [] };
+      M(sph(1, 16, 12), VL.voi, than, 0, 0, 0, 0, 0, 0, [1.45, .95, .82]);
+      const dau = N(than, 1.35, .35, 0); M(sph(.72, 14, 10), VL.voi, dau, 0, 0, 0); j.dau = dau;
+      [-1, 1].forEach(s => { M(sph(1, 10, 8), VL.voi, dau, -.15, .05, s * .62, 0, 0, 0, [.42, .55, .06]); M(cone(.06, .7, 6), VL.nga, dau, .55, -.45, s * .25, 0, 0, -1.9); });
+      let cha = N(dau, .55, -.2, 0); for (let i = 0; i < 3; i++) { M(cyl(.18 - i * .04, .14 - i * .04, .62, 8), VL.voi, cha, 0, -.31, 0); j.voi.push(cha); cha = N(cha, 0, -.6, 0); }
+      const duoi = N(than, -1.42, .2, 0); M(cyl(.04, .02, 1.0, 5), VL.voi, duoi, 0, -.5, 0, 0, 0, -.2); j.duoi = duoi;
+      [[.85, -.45, -.4], [.85, -.45, .4], [-.85, -.45, -.4], [-.85, -.45, .4]].forEach(([x, y, z]) => { const c = N(than, x, y, z); M(cyl(.26, .24, 1.65, 9), VL.voi, c, 0, -.8, 0); M(cyl(.27, .28, .1, 9), VL.mong, c, 0, -1.6, 0); j.chan.push(c); });
+      const banh = N(than, -.1, .95, 0); j.banh = banh; M(box(1.05, .42, .95), VL.banh[ben], banh, 0, .08, 0); M(box(1.15, .05, 1.05), VL.vang, banh, 0, .31, 0);
+      M(cyl(.02, .02, 1.3, 5), VL.go, banh, -.3, .95, 0); M(cone(.45, .22, 12), VL.vang, banh, -.3, 1.62, 0);   // lọng che
+      M(box(1.6, .05, 1.7), VL.banh[ben], than, 0, .78, 0, 0, 0, 0);   // vải phủ lưng
+      if (coNguoi) { const r = taoNguoi(ben, 'tuong', true); r.g.position.set(-.05, .1, 0); r.g.scale.setScalar(.9); banh.add(r.g); j.nguoi = r; }
+      M(dia(), VL.bong, g, 0, .06, 0, 0, 0, 0, [1.9, 1, .9]);
+      return j;
+    }
+    function tuTheVoi(j, ph, di) {   // voi đi kiểu hai chân cùng bên (amble), vòi đung đưa
+      const PH = [0, .5, .5, 0]; j.chan.forEach((c, i) => { c.rotation.z = di ? Math.sin((ph + PH[i] + (i > 1 ? .25 : 0)) * PI2) * .28 : 0; });
+      j.than.position.y = 2.05 + (di ? Math.abs(Math.sin(ph * PI2 * 2)) * .05 : 0); j.than.rotation.x = di ? Math.sin(ph * PI2) * .025 : 0;
+      j.voi.forEach((v, i) => { v.rotation.z = (i ? -.25 : .1) + Math.sin(ph * PI2 + i * .8) * .12 * (i + 1); }); j.dau.rotation.z = di ? Math.sin(ph * PI2 * 2) * .03 : 0; j.duoi.rotation.x = Math.sin(ph * PI2) * .2;
+    }
+    const taoVo = ben => () => { const j = taoVoi(ben, false); j.g.scale.setScalar(TL); return j; };
+
+    /* ---------- BÃI CỌC: cọc gỗ đầu bịt sắt nhọn, cắm nghiêng về phía thuyền giặc chạy tới; ngập khi triều lên, lộ khi triều rút ---------- */
+    /* coc: [{ tu:[x,y], den:[x,y] (đường cắm cọc – thường cắt ngang lòng sông), be_rong (px, rải dọc hai bên đường), so, huong_nghieng:[dx,dy] (đầu cọc chĩa về phía này),
+               t0 (bắt đầu có), t_lo (nước rút, cọc lộ dần), lo_trong (giây), ngap (0..1 phần cọc ngập khi triều lên) }] */
+    const COC = (K.coc || []).map((c, ci) => { const r = rng(91 + ci), so = c.so || 60, ds = [], d = duong(c.duong || [c.tu, c.den]);
+      const hn = c.huong_nghieng || [1, 0], xoay0 = Math.atan2(hn[0] * SW / W, hn[1] * SH / H);
+      for (let i = 0; i < so; i++) { const u = (i + r() * .8) / so, [x, y] = d.tai(u), [hx, hy] = d.huong(u), Lh = Math.hypot(hx, hy) || 1, lech = (r() - .5) * (c.be_rong || 26);
+        ds.push({ x: x - hy / Lh * lech, y: y + hx / Lh * lech, h: 2.4 + r() * 1.4, nghieng: .3 + r() * .2, xoay: xoay0 + (r() - .5) * .4 }); }
+      const than2 = new THREE.InstancedMesh(gq('cocThan', () => { const g = new THREE.CylinderGeometry(.11, .14, 1, 6); g.translate(0, .5, 0); return g; }), VL.goToi, so);
+      const mui = new THREE.InstancedMesh(gq('cocMui', () => { const g = new THREE.ConeGeometry(.13, .5, 6); g.translate(0, .25, 0); return g; }), VL.satToi, so);
+      scene.add(than2, mui); return { ...c, ds, than2, mui }; });
+    const _m = new THREE.Matrix4(), _q = new THREE.Quaternion(), _e = new THREE.Euler(0, 0, 0, 'YXZ'), _s = new THREE.Vector3(), _p = new THREE.Vector3(), _up = new THREE.Vector3();
+    function veCoc(t) {
+      /* lo = phần cọc nhô khỏi nước: đóng cọc (t0 → t0+2 lên dần) → triều lên t_ngap (chìm dần) → triều rút t_lo (lộ dần) */
+      const loCoc = c => { if (o.sau_tran) return 1; if (t < (c.t0 ?? -1e9)) return 0; if (c.t_lo != null && t >= c.t_lo) return muot(prog(t, c.t_lo, c.t_lo + (c.lo_trong || 3)));
+        const len = c.t0 != null ? muot(prog(t, c.t0, c.t0 + 2)) : 1; return c.t_ngap != null ? len * (1 - muot(prog(t, c.t_ngap, c.t_ngap + 2))) : (c.t_lo != null ? 0 : len); };
+      COC.forEach(c => { const lo = loCoc(c), S = TL * (c.ti_le || .42);
+        c.ds.forEach((k, i) => { const nhoi = (k.h + .5) * S * (1 - (c.ngap ?? .85) * (1 - lo)) - (k.h + .5) * S;   // phần ngập dưới mặt nước
+          const p = P3(k.x, k.y, 0); _e.set(k.nghieng, k.xoay, 0); _q.setFromEuler(_e); _up.set(0, 1, 0).applyQuaternion(_q);
+          _p.copy(p).addScaledVector(_up, nhoi); _s.set(S * 1.6, k.h * S, S * 1.6); _m.compose(_p, _q, _s); c.than2.setMatrixAt(i, _m);
+          _p.copy(p).addScaledVector(_up, nhoi + k.h * S); _s.set(S * 1.6, S * 1.3, S * 1.6); _m.compose(_p, _q, _s); c.mui.setMatrixAt(i, _m); });
+        c.than2.instanceMatrix.needsUpdate = c.mui.instanceMatrix.needsUpdate = true; c.than2.visible = c.mui.visible = t >= (c.t0 ?? -1e9) || o.sau_tran; });
+    }
+
     /* ---------- lửa + khói (sprite cộng sáng, ngọn lửa co giãn liên tục theo t) ---------- */
     /* ngọn lửa: lưỡi lửa hình giọt, lõi vàng sáng → viền cam đỏ → trong suốt (vẽ trong khung trong suốt, mép mềm) */
     const LUA_TX = [0, 1, 2, 3].map(f => canvasTx(THREE, 128, 192, g => { const r = rng(f + 7);
@@ -191,7 +266,9 @@
     const LUA = (K.lua || []).map((l, i) => ({ ...l, r: rng(31 + i) }));
     /* phục binh quay mặt về đường hành quân gần nhất */
     const diemGan = (x, y) => { let best = null, bd = 1e18; TUYEN.forEach(d => { for (let k = 0; k <= 200; k++) { const p = d.tai(k / 200), e = (p[0] - x) ** 2 + (p[1] - y) ** 2; if (e < bd) { bd = e; best = p; } } }); return best || [x + 1, y]; };
-    const PB = (K.phuc_binh || []).map(p => { const g = p.huong_toi || diemGan(p.xy[0], p.xy[1]); return { ...p, goc: gocTG(g[0] - p.xy[0], g[1] - p.xy[1]) }; });
+    /* phục binh phải đứng trên cạn: điểm khai báo rơi xuống nước → tìm điểm đất gần nhất (vòng tròn nới dần tới 120 px) */
+    const lenBo = ([x, y]) => { if (cao(x, y) > .02) return [x, y]; for (let r = 6; r <= 120; r += 6) for (let a = 0; a < 24; a++) { const X = x + Math.cos(a / 24 * PI2) * r, Y = y + Math.sin(a / 24 * PI2) * r; if (cao(X, Y) > .05) return [X, Y]; } return [x, y]; };
+    const PB = (K.phuc_binh || []).map(p => { const xy = lenBo(p.xy), g = p.huong_toi || diemGan(xy[0], xy[1]); return { ...p, xy, goc: gocTG(g[0] - xy[0], g[1] - xy[1]) }; });
 
     /* nhãn chữ (HTML) đặt theo phép chiếu 3D: địa danh nằm dưới, nhãn diễn biến nổi lên trên + đường dẫn */
     const lop = document.createElement('div'); lop.style.cssText = 'position:absolute;inset:0;pointer-events:none'; khung.appendChild(lop);
@@ -247,9 +324,31 @@
         const nga = q.nga_tai != null ? ease(prog(t, q.nga_tai, q.nga_tai + .9)) : 0, gap = q.gian_cach || .012;
         const dat = (m, uu, ngang, nang = 0) => { const [x, y] = d.tai(uu), [hx, hy] = d.huong(uu), Lh = Math.hypot(hx, hy) || 1, px = -hy / Lh * ngang, py = hx / Lh * ngang;
           m.g.position.copy(P3(x + px, y + py, nang)); m.g.rotation.set(0, gocTG(hx, hy), 0); return m; };
-        // bộ binh: hàng 3, đi sau tướng (sau kỵ binh)
-        const nK = q.ngua || 0;
-        for (let k = 0; k < (q.linh || 0); k++) { const hang = Math.floor(k / 3), cot = k % 3 - 1, uu = u - (hang + 1 + Math.ceil(nK / 2) * 1.3) * gap; if (uu < (q.tu ?? 0) - .001) continue;
+        /* ----- thủy quân: đoàn thuyền 2 hàng, thuyền tướng đi đầu; dam_tai = thuyền nghiêng, chìm (ti_le_dam: phần thuyền bị đắm), chay = bốc cháy khi đắm ----- */
+        if (q.phuong_tien === 'thuyen') {
+          const gT = q.gian_cach || .022, S = TLT(), lon = !!q.lon;
+          const chim = (m, k, he) => { if (q.dam_tai == null || ((k * 7) % 10) / 10 >= (q.ti_le_dam ?? 1)) return 0; const t0 = q.dam_tai + (k % 7) * .4, dk = ease(prog(t, t0, t0 + 2.6));
+            if (dk > 0) { m.g.rotation.x = dk * .5 * (k % 2 ? 1 : -1); m.g.rotation.z = dk * .3; m.g.position.y -= dk * 2.6 * S * he; }
+            if (q.chay && t > t0 - .6 && t < t0 + 4) { const kc = Math.min(prog(t, t0 - .6, t0), 1 - prog(t, t0 + 2.5, t0 + 4)); for (let f = 0; f < 3; f++) { const s = lay('lua', spLua); s.g.position.copy(m.g.position); s.g.position.x += (f - 1) * 2.2 * S; s.g.position.y += .8 * S;
+              s.g.material.map = LUA_TX[(k + f) % 4]; const kk = (7.5 + f % 2 * 3) * S / 2.6 * kc * (1 + .15 * Math.sin(t * 12 + k + f)); s.g.scale.set(kk * .66, kk, 1); } }
+            if (dk >= 1 && t > q.dam_tai + (k % 7) * .4 + 4.5) m.g.visible = false; return dk; };
+          /* thuyền chỉ ở trên nước: thử độ lệch ngang mong muốn, nếu chỗ đó là đất (độ cao > mặt nước) thì thu dần về giữa dòng */
+          const ngangNuoc = (uu, off) => { const [x, y] = d.tai(uu), [hx, hy] = d.huong(uu), Lh = Math.hypot(hx, hy) || 1;
+            for (const k of [1, .7, .45, .2, 0]) { const o = off * k, X = x - hy / Lh * o, Y = y + hx / Lh * o; if (cao(X, Y) <= .02 && cao(X - hx / Lh * 8, Y - hy / Lh * 8) <= .02 && cao(X + hx / Lh * 8, Y + hy / Lh * 8) <= .02) return o; } return 0; };
+          for (let k = 0; k < (q.thuyen || 0); k++) { const uu = u - (Math.floor(k / 2) + 1) * gT; if (uu < (q.tu ?? 0) - .001) continue;
+            const m = dat(lay('th-' + q.ben + (lon ? 'L' : ''), taoTh(q.ben, lon)), uu, ngangNuoc(uu, (k % 2 ? 1 : -1) * (q.ngang ?? 9) + ((k * 29) % 5 - 2) * 1.5), 0);
+            tuTheThuyen(m, t, k * .37, dangDi); chim(m, k, lon ? 1 : .8); }
+          if (q.tuong) { const m = TUONG[qi] || (TUONG[qi] = (() => { const j = taoThuyen(q.ben, lon, q.co || ''); j.g.scale.setScalar(S * 1.25); j.g.rotation.order = 'YXZ'; nhomMH.add(j.g); return j; })());
+            m.g.visible = true; dat(m, u, 0, 0); tuTheThuyen(m, t, qi, dangDi); bayCo(m.coT, t, qi, 1); if (nga) { m.g.rotation.x = nga * .55; m.g.position.y -= nga * 2.6 * S * 1.25; } }
+          return;
+        }
+        // voi chiến: hàng 2 ngay sau tướng
+        const nV = q.voi || 0;
+        for (let k = 0; k < nV; k++) { const uu = u - (Math.floor(k / 2) + 1) * gap * 1.9; if (uu < (q.tu ?? 0)) continue;
+          const m = dat(lay('voi-' + q.ben, taoVo(q.ben)), uu, (k % 2 ? 1 : -1) * 10, 0); tuTheVoi(m, t * .95 + k * .21, dangDi); }
+        // bộ binh: hàng 3, đi sau tướng (sau kỵ binh, voi)
+        const nK = q.ngua || 0, lui = Math.ceil(nK / 2) * 1.3 + Math.ceil(nV / 2) * 1.9;
+        for (let k = 0; k < (q.linh || 0); k++) { const hang = Math.floor(k / 3), cot = k % 3 - 1, uu = u - (hang + 1 + lui) * gap; if (uu < (q.tu ?? 0) - .001) continue;
           const m = dat(lay('linh-' + q.ben, taoLinh(q.ben)), uu, cot * 9 + ((k * 37) % 5 - 2), 0); tuThe(m, t * 1.7 + k * .17, dangDi);
           if (nga) { const kk = ease(prog(t, q.nga_tai + .2 + (k % 5) * .15, q.nga_tai + .9 + (k % 5) * .15)); m.g.rotation.x = kk * 1.45 * (k % 2 ? 1 : -1); } }
         // kỵ binh: hàng 2 ngay sau tướng
@@ -257,7 +356,10 @@
           const m = dat(lay('ky-' + q.ben, taoKy(q.ben)), uu, (k % 2 ? 1 : -1) * 8, 0); tuTheNgua(m, t * 2.3 + k * .23, dangDi);
           if (nga) m.g.rotation.x = ease(prog(t, q.nga_tai + .3 + k * .2, q.nga_tai + 1.1 + k * .2)) * 1.4; }
         // tướng cưỡi ngựa cầm cờ
-        if (q.tuong) { const m = TUONG[qi] || (TUONG[qi] = taoTuong(qi, q)); m.g.visible = true; dat(m, u, 0, 0); tuTheNgua(m, t * 2.1, dangDi && !nga); bayCo(m.coT, t, qi, dangDi ? 1.2 : .8);
+        if (q.tuong && q.cuoi === 'voi') { const m = TUONG[qi] || (TUONG[qi] = (() => { const j = taoVoi(q.ben, true), co = taoCo(q.ben, q.co || '', j.banh, 3.4, 1.6); co.g.position.set(-.6, .4, .55); co.g.rotation.order = 'YXZ'; co.g.rotation.set(0, Math.PI, .08); j.coT = co;
+            j.g.scale.setScalar(TL * 1.25); j.g.rotation.order = 'YXZ'; nhomMH.add(j.g); return j; })());
+          m.g.visible = true; dat(m, u, 0, 0); tuTheVoi(m, t * .95, dangDi); bayCo(m.coT, t, qi, dangDi ? 1.1 : .8); }
+        else if (q.tuong) { const m = TUONG[qi] || (TUONG[qi] = taoTuong(qi, q)); m.g.visible = true; dat(m, u, 0, 0); tuTheNgua(m, t * 2.1, dangDi && !nga); bayCo(m.coT, t, qi, dangDi ? 1.2 : .8);
           m.g.rotation.x = nga * 1.45; }
       });
       PB.forEach((p, pi) => { if (o.sau_tran || t < p.t0) return; const k = ease(prog(t, p.t0, p.t0 + .8)), so = p.so || 5;
@@ -276,6 +378,7 @@
           s.g.position.copy(P3(l.xy[0] + Math.cos(a) * l.ban_kinh * .25 + ph * 18, l.xy[1] + Math.sin(a) * l.ban_kinh * .2, 8 + ph * 46)); const kich = (14 + ph * 40) * (l.ban_kinh / 60);
           s.g.scale.set(kich, kich, 1); s.g.material.opacity = kk * .55 * Math.sin(ph * Math.PI); } });
       for (const k in KHO) KHO[k].forEach((m, i) => { if (i >= (dangDung[k] || 0)) m.g.visible = false; });
+      veCoc(t);
 
       mayQuay(t);
       renderer.render(scene, cam);
@@ -297,6 +400,15 @@
       hien.forEach(({ n, sx, sy, sy0, a }) => { n.e.style.opacity = a.toFixed(3); n.e.style.transform = `translate(${sx.toFixed(1)}px,${sy.toFixed(1)}px) translate(-50%,-100%)`;
         if (!n.dia) n.e.style.setProperty('--chan', Math.max(0, sy0 - sy).toFixed(1) + 'px'); });
     }
-    return { ve };
+    /* kiểm chứng (tools/kiem-thuy.mjs): vẽ khung t rồi liệt kê mọi thuyền đang hiện + chỗ đó có phải mặt nước không */
+    function kiemThuyen(t) {
+      /* "trên nước" = tâm thuyền gần mặt nước hơn gần mặt đất: độ cao nội suy < ½ độ cao đất thấp nhất (bản đồ cổ: đất ≥ 2 m, nước = 0 m) */
+      const nguong = .5 * 2 / metMoiDV * PHONG;
+      ve(t); const ds = [], xet = (m, ten) => { if (!m || !m.g.visible) return; const p = m.g.position, x = (p.x / SW + .5) * W, y = (p.z / SH + .5) * H; ds.push({ ten, x: Math.round(x), y: Math.round(y), nuoc: cao(x, y) < nguong }); };
+      for (const k in KHO) if (k.startsWith('th-')) KHO[k].forEach(m => xet(m, k));
+      (K.doan_quan || []).forEach((q, qi) => { if (q.phuong_tien === 'thuyen') xet(TUONG[qi], 'tuong-' + qi); });
+      return ds;
+    }
+    return { ve, kiemThuyen };
   };
 })();

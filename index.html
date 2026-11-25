@@ -606,6 +606,7 @@ body.render .app{display:none}
       <div class="xw-bar"><button class="btn add" id="bNew">＋ Dự án lịch sử mới</button><button class="btn kit" data-kit="lich-su" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
       <div class="xw-sub">Dự án của bạn <small id="myCount"></small></div><div id="myProjs"></div>
       <div class="xw-sub">Mẫu: trận đánh lừng danh <small id="mauCount"></small></div><div id="projs"></div>
+      <div class="xw-sub" id="pbdHead" style="display:none">Phim bản đồ chiến dịch <small id="pbdCount"></small></div><div id="pbdList"></div>
     </div></div>
     <div class="sec xw xw-nh" data-fold="nhac"><h3 class="fold"><span class="l">🎧 Xưởng nhạc AI tự động</span><small id="songCount"></small></h3><div class="fold-body">
       <div class="xw-bar"><button class="btn add" id="bSong">♫ Sáng tác nhạc nền mới</button><button class="btn kit" data-kit="nhac-ai" title="Lệnh · Skill · Prompt của xưởng này">🧰</button></div>
@@ -822,6 +823,12 @@ body.render .app{display:none}
       <div class="hint" id="yuHist"></div>
     </div>
     <footer><button class="btn" id="yuCancel">Đóng</button><button class="btn primary" id="yuGo">⬆ Tải lên YouTube</button></footer>
+  </div>
+</div>
+<div class="modal" id="pbdModal">
+  <div class="dlg" style="width:min(1100px,100%)">
+    <header><h2 id="pbdTitle">PHIM BẢN ĐỒ CHIẾN DỊCH</h2><button class="ibtn" id="pbdClose" title="Đóng">✕</button></header>
+    <div class="body"><video id="pbdVideo" controls playsinline preload="metadata" style="width:100%;aspect-ratio:16/9;background:#000;border-radius:8px"></video><div class="hint" id="pbdInfo" style="margin:10px 0 0"></div></div>
   </div>
 </div>
 <div class="modal" id="kitModal">
@@ -1124,7 +1131,18 @@ body.render .app{display:none}
     $('myProjs').innerHTML = ls.length ? ls.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có dự án. Bấm nút trên để nhập kịch bản (.docx, .pdf, .srt, .txt) hoặc dán chữ.</div>';
     $('hhProjs').innerHTML = hh.length ? hh.map(item).join('') : '<div class="hint" style="margin:0 0 4px">Chưa có phim hoạt hình. Bấm nút trên để tạo từ kịch bản.</div>';
     document.querySelectorAll('.proj').forEach(e => { e.onclick = () => open(e.dataset.id); e.classList.toggle('on', P && e.dataset.id === P.id); });
+    buildPhimBanDo();
   }
+  /* phim bản đồ chiến dịch (HyperFrames) đã duyệt: phim-ban-do/danh-sach.json ← tools/phim-ban-do-app.mjs */
+  function buildPhimBanDo() {
+    if (!window._pbd) { window._pbd = []; fetch('phim-ban-do/danh-sach.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : { phim: [] }).then(j => { window._pbd = j.phim || []; buildPhimBanDo(); }).catch(() => {}); return; }
+    const ds = window._pbd; $('pbdHead').style.display = ds.length ? '' : 'none'; $('pbdCount').textContent = ds.length ? ds.length + ' phim' : '';
+    $('pbdList').innerHTML = ds.map((f, i) => `<button class="proj pbd" data-i="${i}"><span class="y">${esc(String(f.nam || ''))}</span><span><b>🗺 ${esc(f.ten)}</b><small>Bản đồ 3D · ${esc(f.thoi_luong || '')}${f.ngay ? ' · ' + esc(f.ngay) : ''}</small></span></button>`).join('');
+    document.querySelectorAll('.pbd').forEach(e => e.onclick = () => { const f = ds[+e.dataset.i], v = $('pbdVideo');
+      $('pbdTitle').textContent = '🗺 ' + f.ten.toUpperCase(); v.poster = f.anh_bia || ''; v.src = f.video; $('pbdInfo').innerHTML = esc(f.mo_ta || '') + (f.nguon ? `<br><small>${esc(f.nguon)}</small>` : '');
+      $('pbdModal').classList.add('on'); popIn($('pbdModal')); v.play().catch(() => {}); });
+  }
+  $('pbdClose').onclick = () => { $('pbdVideo').pause(); $('pbdModal').classList.remove('on'); };
   function buildScenes() {
     $('scnCount').textContent = film.scenes.length + ' cảnh';
     $('scns').innerHTML = film.scenes.map((S, i) => `<button class="scn" data-i="${i}"><span class="n">${i + 1}</span><span class="c" style="background:${tcol(S.sc.type)}"></span><span class="tx"><b>${tname(S.sc.type)}${S.sc.heading ? ' · ' + esc(S.sc.heading) : ''}</b><small>${esc((S.sc.say || '').slice(0, 60))}</small></span><span class="d">${fmtT(S.d)}</span></button>`).join('');

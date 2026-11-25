@@ -1,0 +1,251 @@
+{
+  "id": "bach-dang-1288",
+  "che_do": "co",
+  "ten": "Bạch Đằng 1288",
+  "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển/hồ thời xưa khai báo tay theo sử liệu, điểm sông được hút về đáy thung lũng trên địa hình thật. Độ rộng sông có thuyền đi được PHÓNG ĐẠI để đội thuyền hiển thị được (rong_m là độ rộng hiển thị). Vạn Kiếp – Lục Đầu – Kinh Thầy – Đá Bạc – Bạch Đằng ra biển; Vân Đồn ở vùng biển đảo phía đông. Bãi cọc Yên Giang (Quảng Yên) đã khai quật. Mực nước cổ 2 m.",
+  "vung": {
+    "tay": 106.38,
+    "dong": 107.55,
+    "nam": 20.74,
+    "bac": 21.25
+  },
+  "muc_nuoc_co": 2,
+  "bien_tai": [
+    [
+      107.5,
+      20.8
+    ],
+    [
+      107.2,
+      20.78
+    ],
+    [
+      107,
+      20.76
+    ]
+  ],
+  "song_xua": [
+    {
+      "ten": "Sông Bạch Đằng",
+      "rong_m": 1500,
+      "diem": [
+        [
+          106.7,
+          21.03
+        ],
+        [
+          106.74,
+          21
+        ],
+        [
+          106.775,
+          20.965
+        ],
+        [
+          106.795,
+          20.935
+        ],
+        [
+          106.81,
+          20.905
+        ],
+        [
+          106.83,
+          20.875
+        ],
+        [
+          106.855,
+          20.85
+        ],
+        [
+          106.88,
+          20.83
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Đá Bạc",
+      "rong_m": 700,
+      "diem": [
+        [
+          106.6,
+          21.06
+        ],
+        [
+          106.65,
+          21.045
+        ],
+        [
+          106.7,
+          21.03
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Kinh Thầy",
+      "rong_m": 900,
+      "diem": [
+        [
+          106.43,
+          21.12
+        ],
+        [
+          106.48,
+          21.08
+        ],
+        [
+          106.53,
+          21.06
+        ],
+        [
+          106.6,
+          21.06
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Chanh",
+      "rong_m": 500,
+      "nhan": false,
+      "diem": [
+        [
+          106.795,
+          20.935
+        ],
+        [
+          106.83,
+          20.93
+        ],
+        [
+          106.86,
+          20.9
+        ]
+      ]
+    },
+    {
+      "ten": "Lục Đầu Giang",
+      "rong_m": 900,
+      "nhan": false,
+      "diem": [
+        [
+          106.3,
+          21.11
+        ],
+        [
+          106.38,
+          21.115
+        ],
+        [
+          106.43,
+          21.12
+        ]
+      ]
+    }
+  ],
+  "dia_danh": [
+    {
+      "ten": "Vạn Kiếp",
+      "lon": 106.43,
+      "lat": 21.135,
+      "trai": true
+    },
+    {
+      "ten": "Bãi cọc Bạch Đằng",
+      "lon": 106.8,
+      "lat": 20.925,
+      "trai": true
+    },
+    {
+      "ten": "Cửa biển Bạch Đằng",
+      "lon": 106.87,
+      "lat": 20.835
+    },
+    {
+      "ten": "Vân Đồn",
+      "lon": 107.43,
+      "lat": 21.06
+    }
+  ],
+  "tuyen": [
+    {
+      "ten": "Thuyền quân Nguyên rút theo sông Bạch Đằng",
+      "ben": "dich",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          106.43,
+          21.12
+        ],
+        [
+          106.6,
+          21.06
+        ],
+        [
+          106.74,
+          21
+        ],
+        [
+          106.81,
+          20.905
+        ],
+        [
+          106.88,
+          20.83
+        ]
+      ]
+    },
+    {
+      "ten": "Đoàn thuyền lương Trương Văn Hổ",
+      "ben": "dich",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          107.55,
+          21.03
+        ],
+        [
+          107.49,
+          21.045
+        ],
+        [
+          107.44,
+          21.045
+        ]
+      ]
+    },
+    {
+      "ten": "Thuyền nhẹ quân Trần",
+      "ben": "ta",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          106.65,
+          21.045
+        ],
+        [
+          106.775,
+          20.965
+        ],
+        [
+          106.81,
+          20.905
+        ]
+      ]
+    },
+    {
+      "ten": "Trần Khánh Dư ở Vân Đồn",
+      "ben": "ta",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          107.3,
+          21.1
+        ],
+        [
+          107.4,
+          21.03
+        ]
+      ]
+    }
+  ]
+}

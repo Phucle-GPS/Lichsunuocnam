@@ -18,9 +18,30 @@ cd hyperframes && npx hyperframes snapshot <id> --at <các giây> --no-end -o <t
 cd hyperframes/<id> && HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 node ../node_modules/hyperframes/bin/hyperframes.mjs render -o ../<id>.mp4
 node tools/kiem-muot.mjs <id> --ban-xem                 # đo giật/khựng + xuất hyperframes/<id>-xem.mp4 (<30 MB) gửi người dùng
 ```
+**Gọn nhất – một lệnh cho cả tập** (dùng khi làm nhiều trận, ít bảng hỏi quyền):
+```bash
+node tools/tap-ban-do.mjs <id> --snap 25,40,55,70,84        # dựng + kiểm + chụp khung → hyperframes/_snap/<id>/contact-sheet.jpg
+node tools/tap-ban-do.mjs <id> --render --app                 # dựng + kiểm + render + kiểm mượt + bản xem + đưa lên app
+```
+- **Đưa lên app**: `node tools/phim-ban-do-app.mjs <id>` → `phim-ban-do/<id>.mp4` (720p ~14–16 MB) + `<id>.jpg` + `phim-ban-do/danh-sach.json`. App (cột Xưởng Lịch sử → "Phim bản đồ chiến dịch") đọc danh sách và phát trong hộp thoại. Commit cả thư mục `phim-ban-do/` (app trên GitHub Pages). Gỡ: `--xoa`.
 - Render ~6 phút cho 95 giây phim → chạy nền, báo người dùng đang render.
 - Windows: gọi HyperFrames bằng `node …/hyperframes/bin/hyperframes.mjs` (không có `.bin/hyperframes` chạy trực tiếp). Đường dẫn ổ `C:` trong bộ lọc ffmpeg bị hiểu sai dấu `:` → ghi file tương đối (công cụ đã xử lý).
 - Bản gốc 1080p (~150–190 MB) chỉ xem được trên máy; **luôn gửi bản `-xem.mp4`** bằng SendUserFile để người dùng xem trên điện thoại/web.
+
+## BẢN ĐỒ CỔ – bắt buộc (người dùng yêu cầu: "tận dụng maps thời xưa, bỏ qua OpenStreetMap")
+- `maps/<id>/region.json` có `"che_do": "co"` → **không dùng OpenStreetMap** (toàn đối tượng hiện đại: hồ chứa, kênh đào, bờ biển ngày nay). Nền vẽ kiểu bản đồ cổ (giấy dó, núi mực nâu, đường bờ nét mực + nét sóng, tên sông chữ nghiêng Times New Roman – Georgia thiếu dấu Việt).
+- `song_xua: [{ten, rong_m, diem:[[lon,lat]…] (thượng nguồn → hạ lưu), hut_thung_lung (m, 0 = vẽ cong trơn cho sông đồng bằng phẳng), nhan}]` – mỗi đoạn giữa 2 điểm được dò **men đáy thung lũng** trên địa hình thật.
+- `muc_nuoc_co` (m) + `bien_tai: [[lon,lat]]`: biển xưa = loang từ ngoài khơi qua mọi điểm thấp hơn mực nước cổ (vùng trũng nội địa không ngập). Châu thổ Bắc Bộ thế kỷ 10–13: ~2 m.
+- `ho_xua`, `cu_lao` (đảo đất giữa sông – nơi mai phục, thuyền đi vòng).
+- Độ rộng sông có thuyền: **phóng đại** (rong_m là độ rộng hiển thị) để đội thuyền vừa lòng sông; ghi rõ trong `ghi_chu`.
+- `ban-do.mjs` **tự kiểm chứng** và thoát mã 1 nếu: sông chảy ngược dốc > 20 m (vắt qua đồi – in tọa độ chỗ sai), hoặc tuyến thủy có điểm trên cạn. Có lọc gai địa hình (dữ liệu có điểm nhiễu 5000 m). Xuất `nuoc.bin` (640×360, 1 = nước) để công cụ viết kịch bản kiểm điểm đặt.
+- Sông không có trong lời dẫn mà không chắc dòng chảy → **bỏ**, đừng vẽ đoán.
+
+## THUYỀN CHỈ ĐI TRÊN NƯỚC – bắt buộc (lỗi người dùng đã chỉ ra: "thuyền di chuyển trên đất liền là sai")
+- Đường thuyền trong kịch bản: lấy từ tuyến thủy rồi **hút từng điểm vào lòng nước** (điểm và 4 điểm cách 5 px đều là nước); không lấy điểm sát bờ. Qua sông hẹp: chỉ lấy điểm nước.
+- Máy dựng tự thu hẹp đội hình khi sông hẹp (không lấn bờ); phục binh rơi xuống nước tự lên bờ gần nhất.
+- `node tools/kiem-thuy.mjs <id>` tua cả cảnh trên chính máy dựng 3D, báo từng thuyền trên cạn → phải ✔ mới render (`tap-ban-do.mjs` tự chạy, lỗi là dừng).
+- Mặt nạ nước được làm sạch (bỏ chấm đất vụn giữa nước) để mặt nạ, bản đồ độ cao và kiểm thủy cùng một định nghĩa.
 
 ## Phong cách
 | Thành phần | Cách làm |
@@ -28,7 +49,10 @@ node tools/kiem-muot.mjs <id> --ban-xem                 # đo giật/khựng + x
 | **Xương sống: bản đồ 3D** | Địa hình thật (AWS Terrain Tiles) phóng đại ×2,6, phủ nền 2K (màu độ cao, bóng núi, sông hồ OSM). Mép bản đồ hạ dần về 0; ngoài mép là ảnh nền lặp đối xứng (liền mép) → không lộ "tấm bản đồ" trơ trọi. Sương xa nhạt, theo khoảng cách máy quay (không phủ xám đen). |
 | **Tướng, cờ, lính, ngựa (MÔ HÌNH 3D)** | `doan_quan`: tướng cưỡi ngựa, cờ vải có chữ (`co`) bay ra sau; kỵ binh (`ngua`) hàng 2 sau tướng; bộ binh (`linh`) hàng 3 sau kỵ binh, bước đi. Ta: áo đỏ, nón chóp đan, khiên tròn; quân Minh/địch: áo xanh, mũ trụ sắt chóp nhọn tua đỏ, khiên chữ nhật. Ngựa phi nước đại 4 chân lệch pha. `nga_tai`: tướng + ngựa đổ nghiêng, lính đổ theo. Bóng đổ dưới chân. Cỡ: `ti_le_nguoi` (mặc định 4,4; tướng ×1,45). |
 | **Phục binh / cờ cắm** | `phuc_binh`: 5 lính trồi lên từ sườn núi + cờ, tự quay mặt về đường hành quân gần nhất (`huong_toi: [x,y]` để chỉ định). `co_cam`: cờ cắm trồi lên khi chiếm được. |
-| **Con vật khác** | Voi/thuyền: thêm hàm `taoVoi`/`taoThuyen` cùng kiểu `taoNgua` trong `bando3d.js` khi trận cần (Bạch Đằng → thuyền, Hai Bà Trưng → voi). Không dùng sprite 2D phẳng cho người/vật. |
+| **Thủy quân** | `doan_quan` có `phuong_tien: "thuyen"`: `thuyen` (số thuyền, 2 hàng), `lon: true` = lâu thuyền phương Bắc (buồm cánh dơi, lầu đuôi, 3 lính), mặc định thuyền nhẹ của ta (mái chèo khua nhanh khi đi). Thuyền tướng có cờ chữ. `dam_tai` + `ti_le_dam` (0..1): thuyền nghiêng, chìm lần lượt; `chay: true` bốc cháy khi đắm; `nga_tai` = thuyền tướng chìm. Cỡ: `ti_le_thuyen` (mặc định 0,6 × `ti_le_nguoi`). Tuyến thủy nên khai `cachDi: "thuy"` trong region.json. |
+| **Bãi cọc** | `coc: [{tu, den, be_rong, so, huong_nghieng, t0, t_lo, lo_trong, ngap}]`: cọc gỗ đầu bịt sắt chĩa về `huong_nghieng` [dx,dy]; ngập khi triều lên, lộ dần từ `t_lo` (nước rút). Cảnh sau trận cọc lộ hẳn. |
+| **Voi chiến** | `voi: n` trong đoàn quân (đi trước bộ binh); `cuoi: "voi"` = tướng cưỡi voi (bành, lọng, cờ). Voi đi bước chậm, vòi đung đưa. |
+| **Con vật khác** | Thêm hàm `taoX` cùng kiểu `taoNgua`/`taoVoi` trong `bando3d.js` khi trận cần. Không dùng sprite 2D phẳng cho người/vật. |
 | **Mũi tên tiến quân** | `mui_ten` mọc dần, bám mặt đất; ta đỏ `#c8352b` nét liền, địch xanh `#1f5fa8` nét đứt. |
 | **Máy bay ném bom** | CHỈ trận thế kỷ 20 (Điện Biên Phủ 1954, ĐBP trên không 1972…). Trận cổ – trung đại tuyệt đối không có máy bay. |
 | **Lửa, khói, đất cháy** | `lua`: lưỡi lửa mềm + quầng sáng + khói bốc (cỡ theo `ban_kinh`), co giãn liên tục theo t; sau đó vết cháy đen ở lại; cảnh `sau_tran` hiện toàn bộ vết cháy + cờ đã cắm. |
@@ -68,5 +92,5 @@ Thời gian theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọ
 
 ## Tệp
 - `hyperframes/_chung/bando3d.js` – máy dựng bản đồ 3D (`window.BanDo3D(khung, {nen, doCao, du_lieu, kich_ban, sau_tran}) → {ve(t)}`): địa hình, mô hình `taoNguoi`/`taoNgua`/`taoCo`, tư thế `tuThe`/`tuTheNgua`/`bayCo`, kho mô hình `lay()`, máy quay `mayQuay`, nhãn.
-- `tools/hf-tap.mjs` (dựng dự án 6 cảnh + phụ đề + mực bắn + nhạc Hùng ca), `tools/kiem-phim.mjs` (kiểm trước render), `tools/kiem-muot.mjs` (kiểm độ mượt sau render + bản xem), `tools/ban-do.mjs` (nền bản đồ).
+- `tools/tap-ban-do.mjs` (chạy trọn quy trình 1 tập), `tools/phim-ban-do-app.mjs` (đưa phim lên app), `tools/hf-tap.mjs` (dựng dự án 6 cảnh + phụ đề + mực bắn + nhạc Hùng ca), `tools/kiem-phim.mjs` (kiểm trước render), `tools/kiem-muot.mjs` (kiểm độ mượt sau render + bản xem), `tools/ban-do.mjs` (nền bản đồ).
 - `hyperframes/package.json` (cần Node 22+, FFmpeg). Nhạc nền Hùng ca lưu ở `maps/<id>/nhac-nen.mp3` (commit kèm trận); chỉ trận chưa có file này mới cần Chromium của Playwright để `hf-tap` sinh nhạc. `hyperframes/<id>/` và `*.mp4` không commit (đã có trong `.gitignore`).

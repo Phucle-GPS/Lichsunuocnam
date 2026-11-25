@@ -1,0 +1,186 @@
+{
+  "id": "bach-dang-938",
+  "che_do": "co",
+  "ten": "Bạch Đằng 938",
+  "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển/hồ thời xưa khai báo tay theo sử liệu, điểm sông được hút về đáy thung lũng trên địa hình thật. Độ rộng sông có thuyền đi được PHÓNG ĐẠI để đội thuyền hiển thị được (rong_m là độ rộng hiển thị). Biển thế kỷ 10 lấn sâu hơn ngày nay (mực nước cổ 2 m, loang từ ngoài khơi). Bãi cọc 938 đặt ước lượng ở khúc sông Quảng Yên (vị trí chính xác còn tranh luận).",
+  "vung": {
+    "tay": 106.55,
+    "dong": 107.1,
+    "nam": 20.74,
+    "bac": 21.07
+  },
+  "muc_nuoc_co": 2,
+  "bien_tai": [
+    [
+      106.96,
+      20.755
+    ],
+    [
+      106.9,
+      20.76
+    ]
+  ],
+  "song_xua": [
+    {
+      "ten": "Sông Bạch Đằng",
+      "rong_m": 1500,
+      "diem": [
+        [
+          106.7,
+          21.03
+        ],
+        [
+          106.74,
+          21
+        ],
+        [
+          106.775,
+          20.965
+        ],
+        [
+          106.795,
+          20.935
+        ],
+        [
+          106.81,
+          20.905
+        ],
+        [
+          106.83,
+          20.875
+        ],
+        [
+          106.855,
+          20.85
+        ],
+        [
+          106.88,
+          20.83
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Đá Bạc",
+      "rong_m": 700,
+      "diem": [
+        [
+          106.6,
+          21.06
+        ],
+        [
+          106.65,
+          21.045
+        ],
+        [
+          106.7,
+          21.03
+        ]
+      ]
+    },
+    {
+      "ten": "Sông Chanh",
+      "rong_m": 500,
+      "nhan": false,
+      "diem": [
+        [
+          106.795,
+          20.935
+        ],
+        [
+          106.83,
+          20.93
+        ],
+        [
+          106.86,
+          20.9
+        ]
+      ]
+    }
+  ],
+  "dia_danh": [
+    {
+      "ten": "Cửa biển Bạch Đằng",
+      "lon": 106.87,
+      "lat": 20.835
+    },
+    {
+      "ten": "Bãi cọc",
+      "lon": 106.8,
+      "lat": 20.925,
+      "trai": true
+    },
+    {
+      "ten": "Thượng nguồn",
+      "lon": 106.68,
+      "lat": 21.04,
+      "trai": true
+    }
+  ],
+  "tuyen": [
+    {
+      "ten": "Thủy quân Nam Hán vào sông",
+      "ben": "dich",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          106.96,
+          20.755
+        ],
+        [
+          106.88,
+          20.83
+        ],
+        [
+          106.81,
+          20.905
+        ],
+        [
+          106.74,
+          21
+        ]
+      ]
+    },
+    {
+      "ten": "Thủy quân Nam Hán tháo chạy ra biển",
+      "ben": "dich",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          106.74,
+          21
+        ],
+        [
+          106.81,
+          20.905
+        ],
+        [
+          106.88,
+          20.83
+        ],
+        [
+          106.93,
+          20.77
+        ]
+      ]
+    },
+    {
+      "ten": "Thuyền nhẹ của ta",
+      "ben": "ta",
+      "cachDi": "thuy",
+      "diem": [
+        [
+          106.68,
+          21.035
+        ],
+        [
+          106.775,
+          20.965
+        ],
+        [
+          106.83,
+          20.875
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+ "ghi_chu": "Phim bản đồ chiến dịch (HyperFrames) đã đưa lên app – tạo bằng tools/phim-ban-do-app.mjs",
+ "phim": [
+  {
+   "id": "chi-lang-1427",
+   "ten": "Chi Lăng – Xương Giang 1427",
+   "nam": 1427,
+   "video": "phim-ban-do/chi-lang-1427.mp4",
+   "anh_bia": "phim-ban-do/chi-lang-1427.jpg",
+   "thoi_luong": "1:35",
+   "ngay": "2026-11-24",
+   "mo_ta": "Mùa thu năm 1427, nghĩa quân Lam Sơn tiêu diệt hơn mười vạn viện binh nhà Minh tại ải Chi Lăng và thành Xương Giang, kết thúc hai mươi năm đô hộ.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/chi-lang-1427/nguon.json"
+  }
+ ]
+}

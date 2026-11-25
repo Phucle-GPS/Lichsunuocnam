@@ -29,6 +29,16 @@
    "mo_ta": "Đo từng cặp khung: báo chỗ NHẢY (nhãn bật/tắt, máy quay giật) và ĐỨNG (khựng) ngoài vùng cố ý (cắt cảnh, mực bắn, đổi phụ đề). --ban-xem xuất hyperframes/<id>-xem.mp4 720p < 30 MB để xem trên điện thoại/web."
   },
   {
+   "ten": "⚡ CHẠY TRỌN 1 TẬP PHIM BẢN ĐỒ (dựng → kiểm → render → kiểm mượt → lên app)",
+   "lenh": "node tools/tap-ban-do.mjs <id-trận> --snap 25,40,55,70,84   rồi   node tools/tap-ban-do.mjs <id-trận> --render --app",
+   "mo_ta": "Lần 1 chụp khung xem trước (hyperframes/_snap/<id>/contact-sheet.jpg); lần 2 render 1080p, kiểm độ mượt, xuất bản xem và đưa lên app nếu không còn chỗ giật."
+  },
+  {
+   "ten": "🗺 ĐƯA PHIM BẢN ĐỒ LÊN APP (mục “Phim bản đồ chiến dịch” ở cột trái)",
+   "lenh": "node tools/phim-ban-do-app.mjs <id-trận>",
+   "mo_ta": "Từ hyperframes/<id>.mp4 tạo phim-ban-do/<id>.mp4 (720p ~15 MB) + ảnh bìa, ghi phim-ban-do/danh-sach.json. Commit thư mục phim-ban-do/ để app trên GitHub Pages phát được. --xoa để gỡ."
+  },
+  {
    "ten": "Nạp giọng anh tự làm (mp3/mp4, theo cảnh hoặc cả trận)",
    "lenh": "node tools/nap-giong-manus.mjs <file.mp4 | thư-mục | goi.zip> --thu",
    "mo_ta": "Đặt tên <id-trận>_<NN>.mp4 hoặc <id-trận>.mp4 (cả trận, nghỉ ~2 giây giữa cảnh – tự cắt). --thu để chạy thử, bỏ --thu để nạp thật."

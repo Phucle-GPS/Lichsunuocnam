@@ -1,5 +1,5 @@
 /* Bộ nhớ đệm để app chạy cả khi không có mạng. Đổi VERSION mỗi khi cập nhật nội dung. */
-const VERSION = 'v24';
+const VERSION = 'v25';
 const CORE = [
   './',
   'index.html',
@@ -97,6 +97,7 @@ self.addEventListener('install', e => e.waitUntil(caches.open(VERSION).then(c =>
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== VERSION).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
+  if (/\.(mp4|webm)$/i.test(new URL(e.request.url).pathname)) return;   // phim phát theo đoạn (range) – không lưu đệm
   // mạng trước (luôn lấy bản mới), mất mạng thì dùng bản đã lưu
   e.respondWith(fetch(e.request).then(r => { const c = r.clone(); caches.open(VERSION).then(k => k.put(e.request, c)); return r; })
     .catch(() => caches.match(e.request, { ignoreSearch: true })));
