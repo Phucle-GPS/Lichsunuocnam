@@ -110,7 +110,7 @@ function banDo(cid, dur, sau, chu) {
     #${p}-khung .bd-nhan:not(.bd-dia)::after{content:'';position:absolute;left:50%;top:100%;width:2px;margin-left:-1px;height:var(--chan,0px);background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.2))}
     #${p}-khung .bd-nhan.bd-dia{font:700 22px 'Be Vietnam Pro';color:#2b2118;background:rgba(244,234,211,.88);padding:3px 10px;box-shadow:none}
     #${p}-vien{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(0,0,0,.5))}
-    #${p}-the{position:absolute;left:90px;top:80px;font:700 30px 'Oswald VN';letter-spacing:.25em;color:#e9d9b4;text-shadow:0 2px 10px #000}
+    #${p}-the{position:absolute;left:90px;top:80px;font:700 30px 'Oswald VN';letter-spacing:.25em;color:#e9d9b4;text-shadow:0 2px 10px #000;background:rgba(15,12,9,.62);padding:6px 16px;border-radius:6px}
     ${chu ? `#${p}-chu{position:absolute;left:110px;bottom:210px;max-width:1100px}
     #${p}-chu div{font:700 64px/1.15 'Oswald VN';color:#f4ead3;text-shadow:0 4px 24px #000}
     #${p}-chu small{display:block;margin-top:14px;font:600 32px 'Be Vietnam Pro';color:#e9c98f}` : ''}

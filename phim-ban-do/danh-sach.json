@@ -2,15 +2,70 @@
  "ghi_chu": "Phim bản đồ chiến dịch (HyperFrames) đã đưa lên app – tạo bằng tools/phim-ban-do-app.mjs",
  "phim": [
   {
+   "id": "bach-dang-938",
+   "ten": "Bạch Đằng 938",
+   "nam": 938,
+   "video": "phim-ban-do/bach-dang-938.mp4",
+   "anh_bia": "phim-ban-do/bach-dang-938.jpg",
+   "thoi_luong": "1:46",
+   "ngay": "2026-11-25",
+   "mo_ta": "Năm 938, trên dòng sông Bạch Đằng, quân dân ta dưới sự chỉ huy của Ngô Quyền đã đánh tan đạo thủy quân Nam Hán, mở ra kỷ nguyên độc lập lâu dài cho dân tộc.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/bach-dang-938/nguon.json"
+  },
+  {
+   "id": "nhu-nguyet-1077",
+   "ten": "Như Nguyệt 1077",
+   "nam": 1077,
+   "video": "phim-ban-do/nhu-nguyet-1077.mp4",
+   "anh_bia": "phim-ban-do/nhu-nguyet-1077.jpg",
+   "thoi_luong": "1:46",
+   "ngay": "2026-11-25",
+   "mo_ta": "Năm 1077, bên bờ sông Như Nguyệt, quân dân Đại Việt thời Lý đã chặn đứng mười vạn quân Tống, buộc kẻ thù phải rút về nước.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/nhu-nguyet-1077/nguon.json"
+  },
+  {
+   "id": "bach-dang-1288",
+   "ten": "Bạch Đằng 1288",
+   "nam": 1288,
+   "video": "phim-ban-do/bach-dang-1288.mp4",
+   "anh_bia": "phim-ban-do/bach-dang-1288.jpg",
+   "thoi_luong": "1:36",
+   "ngay": "2026-11-25",
+   "mo_ta": "Trận chiến Bạch Đằng năm 1288 là một trong những chiến thắng quân sự vĩ đại nhất trong lịch sử dân tộc Việt Nam.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/bach-dang-1288/nguon.json"
+  },
+  {
    "id": "chi-lang-1427",
    "ten": "Chi Lăng – Xương Giang 1427",
    "nam": 1427,
    "video": "phim-ban-do/chi-lang-1427.mp4",
    "anh_bia": "phim-ban-do/chi-lang-1427.jpg",
    "thoi_luong": "1:35",
-   "ngay": "2026-11-24",
+   "ngay": "2026-11-25",
    "mo_ta": "Mùa thu năm 1427, nghĩa quân Lam Sơn tiêu diệt hơn mười vạn viện binh nhà Minh tại ải Chi Lăng và thành Xương Giang, kết thúc hai mươi năm đô hộ.",
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/chi-lang-1427/nguon.json"
+  },
+  {
+   "id": "rach-gam-1785",
+   "ten": "Rạch Gầm – Xoài Mút 1785",
+   "nam": 1785,
+   "video": "phim-ban-do/rach-gam-1785.mp4",
+   "anh_bia": "phim-ban-do/rach-gam-1785.jpg",
+   "thoi_luong": "1:28",
+   "ngay": "2026-11-25",
+   "mo_ta": "Đầu năm 1785, trên sông Tiền, nghĩa quân Tây Sơn do Nguyễn Huệ chỉ huy đã tiêu diệt gần như toàn bộ đạo quân xâm lược Xiêm.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/rach-gam-1785/nguon.json"
+  },
+  {
+   "id": "dong-da-1789",
+   "ten": "Ngọc Hồi – Đống Đa 1789",
+   "nam": 1789,
+   "video": "phim-ban-do/dong-da-1789.mp4",
+   "anh_bia": "phim-ban-do/dong-da-1789.jpg",
+   "thoi_luong": "1:43",
+   "ngay": "2026-11-25",
+   "mo_ta": "Mùa xuân Kỷ Dậu năm 1789, chỉ trong vài ngày Tết, vua Quang Trung đã đại phá hai mươi chín vạn quân Thanh, giải phóng Thăng Long.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/dong-da-1789/nguon.json"
   }
  ]
 }

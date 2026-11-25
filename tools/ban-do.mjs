@@ -176,7 +176,9 @@ const out = await page.evaluate(async ({ songDH, nguong, tiles, tx0, ty0, PX0, P
   let emax = 0, emin = 1e9; for (const e of E) { if (e > emax) emax = e; if (e < emin) emin = e; }
   /* bản đồ độ cao 1024×576 (xám 8 bit, 0 = thấp nhất, 255 = cao nhất) để dựng địa hình 3D nổi khối */
   const hw = 1024, hh = 576, hc = new OffscreenCanvas(hw, hh), hg = hc.getContext('2d'), hd = hg.createImageData(hw, hh);
-  for (let y = 0; y < hh; y++) for (let x = 0; x < hw; x++) { const v = Math.round((E[Math.floor(y * H / hh) * W + Math.floor(x * W / hw)] - emin) / Math.max(1, emax - emin) * 255); const i = (y * hw + x) * 4; hd.data[i] = hd.data[i + 1] = hd.data[i + 2] = v; hd.data[i + 3] = 255; }
+  /* bản đồ cổ: điểm độ cao nào có nước trong khối 3×3 quanh nó → coi là mặt nước (mỏm đất lẻ 1 điểm không chặn thuyền) */
+  const eHM = (X, Y) => { const e = E[Y * W + X]; if (!MASK) return e; for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) { const xx = Math.max(0, Math.min(W - 1, X + dx)), yy = Math.max(0, Math.min(H - 1, Y + dy)); if (MASK[yy * W + xx]) return 0; } return e; };
+  for (let y = 0; y < hh; y++) for (let x = 0; x < hw; x++) { const v = Math.round((eHM(Math.floor(x * W / hw), Math.floor(y * H / hh)) - emin) / Math.max(1, emax - emin) * 255); const i = (y * hw + x) * 4; hd.data[i] = hd.data[i + 1] = hd.data[i + 2] = v; hd.data[i + 3] = 255; }
   hg.putImageData(hd, 0, 0); const hb = await hc.convertToBlob({ type: 'image/png' }), docao = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(hb); });
   /* màu theo độ cao + đổ bóng núi (nguồn sáng tây bắc) */
   const cv = document.getElementById('c'); cv.width = W; cv.height = H; const g = cv.getContext('2d'), img = g.createImageData(W, H), d = img.data;
