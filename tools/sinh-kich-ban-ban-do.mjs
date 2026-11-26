@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* SINH KỊCH BẢN BẢN ĐỒ cho 5 trận (Bạch Đằng 938, Bạch Đằng 1288, Rạch Gầm 1785, Đống Đa 1789, Như Nguyệt 1077) – Xưởng film Lịch sử Việt Nam
+/* SINH KỊCH BẢN BẢN ĐỒ cho các trận (Hai Bà Trưng 40, Bạch Đằng 938, Bạch Đằng 1288, Rạch Gầm 1785, Đống Đa 1789, Như Nguyệt 1077) – Xưởng film Lịch sử Việt Nam
    node tools/sinh-kich-ban-ban-do.mjs [id]   → maps/<id>/kich-ban-ban-do.json. Mỗi mốc bám từng câu lời dẫn; đường thuyền hút vào lòng nước,
    đoạn chạm đất thay bằng đường qua ô nước liền kề; kiểm lại trước khi ghi (thẩm quyền cuối: tools/kiem-thuy.mjs). */
 // Sinh maps/<id>/kich-ban-ban-do.json cho 5 trận – bám từng câu lời dẫn (mốc từ moc-cau.mjs); tự kiểm thuyền trên nước, quân trên cạn
@@ -303,4 +303,55 @@ if (!only || only === 'nhu-nguyet-1077') { const id = 'nhu-nguyet-1077', H = moT
       { xy: QS.datB, chu: 'Bị đánh bật trở lại · cầm chân hàng tháng', ben: 'ta', t0: 36.9, t1: 41.2 },
       { xy: trai, chu: 'Mệt mỏi, thiếu lương, bệnh tật', ben: 'dich', t0: 41.4, t1: 45.8 },
       { xy: bacTrai, chu: 'Lý Thường Kiệt tấn công sang bờ bắc – địch thua to', ben: 'ta', t0: 46.1, t1: 51.6 }] };
+  ghi(id, kb); }
+
+/* ==================== KHỞI NGHĨA HAI BÀ TRƯNG 40 (Mê Linh → Luy Lâu) ==================== */
+if (!only || only === 'luy-lau-40') { const id = 'luy-lau-40', H = moTran(id), { R, at, sub, DD, ganDat } = H;
+  const ML = DD['Mê Linh'], LL = DD['Luy Lâu'];
+  const g = p => ganDat(p), quanh = (c, r, n, lech = 0) => Array.from({ length: n }, (_, i) => ganDat([c[0] + Math.cos(i / n * 6.283 + lech) * r, c[1] + Math.sin(i / n * 6.283 + lech) * r * .75]));
+  const thanh4 = [[600, 300], [1900, 380], [2150, 1000], [900, 1120], [420, 900], [1700, 1260], [1300, 330], [2320, 700]].map(g);   // "hạ được 65 thành trì" (đoạn giọng 4)
+  const thanh5 = [[1150, 1010], [1850, 640], [700, 700], [1450, 1180], [2000, 240], [500, 1250]].map(g);                          // "65 thành trì được giải phóng" (đoạn giọng 5)
+  const vay = quanh(LL, 70, 6, .3), daiPhu = [g([1950, 500]), g([1000, 1060]), g([2050, 1080])];
+  const kb = { ...CHUNG, chu_co_ta: 'TRƯNG',
+    may_quay: [[0, ML[0] + 120, ML[1] + 60, 440, 58, -6], [3.3, ML[0] + 320, ML[1] + 150, 560, 60, -4], [5.6, LL[0] - 60, LL[1] - 20, 460, 58, -8], [8.2, 1420, 880, 820, 68, 0], [11.9, 1400, 860, 820, 68, 0],
+      [16.2, 1300, 760, 780, 68, 2], [18.2, LL[0], LL[1], 360, 56, -10], [21, LL[0] + 10, LL[1] - 10, 360, 56, -12], [23.2, 1180, 690, 520, 60, -6], [26, 1450, 820, 600, 62, -4],
+      [28.4, LL[0], LL[1], 330, 55, -12], [30.6, LL[0] + 60, LL[1] - 50, 400, 57, -14], [33, LL[0] + 180, LL[1] - 160, 500, 60, -10], [35.6, 1330, 740, 780, 68, 0], [38.2, ML[0] + 60, ML[1] + 40, 420, 58, -6], [40.4, ML[0] + 60, ML[1] + 30, 400, 57, -8]],
+    may_quay_sau: [[0, 1150, 760, 760, 64, 0], [8.3, 1180, 740, 700, 62, -6]],
+    doan_quan: [
+      { ten: 'Trưng Trắc phất cờ ở Mê Linh', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRƯNG', voi: 3, linh: 14, ngua: 2, gian_cach: .014, duong: 0, tu: 0, den: .38, t0: .5, t1: 6.8, an_sau: 22 },
+      { ten: 'Trưng Nhị', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRƯNG NHỊ', voi: 2, linh: 9, ngua: 2, gian_cach: .014, duong: 0, tu: 0, den: .2, t0: 1.6, t1: 6.8, an_sau: 22 },
+      { ten: 'Nghĩa quân kéo về Luy Lâu', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRƯNG', voi: 3, linh: 14, ngua: 2, gian_cach: .014, duong: 0, tu: .38, den: .9, t0: 22, t1: 27.4 },
+      { ten: 'Trưng Nhị kéo về Luy Lâu', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRƯNG NHỊ', voi: 2, linh: 9, ngua: 2, gian_cach: .014, duong: 0, tu: .2, den: .72, t0: 22, t1: 27.4 },
+      { ten: 'Lạc tướng phía đông', ben: 'ta', tuong: true, co: 'LẠC', linh: 8, ngua: 1, gian_cach: .02, duong: 1, tu: .45, den: .9, t0: 24.7, t1: 28.4 },
+      { ten: 'Lạc tướng Cửu Chân', ben: 'ta', tuong: true, co: 'LẠC', linh: 8, ngua: 1, gian_cach: .02, duong: 2, tu: .5, den: .92, t0: 25, t1: 28.6 },
+      { ten: 'Lạc tướng Nhật Nam', ben: 'ta', tuong: true, co: 'LẠC', linh: 6, gian_cach: .025, duong: 3, tu: .4, den: .88, t0: 25.3, t1: 28.8 },
+      { ten: 'Thái thú Tô Định ở Luy Lâu', ben: 'dich', tuong: true, co: 'TÔ', linh: 8, ngua: 2, gian_cach: .1, duong: [g([LL[0] + 25, LL[1] + 20]), LL], t0: 0, t1: .2, an_sau: 29.8 },
+      { ten: 'Quân Hán giữ thành', ben: 'dich', linh: 7, gian_cach: .12, duong: [g([LL[0] - 30, LL[1] + 30]), g([LL[0] - 10, LL[1] + 10])], t0: 0, t1: .2, nga_tai: 30.4, an_sau: 33.5 },
+      { ten: 'Tô Định bỏ thành chạy trốn', ben: 'dich', tuong: true, co: 'TÔ', linh: 4, ngua: 2, gian_cach: .03, duong: 4, tu: 0, den: .6, t0: 29.8, t1: 34 , an_sau: 35.6 }],
+    mui_ten: [
+      { duong: 0, ben: 'ta', den: .4, t0: .5, t1: 6.8, day: 14 },
+      { duong: 1, ben: 'ta', t0: 7, t1: 10.6, day: 12 },
+      { duong: 2, ben: 'ta', t0: 7.4, t1: 11, day: 12 },
+      { duong: 3, ben: 'ta', t0: 7.8, t1: 11.4, day: 12 },
+      { duong: 4, ben: 'dich', net: 'dut', t0: 17.2, t1: 20.8, an_sau: 21.8 },
+      { duong: 0, ben: 'ta', bat_dau: .4, den: .95, t0: 22, t1: 27.4, day: 14 },
+      { duong: 4, ben: 'dich', net: 'dut', t0: 29.8, t1: 34 }],
+    phuc_binh: [...daiPhu.map((p, i) => ({ xy: p, ben: 'ta', t0: 8.2 + i * .4, huong_toi: LL })), ...vay.map((p, i) => ({ xy: p, ben: 'ta', t0: 27.2 + i * .2, huong_toi: LL }))],
+    lua: [{ xy: LL, ban_kinh: 45, t0: 28.4, t1: 34.5, ngon: 6 }],
+    co_cam: [...thanh4.map((p, i) => ({ xy: p, ben: 'ta', t0: 13.1 + i * .4 })), { xy: g([LL[0] + 12, LL[1] - 12]), ben: 'ta', t0: 32.4 }, ...thanh5.map((p, i) => ({ xy: p, ben: 'ta', t0: 33 + i * .45 })), { xy: g([ML[0] + 14, ML[1] - 14]), ben: 'ta', t0: 37 }],
+    nhan: [
+      { xy: ML, chu: 'Mùa xuân năm 40 · Hai Bà phất cờ ở Mê Linh', ben: 'ta', t0: .6, t1: 3.2 },
+      { xy: LL, chu: 'Luy Lâu – trị sở đô hộ quận Giao Chỉ', ben: 'dich', t0: 3.5, t1: 6.7 },
+      { xy: [1500, 470], chu: 'Lạc tướng khắp nơi đồng loạt hưởng ứng', ben: 'ta', t0: 7.2, t1: 11.8 },
+      { xy: at(R(1), .5), chu: 'Từ Hợp Phố', ben: 'ta', t0: 7.6, t1: 11.8 },
+      { xy: at(R(2), .55), chu: 'Từ Cửu Chân', ben: 'ta', t0: 8, t1: 11.8 },
+      { xy: at(R(3), .5), chu: 'Từ Nhật Nam', ben: 'ta', t0: 8.4, t1: 11.8 },
+      { xy: [1900, 920], chu: 'Theo sử sách: hạ được 65 thành trì', ben: 'ta', t0: 13, t1: 16.4 },
+      { xy: LL, chu: 'Tô Định bỏ ấn tín, cắt tóc cạo râu trốn về nước', ben: 'dich', t0: 16.8, t1: 21 },
+      { xy: at(R(0), .6), chu: 'Từ Mê Linh, nghĩa quân kéo về Luy Lâu', ben: 'ta', t0: 22.2, t1: 24.6 },
+      { xy: at(R(1), .7), chu: 'Hào kiệt các nơi nổi dậy hưởng ứng', ben: 'ta', t0: 24.8, t1: 27 },
+      { xy: LL, chu: 'Vây chặt trị sở Luy Lâu', ben: 'ta', t0: 27.3, t1: 29.6 },
+      { xy: at(R(4), .35), chu: 'Thái thú Tô Định bỏ thành chạy trốn', ben: 'dich', t0: 29.9, t1: 32.6 },
+      { xy: [1900, 920], chu: '65 thành trì được giải phóng', ben: 'ta', t0: 32.9, t1: 36.4 },
+      { xy: ML, chu: 'Trưng Trắc được tôn làm vua, đóng đô ở Mê Linh', ben: 'ta', t0: 36.8, t1: 40.3 }] };
   ghi(id, kb); }

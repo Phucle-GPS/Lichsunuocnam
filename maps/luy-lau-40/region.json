@@ -1,0 +1,200 @@
+{
+  "id": "luy-lau-40",
+  "che_do": "co",
+  "ten": "Khởi nghĩa Hai Bà Trưng 40",
+  "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Chỉ vẽ sông Hồng (dòng chảy chắc chắn); sông Đuống, sông Dâu thời Hán chưa rõ dòng chảy và không có trong lời dẫn nên bỏ. Không vẽ biển (bờ biển năm 40 nằm ngoài khung). Mê Linh (Hạ Lôi, Mê Linh, Hà Nội), Luy Lâu (Thuận Thành, Bắc Ninh), Tây Vu (Cổ Loa) theo di tích. Cửu Chân, Nhật Nam ở phía nam, Hợp Phố ở phía đông bắc – ngoài khung, chỉ bằng mũi tên từ mép bản đồ.",
+  "vung": {
+    "tay": 105.5,
+    "dong": 106.4,
+    "nam": 20.75,
+    "bac": 21.4
+  },
+  "song_xua": [
+    {
+      "ten": "Sông Hồng",
+      "rong_m": 1400,
+      "diem": [
+        [
+          105.26,
+          21.34
+        ],
+        [
+          105.42,
+          21.29
+        ],
+        [
+          105.55,
+          21.2
+        ],
+        [
+          105.65,
+          21.15
+        ],
+        [
+          105.74,
+          21.11
+        ],
+        [
+          105.83,
+          21.07
+        ],
+        [
+          105.87,
+          21.035
+        ],
+        [
+          105.91,
+          20.97
+        ],
+        [
+          105.96,
+          20.88
+        ],
+        [
+          106.01,
+          20.78
+        ],
+        [
+          106.05,
+          20.7
+        ]
+      ]
+    }
+  ],
+  "dia_danh": [
+    {
+      "ten": "Mê Linh",
+      "lon": 105.73,
+      "lat": 21.18,
+      "loai": "thanh",
+      "trai": true
+    },
+    {
+      "ten": "Luy Lâu",
+      "lon": 106.07,
+      "lat": 21.03,
+      "loai": "thanh"
+    },
+    {
+      "ten": "Tây Vu (Cổ Loa)",
+      "lon": 105.873,
+      "lat": 21.116
+    }
+  ],
+  "tuyen": [
+    {
+      "ten": "Nghĩa quân Hai Bà từ Mê Linh tiến về Luy Lâu",
+      "ben": "ta",
+      "diem": [
+        [
+          105.73,
+          21.18
+        ],
+        [
+          105.85,
+          21.145
+        ],
+        [
+          105.96,
+          21.09
+        ],
+        [
+          106.055,
+          21.04
+        ]
+      ]
+    },
+    {
+      "ten": "Lạc tướng Hợp Phố, Giao Chỉ từ phía đông",
+      "ben": "ta",
+      "cachDi": "thang",
+      "diem": [
+        [
+          106.62,
+          21.2
+        ],
+        [
+          106.4,
+          21.13
+        ],
+        [
+          106.22,
+          21.07
+        ],
+        [
+          106.09,
+          21.04
+        ]
+      ]
+    },
+    {
+      "ten": "Lạc tướng Cửu Chân từ phía nam",
+      "ben": "ta",
+      "cachDi": "thang",
+      "diem": [
+        [
+          105.62,
+          20.72
+        ],
+        [
+          105.85,
+          20.86
+        ],
+        [
+          105.99,
+          20.96
+        ],
+        [
+          106.06,
+          21.02
+        ]
+      ]
+    },
+    {
+      "ten": "Lạc tướng Nhật Nam từ phía nam",
+      "ben": "ta",
+      "cachDi": "thang",
+      "diem": [
+        [
+          106.3,
+          20.72
+        ],
+        [
+          106.2,
+          20.85
+        ],
+        [
+          106.11,
+          20.96
+        ],
+        [
+          106.075,
+          21.02
+        ]
+      ]
+    },
+    {
+      "ten": "Tô Định bỏ thành trốn chạy",
+      "ben": "dich",
+      "cachDi": "thang",
+      "diem": [
+        [
+          106.075,
+          21.035
+        ],
+        [
+          106.2,
+          21.14
+        ],
+        [
+          106.38,
+          21.28
+        ],
+        [
+          106.56,
+          21.42
+        ]
+      ]
+    }
+  ]
+}

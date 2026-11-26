@@ -1,4 +1,4 @@
-YÊU CẦU GỬI MANUS – GIỌNG DẪN CHUYỆN CÒN THIẾU (272 đoạn)
+YÊU CẦU GỬI MANUS – GIỌNG DẪN CHUYỆN CÒN THIẾU (264 đoạn)
 =========================================
 
 Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dưới, DÙNG ĐÚNG GIỌNG như các lần trước:
@@ -9,34 +9,7 @@ Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dư�
 - Không bắt chước giọng của bất kỳ người thật hay kênh nào; dùng giọng AI có quyền sử dụng thương mại.
 - Mỗi đoạn xuất thành MỘT file riêng (mp3 hoặc mp4), đặt tên ĐÚNG như tên trong ngoặc vuông (đổi đuôi .mp4 nếu là video). Hoặc mỗi trận MỘT file đọc liền các cảnh theo thứ tự, nghỉ khoảng 2 giây giữa các cảnh, đặt tên <id-trận>.mp3 / .mp4.
 - Đọc nguyên văn, không thêm, không bớt chữ. Không chèn nhạc nền.
-- Gói tất cả 272 file vào một file .zip để tải về.
-
-──────── KHỞI NGHĨA HAI BÀ TRƯNG 40 (Hai Bà Trưng) ────────
-
-[luy-lau-40_01.mp3]
-Mùa xuân năm 40, từ đất Mê Linh, hai chị em Trưng Trắc và Trưng Nhị phất cờ khởi nghĩa. Đây là cuộc khởi nghĩa lớn đầu tiên của người Việt thời Bắc thuộc.
-
-[luy-lau-40_02.mp3]
-Hai Bà là con gái Lạc tướng huyện Mê Linh. Theo Đại Việt sử ký toàn thư, Thái thú Tô Định giết chồng bà Trưng Trắc là Thi Sách, khiến Hai Bà càng quyết chí đánh giặc cứu nước.
-
-[luy-lau-40_03.mp3]
-Nghĩa quân từ Mê Linh tiến về Luy Lâu, trị sở của chính quyền đô hộ ở quận Giao Chỉ. Các Lạc tướng khắp Giao Chỉ, Cửu Chân, Nhật Nam, Hợp Phố đồng loạt hưởng ứng.
-
-[luy-lau-40_04.mp3]
-Theo sử sách, nghĩa quân hạ được sáu mươi lăm thành trì. Tô Định phải bỏ ấn tín, cắt tóc cạo râu trốn chạy về nước.
-
-[luy-lau-40_05.mp3]
-Từ Mê Linh, nghĩa quân kéo về Luy Lâu. Hào kiệt các nơi nổi dậy hưởng ứng, vây chặt trị sở của chính quyền đô hộ. Thái thú Tô Định hoảng sợ bỏ thành chạy trốn. Chỉ trong thời gian ngắn, sáu mươi lăm thành trì được giải phóng, Trưng Trắc được tôn làm vua, đóng đô ở Mê Linh.
-
-[luy-lau-40_06.mp3]
-Lời thề trước khi xuất quân, được ghi lại trong Thiên Nam ngữ lục, nói lên ý chí đòi nợ nước, trả thù nhà của Hai Bà.
-
-[luy-lau-40_07.mp3]
-Cuộc khởi nghĩa Hai Bà Trưng chứng tỏ người Việt không chịu khuất phục, và phụ nữ Việt Nam có vai trò to lớn trong sự nghiệp giữ nước.
-
-[luy-lau-40_08.mp3]
-Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
-
+- Gói tất cả 264 file vào một file .zip để tải về.
 
 ──────── LÃNG BẠC 43 (Hai Bà Trưng) ────────
 

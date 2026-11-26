@@ -2,6 +2,17 @@
  "ghi_chu": "Phim bản đồ chiến dịch (HyperFrames) đã đưa lên app – tạo bằng tools/phim-ban-do-app.mjs",
  "phim": [
   {
+   "id": "luy-lau-40",
+   "ten": "Khởi nghĩa Hai Bà Trưng 40",
+   "nam": 40,
+   "video": "phim-ban-do/luy-lau-40.mp4",
+   "anh_bia": "phim-ban-do/luy-lau-40.jpg",
+   "thoi_luong": "1:26",
+   "ngay": "2026-11-26",
+   "mo_ta": "Mùa xuân năm 40, từ đất Mê Linh, hai chị em Trưng Trắc và Trưng Nhị phất cờ khởi nghĩa. Đây là cuộc khởi nghĩa lớn đầu tiên của người Việt thời Bắc thuộc.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/luy-lau-40/nguon.json"
+  },
+  {
    "id": "bach-dang-938",
    "ten": "Bạch Đằng 938",
    "nam": 938,
