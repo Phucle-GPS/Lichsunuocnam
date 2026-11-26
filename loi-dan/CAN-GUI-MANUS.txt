@@ -1,4 +1,4 @@
-YÊU CẦU GỬI MANUS – GIỌNG DẪN CHUYỆN CÒN THIẾU (264 đoạn)
+YÊU CẦU GỬI MANUS – GIỌNG DẪN CHUYỆN CÒN THIẾU (224 đoạn)
 =========================================
 
 Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dưới, DÙNG ĐÚNG GIỌNG như các lần trước:
@@ -9,34 +9,7 @@ Hãy tạo giọng đọc tiếng Việt cho các đoạn lời dẫn bên dư�
 - Không bắt chước giọng của bất kỳ người thật hay kênh nào; dùng giọng AI có quyền sử dụng thương mại.
 - Mỗi đoạn xuất thành MỘT file riêng (mp3 hoặc mp4), đặt tên ĐÚNG như tên trong ngoặc vuông (đổi đuôi .mp4 nếu là video). Hoặc mỗi trận MỘT file đọc liền các cảnh theo thứ tự, nghỉ khoảng 2 giây giữa các cảnh, đặt tên <id-trận>.mp3 / .mp4.
 - Đọc nguyên văn, không thêm, không bớt chữ. Không chèn nhạc nền.
-- Gói tất cả 264 file vào một file .zip để tải về.
-
-──────── LÃNG BẠC 43 (Hai Bà Trưng) ────────
-
-[lang-bac-43_01.mp3]
-Năm 42, nhà Hán sai Mã Viện đem đại quân sang đàn áp. Trận Lãng Bạc là cuộc đối đầu bi tráng giữa nghĩa quân Hai Bà Trưng và quân xâm lược.
-
-[lang-bac-43_02.mp3]
-Sau hai năm làm vua, Trưng Vương phải đối mặt với đạo quân viễn chinh do tướng Mã Viện, người dày dạn trận mạc, chỉ huy.
-
-[lang-bac-43_03.mp3]
-Mã Viện theo đường ven biển tiến vào, đóng quân ở vùng Lãng Bạc. Vị trí Lãng Bạc còn nhiều ý kiến, thường được xác định ở vùng Tiên Du, Bắc Ninh.
-
-[lang-bac-43_04.mp3]
-Theo Hậu Hán thư, Mã Viện đem khoảng hai vạn quân cùng hơn hai nghìn thuyền xe, là đạo quân tinh nhuệ của nhà Hán.
-
-[lang-bac-43_05.mp3]
-Hai Bà đem quân nghênh chiến ở Lãng Bạc. Trận đánh diễn ra ác liệt. Trước đạo quân đông và thiện chiến, nghĩa quân phải lui về Cấm Khê, tiếp tục chiến đấu. Đầu năm 43, trong thế cùng, theo truyền thuyết Hai Bà đã gieo mình xuống dòng Hát Giang, giữ trọn khí tiết.
-
-[lang-bac-43_06.mp3]
-Từ năm 40 đến năm 43, ba năm độc lập ngắn ngủi nhưng để lại dấu ấn không phai trong lịch sử dân tộc.
-
-[lang-bac-43_07.mp3]
-Dù thất bại, cuộc kháng chiến của Hai Bà là một bản anh hùng ca. Nhân dân lập đền thờ Hai Bà ở nhiều nơi, tiêu biểu là đền Hát Môn và đền Đồng Nhân.
-
-[lang-bac-43_08.mp3]
-Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
-
+- Gói tất cả 224 file vào một file .zip để tải về.
 
 ──────── KHỞI NGHĨA BÀ TRIỆU 248 (Bà Triệu) ────────
 
@@ -254,33 +227,6 @@ Cuộc tập kích Ung Châu là một trong những trận tiến công táo b�
 Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
 
 
-──────── ĐÔNG BỘ ĐẦU 1258 (Trần Thái Tông) ────────
-
-[dong-bo-dau-1258_01.mp3]
-Đầu năm 1258, đạo quân Mông Cổ đang trên đà chinh phục nhiều nước châu Á tràn vào Đại Việt. Chưa đầy hai tuần sau, chúng bị đánh tan ở bến Đông Bộ Đầu, phải rút chạy về nước.
-
-[dong-bo-dau-1258_02.mp3]
-Vua Trần Thái Tông trực tiếp cầm quân. Theo sử cũ, Trần Quốc Tuấn, khi ấy còn trẻ, được giao đem quân thủy bộ ra trấn giữ vùng biên giới phía bắc.
-
-[dong-bo-dau-1258_03.mp3]
-Từ Vân Nam, tướng Ngột Lương Hợp Thai dẫn quân theo sông Thao tiến xuống. Ngày 17 tháng 1 năm 1258 theo dương lịch, quân ta chặn đánh ở Bình Lệ Nguyên rồi chủ động rút lui, bỏ trống kinh thành Thăng Long.
-
-[dong-bo-dau-1258_04.mp3]
-Quân Mông Cổ vào Thăng Long chỉ thấy thành trống, không lương thực. Giữa lúc ấy, Thái sư Trần Thủ Độ khẳng khái tâu vua: Đầu thần chưa rơi xuống đất, xin bệ hạ đừng lo.
-
-[dong-bo-dau-1258_05.mp3]
-Đêm 28 tháng 1, vua Trần Thái Tông cùng thái tử Trần Hoảng dẫn thủy quân ngược sông Hồng. Rạng sáng ngày 29, quân ta bất ngờ tập kích quân Mông Cổ ở bến Đông Bộ Đầu. Địch không kịp trở tay, tháo chạy theo đường cũ về Vân Nam, dọc đường lại bị dân binh vùng Quy Hóa chặn đánh tơi bời.
-
-[dong-bo-dau-1258_06.mp3]
-Câu nói của Thái sư Trần Thủ Độ trở thành biểu tượng cho bản lĩnh và ý chí sắt đá của vua tôi nhà Trần trước kẻ thù hùng mạnh.
-
-[dong-bo-dau-1258_07.mp3]
-Chiến thắng Đông Bộ Đầu chứng minh đội quân bách chiến bách thắng cũng có thể bị đánh bại, để lại bài học quý cho hai cuộc kháng chiến tiếp theo.
-
-[dong-bo-dau-1258_08.mp3]
-Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
-
-
 ──────── THIÊN MẠC 1285 (Trần Bình Trọng) ────────
 
 [thien-mac-1285_01.mp3]
@@ -305,87 +251,6 @@ Câu nói bất hủ của Trần Bình Trọng khi bị giặc dụ hàng, đư
 Chỉ vài tháng sau, quân dân nhà Trần phản công, thắng lớn ở Hàm Tử, Chương Dương, Tây Kết, đuổi quân Nguyên về nước.
 
 [thien-mac-1285_08.mp3]
-Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
-
-
-──────── HÀM TỬ – CHƯƠNG DƯƠNG 1285 (Trần Quang Khải) ────────
-
-[ham-tu-1285_01.mp3]
-Năm 1285, trên dòng sông Hồng, quân dân nhà Trần liên tiếp đánh tan quân Nguyên ở Hàm Tử và Chương Dương, mở màn cuộc tổng phản công giải phóng kinh thành.
-
-[ham-tu-1285_02.mp3]
-Hưng Đạo Vương Trần Quốc Tuấn là tổng chỉ huy. Hai tướng Trần Nhật Duật và Trần Quang Khải lập nên hai chiến công vang dội ở Hàm Tử và Chương Dương.
-
-[ham-tu-1285_03.mp3]
-Đầu năm 1285, hơn năm mươi vạn quân Nguyên do Thoát Hoan chỉ huy tràn sang. Ở phía nam, đạo quân của Toa Đô từ Chăm-pa đánh ra Nghệ An, Thanh Hóa, hòng hợp vây quân ta.
-
-[ham-tu-1285_04.mp3]
-Khi quân Nguyên bắt đầu mệt mỏi, thiếu lương, Hưng Đạo Vương quyết định phản công, nhằm thẳng vào đạo quân Toa Đô đang ngược sông Hồng.
-
-[ham-tu-1285_05.mp3]
-Tháng 4 năm 1285, Trần Nhật Duật cùng Trần Quốc Toản đón đánh đoàn thuyền của Toa Đô ở bến Hàm Tử, quân giặc thua to. Tiếp đó, Trần Quang Khải đem thủy quân bất ngờ đánh vào đồn Chương Dương, phục binh chặn đứng viện binh từ Thăng Long kéo ra. Quân ta thừa thắng tiến vào giải phóng kinh thành.
-
-[ham-tu-1285_06.mp3]
-Sau chiến thắng, Thượng tướng Trần Quang Khải viết bài thơ Tụng giá hoàn kinh sư, ghi lại niềm tự hào của cả dân tộc.
-
-[ham-tu-1285_07.mp3]
-Chiến thắng Hàm Tử – Chương Dương phá tan ý đồ hợp vây của quân Nguyên, giải phóng Thăng Long và mở đầu cuộc tổng phản công năm 1285.
-
-[ham-tu-1285_08.mp3]
-Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
-
-
-──────── TÂY KẾT – VẠN KIẾP 1285 (Trần Hưng Đạo) ────────
-
-[tay-ket-1285_01.mp3]
-Mùa hè năm 1285, Hưng Đạo Vương mở những đòn quyết định ở Tây Kết và Vạn Kiếp, quét sạch quân Nguyên ra khỏi bờ cõi lần thứ hai.
-
-[tay-ket-1285_02.mp3]
-Trước cuộc kháng chiến lần thứ hai, Hưng Đạo Vương đã soạn Hịch tướng sĩ. Quân sĩ nhà Trần thích lên cánh tay hai chữ Sát Thát, nghĩa là giết giặc Thát Đát, thể hiện ý chí quyết chiến.
-
-[tay-ket-1285_03.mp3]
-Mất Thăng Long, Thoát Hoan tính đường rút về phía bắc. Đạo quân Toa Đô ở phía nam không hay biết, vẫn ngược sông Hồng định hội quân.
-
-[tay-ket-1285_04.mp3]
-Hưng Đạo Vương bố trí quân chặn hai ngả. Một cánh đón đánh đạo quân phía nam ở Tây Kết. Cánh kia chặn đường rút của Thoát Hoan ở Vạn Kiếp, căn cứ quan trọng bên sông Lục Đầu.
-
-[tay-ket-1285_05.mp3]
-Tại Tây Kết, quân ta mai phục đánh tan đạo quân phía nam, chém đầu Toa Đô; Ô Mã Nhi phải lẻn ra biển trốn về. Ở phía bắc, Thoát Hoan tháo chạy qua Vạn Kiếp thì bị Hưng Đạo Vương chặn đánh. Phó tướng Lý Hằng trúng tên độc tử trận; tương truyền Thoát Hoan phải chui vào ống đồng cho quân khiêng chạy về nước.
-
-[tay-ket-1285_06.mp3]
-Lời hịch năm xưa của Hưng Đạo Vương đã trở thành ngọn lửa thôi thúc ý chí quyết chiến của quân dân nhà Trần.
-
-[tay-ket-1285_07.mp3]
-Thắng lợi Tây Kết – Vạn Kiếp kết thúc cuộc kháng chiến lần thứ hai, khẳng định tài thao lược kiệt xuất của Hưng Đạo Vương Trần Quốc Tuấn.
-
-[tay-ket-1285_08.mp3]
-Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
-
-
-──────── VÂN ĐỒN 1288 (Trần Khánh Dư) ────────
-
-[van-don-1288_01.mp3]
-Giữa vùng biển đảo Vân Đồn, một trận đánh chớp nhoáng đã cắt đứt nguồn lương thực của quân Nguyên, mở đường cho đại thắng Bạch Đằng năm 1288.
-
-[van-don-1288_02.mp3]
-Trận Vân Đồn gắn với tên tuổi phó tướng Trần Khánh Dư, người từng bị cách chức, được nhà Trần tha tội và giao trấn giữ vùng biển Đông Bắc.
-
-[van-don-1288_03.mp3]
-Cuối năm 1287, quân Nguyên sang xâm lược lần thứ ba. Thủy quân của Ô Mã Nhi vượt biển tiến vào, phía sau là đoàn thuyền chở lương thực của Trương Văn Hổ.
-
-[van-don-1288_04.mp3]
-Theo sử sách, đoàn thuyền lương chở khoảng mười bảy vạn thạch lương. Ô Mã Nhi chủ quan, tiến vội về Vạn Kiếp, bỏ đoàn thuyền lương lại phía sau, không có hộ tống.
-
-[van-don-1288_05.mp3]
-Lúc đầu, quân của Trần Khánh Dư không chặn nổi thủy quân Ô Mã Nhi, Thượng hoàng sai người về bắt ông hỏi tội. Trần Khánh Dư xin hoãn để lập công chuộc tội. Ông đoán đoàn thuyền lương sẽ theo sau, bèn mai phục ở Vân Đồn rồi bất ngờ tập kích. Lương thực của giặc bị chiếm hoặc nhấn chìm, Trương Văn Hổ chỉ kịp lên một chiếc thuyền nhỏ trốn về.
-
-[van-don-1288_06.mp3]
-Trước cuộc kháng chiến lần thứ ba, khi vua Trần hỏi về thế giặc, Hưng Đạo Vương đã điềm tĩnh tâu: Năm nay đánh giặc nhàn.
-
-[van-don-1288_07.mp3]
-Mất lương thực, quân Nguyên lâm vào cảnh đói khát, buộc phải rút lui, để rồi bị tiêu diệt trên sông Bạch Đằng vào tháng 4 năm 1288.
-
-[van-don-1288_08.mp3]
 Cảm ơn bạn đã theo dõi. Hẹn gặp lại ở trận đánh tiếp theo.
 
 
