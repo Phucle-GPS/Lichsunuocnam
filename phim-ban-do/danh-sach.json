@@ -13,6 +13,72 @@
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/luy-lau-40/nguon.json"
   },
   {
+   "id": "lang-bac-43",
+   "ten": "Lãng Bạc 43",
+   "nam": 43,
+   "video": "phim-ban-do/lang-bac-43.mp4",
+   "anh_bia": "phim-ban-do/lang-bac-43.jpg",
+   "thoi_luong": "1:24",
+   "ngay": "2026-11-27",
+   "mo_ta": "Năm 42, nhà Hán sai Mã Viện đem đại quân sang đàn áp. Trận Lãng Bạc là cuộc đối đầu bi tráng giữa nghĩa quân Hai Bà Trưng và quân xâm lược.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/lang-bac-43/nguon.json"
+  },
+  {
+   "id": "bo-dien-248",
+   "ten": "Khởi nghĩa Bà Triệu 248",
+   "nam": 248,
+   "video": "phim-ban-do/bo-dien-248.mp4",
+   "anh_bia": "phim-ban-do/bo-dien-248.jpg",
+   "thoi_luong": "1:09",
+   "ngay": "2026-11-27",
+   "mo_ta": "Năm 248, ở quận Cửu Chân, Triệu Thị Trinh dựng cờ khởi nghĩa chống ách đô hộ của nhà Đông Ngô.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/bo-dien-248/nguon.json"
+  },
+  {
+   "id": "van-xuan-542",
+   "ten": "Khởi nghĩa Lý Bí 542",
+   "nam": 542,
+   "video": "phim-ban-do/van-xuan-542.mp4",
+   "anh_bia": "phim-ban-do/van-xuan-542.jpg",
+   "thoi_luong": "1:17",
+   "ngay": "2026-11-27",
+   "mo_ta": "Năm 542, Lý Bí khởi nghĩa đánh đuổi chính quyền đô hộ nhà Lương, hai năm sau lên ngôi hoàng đế, đặt tên nước là Vạn Xuân.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/van-xuan-542/nguon.json"
+  },
+  {
+   "id": "da-trach-550",
+   "ten": "Đầm Dạ Trạch 550",
+   "nam": 550,
+   "video": "phim-ban-do/da-trach-550.mp4",
+   "anh_bia": "phim-ban-do/da-trach-550.jpg",
+   "thoi_luong": "1:17",
+   "ngay": "2026-11-27",
+   "mo_ta": "Giữa vùng đầm lầy mênh mông bên sông Hồng, Triệu Quang Phục đã dùng lối đánh du kích, bảo vệ nền độc lập của nước Vạn Xuân.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/da-trach-550/nguon.json"
+  },
+  {
+   "id": "van-an-722",
+   "ten": "Khởi nghĩa Mai Thúc Loan 722",
+   "nam": 722,
+   "video": "phim-ban-do/van-an-722.mp4",
+   "anh_bia": "phim-ban-do/van-an-722.jpg",
+   "thoi_luong": "1:13",
+   "ngay": "2026-11-27",
+   "mo_ta": "Năm 722, từ đất Hoan Châu, Mai Thúc Loan dựng cờ khởi nghĩa chống nhà Đường. Tương truyền, ông kêu gọi những người phu gánh vải quả cống nộp cùng nổi dậy.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/van-an-722/nguon.json"
+  },
+  {
+   "id": "tong-binh-791",
+   "ten": "Khởi nghĩa Phùng Hưng 791",
+   "nam": 791,
+   "video": "phim-ban-do/tong-binh-791.mp4",
+   "anh_bia": "phim-ban-do/tong-binh-791.jpg",
+   "thoi_luong": "1:12",
+   "ngay": "2026-11-27",
+   "mo_ta": "Cuối thế kỷ tám, từ đất Đường Lâm, Phùng Hưng cùng em là Phùng Hải dấy binh chống chính sách vơ vét của nhà Đường.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/tong-binh-791/nguon.json"
+  },
+  {
    "id": "bach-dang-938",
    "ten": "Bạch Đằng 938",
    "nam": 938,
@@ -22,6 +88,28 @@
    "ngay": "2026-11-25",
    "mo_ta": "Năm 938, trên dòng sông Bạch Đằng, quân dân ta dưới sự chỉ huy của Ngô Quyền đã đánh tan đạo thủy quân Nam Hán, mở ra kỷ nguyên độc lập lâu dài cho dân tộc.",
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/bach-dang-938/nguon.json"
+  },
+  {
+   "id": "chi-lang-981",
+   "ten": "Chi Lăng – Bạch Đằng 981",
+   "nam": 981,
+   "video": "phim-ban-do/chi-lang-981.mp4",
+   "anh_bia": "phim-ban-do/chi-lang-981.jpg",
+   "thoi_luong": "1:13",
+   "ngay": "2026-11-27",
+   "mo_ta": "Năm 981, nhà Tống chia hai đường thủy bộ sang xâm lược. Lê Hoàn chỉ huy quân dân Đại Cồ Việt đánh bại cuộc xâm lược đầu tiên của nhà Tống.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/chi-lang-981/nguon.json"
+  },
+  {
+   "id": "ung-chau-1075",
+   "ten": "Ung Châu 1075",
+   "nam": 1075,
+   "video": "phim-ban-do/ung-chau-1075.mp4",
+   "anh_bia": "phim-ban-do/ung-chau-1075.jpg",
+   "thoi_luong": "1:15",
+   "ngay": "2026-11-27",
+   "mo_ta": "Biết nhà Tống đang chuẩn bị xâm lược, cuối năm 1075 Lý Thường Kiệt chủ động đem quân đánh sang các căn cứ của Tống ở Ung Châu, Khâm Châu, Liêm Châu.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/ung-chau-1075/nguon.json"
   },
   {
    "id": "nhu-nguyet-1077",
@@ -57,6 +145,17 @@
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/tay-ket-1285/nguon.json"
   },
   {
+   "id": "thien-mac-1285",
+   "ten": "Thiên Mạc 1285",
+   "nam": 1285,
+   "video": "phim-ban-do/thien-mac-1285.mp4",
+   "anh_bia": "phim-ban-do/thien-mac-1285.jpg",
+   "thoi_luong": "1:15",
+   "ngay": "2026-11-27",
+   "mo_ta": "Đầu năm 1285, khi quân Nguyên ồ ạt tràn xuống, tướng Trần Bình Trọng đã chiến đấu đến cùng ở bãi Thiên Mạc để bảo vệ cuộc rút lui của triều đình.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/thien-mac-1285/nguon.json"
+  },
+  {
    "id": "bach-dang-1288",
    "ten": "Bạch Đằng 1288",
    "nam": 1288,
@@ -66,6 +165,50 @@
    "ngay": "2026-11-25",
    "mo_ta": "Trận chiến Bạch Đằng năm 1288 là một trong những chiến thắng quân sự vĩ đại nhất trong lịch sử dân tộc Việt Nam.",
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/bach-dang-1288/nguon.json"
+  },
+  {
+   "id": "van-don-1288",
+   "ten": "Vân Đồn 1288",
+   "nam": 1288,
+   "video": "phim-ban-do/van-don-1288.mp4",
+   "anh_bia": "phim-ban-do/van-don-1288.jpg",
+   "thoi_luong": "1:27",
+   "ngay": "2026-11-27",
+   "mo_ta": "Giữa vùng biển đảo Vân Đồn, một trận đánh chớp nhoáng đã cắt đứt nguồn lương thực của quân Nguyên, mở đường cho đại thắng Bạch Đằng năm 1288.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/van-don-1288/nguon.json"
+  },
+  {
+   "id": "hai-trieu-1390",
+   "ten": "Hải Triều 1390",
+   "nam": 1390,
+   "video": "phim-ban-do/hai-trieu-1390.mp4",
+   "anh_bia": "phim-ban-do/hai-trieu-1390.jpg",
+   "thoi_luong": "1:09",
+   "ngay": "2026-11-27",
+   "mo_ta": "Cuối thế kỷ mười bốn, kinh thành Thăng Long nhiều lần bị tấn công. Năm 1390, trên sông Hải Triều, tướng Trần Khát Chân đã chấm dứt mối đe dọa ấy.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/hai-trieu-1390/nguon.json"
+  },
+  {
+   "id": "kha-luu-1424",
+   "ten": "Khả Lưu – Bồ Ải 1424",
+   "nam": 1424,
+   "video": "phim-ban-do/kha-luu-1424.mp4",
+   "anh_bia": "phim-ban-do/kha-luu-1424.jpg",
+   "thoi_luong": "1:12",
+   "ngay": "2026-11-27",
+   "mo_ta": "Cuối năm 1424, nghĩa quân Lam Sơn chuyển vào Nghệ An. Ở Khả Lưu và Bồ Ải, Lê Lợi dùng mưu đốt trại giả rút để đánh bại quân Minh.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/kha-luu-1424/nguon.json"
+  },
+  {
+   "id": "tot-dong-1426",
+   "ten": "Tốt Động – Chúc Động 1426",
+   "nam": 1426,
+   "video": "phim-ban-do/tot-dong-1426.mp4",
+   "anh_bia": "phim-ban-do/tot-dong-1426.jpg",
+   "thoi_luong": "1:18",
+   "ngay": "2026-11-27",
+   "mo_ta": "Cuối năm 1426, ở vùng Chương Mỹ ngày nay, nghĩa quân Lam Sơn giáng đòn mạnh vào đạo quân viện binh của Vương Thông.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/tot-dong-1426/nguon.json"
   },
   {
    "id": "chi-lang-1427",

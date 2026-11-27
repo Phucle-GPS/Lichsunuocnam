@@ -1,0 +1,439 @@
+{
+ "ghi_chu": "Kịch bản bản đồ chiến dịch 3D (hyperframes/_chung/bando3d.js) – sinh bằng máy, bám từng câu lời dẫn. Thời gian = giây theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọng 3). Tọa độ = điểm ảnh trên nen-2k.jpg (2560×1440).",
+ "phong_dai_do_cao": 2.6,
+ "ti_le_nguoi": 4.4,
+ "nghieng_toi_thieu": 46,
+ "chu_co_ta": "MAI",
+ "may_quay": [
+  [
+   0,
+   1192,
+   1174,
+   520,
+   60,
+   -4
+  ],
+  [
+   4.4,
+   1302,
+   659,
+   900,
+   70,
+   0
+  ],
+  [
+   6.1,
+   1305,
+   290,
+   460,
+   58,
+   -6
+  ],
+  [
+   10,
+   1465,
+   310,
+   520,
+   60,
+   -4
+  ],
+  [
+   16.5,
+   1276,
+   1007,
+   700,
+   66,
+   0
+  ],
+  [
+   20,
+   1305,
+   310,
+   420,
+   57,
+   -6
+  ],
+  [
+   23.2,
+   1365,
+   290,
+   420,
+   57,
+   -8
+  ],
+  [
+   26.4,
+   1372,
+   715,
+   900,
+   70,
+   0
+  ],
+  [
+   29.3,
+   1505,
+   320,
+   520,
+   60,
+   -4
+  ],
+  [
+   33,
+   1485,
+   320,
+   500,
+   60,
+   -6
+  ]
+ ],
+ "may_quay_sau": [
+  [
+   0,
+   872,
+   794,
+   900,
+   68,
+   0
+  ],
+  [
+   7.4,
+   892,
+   774,
+   860,
+   66,
+   -4
+  ]
+ ],
+ "doan_quan": [
+  {
+   "ten": "Mai Thúc Loan tiến ra Bắc",
+   "ben": "ta",
+   "tuong": true,
+   "co": "MAI",
+   "linh": 15,
+   "ngua": 3,
+   "gian_cach": 0.012,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 0.5,
+   "t1": 6,
+   "an_sau": 16.4
+  },
+  {
+   "ten": "Dương Tư Húc đem 10 vạn quân",
+   "ben": "dich",
+   "tuong": true,
+   "co": "DƯƠNG",
+   "linh": 15,
+   "ngua": 5,
+   "gian_cach": 0.03,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.7,
+   "t0": 10.9,
+   "t1": 15.4,
+   "an_sau": 16.4
+  },
+  {
+   "ten": "Nghĩa quân và hào kiệt Diễn, Ái",
+   "ben": "ta",
+   "tuong": true,
+   "co": "MAI",
+   "linh": 15,
+   "ngua": 3,
+   "gian_cach": 0.012,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 16.5,
+   "t1": 22.4
+  },
+  {
+   "ten": "Quang Sở Khách bỏ chạy",
+   "ben": "dich",
+   "tuong": true,
+   "co": "QUANG",
+   "linh": 6,
+   "ngua": 2,
+   "gian_cach": 0.04,
+   "duong": 1,
+   "tu": 0,
+   "den": 0.95,
+   "t0": 23.2,
+   "t1": 26.4,
+   "an_sau": 27
+  },
+  {
+   "ten": "Nhà Đường dồn đại quân sang",
+   "ben": "dich",
+   "tuong": true,
+   "co": "ĐƯỜNG",
+   "linh": 15,
+   "ngua": 5,
+   "gian_cach": 0.03,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.75,
+   "t0": 29.3,
+   "t1": 33
+  }
+ ],
+ "mui_ten": [
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 6,
+   "day": 14
+  },
+  {
+   "duong": 2,
+   "ben": "dich",
+   "net": "dut",
+   "den": 0.7,
+   "t0": 10.9,
+   "t1": 15.4,
+   "an_sau": 16.4
+  },
+  {
+   "duong": 1,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 23.2,
+   "t1": 26.4
+  },
+  {
+   "duong": 2,
+   "ben": "dich",
+   "net": "dut",
+   "den": 0.75,
+   "t0": 29.3,
+   "t1": 33
+  }
+ ],
+ "phuc_binh": [
+  {
+   "xy": [
+    1189,
+    1137
+   ],
+   "ben": "ta",
+   "t0": 17.2,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  },
+  {
+   "xy": [
+    1310,
+    720
+   ],
+   "ben": "ta",
+   "t0": 18.099999999999998,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  },
+  {
+   "xy": [
+    1358,
+    102
+   ],
+   "ben": "ta",
+   "t0": 21.6,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  },
+  {
+   "xy": [
+    1306,
+    131
+   ],
+   "ben": "ta",
+   "t0": 21.8,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  },
+  {
+   "xy": [
+    1253,
+    103
+   ],
+   "ben": "ta",
+   "t0": 22,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  },
+  {
+   "xy": [
+    1272,
+    59
+   ],
+   "ben": "ta",
+   "t0": 22.200000000000003,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  },
+  {
+   "xy": [
+    1337,
+    56
+   ],
+   "ben": "ta",
+   "t0": 22.400000000000002,
+   "huong_toi": [
+    1305,
+    90
+   ]
+  }
+ ],
+ "lua": [
+  {
+   "xy": [
+    1305,
+    90
+   ],
+   "ban_kinh": 40,
+   "t0": 5,
+   "t1": 9,
+   "ngon": 5
+  },
+  {
+   "xy": [
+    1305,
+    90
+   ],
+   "ban_kinh": 42,
+   "t0": 21.8,
+   "t1": 26,
+   "ngon": 5
+  }
+ ],
+ "co_cam": [
+  {
+   "xy": [
+    1316,
+    108
+   ],
+   "ben": "ta",
+   "t0": 6.4
+  },
+  {
+   "xy": [
+    1189,
+    1142
+   ],
+   "ben": "ta",
+   "t0": 18
+  },
+  {
+   "xy": [
+    1278,
+    710
+   ],
+   "ben": "ta",
+   "t0": 19
+  },
+  {
+   "xy": [
+    1291,
+    108
+   ],
+   "ben": "ta",
+   "t0": 26.6
+  }
+ ],
+ "nhan": [
+  {
+   "xy": [
+    1132,
+    1294
+   ],
+   "chu": "Nghĩa quân Mai Thúc Loan từ Hoan Châu tiến ra Bắc",
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 4.4
+  },
+  {
+   "xy": [
+    1305,
+    90
+   ],
+   "chu": "Đánh chiếm phủ thành Tống Bình – trung tâm An Nam đô hộ phủ",
+   "ben": "ta",
+   "t0": 4.6,
+   "t1": 9
+  },
+  {
+   "xy": [
+    1557,
+    30
+   ],
+   "chu": "Theo sử Đường: Dương Tư Húc đem khoảng 10 vạn quân sang",
+   "ben": "dich",
+   "t0": 10,
+   "t1": 15.5
+  },
+  {
+   "xy": [
+    1181,
+    1154
+   ],
+   "chu": "Hào kiệt các châu Diễn, Ái cùng hưởng ứng",
+   "ben": "ta",
+   "t0": 16.6,
+   "t1": 20.6
+  },
+  {
+   "xy": [
+    1305,
+    90
+   ],
+   "chu": "Phủ thành Tống Bình bị vây đánh",
+   "ben": "ta",
+   "t0": 20.8,
+   "t1": 23.2
+  },
+  {
+   "xy": [
+    1503,
+    19
+   ],
+   "chu": "Đô hộ Quang Sở Khách bỏ chạy về nước",
+   "ben": "dich",
+   "t0": 23.3,
+   "t1": 26.4
+  },
+  {
+   "xy": [
+    1260,
+    720
+   ],
+   "chu": "Mai Thúc Loan làm chủ đất nước một thời gian",
+   "ben": "ta",
+   "t0": 26.5,
+   "t1": 29.3
+  },
+  {
+   "xy": [
+    1516,
+    41
+   ],
+   "chu": "Nhà Đường dồn đại quân sang đàn áp",
+   "ben": "dich",
+   "t0": 29.4,
+   "t1": 32.8
+  }
+ ]
+}

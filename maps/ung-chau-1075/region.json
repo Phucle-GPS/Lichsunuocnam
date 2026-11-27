@@ -1,0 +1,156 @@
+{
+ "id": "ung-chau-1075",
+ "che_do": "co",
+ "ten": "Ung Châu 1075",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông PHÓNG ĐẠI để hiển thị. Cuộc tiến công sang đất Tống: thủy quân từ vùng Vân Đồn vượt biển đánh Khâm Châu, Liêm Châu; quân bộ đi đường núi từ Lạng Sơn; hợp vây Ung Châu (Nam Ninh). Vị trí theo sử liệu, ước lượng. Biển mực nước cổ 1 m.",
+ "vung": {
+  "tay": 106.5,
+  "dong": 109.4,
+  "nam": 20.95,
+  "bac": 23
+ },
+ "muc_nuoc_co": 1,
+ "bien_tai": [
+  [
+   108.2,
+   21.2
+  ],
+  [
+   107.8,
+   21.1
+  ]
+ ],
+ "song_xua": [],
+ "dia_danh": [
+  {
+   "ten": "Thành Ung Châu",
+   "lon": 108.32,
+   "lat": 22.83,
+   "loai": "thanh"
+  },
+  {
+   "ten": "Khâm Châu",
+   "lon": 108.62,
+   "lat": 21.96
+  },
+  {
+   "ten": "Liêm Châu",
+   "lon": 109.15,
+   "lat": 21.66
+  },
+  {
+   "ten": "Lạng Sơn",
+   "lon": 106.76,
+   "lat": 21.85,
+   "trai": true
+  },
+  {
+   "ten": "Vân Đồn",
+   "lon": 107.43,
+   "lat": 21.06,
+   "trai": true
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Thủy quân vượt biển đánh Khâm Châu",
+   "ben": "ta",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     107.55,
+     21
+    ],
+    [
+     108,
+     21.35
+    ],
+    [
+     108.5,
+     21.72
+    ]
+   ]
+  },
+  {
+   "ten": "Thủy quân đánh Liêm Châu",
+   "ben": "ta",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     108.5,
+     21.72
+    ],
+    [
+     108.8,
+     21.55
+    ],
+    [
+     109.05,
+     21.55
+    ]
+   ]
+  },
+  {
+   "ten": "Quân bộ theo đường núi",
+   "ben": "ta",
+   "diem": [
+    [
+     106.76,
+     21.85
+    ],
+    [
+     107.25,
+     22.2
+    ],
+    [
+     107.8,
+     22.55
+    ],
+    [
+     108.28,
+     22.8
+    ]
+   ]
+  },
+  {
+   "ten": "Từ Khâm Châu tiến lên Ung Châu",
+   "ben": "ta",
+   "diem": [
+    [
+     108.62,
+     21.96
+    ],
+    [
+     108.5,
+     22.35
+    ],
+    [
+     108.36,
+     22.78
+    ]
+   ]
+  },
+  {
+   "ten": "Quân ta rút về nước",
+   "ben": "ta",
+   "diem": [
+    [
+     108.3,
+     22.82
+    ],
+    [
+     107.7,
+     22.4
+    ],
+    [
+     107.1,
+     22.05
+    ],
+    [
+     106.8,
+     21.88
+    ]
+   ]
+  }
+ ]
+}

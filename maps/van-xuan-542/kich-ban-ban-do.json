@@ -1,0 +1,616 @@
+{
+ "ghi_chu": "Kịch bản bản đồ chiến dịch 3D (hyperframes/_chung/bando3d.js) – sinh bằng máy, bám từng câu lời dẫn. Thời gian = giây theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọng 3). Tọa độ = điểm ảnh trên nen-2k.jpg (2560×1440).",
+ "phong_dai_do_cao": 2.6,
+ "ti_le_nguoi": 4.4,
+ "nghieng_toi_thieu": 46,
+ "chu_co_ta": "VẠN XUÂN",
+ "may_quay": [
+  [
+   0,
+   1131,
+   697,
+   480,
+   58,
+   -4
+  ],
+  [
+   3.7,
+   1579,
+   468.5,
+   640,
+   62,
+   -4
+  ],
+  [
+   7.1,
+   1907,
+   250,
+   440,
+   58,
+   -6
+  ],
+  [
+   10.3,
+   1679,
+   408.5,
+   560,
+   60,
+   -4
+  ],
+  [
+   17.4,
+   1927,
+   240,
+   420,
+   57,
+   -6
+  ],
+  [
+   20.3,
+   1131,
+   687,
+   420,
+   57,
+   -6
+  ],
+  [
+   23.7,
+   1211,
+   627,
+   420,
+   57,
+   -8
+  ],
+  [
+   27.6,
+   1699,
+   408.5,
+   560,
+   60,
+   -4
+  ],
+  [
+   32.8,
+   1108.5,
+   984.5,
+   600,
+   62,
+   -4
+  ],
+  [
+   36.1,
+   1131,
+   677,
+   360,
+   56,
+   -8
+  ],
+  [
+   41.9,
+   1131,
+   667,
+   340,
+   55,
+   -10
+  ]
+ ],
+ "may_quay_sau": [
+  [
+   0,
+   831,
+   817,
+   620,
+   64,
+   0
+  ],
+  [
+   6.7,
+   861,
+   797,
+   580,
+   62,
+   -6
+  ]
+ ],
+ "doan_quan": [
+  {
+   "ten": "Nghĩa quân phía tây",
+   "ben": "ta",
+   "tuong": true,
+   "co": "LÝ BÍ",
+   "linh": 10,
+   "ngua": 2,
+   "gian_cach": 0.018,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 0.5,
+   "t1": 3.6,
+   "an_sau": 10
+  },
+  {
+   "ten": "Nghĩa quân phía bắc",
+   "ben": "ta",
+   "tuong": false,
+   "co": "LÝ BÍ",
+   "linh": 10,
+   "ngua": 2,
+   "gian_cach": 0.018,
+   "duong": 1,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 0.5,
+   "t1": 3.6,
+   "an_sau": 10
+  },
+  {
+   "ten": "Nghĩa quân phía nam",
+   "ben": "ta",
+   "tuong": false,
+   "co": "LÝ BÍ",
+   "linh": 10,
+   "ngua": 2,
+   "gian_cach": 0.018,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 0.5,
+   "t1": 3.6,
+   "an_sau": 10
+  },
+  {
+   "ten": "Tiêu Tư bỏ chạy",
+   "ben": "dich",
+   "tuong": true,
+   "co": "TIÊU",
+   "linh": 6,
+   "ngua": 3,
+   "gian_cach": 0.03,
+   "duong": 3,
+   "tu": 0,
+   "den": 0.55,
+   "t0": 1.6,
+   "t1": 6.5,
+   "an_sau": 9
+  },
+  {
+   "ten": "Quân Lương kéo sang",
+   "ben": "dich",
+   "tuong": true,
+   "co": "LƯƠNG",
+   "linh": 14,
+   "ngua": 4,
+   "gian_cach": 0.05,
+   "duong": 4,
+   "tu": 0,
+   "den": 1,
+   "t0": 10.4,
+   "t1": 14.2,
+   "nga_tai": 16.2,
+   "an_sau": 20
+  },
+  {
+   "ten": "Nghĩa quân phía tây vây Long Biên",
+   "ben": "ta",
+   "tuong": true,
+   "co": "LÝ BÍ",
+   "linh": 10,
+   "ngua": 2,
+   "gian_cach": 0.018,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 20.3,
+   "t1": 23.6
+  },
+  {
+   "ten": "Nghĩa quân phía bắc vây Long Biên",
+   "ben": "ta",
+   "tuong": false,
+   "co": "LÝ BÍ",
+   "linh": 10,
+   "ngua": 2,
+   "gian_cach": 0.018,
+   "duong": 1,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 20.3,
+   "t1": 23.6
+  },
+  {
+   "ten": "Nghĩa quân phía nam vây Long Biên",
+   "ben": "ta",
+   "tuong": false,
+   "co": "LÝ BÍ",
+   "linh": 10,
+   "ngua": 2,
+   "gian_cach": 0.018,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 20.3,
+   "t1": 23.6
+  },
+  {
+   "ten": "Tiêu Tư mang của cải trốn về phương Bắc",
+   "ben": "dich",
+   "tuong": true,
+   "co": "TIÊU",
+   "linh": 6,
+   "ngua": 3,
+   "gian_cach": 0.03,
+   "duong": 3,
+   "tu": 0,
+   "den": 0.9,
+   "t0": 23.7,
+   "t1": 27.5,
+   "an_sau": 28
+  },
+  {
+   "ten": "Phạm Tu đánh Lâm Ấp",
+   "ben": "ta",
+   "tuong": true,
+   "co": "PHẠM TU",
+   "linh": 10,
+   "ngua": 3,
+   "gian_cach": 0.02,
+   "duong": 5,
+   "tu": 0,
+   "den": 0.95,
+   "t0": 32.8,
+   "t1": 36
+  }
+ ],
+ "mui_ten": [
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 3.6,
+   "day": 13,
+   "an_sau": 10
+  },
+  {
+   "duong": 1,
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 3.6,
+   "day": 13,
+   "an_sau": 10
+  },
+  {
+   "duong": 2,
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 3.6,
+   "day": 13,
+   "an_sau": 10
+  },
+  {
+   "duong": 3,
+   "ben": "dich",
+   "net": "dut",
+   "den": 0.6,
+   "t0": 1.6,
+   "t1": 6.5,
+   "an_sau": 9
+  },
+  {
+   "duong": 4,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 4,
+   "t1": 7,
+   "an_sau": 9.5
+  },
+  {
+   "duong": [
+    [
+     1767,
+     320
+    ],
+    [
+     1937,
+     220
+    ]
+   ],
+   "ben": "ta",
+   "t0": 6.4,
+   "t1": 8.6,
+   "day": 14,
+   "an_sau": 9.5
+  },
+  {
+   "duong": 4,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 10.4,
+   "t1": 14.2
+  },
+  {
+   "duong": [
+    [
+     1747,
+     330
+    ],
+    [
+     1927,
+     230
+    ]
+   ],
+   "ben": "ta",
+   "t0": 13.4,
+   "t1": 15.4,
+   "day": 14
+  },
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 20.3,
+   "t1": 23.6,
+   "day": 13
+  },
+  {
+   "duong": 1,
+   "ben": "ta",
+   "t0": 20.3,
+   "t1": 23.6,
+   "day": 13
+  },
+  {
+   "duong": 2,
+   "ben": "ta",
+   "t0": 20.3,
+   "t1": 23.6,
+   "day": 13
+  },
+  {
+   "duong": 3,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 23.7,
+   "t1": 27.5
+  },
+  {
+   "duong": 5,
+   "ben": "ta",
+   "t0": 32.8,
+   "t1": 36,
+   "day": 14
+  }
+ ],
+ "phuc_binh": [
+  {
+   "xy": [
+    1190,
+    666
+   ],
+   "ben": "ta",
+   "t0": 20.4,
+   "huong_toi": [
+    1131,
+    657
+   ]
+  },
+  {
+   "xy": [
+    1150,
+    700
+   ],
+   "ben": "ta",
+   "t0": 20.599999999999998,
+   "huong_toi": [
+    1131,
+    657
+   ]
+  },
+  {
+   "xy": [
+    1094,
+    698
+   ],
+   "ben": "ta",
+   "t0": 20.799999999999997,
+   "huong_toi": [
+    1131,
+    657
+   ]
+  },
+  {
+   "xy": [
+    1072,
+    648
+   ],
+   "ben": "ta",
+   "t0": 21,
+   "huong_toi": [
+    1131,
+    657
+   ]
+  },
+  {
+   "xy": [
+    1112,
+    614
+   ],
+   "ben": "ta",
+   "t0": 21.2,
+   "huong_toi": [
+    1131,
+    657
+   ]
+  },
+  {
+   "xy": [
+    1171,
+    623
+   ],
+   "ben": "ta",
+   "t0": 21.4,
+   "huong_toi": [
+    1131,
+    657
+   ]
+  }
+ ],
+ "lua": [
+  {
+   "xy": [
+    1917,
+    230
+   ],
+   "ban_kinh": 42,
+   "t0": 7.4,
+   "t1": 9.4,
+   "ngon": 5
+  },
+  {
+   "xy": [
+    1907,
+    240
+   ],
+   "ban_kinh": 50,
+   "t0": 14.6,
+   "t1": 19.5,
+   "ngon": 6
+  },
+  {
+   "xy": [
+    1917,
+    230
+   ],
+   "ban_kinh": 44,
+   "t0": 29.6,
+   "t1": 33,
+   "ngon": 5
+  }
+ ],
+ "co_cam": [
+  {
+   "xy": [
+    1145,
+    645
+   ],
+   "ben": "ta",
+   "t0": 3.2
+  },
+  {
+   "xy": [
+    1106,
+    1282
+   ],
+   "ben": "ta",
+   "t0": 35.4
+  },
+  {
+   "xy": [
+    1113,
+    671
+   ],
+   "ben": "ta",
+   "t0": 36.6
+  }
+ ],
+ "nhan": [
+  {
+   "xy": [
+    1131,
+    657
+   ],
+   "chu": "Nghĩa quân Lý Bí chiếm thành Long Biên",
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 3.6
+  },
+  {
+   "xy": [
+    1580,
+    451
+   ],
+   "chu": "Thứ sử Tiêu Tư bỏ chạy",
+   "ben": "dich",
+   "t0": 1.8,
+   "t1": 4.6
+  },
+  {
+   "xy": [
+    2027,
+    160
+   ],
+   "chu": "Nhà Lương hai lần sai quân sang – trận lớn nhất ở Hợp Phố",
+   "ben": "ta",
+   "t0": 3.8,
+   "t1": 9.3
+  },
+  {
+   "xy": [
+    2040,
+    118
+   ],
+   "chu": "Theo sử cũ: đầu năm 543 quân Lương kéo sang lần nữa",
+   "ben": "dich",
+   "t0": 10.4,
+   "t1": 14.1
+  },
+  {
+   "xy": [
+    2027,
+    160
+   ],
+   "chu": "Bị đón đánh tan tác ở Hợp Phố – mười phần chết bảy tám",
+   "ben": "ta",
+   "t0": 14.2,
+   "t1": 19.3
+  },
+  {
+   "xy": [
+    1131,
+    657
+   ],
+   "chu": "Nghĩa quân từ nhiều ngả kéo về vây Long Biên",
+   "ben": "ta",
+   "t0": 20.4,
+   "t1": 23.6
+  },
+  {
+   "xy": [
+    1686,
+    382
+   ],
+   "chu": "Tiêu Tư khiếp sợ, đem của cải trốn về phương Bắc",
+   "ben": "dich",
+   "t0": 23.8,
+   "t1": 27.6
+  },
+  {
+   "xy": [
+    2027,
+    160
+   ],
+   "chu": "Năm 543: quân Lương sang báo thù, lại bị đánh bại ở Hợp Phố",
+   "ben": "ta",
+   "t0": 27.7,
+   "t1": 32.7
+  },
+  {
+   "xy": [
+    1148,
+    1119
+   ],
+   "chu": "Phạm Tu đánh tan quân Lâm Ấp ở Cửu Đức",
+   "ben": "ta",
+   "t0": 32.9,
+   "t1": 36
+  },
+  {
+   "xy": [
+    1131,
+    657
+   ],
+   "chu": "Xuân 544: Lý Bí lên ngôi Lý Nam Đế · quốc hiệu Vạn Xuân",
+   "ben": "ta",
+   "t0": 36.2,
+   "t1": 41.6
+  }
+ ]
+}

@@ -1,0 +1,348 @@
+{
+ "ghi_chu": "Kịch bản bản đồ chiến dịch 3D (hyperframes/_chung/bando3d.js) – sinh bằng máy, bám từng câu lời dẫn. Thời gian = giây theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọng 3). Tọa độ = điểm ảnh trên nen-2k.jpg (2560×1440).",
+ "phong_dai_do_cao": 2.6,
+ "ti_le_nguoi": 4.4,
+ "nghieng_toi_thieu": 46,
+ "chu_co_ta": "TRƯNG",
+ "may_quay": [
+  [
+   0,
+   1900,
+   660,
+   640,
+   62,
+   0
+  ],
+  [
+   4.7,
+   1560,
+   660,
+   480,
+   58,
+   -4
+  ],
+  [
+   10.2,
+   1329,
+   675,
+   380,
+   56,
+   -8
+  ],
+  [
+   12.5,
+   1700,
+   660,
+   520,
+   60,
+   -6
+  ],
+  [
+   19.1,
+   1500,
+   670,
+   600,
+   62,
+   -4
+  ],
+  [
+   20.1,
+   1022,
+   675,
+   480,
+   58,
+   -6
+  ],
+  [
+   23.1,
+   1289,
+   675,
+   330,
+   55,
+   -10
+  ],
+  [
+   27.5,
+   1249,
+   685,
+   360,
+   56,
+   -12
+  ],
+  [
+   32.1,
+   832.5,
+   720,
+   620,
+   62,
+   -4
+  ],
+  [
+   33.1,
+   358,
+   727,
+   380,
+   56,
+   -8
+  ],
+  [
+   38.5,
+   358,
+   737,
+   360,
+   56,
+   -10
+  ]
+ ],
+ "may_quay_sau": [
+  [
+   0,
+   915,
+   734.5,
+   640,
+   64,
+   0
+  ],
+  [
+   11.7,
+   885,
+   714.5,
+   600,
+   62,
+   -6
+  ]
+ ],
+ "doan_quan": [
+  {
+   "ten": "Mã Viện tiến vào Lãng Bạc",
+   "ben": "dich",
+   "tuong": true,
+   "co": "MÃ",
+   "linh": 15,
+   "ngua": 5,
+   "gian_cach": 0.016,
+   "duong": 0,
+   "tu": 0,
+   "den": 1,
+   "t0": 0.5,
+   "t1": 9.6
+  },
+  {
+   "ten": "Hai Bà nghênh chiến",
+   "ben": "ta",
+   "tuong": true,
+   "cuoi": "voi",
+   "co": "TRƯNG",
+   "voi": 3,
+   "linh": 14,
+   "ngua": 2,
+   "gian_cach": 0.02,
+   "duong": 1,
+   "tu": 0,
+   "den": 0.96,
+   "t0": 20.1,
+   "t1": 23.4,
+   "an_sau": 27.5
+  },
+  {
+   "ten": "Nghĩa quân lui về Cấm Khê",
+   "ben": "ta",
+   "tuong": true,
+   "cuoi": "voi",
+   "co": "TRƯNG",
+   "voi": 2,
+   "linh": 10,
+   "gian_cach": 0.02,
+   "duong": 2,
+   "tu": 0,
+   "den": 1,
+   "t0": 27.6,
+   "t1": 32.2,
+   "an_sau": 36.8
+  }
+ ],
+ "mui_ten": [
+  {
+   "duong": 0,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 0.5,
+   "t1": 9.6
+  },
+  {
+   "duong": 1,
+   "ben": "ta",
+   "t0": 20.1,
+   "t1": 23.4,
+   "day": 14
+  },
+  {
+   "duong": 2,
+   "ben": "ta",
+   "t0": 27.6,
+   "t1": 32.2,
+   "day": 13
+  },
+  {
+   "duong": 2,
+   "ben": "dich",
+   "net": "dut",
+   "den": 0.7,
+   "t0": 29,
+   "t1": 33
+  }
+ ],
+ "phuc_binh": [
+  {
+   "xy": [
+    1337,
+    695
+   ],
+   "ben": "ta",
+   "t0": 23.3,
+   "huong_toi": [
+    1289,
+    675
+   ]
+  },
+  {
+   "xy": [
+    1263,
+    711
+   ],
+   "ben": "ta",
+   "t0": 23.55,
+   "huong_toi": [
+    1289,
+    675
+   ]
+  },
+  {
+   "xy": [
+    1241,
+    655
+   ],
+   "ben": "ta",
+   "t0": 23.8,
+   "huong_toi": [
+    1289,
+    675
+   ]
+  },
+  {
+   "xy": [
+    1315,
+    639
+   ],
+   "ben": "ta",
+   "t0": 24.05,
+   "huong_toi": [
+    1289,
+    675
+   ]
+  }
+ ],
+ "lua": [
+  {
+   "xy": [
+    1289,
+    675
+   ],
+   "ban_kinh": 48,
+   "t0": 23.6,
+   "t1": 30,
+   "ngon": 6
+  }
+ ],
+ "co_cam": [
+  {
+   "xy": [
+    1303,
+    663
+   ],
+   "ben": "dich",
+   "t0": 28.4
+  }
+ ],
+ "nhan": [
+  {
+   "xy": [
+    2098,
+    739
+   ],
+   "chu": "Mã Viện theo đường ven biển tiến vào",
+   "ben": "dich",
+   "t0": 0.6,
+   "t1": 4.6
+  },
+  {
+   "xy": [
+    1289,
+    675
+   ],
+   "chu": "Lãng Bạc – thường xác định ở Tiên Du, Bắc Ninh (còn nhiều ý kiến)",
+   "t0": 4.8,
+   "t1": 10.2
+  },
+  {
+   "xy": [
+    1921,
+    722
+   ],
+   "chu": "Theo Hậu Hán thư: khoảng 2 vạn quân, hơn 2.000 thuyền xe",
+   "ben": "dich",
+   "t0": 11.3,
+   "t1": 16.6
+  },
+  {
+   "xy": [
+    1637,
+    688
+   ],
+   "chu": "Đạo quân tinh nhuệ của nhà Hán",
+   "ben": "dich",
+   "t0": 16.7,
+   "t1": 19.1
+  },
+  {
+   "xy": [
+    998,
+    616
+   ],
+   "chu": "Hai Bà đem quân nghênh chiến ở Lãng Bạc",
+   "ben": "ta",
+   "t0": 20.2,
+   "t1": 23.1
+  },
+  {
+   "xy": [
+    1289,
+    675
+   ],
+   "chu": "Trận đánh diễn ra ác liệt",
+   "ben": "ta",
+   "t0": 23.2,
+   "t1": 27.5
+  },
+  {
+   "xy": [
+    376,
+    795
+   ],
+   "chu": "Nghĩa quân lui về Cấm Khê, tiếp tục chiến đấu",
+   "ben": "ta",
+   "t0": 27.7,
+   "t1": 32.1
+  },
+  {
+   "xy": [
+    238,
+    647
+   ],
+   "chu": "Truyền thuyết: Hai Bà gieo mình xuống dòng Hát Giang, giữ trọn khí tiết",
+   "ben": "ta",
+   "t0": 33.2,
+   "t1": 38.5
+  }
+ ]
+}

@@ -26,7 +26,10 @@ function moTran(id) {
     datA: ganDat([p[0] + n[0] * (a + 22), p[1] + n[1] * (a + 22)]), datB: ganDat([p[0] - n[0] * (b + 22), p[1] - n[1] * (b + 22)]) }; };
   /* lòng nước sâu: điểm và 4 điểm cách 5 px quanh nó đều là nước (không sát bờ) */
   const sau = (x, y) => nuoc(x, y) && nuoc(x + 5, y) && nuoc(x - 5, y) && nuoc(x, y + 5) && nuoc(x, y - 5);
-  const veLong = (p, r = 30) => { for (let d = 0; d <= r; d++) for (let a = 0; a < 32; a++) { const x = Math.round(p[0] + Math.cos(a / 32 * 6.283) * d), y = Math.round(p[1] + Math.sin(a / 32 * 6.283) * d); if (sau(x, y)) return [x, y]; }
+  /* rất sâu: cách bờ / đảo nhỏ ≥ 2 ô (8 px) theo cả 8 hướng – dùng trước tiên (vùng biển nhiều đảo đá) */
+  const sau2 = (x, y) => sau(x, y) && [[8, 0], [-8, 0], [0, 8], [0, -8], [6, 6], [-6, 6], [6, -6], [-6, -6]].every(([dx, dy]) => nuoc(x + dx, y + dy));
+  const veLong = (p, r = 30) => { for (let d = 0; d <= Math.min(r, 14); d++) for (let a = 0; a < 32; a++) { const x = Math.round(p[0] + Math.cos(a / 32 * 6.283) * d), y = Math.round(p[1] + Math.sin(a / 32 * 6.283) * d); if (sau2(x, y)) return [x, y]; }
+    for (let d = 0; d <= r; d++) for (let a = 0; a < 32; a++) { const x = Math.round(p[0] + Math.cos(a / 32 * 6.283) * d), y = Math.round(p[1] + Math.sin(a / 32 * 6.283) * d); if (sau(x, y)) return [x, y]; }
     for (let d = 0; d <= r; d++) for (let a = 0; a < 32; a++) { const x = Math.round(p[0] + Math.cos(a / 32 * 6.283) * d), y = Math.round(p[1] + Math.sin(a / 32 * 6.283) * d); if (nuoc(x, y) && nuoc(x + 2, y) && nuoc(x - 2, y) && nuoc(x, y + 2) && nuoc(x, y - 2)) return [x, y]; }   // rạch hẹp
     throw new Error(id + ': không có lòng nước gần ' + p); };
   /* đường thuyền: lấy đoạn tuyến (hoặc mảng điểm), chia dày, hút từng điểm vào lòng nước, bỏ điểm trùng */
@@ -34,12 +37,13 @@ function moTran(id) {
   const lienNuoc = (a, b, sau = 0) => { const n = Math.max(4, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) * 2)), cham = []; for (let j = 1; j < n; j++) { const x = a[0] + (b[0] - a[0]) * j / n, y = a[1] + (b[1] - a[1]) * j / n; if (!nuoc(x, y) || !nuoc(Math.round(x), Math.round(y))) cham.push(j); }
     if (!cham.length) return [b]; return quaO(a, b); };
   /* đường qua các ô nước liền kề (BFS 4 hướng trên lưới 640×360): nối tâm ô kề nhau → luôn nằm trọn trên nước */
-  const quaO = (a, b, chat = true) => { const ca = [Math.floor(a[0] / 4), Math.floor(a[1] / 4)], cb = [Math.floor(b[0] / 4), Math.floor(b[1] / 4)], le = 80;
+  const quaO = (a, b, chat = 2) => { const ca = [Math.floor(a[0] / 4), Math.floor(a[1] / 4)], cb = [Math.floor(b[0] / 4), Math.floor(b[1] / 4)], le = 80;
     const x0 = Math.max(0, Math.min(ca[0], cb[0]) - le), y0 = Math.max(0, Math.min(ca[1], cb[1]) - le), x1 = Math.min(639, Math.max(ca[0], cb[0]) + le), y1 = Math.min(359, Math.max(ca[1], cb[1]) + le), gw = x1 - x0 + 1;
     const o1 = (x, y) => x >= 0 && y >= 0 && x < 640 && y < 360 && NB[y * 640 + x] === 1, giua = (x, y) => o1(x, y) && o1(x + 1, y) && o1(x - 1, y) && o1(x, y + 1) && o1(x, y - 1);
-    const W8 = (x, y) => (x === ca[0] && y === ca[1]) || (x === cb[0] && y === cb[1]) ? o1(x, y) : chat ? giua(x, y) : o1(x, y), key = (x, y) => (y - y0) * gw + (x - x0), tu = new Map([[key(...ca), -1]]), hang = [ca];
+    const giua2 = (x, y) => { for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) if (!o1(x + dx, y + dy)) return false; return true; };   // cách bờ ≥ 2 ô
+    const W8 = (x, y) => (x === ca[0] && y === ca[1]) || (x === cb[0] && y === cb[1]) ? o1(x, y) : chat === 2 ? giua2(x, y) : chat ? giua(x, y) : o1(x, y), key = (x, y) => (y - y0) * gw + (x - x0), tu = new Map([[key(...ca), -1]]), hang = [ca];
     for (let h = 0; h < hang.length; h++) { const [x, y] = hang[h]; if (x === cb[0] && y === cb[1]) break; for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const X = x + dx, Y = y + dy; if (X < x0 || Y < y0 || X > x1 || Y > y1 || !W8(X, Y) || tu.has(key(X, Y))) continue; tu.set(key(X, Y), key(x, y)); hang.push([X, Y]); } }
-    if (!tu.has(key(...cb)) && chat) return quaO(a, b, false);   // không thông qua ô giữa nước → cho phép ô sát bờ
+    if (!tu.has(key(...cb)) && chat) return quaO(a, b, chat - 1);   // không thông qua ô giữa nước → nới dần: cách bờ 2 ô → 1 ô → sát bờ
     if (!tu.has(key(...cb))) throw new Error(id + ': hai điểm thuyền không thông nước ' + a + ' → ' + b);
     const o = []; for (let k = key(...cb); k !== -1; k = tu.get(k)) { const cx = x0 + (k % gw), cy = y0 + Math.floor(k / gw); o.push([cx * 4 + 2, cy * 4 + 2]); }   // tâm ô (điểm ảnh)
     return o.reverse().slice(1, -1).concat([b]); };
@@ -452,4 +456,437 @@ if (!only || only === 'tay-ket-1285') { const id = 'tay-ket-1285', H = moTran(id
       { xy: at(R(0), .5), chu: 'Thoát Hoan tháo chạy qua Vạn Kiếp', ben: 'dich', t0: 28.3, t1: 31.6 },
       { xy: [VK[0] - 70, VK[1] + 8], chu: 'Phó tướng Lý Hằng trúng tên độc tử trận', ben: 'dich', t0: 32, t1: 34.4 },
       { xy: at(R(1), .45), chu: 'Tương truyền Thoát Hoan chui vào ống đồng chạy về nước', ben: 'dich', t0: 34.6, t1: 39 }] };
+  ghi(id, kb); }
+
+/* ==================== LÃNG BẠC 43 ==================== */
+if (!only || only === 'lang-bac-43') { const id = 'lang-bac-43', H = moTran(id), { R, at, DD, ganDat } = H;
+  const LB = DD['Lãng Bạc'], ML = DD['Mê Linh'], CK = DD['Cấm Khê'], HM = DD['Đền Hát Môn'], DN = DD['Đền Đồng Nhân'];
+  const quanh = (c, r, n, lech = 0) => Array.from({ length: n }, (_, i) => ganDat([c[0] + Math.cos(i / n * 6.283 + lech) * r, c[1] + Math.sin(i / n * 6.283 + lech) * r * .75]));
+  const kb = { ...CHUNG, chu_co_ta: 'TRƯNG',
+    may_quay: [[0, 1900, 660, 640, 62, 0], [4.7, 1560, 660, 480, 58, -4], [10.2, LB[0] + 40, LB[1], 380, 56, -8], [12.5, 1700, 660, 520, 60, -6], [19.1, 1500, 670, 600, 62, -4],
+      [20.1, (LB[0] + ML[0]) / 2, LB[1], 480, 58, -6], [23.1, LB[0], LB[1], 330, 55, -10], [27.5, LB[0] - 40, LB[1] + 10, 360, 56, -12], [32.1, (CK[0] + LB[0]) / 2, 720, 620, 62, -4], [33.1, HM[0] + 120, HM[1] + 80, 380, 56, -8], [38.5, HM[0] + 120, HM[1] + 90, 360, 56, -10]],
+    may_quay_sau: [[0, (HM[0] + DN[0]) / 2 + 300, (HM[1] + DN[1]) / 2 - 40, 640, 64, 0], [11.7, (HM[0] + DN[0]) / 2 + 270, (HM[1] + DN[1]) / 2 - 60, 600, 62, -6]],
+    doan_quan: [
+      { ten: 'Mã Viện tiến vào Lãng Bạc', ben: 'dich', tuong: true, co: 'MÃ', linh: 15, ngua: 5, gian_cach: .016, duong: 0, tu: 0, den: 1, t0: .5, t1: 9.6 },
+      { ten: 'Hai Bà nghênh chiến', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRƯNG', voi: 3, linh: 14, ngua: 2, gian_cach: .02, duong: 1, tu: 0, den: .96, t0: 20.1, t1: 23.4, an_sau: 27.5 },
+      { ten: 'Nghĩa quân lui về Cấm Khê', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRƯNG', voi: 2, linh: 10, gian_cach: .02, duong: 2, tu: 0, den: 1, t0: 27.6, t1: 32.2, an_sau: 36.8 }],
+    mui_ten: [
+      { duong: 0, ben: 'dich', net: 'dut', t0: .5, t1: 9.6 },
+      { duong: 1, ben: 'ta', t0: 20.1, t1: 23.4, day: 14 },
+      { duong: 2, ben: 'ta', t0: 27.6, t1: 32.2, day: 13 },
+      { duong: 2, ben: 'dich', net: 'dut', den: .7, t0: 29, t1: 33 }],
+    phuc_binh: quanh(LB, 55, 4, .5).map((p, i) => ({ xy: p, ben: 'ta', t0: 23.3 + i * .25, huong_toi: LB })),
+    lua: [{ xy: LB, ban_kinh: 48, t0: 23.6, t1: 30, ngon: 6 }],
+    co_cam: [{ xy: ganDat([LB[0] + 14, LB[1] - 12]), ben: 'dich', t0: 28.4 }],
+    nhan: [
+      { xy: at(R(0), .35), chu: 'Mã Viện theo đường ven biển tiến vào', ben: 'dich', t0: .6, t1: 4.6 },
+      { xy: LB, chu: 'Lãng Bạc – thường xác định ở Tiên Du, Bắc Ninh (còn nhiều ý kiến)', t0: 4.8, t1: 10.2 },
+      { xy: at(R(0), .5), chu: 'Theo Hậu Hán thư: khoảng 2 vạn quân, hơn 2.000 thuyền xe', ben: 'dich', t0: 11.3, t1: 16.6 },
+      { xy: at(R(0), .75), chu: 'Đạo quân tinh nhuệ của nhà Hán', ben: 'dich', t0: 16.7, t1: 19.1 },
+      { xy: at(R(1), .5), chu: 'Hai Bà đem quân nghênh chiến ở Lãng Bạc', ben: 'ta', t0: 20.2, t1: 23.1 },
+      { xy: LB, chu: 'Trận đánh diễn ra ác liệt', ben: 'ta', t0: 23.2, t1: 27.5 },
+      { xy: CK, chu: 'Nghĩa quân lui về Cấm Khê, tiếp tục chiến đấu', ben: 'ta', t0: 27.7, t1: 32.1 },
+      { xy: HM, chu: 'Truyền thuyết: Hai Bà gieo mình xuống dòng Hát Giang, giữ trọn khí tiết', ben: 'ta', t0: 33.2, t1: 38.5 }] };
+  ghi(id, kb); }
+
+/* ==================== BỒ ĐIỀN 248 (khởi nghĩa Bà Triệu) ==================== */
+if (!only || only === 'bo-dien-248') { const id = 'bo-dien-248', H = moTran(id), { R, at, DD, ganDat } = H;
+  const NN = DD['Núi Nưa'], BD = DD['Căn cứ Bồ Điền'], NT = DD['Núi Tùng'], TP = DD['Thành Tư Phố'];
+  const quanh = (c, r, n, lech = 0) => Array.from({ length: n }, (_, i) => ganDat([c[0] + Math.cos(i / n * 6.283 + lech) * r, c[1] + Math.sin(i / n * 6.283 + lech) * r * .75]));
+  const nui = [ganDat([BD[0] - 120, BD[1] + 60]), ganDat([BD[0] - 60, BD[1] + 130]), ganDat([at(R(2), .55)[0] - 70, at(R(2), .55)[1]]), ganDat([at(R(2), .55)[0] + 80, at(R(2), .55)[1] + 20])];
+  const kb = { ...CHUNG, chu_co_ta: 'TRIỆU',
+    may_quay: [[0, NN[0] + 60, NN[1] - 80, 420, 58, -4], [1.3, (NN[0] + TP[0]) / 2 + 40, 900, 620, 62, -4], [5.3, BD[0] - 60, BD[1] + 30, 420, 57, -8], [8.1, at(R(2), .4)[0], at(R(2), .4)[1] + 60, 520, 60, -6],
+      [14.7, BD[0] - 30, BD[1] - 40, 440, 58, -8], [18.2, BD[0] - 60, BD[1] + 30, 400, 57, -10], [22.5, BD[0], BD[1], 340, 55, -12], [25.9, BD[0] + 10, BD[1] - 10, 330, 55, -12], [29.7, NT[0], NT[1] + 10, 300, 54, -14], [34.3, NT[0], NT[1] + 10, 320, 55, -14]],
+    may_quay_sau: [[0, BD[0] - 330, BD[1] + 120, 640, 64, 0], [8, BD[0] - 300, BD[1] + 100, 600, 62, -6]],
+    doan_quan: [
+      { ten: 'Bà Triệu khởi nghĩa từ núi Nưa', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRIỆU', voi: 3, linh: 14, ngua: 2, gian_cach: .016, duong: 0, tu: 0, den: .85, t0: .5, t1: 5.2, an_sau: 7.2 },
+      { ten: 'Lấy Bồ Điền làm căn cứ', ben: 'ta', tuong: true, cuoi: 'voi', co: 'TRIỆU', voi: 3, linh: 14, ngua: 2, gian_cach: .02, duong: 1, tu: 0, den: 1, t0: 5.3, t1: 7.2, nga_tai: 30.6 },
+      { ten: 'Lục Dận đem quân sang', ben: 'dich', tuong: true, co: 'LỤC', linh: 15, ngua: 4, gian_cach: .02, duong: 2, tu: 0, den: .82, t0: 8.1, t1: 14.6 }],
+    mui_ten: [
+      { duong: 0, ben: 'ta', t0: .5, t1: 5.2, day: 14 },
+      { duong: 1, ben: 'ta', t0: 5.3, t1: 7.2, day: 13 },
+      { duong: 2, ben: 'dich', net: 'dut', den: .9, t0: 8.1, t1: 14.6 },
+      ...nui.map((p, i) => ({ duong: [p, at(R(2), .55 + i * .08)], ben: 'ta', t0: 16 + i * .6, t1: 17.4 + i * .6, day: 11 }))],
+    phuc_binh: [...nui.map((p, i) => ({ xy: p, ben: 'ta', t0: 15.8 + i * .6, huong_toi: at(R(2), .6) })), ...quanh(BD, 75, 6, .3).map((p, i) => ({ xy: p, ben: 'dich', t0: 22.6 + i * .25, huong_toi: BD }))],
+    lua: [{ xy: at(R(2), .62), ban_kinh: 40, t0: 17.4, t1: 22.4, ngon: 5 }, { xy: BD, ban_kinh: 46, t0: 26, t1: 34, ngon: 6 }],
+    co_cam: [...[.3, .5, .7, .95].map((u, i) => ({ xy: ganDat(at(R(0), u)), ben: 'ta', t0: 1.8 + i * .9 })), { xy: ganDat([TP[0] + 12, TP[1] - 10]), ben: 'ta', t0: 3.2 }],
+    nhan: [
+      { xy: NN, chu: 'Từ núi Nưa, nghĩa quân Bà Triệu khởi nghĩa', ben: 'ta', t0: .5, t1: 1.6 },
+      { xy: at(R(0), .6), chu: 'Đánh chiếm nhiều thành ấp ở Cửu Chân rồi Giao Chỉ', ben: 'ta', t0: 1.7, t1: 5.3 },
+      { xy: BD, chu: 'Lấy Bồ Điền làm căn cứ', ben: 'ta', t0: 5.4, t1: 7.1 },
+      { xy: at(R(2), .3), chu: 'Nhà Ngô sai Lục Dận đem khoảng 8.000 quân sang', ben: 'dich', t0: 8.2, t1: 12.4 },
+      { xy: at(R(2), .6), chu: 'Vừa đánh vừa dùng của cải mua chuộc', ben: 'dich', t0: 12.5, t1: 14.7 },
+      { xy: nui[2], chu: 'Dựa vào núi rừng Cửu Chân, đánh nhiều trận', ben: 'ta', t0: 15.8, t1: 20.4 },
+      { xy: at(R(2), .8), chu: 'Mua chuộc, chia rẽ rồi dồn quân vây Bồ Điền', ben: 'dich', t0: 20.6, t1: 25.9 },
+      { xy: BD, chu: 'Cuộc chiến kéo dài nhiều tháng', ben: 'ta', t0: 26, t1: 29.6 },
+      { xy: NT, chu: 'Bà Triệu hy sinh trên núi Tùng khi mới 23 tuổi', ben: 'ta', t0: 29.8, t1: 34.2 }] };
+  ghi(id, kb); }
+
+/* ==================== VẠN XUÂN 542 (khởi nghĩa Lý Bí) ==================== */
+if (!only || only === 'van-xuan-542') { const id = 'van-xuan-542', H = moTran(id), { R, at, DD, ganDat } = H;
+  const LB = DD['Thành Long Biên'], HP = DD['Hướng Hợp Phố'], CD = DD['Hướng Cửu Đức'];
+  const quanh = (c, r, n, lech = 0) => Array.from({ length: n }, (_, i) => ganDat([c[0] + Math.cos(i / n * 6.283 + lech) * r, c[1] + Math.sin(i / n * 6.283 + lech) * r * .75]));
+  const ba = [0, 1, 2], hd = (i, t0, t1, an) => ({ ten: 'Nghĩa quân ' + ['phía tây', 'phía bắc', 'phía nam'][i], ben: 'ta', tuong: i === 0, co: 'LÝ BÍ', linh: 10, ngua: 2, gian_cach: .018, duong: i, tu: 0, den: .97, t0, t1, an_sau: an });
+  const kb = { ...CHUNG, chu_co_ta: 'VẠN XUÂN',
+    may_quay: [[0, LB[0], LB[1] + 40, 480, 58, -4], [3.7, (LB[0] + HP[0]) / 2, (LB[1] + HP[1]) / 2 + 60, 640, 62, -4], [7.1, HP[0] - 120, HP[1] + 90, 440, 58, -6], [10.3, (LB[0] + HP[0]) / 2 + 100, (LB[1] + HP[1]) / 2, 560, 60, -4],
+      [17.4, HP[0] - 100, HP[1] + 80, 420, 57, -6], [20.3, LB[0], LB[1] + 30, 420, 57, -6], [23.7, LB[0] + 80, LB[1] - 30, 420, 57, -8], [27.6, (LB[0] + HP[0]) / 2 + 120, (LB[1] + HP[1]) / 2, 560, 60, -4],
+      [32.8, (LB[0] + CD[0]) / 2, (LB[1] + CD[1]) / 2, 600, 62, -4], [36.1, LB[0], LB[1] + 20, 360, 56, -8], [41.9, LB[0], LB[1] + 10, 340, 55, -10]],
+    may_quay_sau: [[0, LB[0] - 300, LB[1] + 160, 620, 64, 0], [6.7, LB[0] - 270, LB[1] + 140, 580, 62, -6]],
+    doan_quan: [
+      ...ba.map(i => hd(i, .5, 3.6, 10)),
+      { ten: 'Tiêu Tư bỏ chạy', ben: 'dich', tuong: true, co: 'TIÊU', linh: 6, ngua: 3, gian_cach: .03, duong: 3, tu: 0, den: .55, t0: 1.6, t1: 6.5, an_sau: 9 },
+      { ten: 'Quân Lương kéo sang', ben: 'dich', tuong: true, co: 'LƯƠNG', linh: 14, ngua: 4, gian_cach: .05, duong: 4, tu: 0, den: 1, t0: 10.4, t1: 14.2, nga_tai: 16.2, an_sau: 20 },
+      ...ba.map(i => ({ ...hd(i, 20.3, 23.6), ten: hd(i).ten + ' vây Long Biên' })),
+      { ten: 'Tiêu Tư mang của cải trốn về phương Bắc', ben: 'dich', tuong: true, co: 'TIÊU', linh: 6, ngua: 3, gian_cach: .03, duong: 3, tu: 0, den: .9, t0: 23.7, t1: 27.5, an_sau: 28 },
+      { ten: 'Phạm Tu đánh Lâm Ấp', ben: 'ta', tuong: true, co: 'PHẠM TU', linh: 10, ngua: 3, gian_cach: .02, duong: 5, tu: 0, den: .95, t0: 32.8, t1: 36 }],
+    mui_ten: [
+      ...ba.map(i => ({ duong: i, ben: 'ta', t0: .5, t1: 3.6, day: 13, an_sau: 10 })),
+      { duong: 3, ben: 'dich', net: 'dut', den: .6, t0: 1.6, t1: 6.5, an_sau: 9 },
+      { duong: 4, ben: 'dich', net: 'dut', t0: 4, t1: 7, an_sau: 9.5 },
+      { duong: [ganDat([HP[0] - 260, HP[1] + 160]), ganDat([HP[0] - 90, HP[1] + 60])], ben: 'ta', t0: 6.4, t1: 8.6, day: 14, an_sau: 9.5 },
+      { duong: 4, ben: 'dich', net: 'dut', t0: 10.4, t1: 14.2 },
+      { duong: [ganDat([HP[0] - 280, HP[1] + 170]), ganDat([HP[0] - 100, HP[1] + 70])], ben: 'ta', t0: 13.4, t1: 15.4, day: 14 },
+      ...ba.map(i => ({ duong: i, ben: 'ta', t0: 20.3, t1: 23.6, day: 13 })),
+      { duong: 3, ben: 'dich', net: 'dut', t0: 23.7, t1: 27.5 },
+      { duong: 5, ben: 'ta', t0: 32.8, t1: 36, day: 14 }],
+    phuc_binh: quanh(LB, 60, 6, .2).map((p, i) => ({ xy: p, ben: 'ta', t0: 20.4 + i * .2, huong_toi: LB })),
+    lua: [{ xy: ganDat([HP[0] - 110, HP[1] + 70]), ban_kinh: 42, t0: 7.4, t1: 9.4, ngon: 5 }, { xy: ganDat([HP[0] - 120, HP[1] + 80]), ban_kinh: 50, t0: 14.6, t1: 19.5, ngon: 6 }, { xy: ganDat([HP[0] - 110, HP[1] + 70]), ban_kinh: 44, t0: 29.6, t1: 33, ngon: 5 }],
+    co_cam: [{ xy: ganDat([LB[0] + 14, LB[1] - 12]), ben: 'ta', t0: 3.2 }, { xy: ganDat([CD[0] + 20, CD[1] - 30]), ben: 'ta', t0: 35.4 }, { xy: ganDat([LB[0] - 18, LB[1] + 14]), ben: 'ta', t0: 36.6 }],
+    nhan: [
+      { xy: LB, chu: 'Nghĩa quân Lý Bí chiếm thành Long Biên', ben: 'ta', t0: .5, t1: 3.6 },
+      { xy: at(R(3), .4), chu: 'Thứ sử Tiêu Tư bỏ chạy', ben: 'dich', t0: 1.8, t1: 4.6 },
+      { xy: HP, chu: 'Nhà Lương hai lần sai quân sang – trận lớn nhất ở Hợp Phố', ben: 'ta', t0: 3.8, t1: 9.3 },
+      { xy: at(R(4), .5), chu: 'Theo sử cũ: đầu năm 543 quân Lương kéo sang lần nữa', ben: 'dich', t0: 10.4, t1: 14.1 },
+      { xy: HP, chu: 'Bị đón đánh tan tác ở Hợp Phố – mười phần chết bảy tám', ben: 'ta', t0: 14.2, t1: 19.3 },
+      { xy: LB, chu: 'Nghĩa quân từ nhiều ngả kéo về vây Long Biên', ben: 'ta', t0: 20.4, t1: 23.6 },
+      { xy: at(R(3), .5), chu: 'Tiêu Tư khiếp sợ, đem của cải trốn về phương Bắc', ben: 'dich', t0: 23.8, t1: 27.6 },
+      { xy: HP, chu: 'Năm 543: quân Lương sang báo thù, lại bị đánh bại ở Hợp Phố', ben: 'ta', t0: 27.7, t1: 32.7 },
+      { xy: at(R(5), .7), chu: 'Phạm Tu đánh tan quân Lâm Ấp ở Cửu Đức', ben: 'ta', t0: 32.9, t1: 36 },
+      { xy: LB, chu: 'Xuân 544: Lý Bí lên ngôi Lý Nam Đế · quốc hiệu Vạn Xuân', ben: 'ta', t0: 36.2, t1: 41.6 }] };
+  ghi(id, kb); }
+
+/* ==================== DẠ TRẠCH 550 (Triệu Quang Phục) ==================== */
+if (!only || only === 'da-trach-550') { const id = 'da-trach-550', H = moTran(id), { R, at, DD, ganDat, thuy } = H;
+  const DT = DD['Đầm Dạ Trạch'], BN = DD['Bãi nổi'], LB = DD['Thành Long Biên'], C = at(R(0), 0);
+  const quanh = (c, r, n, lech = 0) => Array.from({ length: n }, (_, i) => ganDat([c[0] + Math.cos(i / n * 6.283 + lech) * r, c[1] + Math.sin(i / n * 6.283 + lech) * r * .78]));
+  const tam = [(BN[0] + DT[0]) / 2, BN[1] - 20], vong = quanh([BN[0] + 30, BN[1] - 20], 165, 7, .4), traiDong = ganDat(at(R(0), 1)), traiBac = ganDat(at(R(1), 1));
+  const ra0 = thuy(0), ve0 = thuy(0, 1, 0), ra1 = thuy(1), ve1 = thuy(1, 1, 0);
+  const kb = { ...CHUNG, chu_co_ta: 'TRIỆU',
+    may_quay: [[0, tam[0], tam[1], 520, 62, -4], [4.1, tam[0], tam[1], 360, 56, -8], [9.1, BN[0] + 20, BN[1] - 20, 330, 55, -10], [14, BN[0] + 40, BN[1] - 20, 300, 54, -12], [18, tam[0], tam[1] - 40, 460, 60, -6],
+      [21.7, BN[0] + 30, BN[1] - 20, 320, 55, -12], [26.3, BN[0] + 40, BN[1] - 30, 320, 55, -12], [31, (BN[0] + LB[0]) / 2 + 60, 620, 720, 66, 0], [35.3, (BN[0] + LB[0]) / 2, 600, 720, 66, 0], [39.8, LB[0], LB[1] + 60, 420, 58, -6]],
+    may_quay_sau: [[0, BN[0] - 300, BN[1] - 150, 620, 64, 0], [7.5, BN[0] - 270, BN[1] - 170, 580, 62, -6]],
+    doan_quan: [
+      { ten: 'Nghĩa quân trên bãi nổi', ben: 'ta', tuong: true, co: 'TRIỆU', linh: 9, gian_cach: .25, duong: [ganDat([BN[0] - 14, BN[1] + 4]), ganDat([BN[0] + 14, BN[1] - 4])], t0: 0, t1: .2, an_sau: 35.2 },
+      { ten: 'Thuyền độc mộc đêm đánh úp (đông)', ben: 'ta', phuong_tien: 'thuyen', thuyen: 3, gian_cach: .25, ngang: 0, duong: ra0, t0: 14, t1: 16.6, an_sau: 17 },
+      { ten: 'Thuyền độc mộc đánh úp trại đông', ben: 'ta', phuong_tien: 'thuyen', thuyen: 3, gian_cach: .25, ngang: 0, duong: ra0, t0: 21.8, t1: 24, an_sau: 24.6 },
+      { ten: 'Thuyền rút vào đầm (đông)', ben: 'ta', phuong_tien: 'thuyen', thuyen: 3, gian_cach: .25, ngang: 0, duong: ve0, t0: 26.4, t1: 28.6, an_sau: 29 },
+      { ten: 'Thuyền độc mộc đánh úp trại bắc', ben: 'ta', phuong_tien: 'thuyen', thuyen: 3, gian_cach: .25, ngang: 0, duong: ra1, t0: 22.4, t1: 24.6, an_sau: 25.2 },
+      { ten: 'Thuyền rút vào đầm (bắc)', ben: 'ta', phuong_tien: 'thuyen', thuyen: 3, gian_cach: .25, ngang: 0, duong: ve1, t0: 27, t1: 29.2, an_sau: 29.6 },
+      { ten: 'Trần Bá Tiên vây đầm', ben: 'dich', tuong: true, co: 'BÁ TIÊN', linh: 9, ngua: 3, gian_cach: .3, duong: [ganDat([DT[0] + 80, DT[1] - 90]), ganDat([DT[0] + 120, DT[1] - 110])], t0: 18, t1: 18.4, an_sau: 31 },
+      { ten: 'Trần Bá Tiên rút về nước', ben: 'dich', tuong: true, co: 'BÁ TIÊN', linh: 9, ngua: 3, gian_cach: .03, duong: 2, tu: 0, den: 1, t0: 31.1, t1: 35.2 },
+      { ten: 'Triệu Quang Phục đánh lấy Long Biên', ben: 'ta', tuong: true, co: 'TRIỆU', linh: 14, ngua: 3, gian_cach: .02, duong: 3, tu: 0, den: .97, t0: 35.3, t1: 39.4 }],
+    mui_ten: [
+      { duong: ra0, ben: 'ta', t0: 14, t1: 16.4, day: 10, an_sau: 18 }, { duong: ra0, ben: 'ta', t0: 21.8, t1: 24, day: 10, an_sau: 30 }, { duong: ra1, ben: 'ta', t0: 22.4, t1: 24.6, day: 10, an_sau: 30 },
+      { duong: 2, ben: 'dich', net: 'dut', t0: 31.1, t1: 35.2 }, { duong: 3, ben: 'ta', t0: 35.3, t1: 39.4, day: 14 }],
+    phuc_binh: vong.map((p, i) => ({ xy: p, ben: 'dich', t0: 18.1 + i * .2, huong_toi: BN })),
+    lua: [{ xy: traiDong, ban_kinh: 34, t0: 24.2, t1: 29, ngon: 5 }, { xy: traiBac, ban_kinh: 30, t0: 24.8, t1: 29, ngon: 4 }, { xy: ganDat([LB[0] + 20, LB[1] + 30]), ban_kinh: 40, t0: 38.4, t1: 39.8, ngon: 5 }],
+    co_cam: [{ xy: ganDat([BN[0] + 6, BN[1] - 16]), ben: 'ta', t0: 9.4 }, { xy: ganDat([LB[0] + 12, LB[1] + 14]), ben: 'ta', t0: 39.2 }],
+    nhan: [
+      { xy: DT, chu: 'Đầm Dạ Trạch – vùng Khoái Châu, Hưng Yên ngày nay', ben: 'ta', t0: .5, t1: 4 },
+      { xy: BN, chu: 'Lau sậy um tùm, bùn lầy hiểm trở, bãi nổi ở giữa', ben: 'ta', t0: 4.2, t1: 8.1 },
+      { xy: BN, chu: 'Theo sử cũ: khoảng hai vạn nghĩa quân', ben: 'ta', t0: 9.2, t1: 12 },
+      { xy: ra0[ra0.length - 1], chu: 'Ngày tắt khói lửa, đêm dùng thuyền độc mộc đánh úp', ben: 'ta', t0: 12.2, t1: 17 },
+      { xy: [DT[0] + 100, DT[1] - 100], chu: 'Trần Bá Tiên vây đầm nhưng không sao tiến vào được', ben: 'dich', t0: 18.1, t1: 21.6 },
+      { xy: traiDong, chu: 'Đêm đánh úp, cướp lương, giết giặc rồi rút vào đầm', ben: 'ta', t0: 21.8, t1: 28.4 },
+      { xy: BN, chu: 'Cuộc chiến kéo dài nhiều năm', ben: 'ta', t0: 28.6, t1: 31 },
+      { xy: at(R(2), .5), chu: 'Năm 550: nhà Lương có loạn, Trần Bá Tiên phải về nước', ben: 'dich', t0: 31.1, t1: 35.2 },
+      { xy: LB, chu: 'Triệu Quang Phục tung quân đánh lớn, giành lại thành Long Biên', ben: 'ta', t0: 35.4, t1: 39.6 }] };
+  ghi(id, kb); }
+
+const vongQuanh = (H, c, r, n, lech = 0) => Array.from({ length: n }, (_, i) => H.ganDat([c[0] + Math.cos(i / n * 6.283 + lech) * r, c[1] + Math.sin(i / n * 6.283 + lech) * r * .75]));
+
+/* ==================== VẠN AN 722 (Mai Thúc Loan) ==================== */
+if (!only || only === 'van-an-722') { const id = 'van-an-722', H = moTran(id), { R, at, DD, ganDat } = H;
+  const VA = DD['Thành Vạn An (Hoan Châu)'], DC = DD['Diễn Châu'], AC = DD['Ái Châu'], TB = DD['Phủ thành Tống Bình'];
+  const kb = { ...CHUNG, chu_co_ta: 'MAI',
+    may_quay: [[0, VA[0] + 60, VA[1] - 120, 520, 60, -4], [4.4, at(R(0), .55)[0], at(R(0), .55)[1], 900, 70, 0], [6.1, TB[0], TB[1] + 200, 460, 58, -6], [10, TB[0] + 160, TB[1] + 220, 520, 60, -4],
+      [16.5, (VA[0] + AC[0]) / 2 + 80, (VA[1] + AC[1]) / 2, 700, 66, 0], [20, TB[0], TB[1] + 220, 420, 57, -6], [23.2, TB[0] + 60, TB[1] + 200, 420, 57, -8], [26.4, at(R(0), .5)[0] + 100, at(R(0), .5)[1], 900, 70, 0], [29.3, TB[0] + 200, TB[1] + 230, 520, 60, -4], [33, TB[0] + 180, TB[1] + 230, 500, 60, -6]],
+    may_quay_sau: [[0, VA[0] - 260, VA[1] - 500, 900, 68, 0], [7.4, VA[0] - 240, VA[1] - 520, 860, 66, -4]],
+    doan_quan: [
+      { ten: 'Mai Thúc Loan tiến ra Bắc', ben: 'ta', tuong: true, co: 'MAI', linh: 15, ngua: 3, gian_cach: .012, duong: 0, tu: 0, den: .97, t0: .5, t1: 6, an_sau: 16.4 },
+      { ten: 'Dương Tư Húc đem 10 vạn quân', ben: 'dich', tuong: true, co: 'DƯƠNG', linh: 15, ngua: 5, gian_cach: .03, duong: 2, tu: 0, den: .7, t0: 10.9, t1: 15.4, an_sau: 16.4 },
+      { ten: 'Nghĩa quân và hào kiệt Diễn, Ái', ben: 'ta', tuong: true, co: 'MAI', linh: 15, ngua: 3, gian_cach: .012, duong: 0, tu: 0, den: .97, t0: 16.5, t1: 22.4 },
+      { ten: 'Quang Sở Khách bỏ chạy', ben: 'dich', tuong: true, co: 'QUANG', linh: 6, ngua: 2, gian_cach: .04, duong: 1, tu: 0, den: .95, t0: 23.2, t1: 26.4, an_sau: 27 },
+      { ten: 'Nhà Đường dồn đại quân sang', ben: 'dich', tuong: true, co: 'ĐƯỜNG', linh: 15, ngua: 5, gian_cach: .03, duong: 2, tu: 0, den: .75, t0: 29.3, t1: 33 }],
+    mui_ten: [{ duong: 0, ben: 'ta', t0: .5, t1: 6, day: 14 }, { duong: 2, ben: 'dich', net: 'dut', den: .7, t0: 10.9, t1: 15.4, an_sau: 16.4 }, { duong: 1, ben: 'dich', net: 'dut', t0: 23.2, t1: 26.4 }, { duong: 2, ben: 'dich', net: 'dut', den: .75, t0: 29.3, t1: 33 }],
+    phuc_binh: [...[DC, AC].map((p, i) => ({ xy: ganDat([p[0] + 50, p[1]]), ben: 'ta', t0: 17.2 + i * .9, huong_toi: TB })), ...vongQuanh(H, TB, 55, 5, .3).map((p, i) => ({ xy: p, ben: 'ta', t0: 21.6 + i * .2, huong_toi: TB }))],
+    lua: [{ xy: TB, ban_kinh: 40, t0: 5, t1: 9, ngon: 5 }, { xy: TB, ban_kinh: 42, t0: 21.8, t1: 26, ngon: 5 }],
+    co_cam: [{ xy: ganDat([TB[0] + 14, TB[1] + 16]), ben: 'ta', t0: 6.4 }, { xy: ganDat([DC[0] + 18, DC[1] - 10]), ben: 'ta', t0: 18 }, { xy: ganDat([AC[0] + 18, AC[1] - 10]), ben: 'ta', t0: 19 }, { xy: ganDat([TB[0] - 14, TB[1] + 18]), ben: 'ta', t0: 26.6 }],
+    nhan: [
+      { xy: VA, chu: 'Nghĩa quân Mai Thúc Loan từ Hoan Châu tiến ra Bắc', ben: 'ta', t0: .5, t1: 4.4 },
+      { xy: TB, chu: 'Đánh chiếm phủ thành Tống Bình – trung tâm An Nam đô hộ phủ', ben: 'ta', t0: 4.6, t1: 9 },
+      { xy: at(R(2), .4), chu: 'Theo sử Đường: Dương Tư Húc đem khoảng 10 vạn quân sang', ben: 'dich', t0: 10, t1: 15.5 },
+      { xy: DC, chu: 'Hào kiệt các châu Diễn, Ái cùng hưởng ứng', ben: 'ta', t0: 16.6, t1: 20.6 },
+      { xy: TB, chu: 'Phủ thành Tống Bình bị vây đánh', ben: 'ta', t0: 20.8, t1: 23.2 },
+      { xy: at(R(1), .5), chu: 'Đô hộ Quang Sở Khách bỏ chạy về nước', ben: 'dich', t0: 23.3, t1: 26.4 },
+      { xy: AC, chu: 'Mai Thúc Loan làm chủ đất nước một thời gian', ben: 'ta', t0: 26.5, t1: 29.3 },
+      { xy: at(R(2), .5), chu: 'Nhà Đường dồn đại quân sang đàn áp', ben: 'dich', t0: 29.4, t1: 32.8 }] };
+  ghi(id, kb); }
+
+/* ==================== TỐNG BÌNH 791 (Phùng Hưng) ==================== */
+if (!only || only === 'tong-binh-791') { const id = 'tong-binh-791', H = moTran(id), { R, at, DD, ganDat } = H;
+  const DL = DD['Đường Lâm'], TB = DD['Phủ thành Tống Bình'];
+  const kb = { ...CHUNG, chu_co_ta: 'PHÙNG',
+    may_quay: [[0, DL[0] + 120, DL[1] + 60, 460, 58, -4], [3.9, (DL[0] + TB[0]) / 2, (DL[1] + TB[1]) / 2 + 40, 640, 62, -4], [7.7, TB[0] - 30, TB[1], 360, 56, -8], [13.9, (DL[0] + TB[0]) / 2 + 200, (DL[1] + TB[1]) / 2 + 80, 620, 62, -4],
+      [16.3, TB[0] - 40, TB[1] - 10, 380, 57, -8], [23, TB[0], TB[1], 320, 55, -10], [28.8, TB[0], TB[1], 340, 55, -12], [34, TB[0] - 10, TB[1] + 10, 360, 56, -12]],
+    may_quay_sau: [[0, TB[0] - 360, TB[1] - 80, 620, 64, 0], [6.7, TB[0] - 330, TB[1] - 100, 580, 62, -6]],
+    doan_quan: [
+      { ten: 'Phùng Hưng từ Đường Lâm', ben: 'ta', tuong: true, co: 'PHÙNG', linh: 15, ngua: 3, gian_cach: .016, duong: 0, tu: 0, den: .93, t0: .5, t1: 6.6, an_sau: 13.8 },
+      { ten: 'Đô hộ Cao Chính Bình', ben: 'dich', tuong: true, co: 'CAO', linh: 8, ngua: 2, gian_cach: .2, duong: [ganDat([TB[0] + 20, TB[1] + 10]), TB], t0: 0, t1: .2, nga_tai: 11, an_sau: 13.6 },
+      { ten: 'Phùng Hưng vây chặt phủ thành', ben: 'ta', tuong: true, co: 'PHÙNG', linh: 15, ngua: 3, gian_cach: .016, duong: 0, tu: 0, den: .93, t0: 14, t1: 19.3, an_sau: 22.9 },
+      { ten: 'Cánh quân phía nam', ben: 'ta', tuong: true, co: 'ĐỖ', linh: 8, gian_cach: .04, duong: 1, tu: 0, den: .92, t0: 14.4, t1: 19 },
+      { ten: 'Cánh quân phía bắc', ben: 'ta', linh: 8, gian_cach: .04, duong: 2, tu: 0, den: .92, t0: 14.8, t1: 19.2 },
+      { ten: 'Cao Chính Bình lâm bệnh', ben: 'dich', tuong: true, co: 'CAO', linh: 8, ngua: 2, gian_cach: .2, duong: [ganDat([TB[0] + 20, TB[1] + 10]), TB], t0: 14, t1: 14.2, nga_tai: 21.4, an_sau: 23 },
+      { ten: 'Phùng Hưng vào thành', ben: 'ta', tuong: true, co: 'PHÙNG', linh: 12, ngua: 2, gian_cach: .2, duong: [ganDat([TB[0] - 30, TB[1] + 10]), TB], t0: 23, t1: 25.5 }],
+    mui_ten: [{ duong: 0, ben: 'ta', t0: .5, t1: 6.6, day: 14 }, { duong: 0, ben: 'ta', t0: 14, t1: 19.3, day: 14 }, { duong: 1, ben: 'ta', t0: 14.4, t1: 19, day: 12 }, { duong: 2, ben: 'ta', t0: 14.8, t1: 19.2, day: 12 }],
+    phuc_binh: [...vongQuanh(H, TB, 60, 5, .2).map((p, i) => ({ xy: p, ben: 'ta', t0: 7.8 + i * .25, huong_toi: TB })), ...vongQuanh(H, TB, 70, 6, .7).map((p, i) => ({ xy: p, ben: 'ta', t0: 16.5 + i * .2, huong_toi: TB }))],
+    lua: [], co_cam: [{ xy: ganDat([TB[0] + 12, TB[1] - 14]), ben: 'ta', t0: 24.4 }],
+    nhan: [
+      { xy: DL, chu: 'Từ Đường Lâm, nghĩa quân Phùng Hưng tiến về', ben: 'ta', t0: .5, t1: 3.9 },
+      { xy: TB, chu: 'Phủ thành Tống Bình – trụ sở đô hộ Cao Chính Bình', ben: 'dich', t0: 4, t1: 6.7 },
+      { xy: TB, chu: 'Theo sử cũ: nghĩa quân vây thành', ben: 'ta', t0: 7.8, t1: 10 },
+      { xy: [TB[0] + 30, TB[1] + 50], chu: 'Cao Chính Bình lo sợ sinh bệnh mà chết', ben: 'dich', t0: 10.1, t1: 12.9 },
+      { xy: at(R(1), .4), chu: 'Theo kế của mưu sĩ Đỗ Anh Hàn', ben: 'ta', t0: 14, t1: 16.3 },
+      { xy: TB, chu: 'Kéo về vây chặt phủ thành Tống Bình', ben: 'ta', t0: 16.4, t1: 19.4 },
+      { xy: [TB[0] + 30, TB[1] + 50], chu: 'Viên đô hộ lo sợ, lâm bệnh mà chết', ben: 'dich', t0: 19.5, t1: 23 },
+      { xy: TB, chu: 'Phùng Hưng vào thành, sắp đặt việc cai trị', ben: 'ta', t0: 23.1, t1: 25.8 },
+      { xy: TB, chu: 'Nhân dân tôn ông là Bố Cái Đại Vương – người cha người mẹ của dân', ben: 'ta', t0: 26, t1: 33.4 }] };
+  ghi(id, kb); }
+
+/* ==================== CHI LĂNG – BẠCH ĐẰNG 981 (Lê Hoàn) ==================== */
+if (!only || only === 'chi-lang-981') { const id = 'chi-lang-981', H = moTran(id), { R, at, uNear, nrm, nuaRong, DD, ganDat, thuy, veLong } = H;
+  const LS = DD['Lạng Sơn'], CL = DD['Ải Chi Lăng'], BC = DD['Bãi cọc Bạch Đằng'], CUA = DD['Cửa biển Bạch Đằng'];
+  const C0 = veLong(BC, 60), n0 = [0.8, -0.6], [ha, hb] = nuaRong(C0, n0);
+  const cocTu = [C0[0] + n0[0] * Math.max(2, ha - 6), C0[1] + n0[1] * Math.max(2, ha - 6)].map(Math.round), cocDen = [C0[0] - n0[0] * Math.max(2, hb - 6), C0[1] - n0[1] * Math.max(2, hb - 6)].map(Math.round);
+  const pbCL = vongQuanh(H, CL, 50, 5, .5);
+  const kb = { ...CHUNG, chu_co_ta: 'LÊ', ti_le_thuyen: .45,
+    may_quay: [[0, LS[0] + 40, LS[1] + 120, 440, 58, -4], [3.5, CUA[0] - 60, CUA[1] - 140, 440, 58, -6], [7.6, C0[0], C0[1] - 20, 320, 55, -10], [11.1, CL[0] + 60, CL[1] - 20, 420, 58, -6],
+      [14.2, C0[0] + 10, C0[1] + 10, 320, 55, -10], [19.2, (LS[0] + CL[0]) / 2, (LS[1] + CL[1]) / 2 + 40, 420, 57, -6], [23.6, CL[0], CL[1], 320, 55, -10], [27.7, CL[0], CL[1], 300, 54, -12],
+      [30.6, (CL[0] + C0[0]) / 2, (CL[1] + C0[1]) / 2, 900, 70, 0], [36.4, (CL[0] + C0[0]) / 2, (CL[1] + C0[1]) / 2 - 40, 880, 70, 0]],
+    may_quay_sau: [[0, (CL[0] + C0[0]) / 2 - 200, (CL[1] + C0[1]) / 2, 900, 68, 0], [7.2, (CL[0] + C0[0]) / 2 - 180, (CL[1] + C0[1]) / 2 - 20, 860, 66, -4]],
+    doan_quan: [
+      { ten: 'Quân bộ Hầu Nhân Bảo', ben: 'dich', tuong: true, co: 'HẦU', linh: 15, ngua: 5, gian_cach: .02, duong: 0, tu: 0, den: .5, t0: .5, t1: 3.5, an_sau: 19.1 },
+      { ten: 'Thủy quân Lưu Trừng', ben: 'dich', tuong: true, co: 'LƯU', phuong_tien: 'thuyen', lon: true, thuyen: 7, gian_cach: .05, ngang: 0, duong: thuy(1, 0, .95), t0: 3.5, t1: 9, an_sau: 30.5 },
+      { ten: 'Hầu Nhân Bảo bị nhử vào sâu', ben: 'dich', tuong: true, co: 'HẦU', linh: 15, ngua: 5, gian_cach: .02, duong: 0, tu: .5, den: 1, t0: 19.2, t1: 27.6, nga_tai: 29.4, an_sau: 32 },
+      { ten: 'Thủy quân Tống rút chạy', ben: 'dich', tuong: true, co: 'LƯU', phuong_tien: 'thuyen', lon: true, thuyen: 7, gian_cach: .05, ngang: 0, duong: thuy(3, 0, .85), t0: 30.6, t1: 35.8 },
+      { ten: 'Bộ binh Tống rút chạy', ben: 'dich', linh: 10, ngua: 2, gian_cach: .03, duong: 2, tu: .05, den: .7, t0: 30.8, t1: 35.6 },
+      { ten: 'Quân ta truy kích', ben: 'ta', tuong: true, co: 'LÊ HOÀN', linh: 12, ngua: 3, gian_cach: .03, duong: 2, tu: 0, den: .5, t0: 31.6, t1: 35.9 }],
+    coc: [{ tu: cocTu, den: cocDen, be_rong: 22, so: 50, huong_nghieng: [CUA[0] - C0[0], CUA[1] - C0[1]], t0: 7.8 }],
+    mui_ten: [{ duong: 0, ben: 'dich', net: 'dut', den: .5, t0: .5, t1: 3.5, an_sau: 19 }, { duong: 1, ben: 'dich', net: 'dut', t0: 3.5, t1: 9 }, { duong: 0, ben: 'dich', net: 'dut', bat_dau: .5, t0: 19.2, t1: 27.6 },
+      ...pbCL.slice(0, 4).map((p, i) => ({ duong: [p, CL], ben: 'ta', t0: 27.8 + i * .2, t1: 28.9 + i * .2, day: 11 })), { duong: 2, ben: 'dich', net: 'dut', den: .8, t0: 30.8, t1: 35.6 }, { duong: 2, ben: 'ta', den: .55, t0: 31.6, t1: 35.9, day: 13 }],
+    phuc_binh: pbCL.map((p, i) => ({ xy: p, ben: 'ta', t0: 27.7 + i * .2, huong_toi: CL })),
+    lua: [{ xy: CL, ban_kinh: 44, t0: 28.4, t1: 34, ngon: 6 }],
+    co_cam: [{ xy: ganDat([CL[0] + 14, CL[1] - 12]), ben: 'ta', t0: 33 }, { xy: ganDat([C0[0] + 40, C0[1] - 30]), ben: 'ta', t0: 35 }],
+    nhan: [
+      { xy: LS, chu: 'Quân bộ Hầu Nhân Bảo theo đường Lạng Sơn tiến vào', ben: 'dich', t0: .5, t1: 3.5 },
+      { xy: CUA, chu: 'Thủy quân Lưu Trừng theo đường biển vào sông Bạch Đằng', ben: 'dich', t0: 3.6, t1: 6.6 },
+      { xy: C0, chu: 'Lê Hoàn cho đóng cọc ở sông Bạch Đằng', ben: 'ta', t0: 7.7, t1: 11.1 },
+      { xy: CL, chu: 'Trên bộ dùng kế trá hàng', ben: 'ta', t0: 11.2, t1: 13.2 },
+      { xy: C0, chu: 'Bãi cọc chặn thủy quân Lưu Trừng', ben: 'ta', t0: 14.3, t1: 19.1 },
+      { xy: at(R(0), .6), chu: 'Giả vờ xin hàng, nhử Hầu Nhân Bảo vào sâu', ben: 'ta', t0: 19.3, t1: 23.6 },
+      { xy: CL, chu: 'Theo Toàn thư: quân Tống tới ải Chi Lăng', ben: 'dich', t0: 23.7, t1: 27.6 },
+      { xy: CL, chu: 'Phục binh đổ ra – Hầu Nhân Bảo bị chém', ben: 'ta', t0: 27.8, t1: 30.6 },
+      { xy: at(R(2), .5), chu: 'Hai cánh quân còn lại rút chạy, quân ta truy kích', ben: 'ta', t0: 30.7, t1: 34.4 },
+      { xy: at(R(2), .3), chu: 'Bắt sống nhiều tướng giặc', ben: 'ta', t0: 34.5, t1: 36.2 }] };
+  ghi(id, kb); }
+
+/* ==================== UNG CHÂU 1075 (Lý Thường Kiệt) ==================== */
+if (!only || only === 'ung-chau-1075') { const id = 'ung-chau-1075', H = moTran(id), { R, at, DD, ganDat, thuy } = H;
+  const UC = DD['Thành Ung Châu'], KC = DD['Khâm Châu'], LC = DD['Liêm Châu'], LS = DD['Lạng Sơn'];
+  const vay = vongQuanh(H, UC, 60, 6, .3);
+  const kb = { ...CHUNG, chu_co_ta: 'LÝ', ti_le_thuyen: .5,
+    may_quay: [[0, (KC[0] + LC[0]) / 2 - 200, KC[1] + 200, 640, 62, -4], [2.7, (LS[0] + UC[0]) / 2, (LS[1] + UC[1]) / 2 + 100, 820, 68, 0], [4.7, UC[0] - 40, UC[1] + 220, 520, 60, -4], [8, 1350, 640, 860, 70, 0],
+      [12.4, UC[0], UC[1] + 220, 400, 57, -6], [15.8, 1400, 650, 860, 70, 0], [20.3, UC[0], UC[1] + 220, 380, 56, -8], [22.8, UC[0], UC[1] + 210, 340, 55, -10], [27.3, UC[0] - 20, UC[1] + 220, 360, 56, -10], [34.6, (LS[0] + UC[0]) / 2, (LS[1] + UC[1]) / 2 + 80, 760, 66, 0], [37.1, (LS[0] + UC[0]) / 2 - 60, (LS[1] + UC[1]) / 2 + 100, 760, 66, 0]],
+    may_quay_sau: [[0, 1100, 760, 880, 68, 0], [6.5, 1130, 740, 840, 66, -4]],
+    doan_quan: [
+      { ten: 'Thủy quân đánh Khâm Châu', ben: 'ta', tuong: true, co: 'LÝ', phuong_tien: 'thuyen', thuyen: 8, gian_cach: .03, duong: thuy(0, 0, .88), t0: .3, t1: 2.6 },
+      { ten: 'Thủy quân đánh Liêm Châu', ben: 'ta', phuong_tien: 'thuyen', thuyen: 5, gian_cach: .06, duong: thuy(1, .08, .88), t0: 1.2, t1: 2.9 },
+      { ten: 'Quân bộ theo đường núi', ben: 'ta', tuong: true, co: 'TÔNG ĐẢN', linh: 14, ngua: 3, gian_cach: .012, duong: 2, tu: 0, den: .95, t0: 2.7, t1: 7, an_sau: 15.7 },
+      { ten: 'Từ Khâm Châu tiến lên Ung Châu', ben: 'ta', tuong: true, co: 'LÝ', linh: 14, ngua: 3, gian_cach: .015, duong: 3, tu: 0, den: .95, t0: 4.7, t1: 7.2, an_sau: 15.7 },
+      { ten: 'Tô Giam cố thủ Ung Châu', ben: 'dich', tuong: true, co: 'TÔ GIAM', linh: 8, gian_cach: .3, duong: [ganDat([UC[0] + 14, UC[1] + 10]), UC], t0: 0, t1: .2, nga_tai: 28.4, an_sau: 33 },
+      { ten: 'Quân bộ hợp vây', ben: 'ta', tuong: true, co: 'TÔNG ĐẢN', linh: 14, ngua: 3, gian_cach: .012, duong: 2, tu: 0, den: .95, t0: 15.8, t1: 20.2, an_sau: 34.5 },
+      { ten: 'Lý Thường Kiệt từ Khâm Châu', ben: 'ta', tuong: true, co: 'LÝ', linh: 14, ngua: 3, gian_cach: .015, duong: 3, tu: 0, den: .95, t0: 15.8, t1: 20.2, an_sau: 34.5 },
+      { ten: 'Quân ta rút về nước', ben: 'ta', tuong: true, co: 'LÝ', linh: 14, ngua: 3, gian_cach: .012, duong: 4, tu: 0, den: .95, t0: 34.6, t1: 37 }],
+    mui_ten: [{ duong: thuy(0), ben: 'ta', t0: .3, t1: 2.6, day: 13 }, { duong: thuy(1), ben: 'ta', t0: 1.2, t1: 2.9, day: 12 }, { duong: 2, ben: 'ta', t0: 2.7, t1: 7, day: 14 }, { duong: 3, ben: 'ta', t0: 4.7, t1: 7.2, day: 14 }, { duong: 4, ben: 'ta', t0: 34.6, t1: 37, day: 13 }],
+    phuc_binh: vay.map((p, i) => ({ xy: p, ben: 'ta', t0: 5.6 + i * .2, huong_toi: UC })),
+    lua: [{ xy: KC, ban_kinh: 40, t0: 1.6, t1: 6, ngon: 5 }, { xy: LC, ban_kinh: 36, t0: 2.2, t1: 6, ngon: 4 }, { xy: UC, ban_kinh: 50, t0: 23, t1: 34, ngon: 7 }],
+    co_cam: [{ xy: ganDat([KC[0] + 14, KC[1] - 12]), ben: 'ta', t0: 2.4 }, { xy: ganDat([LC[0] + 14, LC[1] - 12]), ben: 'ta', t0: 2.8 }, { xy: ganDat([UC[0] - 14, UC[1] + 14]), ben: 'ta', t0: 28.6 }],
+    nhan: [
+      { xy: KC, chu: 'Quân thủy đánh chiếm Khâm Châu, Liêm Châu', ben: 'ta', t0: .5, t1: 2.7 },
+      { xy: at(R(2), .5), chu: 'Quân bộ theo đường núi tiến lên', ben: 'ta', t0: 2.8, t1: 4.7 },
+      { xy: UC, chu: 'Hai cánh hợp lại vây thành Ung Châu', ben: 'ta', t0: 4.8, t1: 7 },
+      { xy: at(R(2), .3), chu: 'Theo sử cũ: quân nhà Lý khoảng 10 vạn người', ben: 'ta', t0: 8, t1: 12.4 },
+      { xy: UC, chu: 'Ở Ung Châu, Tô Giam cố thủ hơn 40 ngày', ben: 'dich', t0: 12.5, t1: 14.8 },
+      { xy: at(R(3), .5), chu: 'Đánh nhanh chiếm Khâm, Liêm rồi hợp vây Ung Châu', ben: 'ta', t0: 15.9, t1: 20.3 },
+      { xy: UC, chu: 'Tô Giam cố thủ hơn 40 ngày', ben: 'dich', t0: 20.4, t1: 22.8 },
+      { xy: UC, chu: 'Hỏa công, đắp đất sát chân thành mà leo lên', ben: 'ta', t0: 22.9, t1: 27.3 },
+      { xy: UC, chu: 'Đầu 1076: thành vỡ, kho lương thảo, vũ khí bị phá hủy', ben: 'ta', t0: 27.4, t1: 34.6 },
+      { xy: at(R(4), .5), chu: 'Quân ta rút về nước', ben: 'ta', t0: 34.7, t1: 37 }] };
+  ghi(id, kb); }
+
+/* ==================== THIÊN MẠC 1285 (Trần Bình Trọng) ==================== */
+if (!only || only === 'thien-mac-1285') { const id = 'thien-mac-1285', H = moTran(id), { R, at, DD, ganDat, thuy } = H;
+  const TL = DD['Thăng Long'], TM = DD['Bãi Thiên Mạc'];
+  const kb = { ...CHUNG, chu_co_ta: 'TRẦN', ti_le_thuyen: .5,
+    may_quay: [[0, TL[0] + 60, TL[1] + 160, 560, 60, -4], [4.3, TM[0] + 20, TM[1] - 80, 520, 60, -6], [6.9, TM[0], TM[1], 360, 56, -8], [10.6, (TL[0] + TM[0]) / 2, (TL[1] + TM[1]) / 2, 780, 68, 0],
+      [17.2, TM[0] + 30, TM[1] - 100, 460, 58, -6], [19.6, TM[0], TM[1], 330, 55, -10], [23.8, TM[0], TM[1], 300, 54, -12], [29.6, TM[0], TM[1], 300, 54, -12], [32.6, TM[0] + 40, TM[1] + 60, 520, 60, -6], [38.6, TM[0] + 60, TM[1] + 100, 560, 62, -4]],
+    may_quay_sau: [[0, TM[0] - 320, TM[1] - 240, 760, 66, 0], [8.4, TM[0] - 290, TM[1] - 260, 720, 64, -4]],
+    doan_quan: [
+      { ten: 'Quân Nguyên truy đuổi', ben: 'dich', tuong: true, co: 'NGUYÊN', linh: 15, ngua: 6, gian_cach: .02, duong: 0, tu: 0, den: .55, t0: .5, t1: 4.3, an_sau: 17.1 },
+      { ten: 'Thuyền triều đình rút về nam', ben: 'ta', tuong: true, co: 'TRẦN', phuong_tien: 'thuyen', thuyen: 8, gian_cach: .03, duong: thuy(1, 0, .7), t0: .8, t1: 9, an_sau: 17.1 },
+      { ten: 'Trần Bình Trọng chặn giặc', ben: 'ta', tuong: true, co: 'BÌNH TRỌNG', linh: 9, ngua: 2, gian_cach: .1, duong: 2, tu: 0, den: 1, t0: 5, t1: 7.5, nga_tai: 31.6 },
+      { ten: 'Quân Nguyên kéo tới Thiên Mạc', ben: 'dich', tuong: true, co: 'NGUYÊN', linh: 15, ngua: 6, gian_cach: .02, duong: 0, tu: .55, den: .97, t0: 17.2, t1: 22.6 },
+      { ten: 'Thuyền triều đình rút xa', ben: 'ta', tuong: true, co: 'TRẦN', phuong_tien: 'thuyen', thuyen: 8, gian_cach: .03, duong: thuy(1, .7, 1), t0: 17.2, t1: 26 }],
+    mui_ten: [{ duong: 0, ben: 'dich', net: 'dut', den: .55, t0: .5, t1: 4.3, an_sau: 17 }, { duong: thuy(1), ben: 'ta', t0: .8, t1: 26, day: 12 }, { duong: 0, ben: 'dich', net: 'dut', bat_dau: .55, t0: 17.2, t1: 22.6 }, { duong: 2, ben: 'ta', t0: 19.6, t1: 21.4, day: 12 }],
+    phuc_binh: vongQuanh(H, TM, 70, 6, .5).map((p, i) => ({ xy: p, ben: 'dich', t0: 23.8 + i * .2, huong_toi: TM })),
+    lua: [{ xy: TM, ban_kinh: 40, t0: 21, t1: 28, ngon: 5 }],
+    co_cam: [{ xy: ganDat([TM[0] + 16, TM[1] - 12]), ben: 'dich', t0: 27 }],
+    nhan: [
+      { xy: TL, chu: 'Quân Nguyên chiếm Thăng Long, truy đuổi triều đình về phía nam', ben: 'dich', t0: .5, t1: 4.3 },
+      { xy: TM, chu: 'Bãi Thiên Mạc – nay thuộc Duy Tiên, Hà Nam', ben: 'ta', t0: 4.4, t1: 6.9 },
+      { xy: TM, chu: 'Trần Bình Trọng đặt trận chặn giặc', ben: 'ta', t0: 7, t1: 9.6 },
+      { xy: at(R(0), .3), chu: 'Theo sử cũ: lần thứ hai khoảng 50 vạn quân, thế giặc rất mạnh', ben: 'dich', t0: 10.6, t1: 16.2 },
+      { xy: at(R(1), .75), chu: 'Để triều đình kịp rút lui an toàn', ben: 'ta', t0: 17.3, t1: 19.6 },
+      { xy: TM, chu: 'Quân ta ít, giặc đông – ông chiến đấu đến cùng thì bị bắt', ben: 'ta', t0: 19.7, t1: 27.8 },
+      { xy: [TM[0] + 30, TM[1] + 50], chu: 'Giặc dụ hàng, hứa phong vương ở đất Bắc', ben: 'dich', t0: 23.9, t1: 29.6 },
+      { xy: TM, chu: 'Trần Bình Trọng khảng khái từ chối rồi hy sinh', ben: 'ta', t0: 29.7, t1: 32.6 },
+      { xy: at(R(1), .9), chu: 'Vua tôi nhà Trần bảo toàn lực lượng, chờ thời cơ phản công', ben: 'ta', t0: 32.7, t1: 38.2 }] };
+  ghi(id, kb); }
+
+/* ==================== VÂN ĐỒN 1288 (Trần Khánh Dư) ==================== */
+if (!only || only === 'van-don-1288') { const id = 'van-don-1288', H = moTran(id), { R, at, DD, ganDat, thuy } = H;
+  const VD = DD['Vân Đồn'], VK = DD['Vạn Kiếp'], CUA = DD['Cửa biển Bạch Đằng'];
+  const kb = { ...CHUNG, chu_co_ta: 'TRẦN', ti_le_thuyen: .5,
+    may_quay: [[0, 1400, 760, 860, 70, 0], [3.8, at(R(0), .2)[0], at(R(0), .2)[1] - 60, 520, 60, -4], [6.9, VD[0] + 40, VD[1] + 200, 480, 58, -6], [11.6, VD[0] + 60, VD[1] + 120, 380, 56, -8],
+      [15.3, (VK[0] + CUA[0]) / 2, (VK[1] + CUA[1]) / 2, 720, 66, 0], [18.2, 1500, 760, 860, 70, 0], [22.4, at(R(0), .3)[0], at(R(0), .3)[1] - 40, 460, 58, -6], [26.7, VD[0] - 100, VD[1] + 60, 520, 60, -4],
+      [32.3, VD[0] + 40, VD[1] + 80, 360, 56, -8], [34.6, VD[0] + 60, VD[1] + 60, 320, 55, -10], [40.4, VD[0] + 80, VD[1] + 60, 340, 55, -10], [44.5, VD[0] + 100, VD[1] + 60, 380, 56, -8]],
+    may_quay_sau: [[0, (VK[0] + VD[0]) / 2, 760, 860, 68, 0], [9.6, (VK[0] + VD[0]) / 2 + 20, 740, 820, 66, -4]],
+    doan_quan: [
+      { ten: 'Thủy quân Ô Mã Nhi', ben: 'dich', tuong: true, co: 'Ô', phuong_tien: 'thuyen', lon: true, thuyen: 10, gian_cach: .012, duong: thuy(0), t0: 3.8, t1: 21.4 },
+      { ten: 'Đoàn thuyền lương Trương Văn Hổ', ben: 'dich', tuong: true, co: 'HỔ', phuong_tien: 'thuyen', lon: true, thuyen: 6, gian_cach: .1, duong: thuy(1, 0, .65), t0: 6.9, t1: 33, an_sau: 37.6 },
+      { ten: 'Quân Trần Khánh Dư không chặn nổi', ben: 'ta', tuong: true, co: 'DƯ', phuong_tien: 'thuyen', thuyen: 5, gian_cach: .05, duong: thuy(0, .05, .2), t0: 22.4, t1: 26.6, an_sau: 27 },
+      { ten: 'Trần Khánh Dư mai phục ở Vân Đồn', ben: 'ta', tuong: true, co: 'DƯ', phuong_tien: 'thuyen', thuyen: 6, gian_cach: .1, duong: thuy(1, .95, .7), t0: 34.6, t1: 37.6 },
+      { ten: 'Thuyền lương bị nhấn chìm', ben: 'dich', phuong_tien: 'thuyen', lon: true, thuyen: 6, gian_cach: .1, duong: thuy(1, 0, .65), t0: 37.5, t1: 37.6, dam_tai: 38, ti_le_dam: .85, chay: true },
+      { ten: 'Trương Văn Hổ lên thuyền nhỏ trốn về', ben: 'dich', tuong: true, co: 'HỔ', phuong_tien: 'thuyen', thuyen: 0, duong: thuy(2, .3, 1), t0: 40.4, t1: 43.8 }],
+    mui_ten: [{ duong: thuy(0), ben: 'dich', net: 'dut', t0: 3.8, t1: 21.4 }, { duong: thuy(1, 0, .65), ben: 'dich', net: 'dut', t0: 6.9, t1: 33 }, { duong: thuy(1, .95, .7), ben: 'ta', t0: 34.6, t1: 37.4, day: 13 }, { duong: thuy(2, .3, 1), ben: 'dich', net: 'dut', t0: 40.4, t1: 43.8 }],
+    phuc_binh: [ganDat([VD[0] + 30, VD[1] + 40]), ganDat([VD[0] + 90, VD[1] + 20])].map((p, i) => ({ xy: p, ben: 'ta', t0: 34.8 + i * .3 })),
+    lua: [{ xy: at(R(1), .6), ban_kinh: 44, t0: 37.8, t1: 44, ngon: 6 }],
+    co_cam: [{ xy: ganDat([VD[0] + 20, VD[1] + 10]), ben: 'ta', t0: 41 }],
+    nhan: [
+      { xy: [1500, 880], chu: 'Cuối năm 1287: quân Nguyên sang xâm lược lần thứ ba', ben: 'dich', t0: .5, t1: 3.8 },
+      { xy: at(R(0), .15), chu: 'Thủy quân Ô Mã Nhi vượt biển tiến vào', ben: 'dich', t0: 3.9, t1: 6.9 },
+      { xy: VD, chu: 'Phía sau: đoàn thuyền lương Trương Văn Hổ', ben: 'dich', t0: 7, t1: 11.5 },
+      { xy: VD, chu: 'Theo sử sách: khoảng 17 vạn thạch lương', ben: 'dich', t0: 11.7, t1: 15.3 },
+      { xy: VK, chu: 'Ô Mã Nhi chủ quan, tiến vội về Vạn Kiếp', ben: 'dich', t0: 15.4, t1: 18.2 },
+      { xy: at(R(1), .3), chu: 'Bỏ đoàn thuyền lương lại phía sau, không có hộ tống', ben: 'dich', t0: 18.3, t1: 21.4 },
+      { xy: at(R(0), .15), chu: 'Lúc đầu Trần Khánh Dư không chặn nổi thủy quân Ô Mã Nhi', ben: 'ta', t0: 22.5, t1: 26.7 },
+      { xy: VD, chu: 'Thượng hoàng sai bắt hỏi tội – ông xin lập công chuộc tội', ben: 'ta', t0: 26.8, t1: 32.3 },
+      { xy: VD, chu: 'Đoán thuyền lương theo sau, mai phục ở Vân Đồn rồi tập kích', ben: 'ta', t0: 32.4, t1: 37.8 },
+      { xy: at(R(1), .6), chu: 'Lương thực của giặc bị chiếm hoặc nhấn chìm', ben: 'ta', t0: 37.9, t1: 40.4 },
+      { xy: at(R(2), .7), chu: 'Trương Văn Hổ chỉ kịp lên thuyền nhỏ trốn về', ben: 'dich', t0: 40.5, t1: 43.9 }] };
+  ghi(id, kb); }
+
+/* ==================== HẢI TRIỀU 1390 (Trần Khát Chân) ==================== */
+if (!only || only === 'hai-trieu-1390') { const id = 'hai-trieu-1390', H = moTran(id), { R, at, DD, ganDat, thuy } = H;
+  const TL = DD['Thăng Long'], HT = DD['Sông Hải Triều'], dau = at(R(0), 1), cho = at(R(1), 1);
+  const kb = { ...CHUNG, chu_co_ta: 'TRẦN', ti_le_thuyen: .5,
+    may_quay: [[0, at(R(0), .3)[0], at(R(0), .3)[1] - 80, 620, 62, -4], [4.1, (TL[0] + HT[0]) / 2 + 200, (TL[1] + HT[1]) / 2 + 60, 760, 66, 0], [7.9, at(R(0), .75)[0], at(R(0), .75)[1] - 30, 420, 57, -6],
+      [13.3, cho[0] + 60, cho[1] - 20, 380, 56, -8], [17.1, (cho[0] + dau[0]) / 2, dau[1] - 10, 340, 55, -10], [20.9, (cho[0] + dau[0]) / 2, dau[1], 300, 54, -12], [23.2, dau[0] - 10, dau[1], 280, 54, -12], [27.4, dau[0] + 120, dau[1] - 20, 460, 58, -8], [28.5, (TL[0] + HT[0]) / 2 + 150, (TL[1] + HT[1]) / 2 + 40, 760, 66, 0], [32.4, (TL[0] + HT[0]) / 2 + 150, (TL[1] + HT[1]) / 2 + 20, 740, 66, 0]],
+    may_quay_sau: [[0, HT[0] - 360, HT[1] - 240, 760, 66, 0], [7.3, HT[0] - 330, HT[1] - 260, 720, 64, -4]],
+    doan_quan: [
+      { ten: 'Thủy quân Chiêm Thành', ben: 'dich', tuong: true, co: 'CHẾ', phuong_tien: 'thuyen', lon: true, thuyen: 10, gian_cach: .02, duong: thuy(0), t0: .4, t1: 12.3, nga_tai: 24.6, an_sau: 27.4 },
+      { ten: 'Trần Khát Chân dàn quân chờ', ben: 'ta', tuong: true, co: 'KHÁT CHÂN', phuong_tien: 'thuyen', thuyen: 10, gian_cach: .1, duong: thuy(1), t0: 13.3, t1: 16.5 },
+      { ten: 'Quân Chiêm tan vỡ rút chạy', ben: 'dich', phuong_tien: 'thuyen', lon: true, thuyen: 8, gian_cach: .02, duong: thuy(2, 0, .7), t0: 27.4, t1: 32 }],
+    mui_ten: [{ duong: thuy(0), ben: 'dich', net: 'dut', t0: .4, t1: 12.3 }, { duong: [cho, dau], ben: 'ta', t0: 20.9, t1: 22.6, day: 14 }, { duong: [ganDat([cho[0] + 20, cho[1] - 40]), dau], ben: 'ta', t0: 21.2, t1: 22.9, day: 11 }, { duong: thuy(2, 0, .7), ben: 'dich', net: 'dut', t0: 27.4, t1: 32 }],
+    phuc_binh: [ganDat([cho[0] + 30, cho[1] - 40]), ganDat([cho[0] + 30, cho[1] + 40])].map((p, i) => ({ xy: p, ben: 'ta', t0: 13.6 + i * .3, huong_toi: dau })),
+    lua: [{ xy: dau, ban_kinh: 40, t0: 22.4, t1: 28.5, ngon: 6 }],
+    co_cam: [{ xy: ganDat([cho[0] + 20, cho[1] - 50]), ben: 'ta', t0: 28.2 }],
+    nhan: [
+      { xy: at(R(0), .2), chu: 'Quân Chiêm Thành theo đường biển tiến ra, vào sông Hải Triều', ben: 'dich', t0: .5, t1: 4.1 },
+      { xy: HT, chu: 'Sông Hải Triều – tức sông Luộc ngày nay – hướng về kinh thành', ben: 'dich', t0: 4.2, t1: 6.9 },
+      { xy: at(R(0), .8), chu: 'Theo sử cũ: Chế Bồng Nga đem hơn 100 chiến thuyền ra quan sát', ben: 'dich', t0: 8, t1: 12.3 },
+      { xy: cho, chu: 'Trần Khát Chân dàn quân chờ ở sông Hải Triều', ben: 'ta', t0: 13.4, t1: 17 },
+      { xy: dau, chu: 'Có người chỉ điểm chiếc thuyền sơn xanh của Chế Bồng Nga', ben: 'ta', t0: 17.2, t1: 20.9 },
+      { xy: [(cho[0] + dau[0]) / 2, dau[1] - 40], chu: 'Quân Trần tập trung hỏa khí bắn vào', ben: 'ta', t0: 21, t1: 23.2 },
+      { xy: dau, chu: 'Chế Bồng Nga trúng đạn chết ngay trên thuyền', ben: 'dich', t0: 23.3, t1: 27.3 },
+      { xy: at(R(2), .4), chu: 'Quân Chiêm mất chủ tướng, tan vỡ rút chạy', ben: 'dich', t0: 27.4, t1: 28.5 },
+      { xy: TL, chu: 'Từ đó các cuộc tấn công vào Thăng Long chấm dứt', ben: 'ta', t0: 28.6, t1: 31.8 }] };
+  ghi(id, kb); }
+
+/* ==================== KHẢ LƯU – BỒ ẢI 1424 (Lê Lợi) ==================== */
+if (!only || only === 'kha-luu-1424') { const id = 'kha-luu-1424', H = moTran(id), { R, at, DD, ganDat, ganNuoc, quaSong, sub, nuoc } = H;
+  const KL = DD['Ải Khả Lưu'], BA = DD['Bồ Ải'], NA = DD['Thành Nghệ An'];
+  const song = ganNuoc([KL[0] + 10, KL[1] - 30], 60), QS = quaSong(song, [0, -1]);   // nuocA/datA: bờ bắc (nghĩa quân), nuocB/datB: bờ nam (quân Minh)
+  const qua = (A, B) => sub([A, B], 0, 1, 12).filter(p => nuoc(p[0], p[1]) && nuoc(p[0] + 2, p[1]) && nuoc(p[0] - 2, p[1]) && nuoc(p[0], p[1] + 2) && nuoc(p[0], p[1] - 2));
+  const bac = QS.datA, nam = QS.datB, traiMinh = ganDat([nam[0] + 20, nam[1] + 30]), pb = [ganDat([bac[0] - 70, bac[1] - 70]), ganDat([bac[0] + 70, bac[1] - 60]), ganDat([bac[0] - 30, bac[1] - 110]), ganDat([bac[0] + 40, bac[1] - 120])];
+  const duoi = [bac, ganDat([bac[0] - 10, bac[1] - 60]), ganDat([bac[0] - 5, bac[1] - 110])];
+  const kb = { ...CHUNG, chu_co_ta: 'LÊ', ti_le_thuyen: .35,
+    may_quay: [[0, at(R(0), .4)[0], at(R(0), .4)[1] + 60, 560, 60, -4], [3.4, song[0], song[1] - 40, 380, 56, -8], [8.3, song[0], song[1], 330, 55, -10], [13.9, song[0], song[1] - 30, 320, 55, -10],
+      [21, song[0], song[1] - 40, 300, 54, -12], [24.2, bac[0], bac[1] - 60, 300, 54, -12], [27.5, bac[0], bac[1] - 40, 320, 55, -12], [30.7, (KL[0] + NA[0]) / 2, (KL[1] + NA[1]) / 2 - 40, 760, 66, 0], [34, (KL[0] + NA[0]) / 2, (KL[1] + NA[1]) / 2 - 60, 740, 66, 0]],
+    may_quay_sau: [[0, KL[0] - 100, KL[1] - 300, 760, 66, 0], [6.9, KL[0] - 80, KL[1] - 320, 720, 64, -4]],
+    doan_quan: [
+      { ten: 'Nghĩa quân vào Nghệ An', ben: 'ta', tuong: true, co: 'LÊ LỢI', linh: 15, ngua: 3, gian_cach: .02, duong: 0, tu: 0, den: .97, t0: .5, t1: 7, an_sau: 17 },
+      { ten: 'Quân Minh giữ ải hiểm', ben: 'dich', tuong: true, co: 'MINH', linh: 15, ngua: 4, gian_cach: .2, duong: [traiMinh, nam], t0: 8.3, t1: 9, an_sau: 21 },
+      { ten: 'Nghĩa quân giả rút', ben: 'ta', tuong: true, co: 'LÊ LỢI', linh: 12, ngua: 2, gian_cach: .03, duong: 1, tu: 0, den: 1, t0: 17.2, t1: 21 },
+      { ten: 'Quân Minh vượt sông', ben: 'dich', phuong_tien: 'thuyen', thuyen: 6, gian_cach: .2, ngang: 0, duong: qua(QS.nuocB, QS.nuocA), t0: 21, t1: 23.2, an_sau: 23.6 },
+      { ten: 'Quân Minh đuổi theo, lọt ổ phục kích', ben: 'dich', tuong: true, co: 'MINH', linh: 14, ngua: 3, gian_cach: .03, duong: duoi, t0: 23.2, t1: 26.4, nga_tai: 28.4, an_sau: 31 },
+      { ten: 'Tàn quân Minh chạy về thành Nghệ An', ben: 'dich', linh: 9, ngua: 2, gian_cach: .02, duong: 3, tu: 0, den: .97, t0: 30.7, t1: 33.6 }],
+    mui_ten: [{ duong: 0, ben: 'ta', t0: .5, t1: 7, day: 14 }, { duong: 1, ben: 'ta', t0: 17.2, t1: 21, day: 12 }, { duong: [nam, QS.nuocA, duoi[2]], ben: 'dich', net: 'dut', t0: 21, t1: 26.4 },
+      ...pb.map((p, i) => ({ duong: [p, duoi[1 + (i % 2)]], ben: 'ta', t0: 26.6 + i * .2, t1: 27.8 + i * .2, day: 11 })), { duong: 3, ben: 'dich', net: 'dut', t0: 30.7, t1: 33.6 }],
+    phuc_binh: pb.map((p, i) => ({ xy: p, ben: 'ta', t0: 19 + i * .3, huong_toi: duoi[1] })),
+    lua: [{ xy: ganDat([bac[0] + 20, bac[1] - 20]), ban_kinh: 40, t0: 14, t1: 21, ngon: 5 }],
+    co_cam: [{ xy: ganDat([bac[0] + 20, bac[1] - 30]), ben: 'ta', t0: 30 }],
+    nhan: [
+      { xy: at(R(0), .3), chu: 'Nghĩa quân từ miền tây Thanh Hóa tiến vào Nghệ An', ben: 'ta', t0: .5, t1: 3.4 },
+      { xy: KL, chu: 'Đóng ở bờ sông Lam gần ải Khả Lưu – vùng Anh Sơn ngày nay', ben: 'ta', t0: 3.5, t1: 7.3 },
+      { xy: song, chu: 'Hai bên đóng quân cách sông nhiều ngày', t0: 8.4, t1: 11.6 },
+      { xy: nam, chu: 'Quân Minh đông, chiếm giữ ải hiểm', ben: 'dich', t0: 11.7, t1: 13.8 },
+      { xy: bac, chu: 'Lê Lợi cho đốt trại, giả vờ rút lui', ben: 'ta', t0: 14, t1: 17.2 },
+      { xy: pb[2], chu: 'Ngầm đặt phục binh ở chỗ hiểm yếu', ben: 'ta', t0: 17.3, t1: 21 },
+      { xy: QS.nuocA, chu: 'Quân Minh tưởng nghĩa quân bỏ chạy, vượt sông đuổi theo', ben: 'dich', t0: 21.1, t1: 24.2 },
+      { xy: duoi[1], chu: 'Lọt vào trận địa mai phục – nghĩa quân đổ ra đánh', ben: 'ta', t0: 24.3, t1: 27.5 },
+      { xy: song, chu: 'Quân Minh thua to, bị chém và chết đuối rất nhiều', ben: 'ta', t0: 27.6, t1: 30.7 },
+      { xy: NA, chu: 'Tàn quân chạy về cố thủ thành Nghệ An', ben: 'dich', t0: 30.8, t1: 33.4 }] };
+  ghi(id, kb); }
+
+/* ==================== TỐT ĐỘNG – CHÚC ĐỘNG 1426 ==================== */
+if (!only || only === 'tot-dong-1426') { const id = 'tot-dong-1426', H = moTran(id), { R, at, DD, ganDat } = H;
+  const DQ = DD['Thành Đông Quan'], CB = DD['Cao Bộ'], TD = DD['Tốt Động'], CD = DD['Chúc Động'], NK = DD['Ninh Kiều'];
+  const canhTrai = [ganDat([TD[0] - 90, TD[1] - 60]), ganDat([TD[0] - 110, TD[1] + 10]), ganDat([CD[0] - 80, CD[1] - 90])], canhPhai = [ganDat([TD[0] + 60, TD[1] + 80]), ganDat([CD[0] + 90, CD[1] + 40]), ganDat([NK[0] + 80, NK[1] + 50])];
+  const kb = { ...CHUNG, chu_co_ta: 'LÊ',
+    may_quay: [[0, (DQ[0] + CB[0]) / 2, (DQ[1] + CB[1]) / 2 + 40, 640, 62, -4], [4.3, (TD[0] + CD[0]) / 2, (TD[1] + CD[1]) / 2, 420, 57, -6], [8.7, (DQ[0] + TD[0]) / 2 + 60, (DQ[1] + TD[1]) / 2, 620, 62, -4], [11.8, NK[0], NK[1], 380, 56, -8],
+      [16.6, TD[0], TD[1], 360, 56, -8], [19.7, (TD[0] + CD[0]) / 2, (TD[1] + CD[1]) / 2, 400, 57, -8], [22.7, (TD[0] + CD[0]) / 2, (TD[1] + CD[1]) / 2, 360, 56, -10], [27.2, TD[0] + 20, TD[1] - 10, 330, 55, -12], [31.1, (TD[0] + CD[0]) / 2, (TD[1] + CD[1]) / 2, 380, 56, -10], [34.1, (TD[0] + DQ[0]) / 2, (TD[1] + DQ[1]) / 2, 620, 62, -4], [39.5, DQ[0] - 60, DQ[1] + 60, 460, 58, -6]],
+    may_quay_sau: [[0, DQ[0] - 420, DQ[1] + 200, 660, 64, 0], [10.5, DQ[0] - 390, DQ[1] + 180, 620, 62, -6]],
+    doan_quan: [
+      { ten: 'Vương Thông chia quân tiến đánh', ben: 'dich', tuong: true, co: 'VƯƠNG THÔNG', linh: 15, ngua: 5, gian_cach: .016, duong: 0, tu: 0, den: .5, t0: .5, t1: 4.3, an_sau: 19.6 },
+      { ten: 'Cánh quân Minh thứ hai', ben: 'dich', linh: 12, ngua: 3, gian_cach: .016, duong: 1, tu: 0, den: .5, t0: 1, t1: 4.3, an_sau: 19.6 },
+      { ten: 'Quân Minh vào đồng lầy Tốt Động', ben: 'dich', tuong: true, co: 'VƯƠNG THÔNG', linh: 15, ngua: 5, gian_cach: .016, duong: 0, tu: .5, den: .96, t0: 19.7, t1: 24, an_sau: 34 },
+      { ten: 'Cánh quân Minh vào Chúc Động', ben: 'dich', linh: 12, ngua: 3, gian_cach: .016, duong: 1, tu: .5, den: .96, t0: 19.9, t1: 24.2, nga_tai: 30.4, an_sau: 36 },
+      { ten: 'Vương Thông bị thương chạy về Đông Quan', ben: 'dich', tuong: true, co: 'VƯƠNG THÔNG', linh: 5, ngua: 2, gian_cach: .03, duong: 2, tu: 0, den: .97, t0: 34.2, t1: 38.8 }],
+    mui_ten: [{ duong: 0, ben: 'dich', net: 'dut', den: .5, t0: .5, t1: 4.3, an_sau: 19.5 }, { duong: 1, ben: 'dich', net: 'dut', den: .5, t0: 1, t1: 4.3, an_sau: 19.5 }, { duong: 0, ben: 'dich', net: 'dut', bat_dau: .5, t0: 19.7, t1: 24 }, { duong: 1, ben: 'dich', net: 'dut', bat_dau: .5, t0: 19.9, t1: 24.2 },
+      ...[...canhTrai, ...canhPhai].map((p, i) => ({ duong: [p, i < 3 ? TD : CD], ben: 'ta', t0: 22.8 + i * .25, t1: 24.2 + i * .25, day: 11 })), { duong: 2, ben: 'dich', net: 'dut', t0: 34.2, t1: 38.8 }],
+    phuc_binh: [...canhTrai, ...canhPhai].map((p, i) => ({ xy: p, ben: 'ta', t0: 4.6 + i * .3, huong_toi: i < 3 ? TD : CD })),
+    lua: [{ xy: TD, ban_kinh: 44, t0: 25, t1: 32, ngon: 6 }, { xy: CD, ban_kinh: 40, t0: 25.6, t1: 32, ngon: 5 }],
+    co_cam: [{ xy: ganDat([TD[0] + 12, TD[1] - 12]), ben: 'ta', t0: 33 }, { xy: ganDat([CD[0] + 12, CD[1] - 12]), ben: 'ta', t0: 33.6 }],
+    nhan: [
+      { xy: DQ, chu: 'Vương Thông từ Đông Quan chia quân đánh Cao Bộ', ben: 'dich', t0: .5, t1: 4.3 },
+      { xy: TD, chu: 'Nghĩa quân bố trí phục binh ở Tốt Động và Chúc Động', ben: 'ta', t0: 4.4, t1: 7.7 },
+      { xy: at(R(0), .3), chu: 'Theo sử cũ: quân Minh khoảng 10 vạn', ben: 'dich', t0: 8.8, t1: 11.8 },
+      { xy: NK, chu: 'Bình Ngô đại cáo: "Ninh Kiều máu chảy thành sông"', ben: 'ta', t0: 11.9, t1: 16.6 },
+      { xy: TD, chu: '"Tốt Động thây chất đầy nội"', ben: 'ta', t0: 16.7, t1: 18.7 },
+      { xy: at(R(0), .75), chu: 'Quân Minh hành quân vào vùng đồng lầy Tốt Động', ben: 'dich', t0: 19.8, t1: 22.7 },
+      { xy: CD, chu: 'Phục binh bất ngờ đổ ra từ hai cánh', ben: 'ta', t0: 22.8, t1: 27.2 },
+      { xy: TD, chu: 'Quân Minh bị dồn xuống bùn lầy, sông ngòi, đội hình rối loạn', ben: 'ta', t0: 27.3, t1: 31.1 },
+      { xy: [TD[0] + 30, TD[1] + 50], chu: 'Theo sử cũ: hơn 5 vạn tử trận, hơn 1 vạn bị bắt', ben: 'ta', t0: 31.2, t1: 36.8 },
+      { xy: DQ, chu: 'Vương Thông bị thương, chạy về cố thủ thành Đông Quan', ben: 'dich', t0: 34.2, t1: 38.9 }] };
   ghi(id, kb); }

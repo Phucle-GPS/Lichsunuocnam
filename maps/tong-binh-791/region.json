@@ -1,0 +1,148 @@
+{
+ "id": "tong-binh-791",
+ "che_do": "co",
+ "ten": "Tống Bình 791",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông PHÓNG ĐẠI để hiển thị. Đường Lâm (Sơn Tây) – quê Phùng Hưng; phủ thành Tống Bình (Hà Nội) theo sử liệu, vị trí ước lượng.",
+ "vung": {
+  "tay": 105.35,
+  "dong": 106,
+  "nam": 20.86,
+  "bac": 21.3
+ },
+ "song_xua": [
+  {
+   "ten": "Sông Hồng",
+   "rong_m": 1300,
+   "diem": [
+    [
+     105.3,
+     21.24
+    ],
+    [
+     105.42,
+     21.14
+    ],
+    [
+     105.55,
+     21.15
+    ],
+    [
+     105.68,
+     21.13
+    ],
+    [
+     105.8,
+     21.08
+    ],
+    [
+     105.87,
+     21.03
+    ],
+    [
+     105.92,
+     20.95
+    ],
+    [
+     105.96,
+     20.87
+    ]
+   ]
+  },
+  {
+   "ten": "Sông Đáy",
+   "rong_m": 500,
+   "diem": [
+    [
+     105.42,
+     21.14
+    ],
+    [
+     105.45,
+     21.06
+    ],
+    [
+     105.52,
+     20.95
+    ],
+    [
+     105.56,
+     20.86
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Đường Lâm",
+   "lon": 105.48,
+   "lat": 21.15,
+   "trai": true
+  },
+  {
+   "ten": "Phủ thành Tống Bình",
+   "lon": 105.85,
+   "lat": 21.03,
+   "loai": "thanh"
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Phùng Hưng từ Đường Lâm tiến về",
+   "ben": "ta",
+   "diem": [
+    [
+     105.48,
+     21.15
+    ],
+    [
+     105.58,
+     21.1
+    ],
+    [
+     105.7,
+     21.06
+    ],
+    [
+     105.835,
+     21.035
+    ]
+   ]
+  },
+  {
+   "ten": "Cánh quân phía nam",
+   "ben": "ta",
+   "diem": [
+    [
+     105.72,
+     20.9
+    ],
+    [
+     105.78,
+     20.96
+    ],
+    [
+     105.84,
+     21.02
+    ]
+   ]
+  },
+  {
+   "ten": "Cánh quân phía bắc",
+   "ben": "ta",
+   "diem": [
+    [
+     105.75,
+     21.25
+    ],
+    [
+     105.8,
+     21.15
+    ],
+    [
+     105.845,
+     21.04
+    ]
+   ]
+  }
+ ]
+}
