@@ -1,0 +1,242 @@
+{
+ "id": "ham-tu-1285",
+ "che_do": "co",
+ "ten": "Hàm Tử – Chương Dương 1285",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông Hồng PHÓNG ĐẠI để đội thuyền hiển thị được. Bến Hàm Tử (Khoái Châu, Hưng Yên), đồn Chương Dương (Thường Tín, Hà Nội) theo sử liệu, ước lượng. Đạo quân Toa Đô từ phía nam (Nghệ An, Thanh Hóa) – ngoài khung. Biển thế kỷ 13 lấn sâu hơn (mực nước cổ 2 m).",
+ "vung": {
+  "tay": 105.45,
+  "dong": 106.45,
+  "nam": 20.25,
+  "bac": 21.3
+ },
+ "muc_nuoc_co": 2,
+ "bien_tai": [
+  [
+   106.42,
+   20.28
+  ],
+  [
+   106.4,
+   20.4
+  ]
+ ],
+ "song_xua": [
+  {
+   "ten": "Sông Hồng",
+   "rong_m": 2000,
+   "diem": [
+    [
+     105.55,
+     21.15
+    ],
+    [
+     105.68,
+     21.13
+    ],
+    [
+     105.8,
+     21.08
+    ],
+    [
+     105.87,
+     21.03
+    ],
+    [
+     105.92,
+     20.95
+    ],
+    [
+     105.96,
+     20.87
+    ],
+    [
+     105.99,
+     20.79
+    ],
+    [
+     106.03,
+     20.7
+    ],
+    [
+     106.07,
+     20.6
+    ],
+    [
+     106.12,
+     20.5
+    ],
+    [
+     106.2,
+     20.38
+    ],
+    [
+     106.3,
+     20.27
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Thăng Long",
+   "lon": 105.84,
+   "lat": 21.035,
+   "loai": "thanh",
+   "trai": true
+  },
+  {
+   "ten": "Đồn Chương Dương",
+   "lon": 105.9,
+   "lat": 20.875,
+   "trai": true
+  },
+  {
+   "ten": "Bến Hàm Tử",
+   "lon": 105.985,
+   "lat": 20.82
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Thoát Hoan tràn sang",
+   "ben": "dich",
+   "diem": [
+    [
+     105.95,
+     21.3
+    ],
+    [
+     105.9,
+     21.15
+    ],
+    [
+     105.845,
+     21.04
+    ]
+   ]
+  },
+  {
+   "ten": "Toa Đô từ phía nam đánh ra",
+   "ben": "dich",
+   "diem": [
+    [
+     105.8,
+     20.27
+    ],
+    [
+     105.88,
+     20.42
+    ],
+    [
+     105.98,
+     20.55
+    ],
+    [
+     106.03,
+     20.62
+    ]
+   ]
+  },
+  {
+   "ten": "Thuyền Toa Đô ngược sông Hồng",
+   "ben": "dich",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     106.12,
+     20.5
+    ],
+    [
+     106.07,
+     20.6
+    ],
+    [
+     106.03,
+     20.7
+    ],
+    [
+     105.99,
+     20.79
+    ],
+    [
+     105.975,
+     20.83
+    ]
+   ]
+  },
+  {
+   "ten": "Trần Nhật Duật đón đánh ở Hàm Tử",
+   "ben": "ta",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     105.92,
+     20.95
+    ],
+    [
+     105.95,
+     20.89
+    ],
+    [
+     105.97,
+     20.845
+    ]
+   ]
+  },
+  {
+   "ten": "Trần Quang Khải đánh đồn Chương Dương",
+   "ben": "ta",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     105.98,
+     20.81
+    ],
+    [
+     105.96,
+     20.86
+    ],
+    [
+     105.935,
+     20.885
+    ]
+   ]
+  },
+  {
+   "ten": "Viện binh từ Thăng Long",
+   "ben": "dich",
+   "diem": [
+    [
+     105.84,
+     21.03
+    ],
+    [
+     105.85,
+     20.97
+    ],
+    [
+     105.88,
+     20.91
+    ]
+   ]
+  },
+  {
+   "ten": "Quân ta tiến vào kinh thành",
+   "ben": "ta",
+   "diem": [
+    [
+     105.89,
+     20.88
+    ],
+    [
+     105.86,
+     20.96
+    ],
+    [
+     105.845,
+     21.03
+    ]
+   ]
+  }
+ ]
+}

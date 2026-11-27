@@ -1,0 +1,43 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Hình binh sĩ giao chiến trên mảnh gốm thời Trần (thế kỷ 13–14), Bảo tàng Lịch sử Quốc gia",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Không rõ (Unknown)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:H%C3%ACnh_v%E1%BA%BD_binh_s%C4%A9_%C4%91%E1%BA%A5u_v%C3%B5_th%E1%BB%9Di_Tr%E1%BA%A7n_(Pattern_of_warriors_fighting,_Tran_dynasty,_Vietnam).jpg",
+  "tep": "File:Hình vẽ binh sĩ đấu võ thời Trần (Pattern of warriors fighting, Tran dynasty, Vietnam).jpg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tranh vẽ Hưng Đạo Vương Trần Quốc Tuấn – tổng chỉ huy quân dân nhà Trần (tranh thời Nguyễn)",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Painting_of_Tr%E1%BA%A7n_H%C6%B0ng_%C4%90%E1%BA%A1o_(1228_-_1300),_Nguy%E1%BB%85n_dynasty,_Vietnam.jpg",
+  "tep": "File:Painting of Trần Hưng Đạo (1228 - 1300), Nguyễn dynasty, Vietnam.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-moc.jpg",
+  "slot": "moc",
+  "caption": "Ngai thờ các vua Trần trong Đền Trần Nam Định",
+  "credit": "Ảnh: Hoangvantoanajc · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Hoangvantoanajc",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ngai_tho_Den_Tran_Nam_Dinh.jpg",
+  "tep": "File:Ngai tho Den Tran Nam Dinh.jpg"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Trụ biểu khu Đền Trần Nam Định – nơi thờ các vua và danh tướng nhà Trần",
+  "credit": "Ảnh: Hoangvantoanajc · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Hoangvantoanajc",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Den_Tran_Nam_Dinh.jpg",
+  "tep": "File:Den Tran Nam Dinh.jpg"
+ }
+]

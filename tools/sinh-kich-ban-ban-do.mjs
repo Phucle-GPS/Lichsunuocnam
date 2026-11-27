@@ -925,3 +925,38 @@ if (!only || only === 'dai-la-931') { const id = 'dai-la-931', H = moTran(id), {
       { xy: chan, chu: 'Quân Nam Hán thua to, Trần Bảo tử trận', ben: 'ta', t0: 27.9, t1: 31.6 },
       { xy: DLa, chu: 'Dương Đình Nghệ tự xưng Tiết độ sứ, nắm quyền tự chủ', ben: 'ta', t0: 31.7, t1: 35.3 }] };
   ghi(id, kb); }
+
+/* ==================== HÀM TỬ – CHƯƠNG DƯƠNG 1285 ==================== */
+if (!only || only === 'ham-tu-1285') { const id = 'ham-tu-1285', H = moTran(id), { R, at, DD, ganDat, thuy } = H;
+  const TL = DD['Thăng Long'], CD = DD['Đồn Chương Dương'], HT = DD['Bến Hàm Tử'], giua = [(CD[0] + HT[0]) / 2, (CD[1] + HT[1]) / 2];
+  const kb = { ...CHUNG, chu_co_ta: 'TRẦN', ti_le_thuyen: .5,
+    may_quay: [[0, at(R(0), .3)[0], at(R(0), .3)[1] + 80, 620, 62, -4], [5.8, at(R(1), .5)[0] + 60, at(R(1), .5)[1] - 100, 680, 64, -4], [12.8, giua[0] + 40, giua[1] + 120, 760, 66, 0], [13.8, TL[0] + 60, TL[1] + 80, 520, 60, -4],
+      [18.1, at(R(2), .7)[0], at(R(2), .7)[1] - 30, 460, 58, -6], [22, HT[0], HT[1], 360, 56, -8], [28.6, HT[0] - 10, HT[1] - 10, 330, 55, -10], [30.4, CD[0] + 10, CD[1] + 10, 340, 55, -10],
+      [34.3, (CD[0] + TL[0]) / 2, (CD[1] + TL[1]) / 2 + 40, 440, 58, -6], [37.6, (CD[0] + TL[0]) / 2, (CD[1] + TL[1]) / 2, 460, 58, -6], [41.2, TL[0] + 20, TL[1] + 60, 420, 57, -6]],
+    may_quay_sau: [[0, giua[0] - 380, giua[1] - 80, 700, 64, 0], [9.2, giua[0] - 350, giua[1] - 100, 660, 62, -6]],
+    doan_quan: [
+      { ten: 'Thoát Hoan chiếm Thăng Long', ben: 'dich', tuong: true, co: 'THOÁT HOAN', linh: 15, ngua: 6, gian_cach: .03, duong: 0, tu: 0, den: .95, t0: 1.4, t1: 5.8 },
+      { ten: 'Toa Đô từ phía nam', ben: 'dich', tuong: true, co: 'TOA ĐÔ', linh: 14, ngua: 4, gian_cach: .03, duong: 1, tu: 0, den: .95, t0: 5.8, t1: 12.8, an_sau: 18 },
+      { ten: 'Thuyền Toa Đô ngược sông Hồng', ben: 'dich', tuong: true, co: 'TOA ĐÔ', phuong_tien: 'thuyen', lon: true, thuyen: 9, gian_cach: .05, ngang: 0, duong: thuy(2, 0, .92), t0: 13.8, t1: 23.2, dam_tai: 27, ti_le_dam: .7, chay: true, an_sau: 33 },
+      { ten: 'Trần Nhật Duật, Trần Quốc Toản đón đánh', ben: 'ta', tuong: true, co: 'NHẬT DUẬT', phuong_tien: 'thuyen', thuyen: 8, gian_cach: .1, ngang: 0, duong: thuy(3), t0: 23.2, t1: 26.6 },
+      { ten: 'Thủy quân Trần Quang Khải', ben: 'ta', tuong: true, co: 'QUANG KHẢI', phuong_tien: 'thuyen', thuyen: 8, gian_cach: .1, ngang: 0, duong: thuy(4), t0: 30.4, t1: 33.4 },
+      { ten: 'Quân Nguyên giữ đồn Chương Dương', ben: 'dich', linh: 8, gian_cach: .2, duong: [ganDat([CD[0] - 20, CD[1] + 10]), CD], t0: 0, t1: .2, nga_tai: 33.6, an_sau: 36 },
+      { ten: 'Viện binh từ Thăng Long', ben: 'dich', tuong: true, co: 'NGUYÊN', linh: 12, ngua: 4, gian_cach: .04, duong: 5, tu: 0, den: .8, t0: 34.3, t1: 36.8, nga_tai: 37.4, an_sau: 39.6 },
+      { ten: 'Quân ta tiến vào kinh thành', ben: 'ta', tuong: true, co: 'TRẦN', linh: 15, ngua: 4, gian_cach: .03, duong: 6, tu: 0, den: .96, t0: 37.6, t1: 41 }],
+    mui_ten: [{ duong: 0, ben: 'dich', net: 'dut', t0: 1.4, t1: 5.8 }, { duong: 1, ben: 'dich', net: 'dut', t0: 5.8, t1: 12.8 }, { duong: thuy(2, 0, .92), ben: 'dich', net: 'dut', t0: 13.8, t1: 23.2 },
+      { duong: thuy(3), ben: 'ta', t0: 23.2, t1: 26.6, day: 13 }, { duong: thuy(4), ben: 'ta', t0: 30.4, t1: 33.4, day: 13 }, { duong: 5, ben: 'dich', net: 'dut', den: .8, t0: 34.3, t1: 36.8 }, { duong: 6, ben: 'ta', t0: 37.6, t1: 41, day: 14 }],
+    phuc_binh: [ganDat([at(R(5), .8)[0] - 50, at(R(5), .8)[1]]), ganDat([at(R(5), .8)[0] + 50, at(R(5), .8)[1] - 10]), ganDat([at(R(5), .6)[0] - 50, at(R(5), .6)[1]])].map((p, i) => ({ xy: p, ben: 'ta', t0: 34.6 + i * .3, huong_toi: at(R(5), .75) })),
+    lua: [{ xy: HT, ban_kinh: 44, t0: 27, t1: 33, ngon: 6 }, { xy: CD, ban_kinh: 42, t0: 32.6, t1: 38, ngon: 6 }],
+    co_cam: [{ xy: ganDat([HT[0] + 20, HT[1] - 10]), ben: 'ta', t0: 29.6 }, { xy: ganDat([CD[0] + 14, CD[1] - 12]), ben: 'ta', t0: 34 }, { xy: ganDat([TL[0] + 14, TL[1] + 16]), ben: 'ta', t0: 40.4 }],
+    nhan: [
+      { xy: at(R(0), .5), chu: 'Đầu năm 1285: hơn 50 vạn quân Nguyên do Thoát Hoan chỉ huy tràn sang', ben: 'dich', t0: .5, t1: 5.8 },
+      { xy: at(R(1), .5), chu: 'Phía nam: đạo quân Toa Đô từ Chăm-pa đánh ra Nghệ An, Thanh Hóa', ben: 'dich', t0: 5.9, t1: 10.5 },
+      { xy: giua, chu: 'Hòng hợp vây quân ta', ben: 'dich', t0: 10.6, t1: 12.8 },
+      { xy: TL, chu: 'Quân Nguyên mệt mỏi, thiếu lương', ben: 'dich', t0: 13.9, t1: 16.2 },
+      { xy: at(R(2), .5), chu: 'Hưng Đạo Vương phản công, nhằm thẳng đạo quân Toa Đô đang ngược sông Hồng', ben: 'ta', t0: 16.3, t1: 21 },
+      { xy: HT, chu: 'Tháng 4/1285: Trần Nhật Duật, Trần Quốc Toản đón đánh ở bến Hàm Tử', ben: 'ta', t0: 22.1, t1: 28.6 },
+      { xy: [HT[0] + 30, HT[1] + 50], chu: 'Quân giặc thua to', ben: 'ta', t0: 28.7, t1: 30.4 },
+      { xy: CD, chu: 'Trần Quang Khải bất ngờ đánh vào đồn Chương Dương', ben: 'ta', t0: 30.5, t1: 34.3 },
+      { xy: at(R(5), .6), chu: 'Phục binh chặn đứng viện binh từ Thăng Long kéo ra', ben: 'ta', t0: 34.4, t1: 37.6 },
+      { xy: TL, chu: 'Quân ta thừa thắng tiến vào giải phóng kinh thành', ben: 'ta', t0: 37.7, t1: 41 }] };
+  ghi(id, kb); }

@@ -190,6 +190,11 @@
     },
     {
       id: 'ham-tu-1285', year: '1285', name: 'Hàm Tử – Chương Dương 1285', who: 'Trần Quang Khải', vs: 'Nguyên Mông', seed: 37, sources: ['Đại Việt sử ký toàn thư', 'SGK Lịch sử 7', 'Báo Nhân Dân', 'Znews', 'Wikipedia – Trận Chương Dương'], series: 'SỬ VIỆT · HƯNG ĐẠO VƯƠNG',
+      anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/ham-tu-1285/nguon.json
+        { file: '01-hook.jpg', slot: 'hook', caption: 'Hình binh sĩ giao chiến trên mảnh gốm thời Trần (thế kỷ 13–14), Bảo tàng Lịch sử Quốc gia', credit: 'Ảnh: Khuyết danh · Public domain · Wikimedia Commons' },
+        { file: '02-hero.jpg', slot: 'hero', fit: 'contain', caption: 'Tranh vẽ Hưng Đạo Vương Trần Quốc Tuấn – tổng chỉ huy quân dân nhà Trần (tranh thời Nguyễn)', credit: 'Ảnh: Khuyết danh · Public domain · Wikimedia Commons' },
+        { file: '03-moc.jpg', slot: 'moc', caption: 'Ngai thờ các vua Trần trong Đền Trần Nam Định', credit: 'Ảnh: Hoangvantoanajc · CC0 · Wikimedia Commons' },
+        { file: '04-ket.jpg', slot: 'ket', caption: 'Trụ biểu khu Đền Trần Nam Định – nơi thờ các vua và danh tướng nhà Trần', credit: 'Ảnh: Hoangvantoanajc · CC0 · Wikimedia Commons' }],
       scenes: [
         { type: 'title', title: 'HÀM TỬ', sub: 'HÀM TỬ – CHƯƠNG DƯƠNG NĂM 1285', line: 'LẦN THỨ HAI KHÁNG CHIẾN CHỐNG NGUYÊN MÔNG', stamp: 'ĐOẠT SÁO CHƯƠNG DƯƠNG', ships: 6,
           say: 'Năm 1285, trên dòng sông Hồng, quân dân nhà Trần liên tiếp đánh tan quân Nguyên ở Hàm Tử và Chương Dương, mở màn cuộc tổng phản công giải phóng kinh thành.' },
