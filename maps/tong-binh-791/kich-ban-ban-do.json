@@ -1,0 +1,481 @@
+{
+ "ghi_chu": "Kịch bản bản đồ chiến dịch 3D (hyperframes/_chung/bando3d.js) – sinh bằng máy, bám từng câu lời dẫn. Thời gian = giây theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọng 3). Tọa độ = điểm ảnh trên nen-2k.jpg (2560×1440).",
+ "phong_dai_do_cao": 2.6,
+ "ti_le_nguoi": 4.4,
+ "nghieng_toi_thieu": 46,
+ "chu_co_ta": "PHÙNG",
+ "may_quay": [
+  [
+   0,
+   805,
+   551,
+   460,
+   58,
+   -4
+  ],
+  [
+   3.9,
+   1249.5,
+   727.5,
+   640,
+   62,
+   -4
+  ],
+  [
+   7.7,
+   1784,
+   884,
+   360,
+   56,
+   -8
+  ],
+  [
+   13.9,
+   1449.5,
+   767.5,
+   620,
+   62,
+   -4
+  ],
+  [
+   16.3,
+   1774,
+   874,
+   380,
+   57,
+   -8
+  ],
+  [
+   23,
+   1814,
+   884,
+   320,
+   55,
+   -10
+  ],
+  [
+   28.8,
+   1814,
+   884,
+   340,
+   55,
+   -12
+  ],
+  [
+   34,
+   1804,
+   894,
+   360,
+   56,
+   -12
+  ]
+ ],
+ "may_quay_sau": [
+  [
+   0,
+   1454,
+   804,
+   620,
+   64,
+   0
+  ],
+  [
+   6.7,
+   1484,
+   784,
+   580,
+   62,
+   -6
+  ]
+ ],
+ "doan_quan": [
+  {
+   "ten": "Phùng Hưng từ Đường Lâm",
+   "ben": "ta",
+   "tuong": true,
+   "co": "PHÙNG",
+   "linh": 15,
+   "ngua": 3,
+   "gian_cach": 0.016,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.93,
+   "t0": 0.5,
+   "t1": 6.6,
+   "an_sau": 13.8
+  },
+  {
+   "ten": "Đô hộ Cao Chính Bình",
+   "ben": "dich",
+   "tuong": true,
+   "co": "CAO",
+   "linh": 8,
+   "ngua": 2,
+   "gian_cach": 0.2,
+   "duong": [
+    [
+     1834,
+     895
+    ],
+    [
+     1814,
+     884
+    ]
+   ],
+   "t0": 0,
+   "t1": 0.2,
+   "nga_tai": 11,
+   "an_sau": 13.6
+  },
+  {
+   "ten": "Phùng Hưng vây chặt phủ thành",
+   "ben": "ta",
+   "tuong": true,
+   "co": "PHÙNG",
+   "linh": 15,
+   "ngua": 3,
+   "gian_cach": 0.016,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.93,
+   "t0": 14,
+   "t1": 19.3,
+   "an_sau": 22.9
+  },
+  {
+   "ten": "Cánh quân phía nam",
+   "ben": "ta",
+   "tuong": true,
+   "co": "ĐỖ",
+   "linh": 8,
+   "gian_cach": 0.04,
+   "duong": 1,
+   "tu": 0,
+   "den": 0.92,
+   "t0": 14.4,
+   "t1": 19
+  },
+  {
+   "ten": "Cánh quân phía bắc",
+   "ben": "ta",
+   "linh": 8,
+   "gian_cach": 0.04,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.92,
+   "t0": 14.8,
+   "t1": 19.2
+  },
+  {
+   "ten": "Cao Chính Bình lâm bệnh",
+   "ben": "dich",
+   "tuong": true,
+   "co": "CAO",
+   "linh": 8,
+   "ngua": 2,
+   "gian_cach": 0.2,
+   "duong": [
+    [
+     1834,
+     895
+    ],
+    [
+     1814,
+     884
+    ]
+   ],
+   "t0": 14,
+   "t1": 14.2,
+   "nga_tai": 21.4,
+   "an_sau": 23
+  },
+  {
+   "ten": "Phùng Hưng vào thành",
+   "ben": "ta",
+   "tuong": true,
+   "co": "PHÙNG",
+   "linh": 12,
+   "ngua": 2,
+   "gian_cach": 0.2,
+   "duong": [
+    [
+     1784,
+     894
+    ],
+    [
+     1814,
+     884
+    ]
+   ],
+   "t0": 23,
+   "t1": 25.5
+  }
+ ],
+ "mui_ten": [
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 6.6,
+   "day": 14
+  },
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 14,
+   "t1": 19.3,
+   "day": 14
+  },
+  {
+   "duong": 1,
+   "ben": "ta",
+   "t0": 14.4,
+   "t1": 19,
+   "day": 12
+  },
+  {
+   "duong": 2,
+   "ben": "ta",
+   "t0": 14.8,
+   "t1": 19.2,
+   "day": 12
+  }
+ ],
+ "phuc_binh": [
+  {
+   "xy": [
+    1883,
+    893
+   ],
+   "ben": "ta",
+   "t0": 7.8,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1821,
+    929
+   ],
+   "ben": "ta",
+   "t0": 8.05,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1759,
+    903
+   ],
+   "ben": "ta",
+   "t0": 8.3,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1773,
+    851
+   ],
+   "ben": "ta",
+   "t0": 8.55,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1848,
+    840
+   ],
+   "ben": "ta",
+   "t0": 8.8,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1891,
+    918
+   ],
+   "ben": "ta",
+   "t0": 16.5,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1802,
+    936
+   ],
+   "ben": "ta",
+   "t0": 16.7,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1748,
+    902
+   ],
+   "ben": "ta",
+   "t0": 16.9,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1760,
+    850
+   ],
+   "ben": "ta",
+   "t0": 17.1,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1832,
+    823
+   ],
+   "ben": "ta",
+   "t0": 17.3,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  },
+  {
+   "xy": [
+    1880,
+    866
+   ],
+   "ben": "ta",
+   "t0": 17.5,
+   "huong_toi": [
+    1814,
+    884
+   ]
+  }
+ ],
+ "lua": [],
+ "co_cam": [
+  {
+   "xy": [
+    1822,
+    874
+   ],
+   "ben": "ta",
+   "t0": 24.4
+  }
+ ],
+ "nhan": [
+  {
+   "xy": [
+    685,
+    491
+   ],
+   "chu": "Từ Đường Lâm, nghĩa quân Phùng Hưng tiến về",
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 3.9
+  },
+  {
+   "xy": [
+    1814,
+    884
+   ],
+   "chu": "Phủ thành Tống Bình – trụ sở đô hộ Cao Chính Bình",
+   "ben": "dich",
+   "t0": 4,
+   "t1": 6.7
+  },
+  {
+   "xy": [
+    1814,
+    884
+   ],
+   "chu": "Theo sử cũ: nghĩa quân vây thành",
+   "ben": "ta",
+   "t0": 7.8,
+   "t1": 10
+  },
+  {
+   "xy": [
+    1844,
+    934
+   ],
+   "chu": "Cao Chính Bình lo sợ sinh bệnh mà chết",
+   "ben": "dich",
+   "t0": 10.1,
+   "t1": 12.9
+  },
+  {
+   "xy": [
+    1560,
+    1146
+   ],
+   "chu": "Theo kế của mưu sĩ Đỗ Anh Hàn",
+   "ben": "ta",
+   "t0": 14,
+   "t1": 16.3
+  },
+  {
+   "xy": [
+    1814,
+    884
+   ],
+   "chu": "Kéo về vây chặt phủ thành Tống Bình",
+   "ben": "ta",
+   "t0": 16.4,
+   "t1": 19.4
+  },
+  {
+   "xy": [
+    1844,
+    934
+   ],
+   "chu": "Viên đô hộ lo sợ, lâm bệnh mà chết",
+   "ben": "dich",
+   "t0": 19.5,
+   "t1": 23
+  },
+  {
+   "xy": [
+    1814,
+    884
+   ],
+   "chu": "Phùng Hưng vào thành, sắp đặt việc cai trị",
+   "ben": "ta",
+   "t0": 23.1,
+   "t1": 25.8
+  },
+  {
+   "xy": [
+    1814,
+    884
+   ],
+   "chu": "Nhân dân tôn ông là Bố Cái Đại Vương – người cha người mẹ của dân",
+   "ben": "ta",
+   "t0": 26,
+   "t1": 33.4
+  }
+ ]
+}

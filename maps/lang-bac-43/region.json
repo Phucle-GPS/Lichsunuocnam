@@ -1,0 +1,202 @@
+{
+ "id": "lang-bac-43",
+ "che_do": "co",
+ "ten": "Lãng Bạc 43",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông PHÓNG ĐẠI để hiển thị. Lãng Bạc đặt theo ý kiến phổ biến (Tiên Du, Bắc Ninh) – còn tranh luận. Cấm Khê ước lượng (vùng Ba Vì – Thạch Thất). Hát Giang = đoạn đầu sông Đáy tách từ sông Hồng ở Hát Môn. Biển thế kỷ 1 lấn sâu hơn ngày nay (mực nước cổ 2,5 m).",
+ "vung": {
+  "tay": 105.3,
+  "dong": 106.75,
+  "nam": 20.72,
+  "bac": 21.5
+ },
+ "song_xua": [
+  {
+   "ten": "Sông Hồng",
+   "rong_m": 1500,
+   "diem": [
+    [
+     105.3,
+     21.24
+    ],
+    [
+     105.42,
+     21.135
+    ],
+    [
+     105.55,
+     21.15
+    ],
+    [
+     105.68,
+     21.13
+    ],
+    [
+     105.8,
+     21.08
+    ],
+    [
+     105.87,
+     21.03
+    ],
+    [
+     105.92,
+     20.95
+    ],
+    [
+     105.98,
+     20.85
+    ],
+    [
+     106.03,
+     20.74
+    ]
+   ]
+  },
+  {
+   "ten": "Hát Giang",
+   "rong_m": 500,
+   "diem": [
+    [
+     105.42,
+     21.135
+    ],
+    [
+     105.45,
+     21.06
+    ],
+    [
+     105.52,
+     20.95
+    ],
+    [
+     105.6,
+     20.8
+    ]
+   ]
+  },
+  {
+   "ten": "Sông Thiên Đức",
+   "rong_m": 700,
+   "diem": [
+    [
+     105.89,
+     21.06
+    ],
+    [
+     106,
+     21.07
+    ],
+    [
+     106.12,
+     21.06
+    ],
+    [
+     106.25,
+     21.09
+    ],
+    [
+     106.32,
+     21.11
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Lãng Bạc",
+   "lon": 106.03,
+   "lat": 21.135
+  },
+  {
+   "ten": "Mê Linh",
+   "lon": 105.72,
+   "lat": 21.185,
+   "trai": true
+  },
+  {
+   "ten": "Cấm Khê",
+   "lon": 105.5,
+   "lat": 21.07,
+   "trai": true
+  },
+  {
+   "ten": "Đền Hát Môn",
+   "lon": 105.42,
+   "lat": 21.15,
+   "trai": true
+  },
+  {
+   "ten": "Đền Đồng Nhân",
+   "lon": 105.858,
+   "lat": 21.012
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Mã Viện theo đường ven biển tiến vào",
+   "ben": "dich",
+   "diem": [
+    [
+     106.74,
+     21.1
+    ],
+    [
+     106.5,
+     21.1
+    ],
+    [
+     106.25,
+     21.13
+    ],
+    [
+     106.06,
+     21.14
+    ]
+   ]
+  },
+  {
+   "ten": "Hai Bà đem quân nghênh chiến",
+   "ben": "ta",
+   "diem": [
+    [
+     105.72,
+     21.18
+    ],
+    [
+     105.85,
+     21.17
+    ],
+    [
+     105.95,
+     21.15
+    ],
+    [
+     106,
+     21.14
+    ]
+   ]
+  },
+  {
+   "ten": "Nghĩa quân lui về Cấm Khê",
+   "ben": "ta",
+   "diem": [
+    [
+     106,
+     21.13
+    ],
+    [
+     105.85,
+     21.12
+    ],
+    [
+     105.68,
+     21.1
+    ],
+    [
+     105.52,
+     21.075
+    ]
+   ]
+  }
+ ]
+}

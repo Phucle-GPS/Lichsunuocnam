@@ -1,0 +1,168 @@
+{
+ "id": "tot-dong-1426",
+ "che_do": "co",
+ "ten": "Tốt Động – Chúc Động 1426",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông PHÓNG ĐẠI để hiển thị. Đông Quan (Hà Nội), Cao Bộ, Tốt Động, Chúc Động, Ninh Kiều (vùng Chương Mỹ) theo sử liệu, vị trí ước lượng.",
+ "vung": {
+  "tay": 105.55,
+  "dong": 106,
+  "nam": 20.78,
+  "bac": 21.1
+ },
+ "song_xua": [
+  {
+   "ten": "Sông Đáy",
+   "rong_m": 500,
+   "diem": [
+    [
+     105.6,
+     21.06
+    ],
+    [
+     105.65,
+     20.98
+    ],
+    [
+     105.69,
+     20.92
+    ],
+    [
+     105.72,
+     20.85
+    ],
+    [
+     105.75,
+     20.78
+    ]
+   ]
+  },
+  {
+   "ten": "Sông Hồng",
+   "rong_m": 1300,
+   "diem": [
+    [
+     105.8,
+     21.1
+    ],
+    [
+     105.86,
+     21.05
+    ],
+    [
+     105.9,
+     20.99
+    ],
+    [
+     105.93,
+     20.92
+    ],
+    [
+     105.96,
+     20.84
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Thành Đông Quan",
+   "lon": 105.845,
+   "lat": 21.03,
+   "loai": "thanh"
+  },
+  {
+   "ten": "Cao Bộ",
+   "lon": 105.69,
+   "lat": 20.875,
+   "trai": true
+  },
+  {
+   "ten": "Tốt Động",
+   "lon": 105.72,
+   "lat": 20.9,
+   "trai": true
+  },
+  {
+   "ten": "Chúc Động",
+   "lon": 105.76,
+   "lat": 20.93
+  },
+  {
+   "ten": "Ninh Kiều",
+   "lon": 105.775,
+   "lat": 20.955
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Vương Thông tiến đánh Cao Bộ",
+   "ben": "dich",
+   "diem": [
+    [
+     105.845,
+     21.03
+    ],
+    [
+     105.81,
+     20.99
+    ],
+    [
+     105.77,
+     20.945
+    ],
+    [
+     105.735,
+     20.91
+    ],
+    [
+     105.7,
+     20.88
+    ]
+   ]
+  },
+  {
+   "ten": "Cánh quân Minh thứ hai",
+   "ben": "dich",
+   "diem": [
+    [
+     105.845,
+     21.03
+    ],
+    [
+     105.83,
+     20.97
+    ],
+    [
+     105.79,
+     20.92
+    ],
+    [
+     105.745,
+     20.895
+    ]
+   ]
+  },
+  {
+   "ten": "Vương Thông chạy về Đông Quan",
+   "ben": "dich",
+   "diem": [
+    [
+     105.72,
+     20.9
+    ],
+    [
+     105.77,
+     20.95
+    ],
+    [
+     105.81,
+     20.99
+    ],
+    [
+     105.845,
+     21.03
+    ]
+   ]
+  }
+ ]
+}

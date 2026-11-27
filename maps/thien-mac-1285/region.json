@@ -1,0 +1,144 @@
+{
+ "id": "thien-mac-1285",
+ "che_do": "co",
+ "ten": "Thiên Mạc 1285",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông có thuyền PHÓNG ĐẠI để đội thuyền hiển thị được. Bãi Thiên Mạc (Duy Tiên, Hà Nam) bên sông Hồng; triều đình nhà Trần rút về phía nam bằng đường thủy. Vị trí theo sử liệu, ước lượng.",
+ "vung": {
+  "tay": 105.62,
+  "dong": 106.25,
+  "nam": 20.45,
+  "bac": 21.12
+ },
+ "song_xua": [
+  {
+   "ten": "Sông Hồng",
+   "rong_m": 1700,
+   "diem": [
+    [
+     105.74,
+     21.1
+    ],
+    [
+     105.83,
+     21.07
+    ],
+    [
+     105.87,
+     21.03
+    ],
+    [
+     105.91,
+     20.96
+    ],
+    [
+     105.95,
+     20.86
+    ],
+    [
+     105.98,
+     20.76
+    ],
+    [
+     106.01,
+     20.68
+    ],
+    [
+     106.05,
+     20.6
+    ],
+    [
+     106.1,
+     20.48
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Thăng Long",
+   "lon": 105.84,
+   "lat": 21.035,
+   "loai": "thanh",
+   "trai": true
+  },
+  {
+   "ten": "Bãi Thiên Mạc",
+   "lon": 105.965,
+   "lat": 20.68,
+   "trai": true
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Quân Nguyên truy đuổi về phía nam",
+   "ben": "dich",
+   "diem": [
+    [
+     105.835,
+     21.03
+    ],
+    [
+     105.86,
+     20.93
+    ],
+    [
+     105.9,
+     20.82
+    ],
+    [
+     105.935,
+     20.73
+    ],
+    [
+     105.955,
+     20.69
+    ]
+   ]
+  },
+  {
+   "ten": "Thuyền triều đình rút về phía nam",
+   "ben": "ta",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     105.88,
+     21
+    ],
+    [
+     105.93,
+     20.9
+    ],
+    [
+     105.975,
+     20.78
+    ],
+    [
+     106.02,
+     20.65
+    ],
+    [
+     106.08,
+     20.52
+    ]
+   ]
+  },
+  {
+   "ten": "Trần Bình Trọng chặn giặc",
+   "ben": "ta",
+   "diem": [
+    [
+     105.99,
+     20.62
+    ],
+    [
+     105.975,
+     20.65
+    ],
+    [
+     105.965,
+     20.675
+    ]
+   ]
+  }
+ ]
+}
