@@ -1,0 +1,156 @@
+{
+ "id": "kha-luu-1424",
+ "che_do": "co",
+ "ten": "Khả Lưu – Bồ Ải 1424",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông PHÓNG ĐẠI để hiển thị. Ải Khả Lưu, Bồ Ải bên sông Lam (vùng Anh Sơn, Nghệ An); thành Nghệ An ở hạ lưu. Vị trí theo sử liệu, ước lượng.",
+ "vung": {
+  "tay": 104.82,
+  "dong": 105.75,
+  "nam": 18.6,
+  "bac": 19.32
+ },
+ "song_xua": [
+  {
+   "ten": "Sông Lam",
+   "rong_m": 1100,
+   "diem": [
+    [
+     104.85,
+     19.05
+    ],
+    [
+     104.95,
+     19
+    ],
+    [
+     105.07,
+     18.93
+    ],
+    [
+     105.3,
+     18.88
+    ],
+    [
+     105.42,
+     18.78
+    ],
+    [
+     105.5,
+     18.7
+    ],
+    [
+     105.62,
+     18.65
+    ],
+    [
+     105.74,
+     18.61
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Ải Khả Lưu",
+   "lon": 105.075,
+   "lat": 18.905
+  },
+  {
+   "ten": "Bồ Ải",
+   "lon": 105.13,
+   "lat": 18.88
+  },
+  {
+   "ten": "Thành Nghệ An",
+   "lon": 105.67,
+   "lat": 18.68,
+   "loai": "thanh"
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Nghĩa quân từ miền tây Thanh Hóa vào Nghệ An",
+   "ben": "ta",
+   "diem": [
+    [
+     105,
+     19.31
+    ],
+    [
+     105.02,
+     19.15
+    ],
+    [
+     105.05,
+     19.02
+    ],
+    [
+     105.07,
+     18.96
+    ]
+   ]
+  },
+  {
+   "ten": "Nghĩa quân giả rút",
+   "ben": "ta",
+   "diem": [
+    [
+     105.07,
+     18.96
+    ],
+    [
+     105.05,
+     19.02
+    ],
+    [
+     105.03,
+     19.1
+    ]
+   ]
+  },
+  {
+   "ten": "Quân Minh đuổi theo",
+   "ben": "dich",
+   "diem": [
+    [
+     105.06,
+     18.97
+    ],
+    [
+     105.045,
+     19.03
+    ],
+    [
+     105.03,
+     19.08
+    ]
+   ]
+  },
+  {
+   "ten": "Tàn quân Minh chạy về thành Nghệ An",
+   "ben": "dich",
+   "diem": [
+    [
+     105.08,
+     18.9
+    ],
+    [
+     105.25,
+     18.86
+    ],
+    [
+     105.42,
+     18.76
+    ],
+    [
+     105.55,
+     18.7
+    ],
+    [
+     105.665,
+     18.68
+    ]
+   ]
+  }
+ ]
+}

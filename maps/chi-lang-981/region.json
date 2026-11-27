@@ -1,0 +1,196 @@
+{
+ "id": "chi-lang-981",
+ "che_do": "co",
+ "ten": "Chi Lăng – Bạch Đằng 981",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông/biển thời xưa khai báo tay theo sử liệu, điểm sông hút về đáy thung lũng trên địa hình thật. Độ rộng sông PHÓNG ĐẠI để hiển thị. Hai mặt trận năm 981: quân bộ Hầu Nhân Bảo qua Lạng Sơn tới ải Chi Lăng; thủy quân Lưu Trừng vào sông Bạch Đằng, bị bãi cọc chặn. Biển thế kỷ 10 lấn sâu hơn (mực nước cổ 2 m).",
+ "vung": {
+  "tay": 105.95,
+  "dong": 107.25,
+  "nam": 20.76,
+  "bac": 22
+ },
+ "muc_nuoc_co": 2,
+ "bien_tai": [
+  [
+   107.15,
+   20.8
+  ],
+  [
+   107,
+   20.78
+  ]
+ ],
+ "song_xua": [
+  {
+   "ten": "Sông Bạch Đằng",
+   "rong_m": 1800,
+   "diem": [
+    [
+     106.7,
+     21.03
+    ],
+    [
+     106.74,
+     21
+    ],
+    [
+     106.775,
+     20.965
+    ],
+    [
+     106.795,
+     20.935
+    ],
+    [
+     106.81,
+     20.905
+    ],
+    [
+     106.83,
+     20.875
+    ],
+    [
+     106.855,
+     20.85
+    ],
+    [
+     106.88,
+     20.83
+    ]
+   ]
+  },
+  {
+   "ten": "Sông Thương",
+   "rong_m": 600,
+   "diem": [
+    [
+     106.58,
+     21.66
+    ],
+    [
+     106.5,
+     21.58
+    ],
+    [
+     106.4,
+     21.5
+    ],
+    [
+     106.3,
+     21.42
+    ],
+    [
+     106.24,
+     21.34
+    ],
+    [
+     106.2,
+     21.27
+    ],
+    [
+     106.18,
+     21.22
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Lạng Sơn",
+   "lon": 106.761,
+   "lat": 21.853
+  },
+  {
+   "ten": "Ải Chi Lăng",
+   "lon": 106.577,
+   "lat": 21.667
+  },
+  {
+   "ten": "Bãi cọc Bạch Đằng",
+   "lon": 106.8,
+   "lat": 20.925,
+   "trai": true
+  },
+  {
+   "ten": "Cửa biển Bạch Đằng",
+   "lon": 106.87,
+   "lat": 20.835
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Quân bộ Hầu Nhân Bảo",
+   "ben": "dich",
+   "diem": [
+    [
+     106.708,
+     21.99
+    ],
+    [
+     106.761,
+     21.853
+    ],
+    [
+     106.577,
+     21.667
+    ]
+   ]
+  },
+  {
+   "ten": "Thủy quân Lưu Trừng",
+   "ben": "dich",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     107.05,
+     20.79
+    ],
+    [
+     106.88,
+     20.83
+    ],
+    [
+     106.83,
+     20.875
+    ]
+   ]
+  },
+  {
+   "ten": "Quân Tống rút chạy",
+   "ben": "dich",
+   "diem": [
+    [
+     106.577,
+     21.667
+    ],
+    [
+     106.761,
+     21.853
+    ],
+    [
+     106.708,
+     21.99
+    ]
+   ]
+  },
+  {
+   "ten": "Thủy quân Tống rút ra biển",
+   "ben": "dich",
+   "cachDi": "thuy",
+   "diem": [
+    [
+     106.83,
+     20.875
+    ],
+    [
+     106.88,
+     20.83
+    ],
+    [
+     107.05,
+     20.79
+    ]
+   ]
+  }
+ ]
+}
