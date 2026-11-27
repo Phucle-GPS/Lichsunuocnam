@@ -890,3 +890,38 @@ if (!only || only === 'tot-dong-1426') { const id = 'tot-dong-1426', H = moTran(
       { xy: [TD[0] + 30, TD[1] + 50], chu: 'Theo sử cũ: hơn 5 vạn tử trận, hơn 1 vạn bị bắt', ben: 'ta', t0: 31.2, t1: 36.8 },
       { xy: DQ, chu: 'Vương Thông bị thương, chạy về cố thủ thành Đông Quan', ben: 'dich', t0: 34.2, t1: 38.9 }] };
   ghi(id, kb); }
+
+/* ==================== ĐẠI LA 931 (Dương Đình Nghệ) ==================== */
+if (!only || only === 'dai-la-931') { const id = 'dai-la-931', H = moTran(id), { R, at, DD, ganDat } = H;
+  const DLa = DD['Thành Đại La'], AC = DD['Ái Châu'], NH = DD['Hướng Nam Hán'], chan = at(R(2), 1);
+  const vay = vongQuanh(H, DLa, 60, 6, .3);
+  const kb = { ...CHUNG, chu_co_ta: 'DƯƠNG',
+    may_quay: [[0, at(R(0), .5)[0] + 60, at(R(0), .5)[1], 900, 70, 0], [2.9, (DLa[0] + NH[0]) / 2, (DLa[1] + NH[1]) / 2 + 200, 700, 66, 0], [7.4, chan[0], chan[1] + 160, 480, 58, -6], [8.4, AC[0] + 80, AC[1] - 120, 520, 60, -4],
+      [13.8, at(R(0), .6)[0] + 60, at(R(0), .6)[1], 620, 62, -4], [18, DLa[0], DLa[1] + 180, 420, 57, -6], [22.2, DLa[0] + 120, DLa[1] + 160, 480, 58, -6], [25, (DLa[0] + NH[0]) / 2, (DLa[1] + NH[1]) / 2 + 220, 640, 62, -4],
+      [27.8, chan[0] - 40, chan[1] + 150, 400, 57, -8], [31.6, DLa[0], DLa[1] + 170, 380, 56, -8], [35.6, DLa[0], DLa[1] + 170, 360, 56, -10]],
+    may_quay_sau: [[0, DLa[0] - 360, DLa[1] + 520, 860, 68, 0], [6.6, DLa[0] - 340, DLa[1] + 500, 820, 66, -4]],
+    doan_quan: [
+      { ten: 'Quân Ái Châu tiến ra', ben: 'ta', tuong: true, co: 'DƯƠNG', linh: 15, ngua: 3, gian_cach: .012, duong: 0, tu: 0, den: .97, t0: .4, t1: 2.9, an_sau: 17.9 },
+      { ten: 'Quân Nam Hán sang cứu (lần đầu)', ben: 'dich', linh: 10, ngua: 3, gian_cach: .03, duong: 2, tu: 0, den: .8, t0: 2.9, t1: 5.6, nga_tai: 6.2, an_sau: 8.2 },
+      { ten: 'Ngô Quyền trong hàng ngũ Dương Đình Nghệ', ben: 'ta', tuong: true, co: 'NGÔ', linh: 6, ngua: 2, gian_cach: .02, duong: 0, tu: .3, den: .55, t0: 12.3, t1: 17, an_sau: 17.9 },
+      { ten: 'Ba nghìn giả tử vây Đại La', ben: 'ta', tuong: true, co: 'DƯƠNG', linh: 15, ngua: 3, gian_cach: .012, duong: 0, tu: .5, den: .97, t0: 18, t1: 21.8 },
+      { ten: 'Thứ sử Lý Tiến bỏ chạy', ben: 'dich', tuong: true, co: 'LÝ TIẾN', linh: 5, ngua: 2, gian_cach: .03, duong: 1, tu: 0, den: .95, t0: 22.2, t1: 25, an_sau: 25.6 },
+      { ten: 'Trần Bảo đem quân sang cứu', ben: 'dich', tuong: true, co: 'TRẦN BẢO', linh: 14, ngua: 4, gian_cach: .03, duong: 2, tu: 0, den: .97, t0: 25, t1: 28.4, nga_tai: 30.2, an_sau: 33 },
+      { ten: 'Dương Đình Nghệ đón đánh', ben: 'ta', tuong: true, co: 'DƯƠNG', linh: 10, ngua: 3, gian_cach: .05, duong: 3, tu: 0, den: .95, t0: 27.8, t1: 29.4 }],
+    mui_ten: [{ duong: 0, ben: 'ta', t0: .4, t1: 2.9, day: 14 }, { duong: 2, ben: 'dich', net: 'dut', den: .8, t0: 2.9, t1: 5.6, an_sau: 8.3 }, { duong: [ganDat([chan[0] - 120, chan[1] - 20]), at(R(2), .8)], ben: 'ta', t0: 4.6, t1: 6.4, day: 13, an_sau: 8.3 },
+      { duong: 1, ben: 'dich', net: 'dut', t0: 22.2, t1: 25 }, { duong: 2, ben: 'dich', net: 'dut', t0: 25, t1: 28.4 }, { duong: 3, ben: 'ta', t0: 27.8, t1: 29.4, day: 14 }],
+    phuc_binh: vay.map((p, i) => ({ xy: p, ben: 'ta', t0: 18.3 + i * .25, huong_toi: DLa })),
+    lua: [{ xy: at(R(2), .8), ban_kinh: 40, t0: 5.4, t1: 8.4, ngon: 5 }, { xy: chan, ban_kinh: 46, t0: 29.6, t1: 35, ngon: 6 }],
+    co_cam: [{ xy: ganDat([DLa[0] + 14, DLa[1] + 16]), ben: 'ta', t0: 24.6 }, { xy: ganDat([chan[0] + 14, chan[1] - 12]), ben: 'ta', t0: 31.4 }],
+    nhan: [
+      { xy: at(R(0), .4), chu: 'Quân Ái Châu tiến ra vây thành Đại La', ben: 'ta', t0: .5, t1: 2.9 },
+      { xy: at(R(2), .5), chu: 'Nam Hán sai quân sang cứu', ben: 'dich', t0: 3, t1: 4.6 },
+      { xy: at(R(2), .8), chu: 'Bị chặn đánh tan trước khi kịp tới nơi', ben: 'ta', t0: 4.7, t1: 7.4 },
+      { xy: AC, chu: 'Trong hàng ngũ Dương Đình Nghệ có nhiều tướng trẻ tài giỏi', ben: 'ta', t0: 8.5, t1: 12.3 },
+      { xy: at(R(0), .5), chu: 'Ngô Quyền – người sau này thắng trận Bạch Đằng năm 938', ben: 'ta', t0: 12.4, t1: 17.1 },
+      { xy: DLa, chu: 'Ba nghìn giả tử cùng nghĩa binh vây thành Đại La', ben: 'ta', t0: 18.1, t1: 22.2 },
+      { xy: at(R(1), .5), chu: 'Thứ sử Lý Tiến hoảng sợ bỏ chạy về nước', ben: 'dich', t0: 22.3, t1: 25 },
+      { xy: at(R(2), .4), chu: 'Vua Nam Hán sai Trần Bảo đem quân sang cứu', ben: 'dich', t0: 25.1, t1: 27.8 },
+      { xy: chan, chu: 'Quân Nam Hán thua to, Trần Bảo tử trận', ben: 'ta', t0: 27.9, t1: 31.6 },
+      { xy: DLa, chu: 'Dương Đình Nghệ tự xưng Tiết độ sứ, nắm quyền tự chủ', ben: 'ta', t0: 31.7, t1: 35.3 }] };
+  ghi(id, kb); }

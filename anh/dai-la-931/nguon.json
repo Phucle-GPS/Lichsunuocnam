@@ -1,0 +1,42 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Khu khảo cổ 18 Hoàng Diệu (Hoàng thành Thăng Long) – nơi tìm thấy dấu tích thành Đại La",
+  "credit": "Ảnh: Christophe95 · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Christophe95",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Hoang_Thanh_Historical_Site_1.jpg",
+  "tep": "File:Hoang Thanh Historical Site 1.jpg"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Núi rừng đất Ái Châu (Thanh Hóa) – quê hương Dương Đình Nghệ",
+  "credit": "Ảnh: Gió Đông (thảo luận) · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Gió Đông (thảo luận)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Pu_Luong_01.JPG",
+  "tep": "File:Pu Luong 01.JPG"
+ },
+ {
+  "file": "03-moc.jpg",
+  "slot": "moc",
+  "caption": "Đền thờ Ngô Quyền ở Đường Lâm – tướng trẻ dưới quyền Dương Đình Nghệ, người làm nên chiến thắng Bạch Đằng 938",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_th%E1%BB%9D_Ng%C3%B4_Quy%E1%BB%81n.jpg",
+  "tep": "File:Đền thờ Ngô Quyền.jpg"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Đoan Môn – Hoàng thành Thăng Long, dựng trên nền đất thành Đại La xưa",
+  "credit": "Ảnh: Christophe95 · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Christophe95",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Doan_Mon_Gate_1.jpg",
+  "tep": "File:Doan Mon Gate 1.jpg"
+ }
+]

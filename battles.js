@@ -861,6 +861,11 @@
         END('Phùng Hưng · Bố Cái Đại Vương')] },
 
     /* 18 */ { id: 'dai-la-931', year: '931', name: 'Đại La 931', who: 'Dương Đình Nghệ', vs: 'Nam Hán', seed: 58, series: TU_CHU,
+      anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/dai-la-931/nguon.json
+        { file: '01-hook.jpg', slot: 'hook', caption: 'Khu khảo cổ 18 Hoàng Diệu (Hoàng thành Thăng Long) – nơi tìm thấy dấu tích thành Đại La', credit: 'Ảnh: Christophe95 · CC BY-SA 4.0 · Wikimedia Commons' },
+        { file: '02-hero.jpg', slot: 'hero', caption: 'Núi rừng đất Ái Châu (Thanh Hóa) – quê hương Dương Đình Nghệ', credit: 'Ảnh: Gió Đông · Public domain · Wikimedia Commons' },
+        { file: '03-moc.jpg', slot: 'moc', caption: 'Đền thờ Ngô Quyền ở Đường Lâm – tướng trẻ dưới quyền Dương Đình Nghệ, người làm nên chiến thắng Bạch Đằng 938', credit: 'Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons' },
+        { file: '04-ket.jpg', slot: 'ket', caption: 'Đoan Môn – Hoàng thành Thăng Long, dựng trên nền đất thành Đại La xưa', credit: 'Ảnh: Christophe95 · CC BY-SA 4.0 · Wikimedia Commons' }],
       sources: ['Đại Việt sử ký toàn thư', 'Tân Ngũ đại sử'], hook: '3.000 GIẢ TỬ ĐÁNH TAN NAM HÁN', hookQ: 'ĐỘI QUÂN 3.000 GIẢ TỬ ĐÃ LÀM GÌ?',
       scenes: [
         T('ĐẠI LA', 'TRẬN THÀNH ĐẠI LA NĂM 931', 'DƯƠNG ĐÌNH NGHỆ ĐÁNH ĐUỔI NAM HÁN', 'GIÀNH QUYỀN TỰ CHỦ', { say: 'Năm 931, từ đất Ái Châu, Dương Đình Nghệ đem quân ra Bắc, đánh chiếm thành Đại La, đuổi quân Nam Hán về nước.' }),

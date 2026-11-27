@@ -79,6 +79,17 @@
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/tong-binh-791/nguon.json"
   },
   {
+   "id": "dai-la-931",
+   "ten": "Đại La 931",
+   "nam": 931,
+   "video": "phim-ban-do/dai-la-931.mp4",
+   "anh_bia": "phim-ban-do/dai-la-931.jpg",
+   "thoi_luong": "1:14",
+   "ngay": "2026-11-27",
+   "mo_ta": "Năm 931, từ đất Ái Châu, Dương Đình Nghệ đem quân ra Bắc, đánh chiếm thành Đại La, đuổi quân Nam Hán về nước.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/dai-la-931/nguon.json"
+  },
+  {
    "id": "bach-dang-938",
    "ten": "Bạch Đằng 938",
    "nam": 938,

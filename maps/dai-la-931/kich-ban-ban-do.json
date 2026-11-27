@@ -1,0 +1,492 @@
+{
+ "ghi_chu": "Kịch bản bản đồ chiến dịch 3D (hyperframes/_chung/bando3d.js) – sinh bằng máy, bám từng câu lời dẫn. Thời gian = giây theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọng 3). Tọa độ = điểm ảnh trên nen-2k.jpg (2560×1440).",
+ "phong_dai_do_cao": 2.6,
+ "ti_le_nguoi": 4.4,
+ "nghieng_toi_thieu": 46,
+ "chu_co_ta": "DƯƠNG",
+ "may_quay": [
+  [
+   0,
+   1247,
+   838,
+   900,
+   70,
+   0
+  ],
+  [
+   2.9,
+   1493.5,
+   360,
+   700,
+   66,
+   0
+  ],
+  [
+   7.4,
+   1372,
+   352,
+   480,
+   58,
+   -6
+  ],
+  [
+   8.4,
+   1182,
+   1147,
+   520,
+   60,
+   -4
+  ],
+  [
+   13.8,
+   1268,
+   730,
+   620,
+   62,
+   -4
+  ],
+  [
+   18,
+   1164,
+   450,
+   420,
+   57,
+   -6
+  ],
+  [
+   22.2,
+   1284,
+   430,
+   480,
+   58,
+   -6
+  ],
+  [
+   25,
+   1493.5,
+   380,
+   640,
+   62,
+   -4
+  ],
+  [
+   27.8,
+   1332,
+   342,
+   400,
+   57,
+   -8
+  ],
+  [
+   31.6,
+   1164,
+   440,
+   380,
+   56,
+   -8
+  ],
+  [
+   35.6,
+   1164,
+   440,
+   360,
+   56,
+   -10
+  ]
+ ],
+ "may_quay_sau": [
+  [
+   0,
+   804,
+   790,
+   860,
+   68,
+   0
+  ],
+  [
+   6.6,
+   824,
+   770,
+   820,
+   66,
+   -4
+  ]
+ ],
+ "doan_quan": [
+  {
+   "ten": "Quân Ái Châu tiến ra",
+   "ben": "ta",
+   "tuong": true,
+   "co": "DƯƠNG",
+   "linh": 15,
+   "ngua": 3,
+   "gian_cach": 0.012,
+   "duong": 0,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 0.4,
+   "t1": 2.9,
+   "an_sau": 17.9
+  },
+  {
+   "ten": "Quân Nam Hán sang cứu (lần đầu)",
+   "ben": "dich",
+   "linh": 10,
+   "ngua": 3,
+   "gian_cach": 0.03,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.8,
+   "t0": 2.9,
+   "t1": 5.6,
+   "nga_tai": 6.2,
+   "an_sau": 8.2
+  },
+  {
+   "ten": "Ngô Quyền trong hàng ngũ Dương Đình Nghệ",
+   "ben": "ta",
+   "tuong": true,
+   "co": "NGÔ",
+   "linh": 6,
+   "ngua": 2,
+   "gian_cach": 0.02,
+   "duong": 0,
+   "tu": 0.3,
+   "den": 0.55,
+   "t0": 12.3,
+   "t1": 17,
+   "an_sau": 17.9
+  },
+  {
+   "ten": "Ba nghìn giả tử vây Đại La",
+   "ben": "ta",
+   "tuong": true,
+   "co": "DƯƠNG",
+   "linh": 15,
+   "ngua": 3,
+   "gian_cach": 0.012,
+   "duong": 0,
+   "tu": 0.5,
+   "den": 0.97,
+   "t0": 18,
+   "t1": 21.8
+  },
+  {
+   "ten": "Thứ sử Lý Tiến bỏ chạy",
+   "ben": "dich",
+   "tuong": true,
+   "co": "LÝ TIẾN",
+   "linh": 5,
+   "ngua": 2,
+   "gian_cach": 0.03,
+   "duong": 1,
+   "tu": 0,
+   "den": 0.95,
+   "t0": 22.2,
+   "t1": 25,
+   "an_sau": 25.6
+  },
+  {
+   "ten": "Trần Bảo đem quân sang cứu",
+   "ben": "dich",
+   "tuong": true,
+   "co": "TRẦN BẢO",
+   "linh": 14,
+   "ngua": 4,
+   "gian_cach": 0.03,
+   "duong": 2,
+   "tu": 0,
+   "den": 0.97,
+   "t0": 25,
+   "t1": 28.4,
+   "nga_tai": 30.2,
+   "an_sau": 33
+  },
+  {
+   "ten": "Dương Đình Nghệ đón đánh",
+   "ben": "ta",
+   "tuong": true,
+   "co": "DƯƠNG",
+   "linh": 10,
+   "ngua": 3,
+   "gian_cach": 0.05,
+   "duong": 3,
+   "tu": 0,
+   "den": 0.95,
+   "t0": 27.8,
+   "t1": 29.4
+  }
+ ],
+ "mui_ten": [
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 0.4,
+   "t1": 2.9,
+   "day": 14
+  },
+  {
+   "duong": 2,
+   "ben": "dich",
+   "net": "dut",
+   "den": 0.8,
+   "t0": 2.9,
+   "t1": 5.6,
+   "an_sau": 8.3
+  },
+  {
+   "duong": [
+    [
+     1252,
+     172
+    ],
+    [
+     1488,
+     156
+    ]
+   ],
+   "ben": "ta",
+   "t0": 4.6,
+   "t1": 6.4,
+   "day": 13,
+   "an_sau": 8.3
+  },
+  {
+   "duong": 1,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 22.2,
+   "t1": 25
+  },
+  {
+   "duong": 2,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 25,
+   "t1": 28.4
+  },
+  {
+   "duong": 3,
+   "ben": "ta",
+   "t0": 27.8,
+   "t1": 29.4,
+   "day": 14
+  }
+ ],
+ "phuc_binh": [
+  {
+   "xy": [
+    1221,
+    283
+   ],
+   "ben": "ta",
+   "t0": 18.3,
+   "huong_toi": [
+    1164,
+    270
+   ]
+  },
+  {
+   "xy": [
+    1177,
+    314
+   ],
+   "ben": "ta",
+   "t0": 18.55,
+   "huong_toi": [
+    1164,
+    270
+   ]
+  },
+  {
+   "xy": [
+    1120,
+    301
+   ],
+   "ben": "ta",
+   "t0": 18.8,
+   "huong_toi": [
+    1164,
+    270
+   ]
+  },
+  {
+   "xy": [
+    1107,
+    257
+   ],
+   "ben": "ta",
+   "t0": 19.05,
+   "huong_toi": [
+    1164,
+    270
+   ]
+  },
+  {
+   "xy": [
+    1151,
+    226
+   ],
+   "ben": "ta",
+   "t0": 19.3,
+   "huong_toi": [
+    1164,
+    270
+   ]
+  },
+  {
+   "xy": [
+    1208,
+    239
+   ],
+   "ben": "ta",
+   "t0": 19.55,
+   "huong_toi": [
+    1164,
+    270
+   ]
+  }
+ ],
+ "lua": [
+  {
+   "xy": [
+    1488,
+    156
+   ],
+   "ban_kinh": 40,
+   "t0": 5.4,
+   "t1": 8.4,
+   "ngon": 5
+  },
+  {
+   "xy": [
+    1372,
+    192
+   ],
+   "ban_kinh": 46,
+   "t0": 29.6,
+   "t1": 35,
+   "ngon": 6
+  }
+ ],
+ "co_cam": [
+  {
+   "xy": [
+    1170,
+    289
+   ],
+   "ben": "ta",
+   "t0": 24.6
+  },
+  {
+   "xy": [
+    1386,
+    180
+   ],
+   "ben": "ta",
+   "t0": 31.4
+  }
+ ],
+ "nhan": [
+  {
+   "xy": [
+    1146,
+    940
+   ],
+   "chu": "Quân Ái Châu tiến ra vây thành Đại La",
+   "ben": "ta",
+   "t0": 0.5,
+   "t1": 2.9
+  },
+  {
+   "xy": [
+    1645,
+    86
+   ],
+   "chu": "Nam Hán sai quân sang cứu",
+   "ben": "dich",
+   "t0": 3,
+   "t1": 4.6
+  },
+  {
+   "xy": [
+    1488,
+    156
+   ],
+   "chu": "Bị chặn đánh tan trước khi kịp tới nơi",
+   "ben": "ta",
+   "t0": 4.7,
+   "t1": 7.4
+  },
+  {
+   "xy": [
+    1102,
+    1267
+   ],
+   "chu": "Trong hàng ngũ Dương Đình Nghệ có nhiều tướng trẻ tài giỏi",
+   "ben": "ta",
+   "t0": 8.5,
+   "t1": 12.3
+  },
+  {
+   "xy": [
+    1187,
+    838
+   ],
+   "chu": "Ngô Quyền – người sau này thắng trận Bạch Đằng năm 938",
+   "ben": "ta",
+   "t0": 12.4,
+   "t1": 17.1
+  },
+  {
+   "xy": [
+    1164,
+    270
+   ],
+   "chu": "Ba nghìn giả tử cùng nghĩa binh vây thành Đại La",
+   "ben": "ta",
+   "t0": 18.1,
+   "t1": 22.2
+  },
+  {
+   "xy": [
+    1524,
+    111
+   ],
+   "chu": "Thứ sử Lý Tiến hoảng sợ bỏ chạy về nước",
+   "ben": "dich",
+   "t0": 22.3,
+   "t1": 25
+  },
+  {
+   "xy": [
+    1676,
+    55
+   ],
+   "chu": "Vua Nam Hán sai Trần Bảo đem quân sang cứu",
+   "ben": "dich",
+   "t0": 25.1,
+   "t1": 27.8
+  },
+  {
+   "xy": [
+    1372,
+    192
+   ],
+   "chu": "Quân Nam Hán thua to, Trần Bảo tử trận",
+   "ben": "ta",
+   "t0": 27.9,
+   "t1": 31.6
+  },
+  {
+   "xy": [
+    1164,
+    270
+   ],
+   "chu": "Dương Đình Nghệ tự xưng Tiết độ sứ, nắm quyền tự chủ",
+   "ben": "ta",
+   "t0": 31.7,
+   "t1": 35.3
+  }
+ ]
+}
