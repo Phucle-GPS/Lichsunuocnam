@@ -1,0 +1,23 @@
+{
+  "id": "dong-bo-dau-1258",
+  "che_do": "co",
+  "ten": "Đông Bộ Đầu 1258",
+  "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Chỉ vẽ sông Thao – sông Hồng (dòng chảy chắc chắn, có trong lời dẫn); sông Đà, sông Lô, sông Đuống không có trong lời dẫn nên bỏ. Không vẽ biển (ngoài khung). Độ rộng sông Hồng PHÓNG ĐẠI để đội thuyền hiển thị được. Bình Lệ Nguyên (Bình Xuyên, Vĩnh Phúc), bến Đông Bộ Đầu (bờ sông Hồng phía đông kinh thành, khoảng dốc Hàng Than), Quy Hóa (vùng Yên Bái – Lào Cai) theo sử liệu. Vân Nam ở ngoài khung phía tây bắc – chỉ bằng mũi tên.",
+  "vung": { "tay": 104.75, "dong": 106.15, "nam": 20.62, "bac": 21.85 },
+  "song_xua": [
+    { "ten": "Sông Thao", "rong_m": 900, "diem": [[104.72, 21.83], [104.88, 21.71], [105.22, 21.41], [105.35, 21.33], [105.43, 21.29]] },
+    { "ten": "Sông Hồng", "rong_m": 2600, "diem": [[105.43, 21.29], [105.55, 21.2], [105.65, 21.15], [105.74, 21.11], [105.83, 21.07], [105.87, 21.035], [105.91, 20.97], [105.96, 20.88], [106.01, 20.78], [106.05, 20.7], [106.08, 20.6]] }
+  ],
+  "dia_danh": [
+    { "ten": "Quy Hóa", "lon": 104.93, "lat": 21.7 },
+    { "ten": "Bình Lệ Nguyên", "lon": 105.66, "lat": 21.3, "trai": true },
+    { "ten": "Thăng Long", "lon": 105.835, "lat": 21.03, "loai": "thanh", "trai": true },
+    { "ten": "Bến Đông Bộ Đầu", "lon": 105.856, "lat": 21.048 }
+  ],
+  "tuyen": [
+    { "ten": "Ngột Lương Hợp Thai theo sông Thao tiến xuống", "ben": "dich", "diem": [[104.78, 21.82], [104.95, 21.68], [105.12, 21.53], [105.3, 21.4], [105.5, 21.32], [105.66, 21.3]] },
+    { "ten": "Quân Mông Cổ vào Thăng Long", "ben": "dich", "diem": [[105.66, 21.3], [105.72, 21.2], [105.79, 21.1], [105.835, 21.035]] },
+    { "ten": "Thủy quân nhà Trần trên sông Hồng", "ben": "ta", "cachDi": "thuy", "diem": [[105.86, 21.05], [105.91, 20.97], [105.96, 20.88], [106.01, 20.78], [106.05, 20.7], [106.075, 20.63]] },
+    { "ten": "Quân Mông Cổ tháo chạy về Vân Nam", "ben": "dich", "diem": [[105.85, 21.05], [105.79, 21.12], [105.68, 21.29], [105.48, 21.33], [105.28, 21.41], [105.1, 21.55], [104.93, 21.69], [104.78, 21.82]] }
+  ]
+}

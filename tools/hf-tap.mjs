@@ -35,7 +35,9 @@ cp('lib/three.min.js', 'three.min.js'); cp('lib/vendor/gsap.min.js', 'gsap.min.j
 cp(`maps/${id}/nen-3d.jpg`, 'nen-2k.jpg'); cp(`maps/${id}/do-cao.png`, 'do-cao.png');
 const DU = JSON.parse(fs.readFileSync(path.join(ROOT, 'maps', id, 'tuyen.json'), 'utf8')), KB = JSON.parse(fs.readFileSync(path.join(ROOT, 'maps', id, 'kich-ban-ban-do.json'), 'utf8'));
 fs.writeFileSync(path.join(A, 'du-lieu.js'), `/* dữ liệu bản đồ ${id} (tools/ban-do.mjs) + kịch bản (maps/${id}/kich-ban-ban-do.json) */\nwindow.BANDO = ${JSON.stringify({ du_lieu: { khung: DU.khung, tuyen: DU.tuyen.map(t => ({ ten: t.ten, ben: t.ben, xy: t.xy })), dia_danh: DU.dia_danh }, kich_ban: KB })};\n`);
-const ANH = Object.fromEntries((B.anh || []).map(a => [a.slot, a])), anh = slot => { const a = ANH[slot]; if (!a) return null; cp(`anh/${id}/${a.file}`, `anh/${a.file}`); return a; };
+const ANH = Object.fromEntries((B.anh || []).map(a => [a.slot, a])), DA_DUNG = new Set();
+const anh = slot => { const a = ANH[slot]; if (!a) return null; cp(`anh/${id}/${a.file}`, `anh/${a.file}`); DA_DUNG.add(a.file); return a; };
+const anhConTrong = () => { const a = (B.anh || []).find(x => !DA_DUNG.has(x.file) && !['ket', 'moc'].includes(x.slot)) || (B.anh || []).find(x => !DA_DUNG.has(x.file)); return a ? anh(a.slot) : null; };   // trận thiếu slot hook/hero: lấy ảnh chưa dùng
 
 /* ---------- nhạc nền Hùng ca (bộ tổng hợp của app) → maps/<id>/nhac-nen.mp3 (lưu lại, máy khác khỏi cần Playwright) ---------- */
 {
@@ -57,7 +59,7 @@ const FONT = `@font-face{font-family:'Be Vietnam Pro';font-weight:600;src:url('a
 
 /* ---------- cảnh tư liệu (ảnh thật, máy quay chậm, chú thích + nguồn) ---------- */
 function tuLieu(cid, slot, dur, opt = {}) {
-  const a = anh(slot) || anh('hook'); const p = cid;
+  const a = anh(slot) || anh('hook') || anhConTrong() || anh((B.anh || [])[0]?.slot); if (!a) throw new Error('Trận ' + id + ' chưa có ảnh tư liệu (anh/' + id + '/)'); const p = cid;
   const html = `<template>
   <style>${FONT}
     #root{position:absolute;inset:0;background:#0b0907;overflow:hidden}
