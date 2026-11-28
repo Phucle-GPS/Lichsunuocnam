@@ -35,7 +35,11 @@ if (lenh === 'tim') {
   const dir = path.join(ROOT, 'anh', id); fs.mkdirSync(dir, { recursive: true });
   const nf = path.join(dir, 'nguon.json'), ds = fs.existsSync(nf) ? JSON.parse(fs.readFileSync(nf, 'utf8')) : [];
   const stt = String((ds.findIndex(d => d.slot === slot) + 1) || ds.length + 1).padStart(2, '0'), file = `${stt}-${slot}.jpg`, tam = path.join(dir, '_tai.tmp');
-  execFileSync('curl', ['-sf', '-m', '120', '-A', UA, '-o', tam, t.url]);
+  // ảnh gốc / thumburl có thể bị giới hạn (HTTP 429) → thử bản thu nhỏ khổ chuẩn của Commons (1920, 1280, 960 px)
+  const goc = t.url.split('?')[0].replace(/\/thumb(\/[0-9a-f]\/[0-9a-f]{2}\/[^/]+)\/.*$/, '$1'), ten = goc.split('/').pop();
+  const thu = [t.url, ...[1920, 1280, 960].filter(w => w < t.rong * 1.4).map(w => goc.replace('/commons/', '/commons/thumb/') + `/${w}px-${ten}` + (/\.(tiff?|svg)$/i.test(ten) ? '.jpg' : '')), goc];
+  let ok = false; for (const u of thu) { try { execFileSync('curl', ['-sf', '-m', '120', '-A', UA, '-o', tam, u]); ok = true; break; } catch (e) { ngu(1500); } }
+  if (!ok) { console.log('✖ Commons từ chối tải (giới hạn tần suất) – thử lại sau ít phút.'); process.exit(1); }
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', tam, '-vf', "scale='min(1920,iw)':-2", '-q:v', '3', path.join(dir, file)]); fs.rmSync(tam, { force: true });
   const muc = { file, slot, caption: chu, credit: `Ảnh: ${t.artist || 'Khuyết danh'} · ${t.license} · Wikimedia Commons`, license: t.license, artist: t.artist, nguon: t.trang, tep: t.tieuDe, ...(co('--fit') ? { fit: co('--fit') } : {}) };
   const k = ds.findIndex(d => d.slot === slot); if (k >= 0) ds[k] = muc; else ds.push(muc);

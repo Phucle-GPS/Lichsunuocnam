@@ -1,0 +1,44 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Kỵ binh nhà Minh (tranh thời Minh)",
+  "credit": "Ảnh: Khuyết danh · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Khuyết danh",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Departure_herald_ming_dynasty_cavalry_C2A000054N000000000PAC.png",
+  "tep": "File:Departure herald ming dynasty cavalry C2A000054N000000000PAC.png"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tháp gốm thời Trần – Bảo tàng Lịch sử TP. Hồ Chí Minh",
+  "credit": "Ảnh: Gary Todd from Xinzheng, China · CC0 · Wikimedia Commons",
+  "license": "CC0",
+  "artist": "Gary Todd from Xinzheng, China",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Tran_Dynasty_Ceramic_Pagoda_(9980573784).jpg",
+  "tep": "File:Tran Dynasty Ceramic Pagoda (9980573784).jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-moc.jpg",
+  "slot": "moc",
+  "caption": "Bản đồ Giao Chỉ thời thuộc Minh",
+  "credit": "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "artist": "Leeaan",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Map_of_the_Jiaozhi_Province_of_the_Ming_Dynasty_(vi).png",
+  "tep": "File:Map of the Jiaozhi Province of the Ming Dynasty (vi).png",
+  "fit": "contain"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Thành nhà Hồ (Thanh Hóa) – dấu tích những năm chống quân Minh",
+  "credit": "Ảnh: Loi Nguyen Duc · CC BY 2.0 · Wikimedia Commons",
+  "license": "CC BY 2.0",
+  "artist": "Loi Nguyen Duc",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ho_dynasty%27s_citadel,_Vietnam.jpg",
+  "tep": "File:Ho dynasty's citadel, Vietnam.jpg"
+ }
+]

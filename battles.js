@@ -981,7 +981,13 @@
         PTS(['Chấm dứt nhiều năm kinh thành bị đe dọa', 'Sử dụng hỏa khí hiệu quả trong thủy chiến', 'Ổn định biên cương phía nam'], 'Trận Hải Triều là một trong những trận đầu tiên sử sách ghi việc dùng hỏa khí mang tính quyết định trong chiến tranh ở nước ta.'),
         END('Hải Triều 1390 · Trần Khát Chân')] },
 
-    /* 23 */ { id: 'bo-co-1408', year: '1408', name: 'Bô Cô 1408', who: 'Đặng Tất', vs: 'nhà Minh', seed: 63, series: 'SỬ VIỆT · NHÀ HẬU TRẦN',
+    /* 23 */ { id: 'bo-co-1408', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/bo-co-1408/nguon.json
+        { file: "01-hook.jpg", slot: "hook", caption: "Kỵ binh nhà Minh (tranh thời Minh)", credit: "Ảnh: Khuyết danh · Public domain · Wikimedia Commons" },
+        { file: "02-hero.jpg", slot: "hero", fit: 'contain', caption: "Tháp gốm thời Trần – Bảo tàng Lịch sử TP. Hồ Chí Minh", credit: "Ảnh: Gary Todd · CC0 · Wikimedia Commons" },
+        { file: "03-moc.jpg", slot: "moc", fit: 'contain', caption: "Bản đồ Giao Chỉ thời thuộc Minh", credit: "Ảnh: Leeaan · CC BY 4.0 · Wikimedia Commons" },
+        { file: "04-ket.jpg", slot: "ket", caption: "Thành nhà Hồ (Thanh Hóa) – dấu tích những năm chống quân Minh", credit: "Ảnh: Loi Nguyen Duc · CC BY 2.0 · Wikimedia Commons" }
+      ],
+      year: '1408', name: 'Bô Cô 1408', who: 'Đặng Tất', vs: 'nhà Minh', seed: 63, series: 'SỬ VIỆT · NHÀ HẬU TRẦN',
       sources: ['Đại Việt sử ký toàn thư', 'Minh thực lục'], hook: 'ĐẠI THẮNG ĐẦU TIÊN CHỐNG MINH', hookQ: 'TRẬN NÀO KHIẾN TƯỚNG MINH MỘC THẠNH THÁO CHẠY?',
       scenes: [
         T('BÔ CÔ', 'TRẬN BẾN BÔ CÔ NĂM 1408', 'NHÀ HẬU TRẦN ĐÁNH TAN QUÂN MỘC THẠNH', 'ĐẠI THẮNG', { ships: 4, say: 'Cuối năm 1408, trên bến Bô Cô, nghĩa quân nhà Hậu Trần đã giành chiến thắng lớn đầu tiên trước quân Minh xâm lược.' }),

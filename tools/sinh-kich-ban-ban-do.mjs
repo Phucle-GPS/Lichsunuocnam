@@ -960,3 +960,37 @@ if (!only || only === 'ham-tu-1285') { const id = 'ham-tu-1285', H = moTran(id),
       { xy: at(R(5), .6), chu: 'Phục binh chặn đứng viện binh từ Thăng Long kéo ra', ben: 'ta', t0: 34.4, t1: 37.6 },
       { xy: TL, chu: 'Quân ta thừa thắng tiến vào giải phóng kinh thành', ben: 'ta', t0: 37.7, t1: 41 }] };
   ghi(id, kb); }
+
+/* ==================== BÔ CÔ 1408 (Đặng Tất, Giản Định Đế) ==================== */
+if (!only || only === 'bo-co-1408') { const id = 'bo-co-1408', H = moTran(id), { R, at, DD, ganDat } = H;
+  const DQ = DD['Thành Đông Quan'], BC = DD['Bến Bô Cô'], CL = DD['Thành Cổ Lộng'], tran = at(R(0), 1), ta = at(R(1), 1), giua = [(tran[0] + ta[0]) / 2, (tran[1] + ta[1]) / 2];
+  const trong = ganDat([ta[0] + 30, ta[1] + 110]), canh = ganDat([ta[0] + 90, ta[1] + 40]);   // chỗ Giản Định Đế đánh trống · cánh Nguyễn Cảnh Chân
+  const kb = { ...CHUNG, chu_co_ta: 'TRẦN',
+    // Lời dẫn (đồng hồ cảnh bản đồ): 0,4 Mộc Thạnh từ Đông Quan xuống phía nam · 5,4 gặp quân Hậu Trần ở Bô Cô · 9,7 quân Minh ~4 vạn · 13,3 Lưu Tuấn, Lữ Nghị tử trận
+    // 19,2 giao chiến giờ Tỵ → giờ Dậu · 25,0 Giản Định Đế đánh trống, Đặng Tất, Nguyễn Cảnh Chân xung trận · 30,8 Minh đại bại · 34,2 Mộc Thạnh chạy vào Cổ Lộng
+    may_quay: [[0, 1180, 640, 800, 68, 0], [4, 1210, 760, 720, 66, -2], [8, 1290, 1080, 520, 62, -4], [13.3, 1292, 1130, 440, 58, -6], [18.8, 1290, 1150, 400, 57, -8],
+      [25, 1295, 1160, 360, 56, -10], [30.8, 1300, 1160, 340, 55, -10], [34.2, 1330, 1125, 420, 58, -6], [37.6, 1340, 1110, 450, 58, -4]],
+    may_quay_sau: [[0, BC[0] - 430, BC[1] - 260, 760, 66, 0], [7.3, BC[0] - 410, BC[1] - 280, 720, 64, -4]],
+    doan_quan: [
+      { ten: 'Mộc Thạnh từ Đông Quan', ben: 'dich', tuong: true, co: 'MỘC', linh: 16, ngua: 6, gian_cach: .025, duong: 0, t0: .6, t1: 8, an_sau: 34.2 },
+      { ten: 'Lữ Nghị, Lưu Tuấn', ben: 'dich', tuong: true, co: 'LỮ NGHỊ', linh: 10, ngua: 3, gian_cach: .025, duong: 0, tu: .55, den: .985, t0: 3, t1: 8.6, nga_tai: 31.2, an_sau: 34 },
+      { ten: 'Đặng Tất, quân Hậu Trần', ben: 'ta', tuong: true, co: 'ĐẶNG TẤT', linh: 14, ngua: 4, gian_cach: .04, duong: 1, t0: 4.8, t1: 8.2 },
+      { ten: 'Giản Định Đế đánh trống thúc quân', ben: 'ta', tuong: true, co: 'GIẢN ĐỊNH', linh: 6, gian_cach: .2, duong: [ganDat([trong[0] + 20, trong[1] + 60]), trong], t0: 24.8, t1: 26.4 },
+      { ten: 'Nguyễn Cảnh Chân xung trận', ben: 'ta', tuong: true, co: 'CẢNH CHÂN', linh: 10, ngua: 3, gian_cach: .05, duong: [ganDat([canh[0] + 60, canh[1] + 50]), canh, ganDat([tran[0] + 20, tran[1] + 14])], t0: 25.4, t1: 29.6 },
+      { ten: 'Mộc Thạnh chạy vào Cổ Lộng', ben: 'dich', tuong: true, co: 'MỘC', linh: 6, ngua: 3, gian_cach: .06, duong: 2, t0: 34.2, t1: 37 }],
+    mui_ten: [{ duong: 0, ben: 'dich', net: 'dut', t0: .6, t1: 8 }, { duong: 1, ben: 'ta', t0: 4.8, t1: 8.2, day: 13 },
+      { duong: [ta, tran], ben: 'ta', t0: 25.2, t1: 26.6, day: 12 }, { duong: [canh, ganDat([tran[0] + 18, tran[1] + 12])], ben: 'ta', t0: 25.6, t1: 27, day: 11 },
+      { duong: 2, ben: 'dich', net: 'dut', t0: 34.2, t1: 37 }],
+    lua: [{ xy: giua, ban_kinh: 30, t0: 20, t1: 33, ngon: 5 }, { xy: ganDat([tran[0] - 10, tran[1] - 30]), ban_kinh: 36, t0: 30.8, t1: 37.6, ngon: 6 }],
+    co_cam: [{ xy: ganDat([BC[0] + 10, BC[1] - 16]), ben: 'ta', t0: 33.4 }],
+    nhan: [
+      { xy: at(R(0), .3), chu: 'Mộc Thạnh đem quân từ Đông Quan xuống phía nam dẹp nghĩa quân', ben: 'dich', t0: .6, t1: 5.3 },
+      { xy: ta, chu: 'Quân Hậu Trần đón đánh ở bến Bô Cô (Nam Định ngày nay)', ben: 'ta', t0: 5.4, t1: 9.3 },
+      { xy: at(R(0), .88), chu: 'Theo sử cũ: quân Minh khoảng 4 vạn người', ben: 'dich', t0: 9.8, t1: 13.2 },
+      { xy: tran, chu: 'Thượng thư Lưu Tuấn, Đô đốc Lữ Nghị theo Mộc Thạnh', ben: 'dich', t0: 13.4, t1: 18.6 },
+      { xy: giua, chu: 'Giao chiến từ giờ Tỵ đến giờ Dậu – sáng đến chiều tối', ben: 'ta', t0: 19.3, t1: 24.9 },
+      { xy: trong, chu: 'Giản Định Đế tự đánh trống thúc quân', ben: 'ta', t0: 25, t1: 28 },
+      { xy: canh, chu: 'Đặng Tất, Nguyễn Cảnh Chân dốc sức xung trận', ben: 'ta', t0: 28, t1: 30.7 },
+      { xy: tran, chu: 'Quân Minh đại bại – Lữ Nghị, Lưu Tuấn tử trận', ben: 'ta', t0: 30.9, t1: 34.1 },
+      { xy: CL, chu: 'Mộc Thạnh bỏ chạy vào thành Cổ Lộng', ben: 'dich', t0: 34.3, t1: 37.4 }] };
+  ghi(id, kb); }
