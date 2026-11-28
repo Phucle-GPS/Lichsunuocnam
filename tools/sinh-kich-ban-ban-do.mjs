@@ -994,3 +994,35 @@ if (!only || only === 'bo-co-1408') { const id = 'bo-co-1408', H = moTran(id), {
       { xy: tran, chu: 'Quân Minh đại bại – Lữ Nghị, Lưu Tuấn tử trận', ben: 'ta', t0: 30.9, t1: 34.1 },
       { xy: CL, chu: 'Mộc Thạnh bỏ chạy vào thành Cổ Lộng', ben: 'dich', t0: 34.3, t1: 37.4 }] };
   ghi(id, kb); }
+
+/* ==================== THÀNH QUY NHƠN 1773 (Nguyễn Nhạc, mưu nằm cũi) ==================== */
+if (!only || only === 'quy-nhon-1773') { const id = 'quy-nhon-1773', H = moTran(id), { R, at, DD, ganDat } = H;
+  const AK = DD['Tây Sơn thượng đạo (An Khê)'], HD = DD['Tây Sơn hạ đạo'], TH = DD['Phủ thành Quy Nhơn'], cho = at(R(0), 1);
+  const vay = [[TH[0] - 70, TH[1] - 40], [TH[0] + 60, TH[1] - 50], [TH[0] + 70, TH[1] + 40], [TH[0] - 60, TH[1] + 50]].map(p => ganDat(p));
+  const kb = { ...CHUNG, chu_co_ta: 'TÂY SƠN',
+    // Lời dẫn (đồng hồ cảnh bản đồ): 0,4 từ An Khê xuống đồng bằng, nhắm phủ thành Quy Nhơn · 6,2 lấy của nhà giàu chia dân nghèo – dân nghèo hưởng ứng
+    // 13,0 Nguyễn Nhạc giả bị bắt, nằm cũi đem nộp · 19,2 đêm phá cũi, nội ứng mở cổng · 23,8 nghĩa quân mai phục ập vào · 26,2 quân giữ thành tan vỡ, Tây Sơn làm chủ thành
+    may_quay: [[0, 1150, 700, 860, 68, 0], [5.8, 1480, 720, 620, 64, -2], [12.6, 1690, 780, 440, 58, -6], [19.1, 1728, 790, 360, 56, -8], [23.8, 1735, 795, 340, 55, -10],
+      [26.2, 1760, 815, 380, 56, -8], [30.26, 1790, 840, 450, 58, -4]],
+    may_quay_sau: [[0, TH[0] - 430, TH[1] - 240, 760, 66, 0], [8, TH[0] - 410, TH[1] - 260, 720, 64, -4]],
+    doan_quan: [
+      { ten: 'Nghĩa quân Tây Sơn xuống đồng bằng', ben: 'ta', tuong: true, co: 'NHẠC', linh: 14, ngua: 4, gian_cach: .03, duong: 0, t0: .6, t1: 5.6, an_sau: 13 },
+      { ten: 'Quân chúa Nguyễn giữ thành', ben: 'dich', tuong: true, co: 'KHẮC TUYÊN', linh: 10, gian_cach: .12, duong: [ganDat([TH[0] - 26, TH[1] + 10]), ganDat([TH[0] + 6, TH[1] + 4])], t0: 0, t1: .2, nga_tai: 26.4, an_sau: 28 },
+      { ten: 'Nguyễn Nhạc nằm cũi đem nộp', ben: 'ta', tuong: true, co: 'NHẠC', linh: 4, gian_cach: .15, duong: 1, t0: 13.2, t1: 18.8 },
+      { ten: 'Phục binh Tây Sơn ập vào', ben: 'ta', tuong: true, co: 'HUỆ', linh: 12, ngua: 4, gian_cach: .05, duong: 2, t0: 23.9, t1: 26.2 },
+      { ten: 'Quân giữ thành tan vỡ', ben: 'dich', linh: 8, ngua: 2, gian_cach: .05, duong: 3, t0: 26.3, t1: 29.8 }],
+    mui_ten: [{ duong: 0, ben: 'ta', t0: .6, t1: 5.6, day: 14 }, { duong: 1, ben: 'ta', t0: 13.2, t1: 18.8, day: 9 }, { duong: 2, ben: 'ta', t0: 23.9, t1: 26, day: 12 },
+      ...vay.slice(0, 3).map((p, i) => ({ duong: [p, TH], ben: 'ta', t0: 24.1 + i * .3, t1: 25.3 + i * .3, day: 11 })), { duong: 3, ben: 'dich', net: 'dut', t0: 26.3, t1: 29.8 }],
+    phuc_binh: [...[at(R(0), .45), at(R(0), .6), at(R(0), .75)].map((p, i) => ({ xy: ganDat([p[0], p[1] - 40]), ben: 'ta', t0: 7 + i * .5, huong_toi: p })),
+      ...vay.map((p, i) => ({ xy: p, ben: 'ta', t0: 23.9 + i * .25, huong_toi: TH }))],
+    lua: [{ xy: ganDat([TH[0] + 10, TH[1] - 8]), ban_kinh: 34, t0: 25, t1: 30.26, ngon: 6 }],
+    co_cam: [{ xy: ganDat([TH[0] - 8, TH[1] - 10]), ben: 'ta', t0: 21 }, { xy: ganDat([TH[0] + 18, TH[1] + 6]), ben: 'ta', t0: 27.2 }],
+    nhan: [
+      { xy: AK, chu: 'Từ vùng núi An Khê, nghĩa quân Tây Sơn tiến xuống đồng bằng', ben: 'ta', t0: .6, t1: 4 },
+      { xy: TH, chu: 'Nhắm vào phủ thành Quy Nhơn', ben: 'dich', t0: 4.1, t1: 6 },
+      { xy: HD, chu: '“Lấy của nhà giàu chia cho dân nghèo” – dân nghèo hưởng ứng', ben: 'ta', t0: 6.3, t1: 12.5 },
+      { xy: at(R(1), .5), chu: 'Nguyễn Nhạc giả bị bắt, nằm cũi đem nộp quan giữ thành', ben: 'ta', t0: 13.1, t1: 19 },
+      { xy: TH, chu: 'Đêm đến: phá cũi, nội ứng mở cổng thành', ben: 'ta', t0: 19.2, t1: 23.7 },
+      { xy: vay[0], chu: 'Nghĩa quân mai phục bên ngoài ập vào', ben: 'ta', t0: 23.9, t1: 26.1 },
+      { xy: TH, chu: 'Quân giữ thành tan vỡ – Tây Sơn làm chủ thành Quy Nhơn', ben: 'ta', t0: 26.3, t1: 30 }] };
+  ghi(id, kb); }

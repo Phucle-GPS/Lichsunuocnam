@@ -1051,7 +1051,13 @@
         PTS(['Tiêu diệt phần lớn sinh lực địch', 'Dồn quân Minh vào thế bị vây ở Đông Quan', 'Mở đường cho chiến thắng Chi Lăng – Xương Giang'], 'Sau Tốt Động, quân Minh chỉ còn co cụm trong các thành, chờ viện binh, để rồi viện binh bị tiêu diệt ở Chi Lăng – Xương Giang năm 1427.'),
         END('Tốt Động – Chúc Động 1426')] },
 
-    /* 26 */ { id: 'quy-nhon-1773', year: '1773', name: 'Thành Quy Nhơn 1773', who: 'Nguyễn Nhạc', vs: 'Chúa Nguyễn', seed: 66, series: TS,
+    /* 26 */ { id: 'quy-nhon-1773', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/quy-nhon-1773/nguon.json
+        {"file": "01-hook.jpg", "slot": "hook", "caption": "Tượng ba anh em Tây Sơn – Bảo tàng Quang Trung (Bình Định)", "credit": "Ảnh: Liftold (vi.wikipedia) · CC BY-SA 3.0 · Wikimedia Commons"},
+        {"file": "02-hero.jpg", "slot": "hero", "fit": "contain", "caption": "Ấn Quảng Vận chi bảo và thủ bút của Thái Đức hoàng đế Nguyễn Nhạc", "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 4.0 · Wikimedia Commons"},
+        {"file": "03-moc.jpg", "slot": "moc", "fit": "contain", "caption": "Bản vẽ thành Hoàng Đế (Đồ Bàn), Bình Định, năm 1913", "credit": "Ảnh: Khuyết danh (bản vẽ 1913) · Public domain · Wikimedia Commons"},
+        {"file": "04-ket.jpg", "slot": "ket", "caption": "Bảo tàng Quang Trung ở Tây Sơn, Bình Định – quê hương ba anh em Tây Sơn", "credit": "Ảnh: Uranus2808 · CC BY-SA 4.0 · Wikimedia Commons"}
+      ],
+      year: '1773', name: 'Thành Quy Nhơn 1773', who: 'Nguyễn Nhạc', vs: 'Chúa Nguyễn', seed: 66, series: TS,
       sources: ['Đại Nam thực lục', 'Hoàng Lê nhất thống chí', 'Tây Sơn thuật lược'], hook: 'MƯU NẰM CŨI LẤY THÀNH', hookQ: 'VÌ SAO NGUYỄN NHẠC TỰ NẰM TRONG CŨI ĐỂ LẤY THÀNH?',
       scenes: [
         T('QUY NHƠN', 'TÂY SƠN LẤY THÀNH QUY NHƠN NĂM 1773', 'MƯU KẾ NẰM CŨI CỦA NGUYỄN NHẠC', 'DẤY NGHIỆP', { say: 'Năm 1773, phong trào Tây Sơn từ vùng núi Tây Sơn thượng đạo tiến xuống đồng bằng, chiếm thành Quy Nhơn bằng một mưu kế táo bạo.' }),

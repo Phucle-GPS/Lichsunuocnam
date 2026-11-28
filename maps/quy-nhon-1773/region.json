@@ -1,0 +1,174 @@
+{
+ "id": "quy-nhon-1773",
+ "che_do": "co",
+ "ten": "Thành Quy Nhơn 1773",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông Côn khai báo tay, điểm sông hút về đáy thung lũng trên địa hình thật; độ rộng PHÓNG ĐẠI để hiển thị. Tây Sơn thượng đạo (An Khê), Tây Sơn hạ đạo (Kiên Mỹ), phủ thành Quy Nhơn thời chúa Nguyễn (vùng An Nhơn, gần thành Đồ Bàn cũ) theo sử liệu, vị trí ước lượng. Biển thế kỷ 18 (mực nước cổ 1 m).",
+ "vung": {
+  "tay": 108.5,
+  "dong": 109.32,
+  "nam": 13.68,
+  "bac": 14.16
+ },
+ "muc_nuoc_co": 1,
+ "bien_tai": [
+  [
+   109.31,
+   13.72
+  ],
+  [
+   109.3,
+   13.9
+  ]
+ ],
+ "song_xua": [
+  {
+   "ten": "Sông Côn",
+   "rong_m": 420,
+   "hut_thung_lung": 1500,
+   "diem": [
+    [
+     108.76,
+     14.15
+    ],
+    [
+     108.79,
+     14.08
+    ],
+    [
+     108.83,
+     14.0
+    ],
+    [
+     108.9,
+     13.935
+    ],
+    [
+     108.95,
+     13.92
+    ],
+    [
+     109.0,
+     13.905
+    ],
+    [
+     109.08,
+     13.885
+    ],
+    [
+     109.15,
+     13.87
+    ],
+    [
+     109.2,
+     13.85
+    ],
+    [
+     109.23,
+     13.83
+    ]
+   ]
+  }
+ ],
+ "dia_danh": [
+  {
+   "ten": "Tây Sơn thượng đạo (An Khê)",
+   "lon": 108.66,
+   "lat": 13.955,
+   "trai": true
+  },
+  {
+   "ten": "Tây Sơn hạ đạo",
+   "lon": 108.92,
+   "lat": 13.94
+  },
+  {
+   "ten": "Phủ thành Quy Nhơn",
+   "lon": 109.07,
+   "lat": 13.89,
+   "loai": "thanh"
+  }
+ ],
+ "tuyen": [
+  {
+   "ten": "Nghĩa quân Tây Sơn xuống đồng bằng",
+   "ben": "ta",
+   "diem": [
+    [
+     108.665,
+     13.955
+    ],
+    [
+     108.76,
+     13.935
+    ],
+    [
+     108.86,
+     13.94
+    ],
+    [
+     108.95,
+     13.925
+    ],
+    [
+     109.025,
+     13.91
+    ]
+   ]
+  },
+  {
+   "ten": "Nguyễn Nhạc nằm cũi được đem nộp",
+   "ben": "ta",
+   "cachDi": "thang",
+   "diem": [
+    [
+     109.03,
+     13.912
+    ],
+    [
+     109.05,
+     13.9
+    ],
+    [
+     109.067,
+     13.892
+    ]
+   ]
+  },
+  {
+   "ten": "Phục binh Tây Sơn ập vào thành",
+   "ben": "ta",
+   "diem": [
+    [
+     109.06,
+     13.935
+    ],
+    [
+     109.068,
+     13.912
+    ],
+    [
+     109.07,
+     13.895
+    ]
+   ]
+  },
+  {
+   "ten": "Quân giữ thành tan vỡ",
+   "ben": "dich",
+   "diem": [
+    [
+     109.072,
+     13.888
+    ],
+    [
+     109.1,
+     13.86
+    ],
+    [
+     109.13,
+     13.83
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Tượng ba anh em Tây Sơn – Bảo tàng Quang Trung (Bình Định)",
+  "credit": "Ảnh: Liftold (vi.wikipedia) · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Liftold (vi.wikipedia)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Ba_anh_em_nh%C3%A0_h%E1%BB%8D_Nh%E1%BA%A1c.JPG",
+  "tep": "File:Ba anh em nhà họ Nhạc.JPG"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Ấn Quảng Vận chi bảo và thủ bút của Thái Đức hoàng đế Nguyễn Nhạc",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:%E1%BA%A4n_Nguy%E1%BB%85n_Nh%E1%BA%A1c.jpg",
+  "tep": "File:Ấn Nguyễn Nhạc.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "03-moc.jpg",
+  "slot": "moc",
+  "caption": "Bản vẽ thành Hoàng Đế (Đồ Bàn), Bình Định, năm 1913",
+  "credit": "Ảnh: Khuyết danh (bản vẽ 1913) · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Khuyết danh (bản vẽ 1913)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_v%E1%BA%BD_th%C3%A0nh_%C4%90%E1%BB%93_B%C3%A0n_(th%C3%A0nh_Ho%C3%A0ng_%C4%91%E1%BA%BF),_B%C3%ACnh_%C4%90%E1%BB%8Bnh_n%C4%83m_1913.jpg",
+  "tep": "File:Bản vẽ thành Đồ Bàn (thành Hoàng đế), Bình Định năm 1913.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Bảo tàng Quang Trung ở Tây Sơn, Bình Định – quê hương ba anh em Tây Sơn",
+  "credit": "Ảnh: Uranus2808 · CC BY-SA 4.0 · Wikimedia Commons",
+  "license": "CC BY-SA 4.0",
+  "artist": "Uranus2808",
+  "nguon": "https://commons.wikimedia.org/wiki/File:QuangTrung_museum_landscape.jpg",
+  "tep": "File:QuangTrung museum landscape.jpg"
+ }
+]

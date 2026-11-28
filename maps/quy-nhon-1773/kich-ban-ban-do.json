@@ -1,0 +1,419 @@
+{
+ "ghi_chu": "Kịch bản bản đồ chiến dịch 3D (hyperframes/_chung/bando3d.js) – sinh bằng máy, bám từng câu lời dẫn. Thời gian = giây theo đồng hồ cảnh bản đồ (bắt đầu ở đoạn giọng 3). Tọa độ = điểm ảnh trên nen-2k.jpg (2560×1440).",
+ "phong_dai_do_cao": 2.6,
+ "ti_le_nguoi": 4.4,
+ "nghieng_toi_thieu": 46,
+ "chu_co_ta": "TÂY SƠN",
+ "may_quay": [
+  [
+   0,
+   1150,
+   700,
+   860,
+   68,
+   0
+  ],
+  [
+   5.8,
+   1480,
+   720,
+   620,
+   64,
+   -2
+  ],
+  [
+   12.6,
+   1690,
+   780,
+   440,
+   58,
+   -6
+  ],
+  [
+   19.1,
+   1728,
+   790,
+   360,
+   56,
+   -8
+  ],
+  [
+   23.8,
+   1735,
+   795,
+   340,
+   55,
+   -10
+  ],
+  [
+   26.2,
+   1760,
+   815,
+   380,
+   56,
+   -8
+  ],
+  [
+   30.26,
+   1790,
+   840,
+   450,
+   58,
+   -4
+  ]
+ ],
+ "may_quay_sau": [
+  [
+   0,
+   1316,
+   570,
+   760,
+   66,
+   0
+  ],
+  [
+   8,
+   1336,
+   550,
+   720,
+   64,
+   -4
+  ]
+ ],
+ "doan_quan": [
+  {
+   "ten": "Nghĩa quân Tây Sơn xuống đồng bằng",
+   "ben": "ta",
+   "tuong": true,
+   "co": "NHẠC",
+   "linh": 14,
+   "ngua": 4,
+   "gian_cach": 0.03,
+   "duong": 0,
+   "t0": 0.6,
+   "t1": 5.6,
+   "an_sau": 13
+  },
+  {
+   "ten": "Quân chúa Nguyễn giữ thành",
+   "ben": "dich",
+   "tuong": true,
+   "co": "KHẮC TUYÊN",
+   "linh": 10,
+   "gian_cach": 0.12,
+   "duong": [
+    [
+     1720,
+     820
+    ],
+    [
+     1751,
+     814
+    ]
+   ],
+   "t0": 0,
+   "t1": 0.2,
+   "nga_tai": 26.4,
+   "an_sau": 28
+  },
+  {
+   "ten": "Nguyễn Nhạc nằm cũi đem nộp",
+   "ben": "ta",
+   "tuong": true,
+   "co": "NHẠC",
+   "linh": 4,
+   "gian_cach": 0.15,
+   "duong": 1,
+   "t0": 13.2,
+   "t1": 18.8
+  },
+  {
+   "ten": "Phục binh Tây Sơn ập vào",
+   "ben": "ta",
+   "tuong": true,
+   "co": "HUỆ",
+   "linh": 12,
+   "ngua": 4,
+   "gian_cach": 0.05,
+   "duong": 2,
+   "t0": 23.9,
+   "t1": 26.2
+  },
+  {
+   "ten": "Quân giữ thành tan vỡ",
+   "ben": "dich",
+   "linh": 8,
+   "ngua": 2,
+   "gian_cach": 0.05,
+   "duong": 3,
+   "t0": 26.3,
+   "t1": 29.8
+  }
+ ],
+ "mui_ten": [
+  {
+   "duong": 0,
+   "ben": "ta",
+   "t0": 0.6,
+   "t1": 5.6,
+   "day": 14
+  },
+  {
+   "duong": 1,
+   "ben": "ta",
+   "t0": 13.2,
+   "t1": 18.8,
+   "day": 9
+  },
+  {
+   "duong": 2,
+   "ben": "ta",
+   "t0": 23.9,
+   "t1": 26,
+   "day": 12
+  },
+  {
+   "duong": [
+    [
+     1676,
+     770
+    ],
+    [
+     1746,
+     810
+    ]
+   ],
+   "ben": "ta",
+   "t0": 24.1,
+   "t1": 25.3,
+   "day": 11
+  },
+  {
+   "duong": [
+    [
+     1806,
+     760
+    ],
+    [
+     1746,
+     810
+    ]
+   ],
+   "ben": "ta",
+   "t0": 24.400000000000002,
+   "t1": 25.6,
+   "day": 11
+  },
+  {
+   "duong": [
+    [
+     1816,
+     850
+    ],
+    [
+     1746,
+     810
+    ]
+   ],
+   "ben": "ta",
+   "t0": 24.700000000000003,
+   "t1": 25.900000000000002,
+   "day": 11
+  },
+  {
+   "duong": 3,
+   "ben": "dich",
+   "net": "dut",
+   "t0": 26.3,
+   "t1": 29.8
+  }
+ ],
+ "phuc_binh": [
+  {
+   "xy": [
+    1014,
+    631
+   ],
+   "ben": "ta",
+   "t0": 7,
+   "huong_toi": [
+    1014,
+    671
+   ]
+  },
+  {
+   "xy": [
+    1171,
+    638
+   ],
+   "ben": "ta",
+   "t0": 7.5,
+   "huong_toi": [
+    1171,
+    678
+   ]
+  },
+  {
+   "xy": [
+    1341,
+    660
+   ],
+   "ben": "ta",
+   "t0": 8,
+   "huong_toi": [
+    1341,
+    700
+   ]
+  },
+  {
+   "xy": [
+    1676,
+    770
+   ],
+   "ben": "ta",
+   "t0": 23.9,
+   "huong_toi": [
+    1746,
+    810
+   ]
+  },
+  {
+   "xy": [
+    1806,
+    760
+   ],
+   "ben": "ta",
+   "t0": 24.15,
+   "huong_toi": [
+    1746,
+    810
+   ]
+  },
+  {
+   "xy": [
+    1816,
+    850
+   ],
+   "ben": "ta",
+   "t0": 24.4,
+   "huong_toi": [
+    1746,
+    810
+   ]
+  },
+  {
+   "xy": [
+    1686,
+    860
+   ],
+   "ben": "ta",
+   "t0": 24.65,
+   "huong_toi": [
+    1746,
+    810
+   ]
+  }
+ ],
+ "lua": [
+  {
+   "xy": [
+    1756,
+    802
+   ],
+   "ban_kinh": 34,
+   "t0": 25,
+   "t1": 30.26,
+   "ngon": 6
+  }
+ ],
+ "co_cam": [
+  {
+   "xy": [
+    1738,
+    800
+   ],
+   "ben": "ta",
+   "t0": 21
+  },
+  {
+   "xy": [
+    1761,
+    810
+   ],
+   "ben": "ta",
+   "t0": 27.2
+  }
+ ],
+ "nhan": [
+  {
+   "xy": [
+    552,
+    615
+   ],
+   "chu": "Từ vùng núi An Khê, nghĩa quân Tây Sơn tiến xuống đồng bằng",
+   "ben": "ta",
+   "t0": 0.6,
+   "t1": 4
+  },
+  {
+   "xy": [
+    1746,
+    810
+   ],
+   "chu": "Nhắm vào phủ thành Quy Nhơn",
+   "ben": "dich",
+   "t0": 4.1,
+   "t1": 6
+  },
+  {
+   "xy": [
+    1309,
+    660
+   ],
+   "chu": "“Lấy của nhà giàu chia cho dân nghèo” – dân nghèo hưởng ứng",
+   "ben": "ta",
+   "t0": 6.3,
+   "t1": 12.5
+  },
+  {
+   "xy": [
+    1683,
+    774
+   ],
+   "chu": "Nguyễn Nhạc giả bị bắt, nằm cũi đem nộp quan giữ thành",
+   "ben": "ta",
+   "t0": 13.1,
+   "t1": 19
+  },
+  {
+   "xy": [
+    1746,
+    810
+   ],
+   "chu": "Đêm đến: phá cũi, nội ứng mở cổng thành",
+   "ben": "ta",
+   "t0": 19.2,
+   "t1": 23.7
+  },
+  {
+   "xy": [
+    1676,
+    770
+   ],
+   "chu": "Nghĩa quân mai phục bên ngoài ập vào",
+   "ben": "ta",
+   "t0": 23.9,
+   "t1": 26.1
+  },
+  {
+   "xy": [
+    1746,
+    810
+   ],
+   "chu": "Quân giữ thành tan vỡ – Tây Sơn làm chủ thành Quy Nhơn",
+   "ben": "ta",
+   "t0": 26.3,
+   "t1": 30
+  }
+ ]
+}
