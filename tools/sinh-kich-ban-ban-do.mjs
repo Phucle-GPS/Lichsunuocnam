@@ -1026,3 +1026,38 @@ if (!only || only === 'quy-nhon-1773') { const id = 'quy-nhon-1773', H = moTran(
       { xy: vay[0], chu: 'Nghĩa quân mai phục bên ngoài ập vào', ben: 'ta', t0: 23.9, t1: 26.1 },
       { xy: TH, chu: 'Quân giữ thành tan vỡ – Tây Sơn làm chủ thành Quy Nhơn', ben: 'ta', t0: 26.3, t1: 30 }] };
   ghi(id, kb); }
+
+/* ==================== PHÚ XUÂN 1786 (Nguyễn Huệ, nước sông Hương dâng cao) ==================== */
+if (!only || only === 'phu-xuan-1786') { const id = 'phu-xuan-1786', H = moTran(id), { R, at, uNear, DD, ganDat, thuy } = H;
+  const TH = DD['Thành Phú Xuân'], TA = DD['Cửa Thuận An'], uTA = uNear(R(0), TA), chan = at(R(0), 1);
+  const ThuyA = thuy(0, 0, uTA - .04), ThuyB = thuy(0, uTA - .04, uTA + .06), ThuyC = thuy(0, uTA + .06, 1);
+  const kb = { ...CHUNG, chu_co_ta: 'TÂY SƠN', ti_le_thuyen: .5,
+    // Lời dẫn (đồng hồ cảnh bản đồ): 0,4 từ Quy Nhơn theo đường thủy, đường bộ tiến ra, nhắm thành Phú Xuân bên sông Hương · 7,1 quân Trịnh chiếm giữ từ 1775, nội bộ chia rẽ
+    // 14,2 tiến vào cửa Thuận An · 16,8 mưa to, nước sông Hương dâng cao, chiến thuyền áp sát chân thành · 22,7 Hoàng Đình Thể ra đánh, tử trận; Phạm Ngô Cầu đầu hàng · 27,4 làm chủ Phú Xuân và Thuận Hóa
+    may_quay: [[0, 1600, 720, 900, 68, 0], [6.7, 1220, 600, 580, 62, -4], [13.8, 1220, 450, 520, 60, -6], [16.8, 1240, 440, 460, 58, -6], [22.7, 1150, 645, 360, 56, -8],
+      [27.4, 1150, 655, 380, 57, -8], [33.7, 1260, 620, 720, 64, -2]],
+    may_quay_sau: [[0, TH[0] - 430, TH[1] - 200, 760, 66, 0], [5.75, TH[0] - 410, TH[1] - 220, 720, 64, -4]],
+    doan_quan: [
+      { ten: 'Thủy quân Tây Sơn ra biển', ben: 'ta', tuong: true, co: 'HUỆ', phuong_tien: 'thuyen', thuyen: 9, gian_cach: .05, duong: ThuyA, t0: .6, t1: 6, an_sau: 14.3 },
+      { ten: 'Thủy quân vào cửa Thuận An', ben: 'ta', tuong: true, co: 'HUỆ', phuong_tien: 'thuyen', thuyen: 9, gian_cach: .1, duong: ThuyB, t0: 14.3, t1: 16.7, an_sau: 16.8 },
+      { ten: 'Chiến thuyền áp sát chân thành', ben: 'ta', tuong: true, co: 'HUỆ', phuong_tien: 'thuyen', thuyen: 9, gian_cach: .05, duong: ThuyC, t0: 16.8, t1: 22.4 },
+      { ten: 'Bộ binh Tây Sơn ra', ben: 'ta', tuong: true, co: 'VĂN NHẬM', linh: 12, ngua: 4, gian_cach: .03, duong: 1, tu: 0, den: .75, t0: 1.4, t1: 6, an_sau: 16.9 },
+      { ten: 'Bộ binh Tây Sơn áp thành', ben: 'ta', tuong: true, co: 'VĂN NHẬM', linh: 12, ngua: 4, gian_cach: .04, duong: 1, tu: .75, den: 1, t0: 17, t1: 22.6 },
+      { ten: 'Quân Trịnh giữ thành', ben: 'dich', tuong: true, co: 'NGÔ CẦU', linh: 10, gian_cach: .12, duong: [ganDat([TH[0] - 30, TH[1] - 26]), ganDat([TH[0] - 4, TH[1] - 14])], t0: 0, t1: .2, an_sau: 27.4 },
+      { ten: 'Hoàng Đình Thể ra đánh', ben: 'dich', tuong: true, co: 'ĐÌNH THỂ', linh: 6, ngua: 2, gian_cach: .1, duong: [ganDat([TH[0] + 2, TH[1] - 10]), ganDat([chan[0] - 6, chan[1] - 8])], t0: 22.8, t1: 24, nga_tai: 25.2, an_sau: 27.2 }],
+    mui_ten: [{ duong: ThuyA, ben: 'ta', t0: .6, t1: 6, day: 13 }, { duong: 1, ben: 'ta', den: .75, t0: 1.4, t1: 6, day: 13 }, { duong: ThuyB, ben: 'ta', t0: 14.3, t1: 16.7, day: 12 },
+      { duong: ThuyC, ben: 'ta', t0: 16.8, t1: 22.4, day: 12 }, { duong: 1, ben: 'ta', bat_dau: .75, t0: 17, t1: 22.6, day: 12 }],
+    lua: [{ xy: ganDat([TH[0] + 6, TH[1] - 4]), ban_kinh: 34, t0: 23.4, t1: 30, ngon: 6 }],
+    co_cam: [{ xy: ganDat([TH[0] - 12, TH[1] - 18]), ben: 'ta', t0: 27.6 }],
+    nhan: [
+      { xy: at(R(0), .22), chu: 'Từ Quy Nhơn: thủy quân theo đường biển', ben: 'ta', t0: .6, t1: 4.4 },
+      { xy: at(R(1), .3), chu: 'Bộ binh theo đường bộ', ben: 'ta', t0: 1.6, t1: 4.4 },
+      { xy: TH, chu: 'Nhắm vào thành Phú Xuân bên bờ sông Hương', ben: 'dich', t0: 4.5, t1: 6.6 },
+      { xy: TH, chu: 'Quân Trịnh chiếm giữ Phú Xuân từ năm 1775', ben: 'dich', t0: 7.2, t1: 10.4 },
+      { xy: [TH[0] - 40, TH[1] - 60], chu: 'Nội bộ chia rẽ, tướng sĩ chán nản', ben: 'dich', t0: 10.5, t1: 13.6 },
+      { xy: TA, chu: 'Quân Tây Sơn tiến vào cửa Thuận An', ben: 'ta', t0: 14.3, t1: 16.7 },
+      { xy: at(R(0), uTA + .2), chu: 'Mưa to, nước sông Hương dâng cao – chiến thuyền áp sát chân thành', ben: 'ta', t0: 16.8, t1: 22.6 },
+      { xy: chan, chu: 'Phó tướng Hoàng Đình Thể ra đánh, tử trận', ben: 'dich', t0: 22.8, t1: 25.6 },
+      { xy: TH, chu: 'Trấn thủ Phạm Ngô Cầu đầu hàng', ben: 'dich', t0: 25.7, t1: 27.4 },
+      { xy: TH, chu: 'Tây Sơn làm chủ Phú Xuân và toàn vùng Thuận Hóa', ben: 'ta', t0: 27.5, t1: 33.4 }] };
+  ghi(id, kb); }

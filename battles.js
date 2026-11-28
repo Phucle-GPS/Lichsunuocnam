@@ -1076,7 +1076,13 @@
         PTS(['Mưu trí táo bạo, ít tổn thất', 'Phong trào nông dân có căn cứ vững chắc', 'Mở đầu sự nghiệp của nhà Tây Sơn'], 'Vùng Quy Nhơn sau này là nơi Nguyễn Nhạc xây thành Hoàng Đế trên nền thành Đồ Bàn cũ, trung tâm của phong trào Tây Sơn.'),
         END('Quy Nhơn 1773 · Nguyễn Nhạc')] },
 
-    /* 27 */ { id: 'phu-xuan-1786', year: '1786', name: 'Phú Xuân 1786', who: 'Nguyễn Huệ', vs: 'quân Trịnh', seed: 67, series: TS,
+    /* 27 */ { id: 'phu-xuan-1786', anh: [ // ảnh tư liệu (phim tài liệu) – nguồn & giấy phép: anh/phu-xuan-1786/nguon.json
+        {"file": "01-hook.jpg", "slot": "hook", "fit": "contain", "caption": "Cửa biển Thuận An – tranh Thần kinh nhị thập cảnh (thời Thiệu Trị)", "credit": "Ảnh: Thần kinh nhị thập cảnh (thời Thiệu Trị) · Public domain · Wikimedia Commons"},
+        {"file": "02-hero.jpg", "slot": "hero", "caption": "Tượng Quang Trung ở núi Bân, Huế", "credit": "Ảnh: P. Hughes · CC BY 4.0 · Wikimedia Commons"},
+        {"file": "03-moc.jpg", "slot": "moc", "fit": "contain", "caption": "Bản đồ Phú Xuân trong sách Quảng Thuận đạo sử tập (thế kỷ 18)", "credit": "Ảnh: Nguyễn Huy Quýnh / Nguyễn Huy Chương · Public domain · Wikimedia Commons"},
+        {"file": "04-ket.jpg", "slot": "ket", "caption": "Sông Hương trước chùa Thiên Mụ, Huế", "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons"}
+      ],
+      year: '1786', name: 'Phú Xuân 1786', who: 'Nguyễn Huệ', vs: 'quân Trịnh', seed: 67, series: TS,
       sources: ['Hoàng Lê nhất thống chí', 'Đại Nam thực lục', 'Khâm định Việt sử thông giám cương mục'], hook: 'NƯỚC SÔNG HƯƠNG DÂNG CAO', hookQ: 'TÂY SƠN LẤY THÀNH PHÚ XUÂN NHƯ THẾ NÀO?',
       scenes: [
         T('PHÚ XUÂN', 'TÂY SƠN LẤY THÀNH PHÚ XUÂN NĂM 1786', 'NGUYỄN HUỆ TIẾN RA BẮC', 'THẦN TỐC', { ships: 6, say: 'Mùa hè năm 1786, Nguyễn Huệ đem thủy bộ ra đánh thành Phú Xuân, khi ấy do quân Trịnh chiếm giữ.' }),

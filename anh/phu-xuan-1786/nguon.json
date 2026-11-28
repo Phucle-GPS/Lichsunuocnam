@@ -1,0 +1,44 @@
+[
+ {
+  "file": "01-hook.jpg",
+  "slot": "hook",
+  "caption": "Cửa biển Thuận An – tranh Thần kinh nhị thập cảnh (thời Thiệu Trị)",
+  "credit": "Ảnh: Thần kinh nhị thập cảnh (thời Thiệu Trị) · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Thần kinh nhị thập cảnh (thời Thiệu Trị)",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Thu%E1%BA%ADn_H%E1%BA%A3i_Qui_Ph%C3%A0m_(c%E1%BA%A3nh_c%E1%BB%ADa_bi%E1%BB%83n_Thu%E1%BA%ADn_An)_result.jpg",
+  "tep": "File:Thuận Hải Qui Phàm (cảnh cửa biển Thuận An) result.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "02-hero.jpg",
+  "slot": "hero",
+  "caption": "Tượng Quang Trung ở núi Bân, Huế",
+  "credit": "Ảnh: P. Hughes · CC BY 4.0 · Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "artist": "P. Hughes",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Hu%E1%BA%BF_-_Quang_Trung_Statue,_Ban_Mountain_site.jpg",
+  "tep": "File:Huế - Quang Trung Statue, Ban Mountain site.jpg"
+ },
+ {
+  "file": "03-moc.jpg",
+  "slot": "moc",
+  "caption": "Bản đồ Phú Xuân trong sách Quảng Thuận đạo sử tập (thế kỷ 18)",
+  "credit": "Ảnh: Nguyễn Huy Quýnh / Nguyễn Huy Chương · Public domain · Wikimedia Commons",
+  "license": "Public domain",
+  "artist": "Nguyễn Huy Quýnh / Nguyễn Huy Chương",
+  "nguon": "https://commons.wikimedia.org/wiki/File:Map_from_%22Qu%E1%BA%A3ng_Thu%E1%BA%ADn_%C4%91%E1%BA%A1o_s%E1%BB%AD_t%E1%BA%ADp%22_04.jpg",
+  "tep": "File:Map from \"Quảng Thuận đạo sử tập\" 04.jpg",
+  "fit": "contain"
+ },
+ {
+  "file": "04-ket.jpg",
+  "slot": "ket",
+  "caption": "Sông Hương trước chùa Thiên Mụ, Huế",
+  "credit": "Ảnh: Bùi Thụy Đào Nguyên · CC BY-SA 3.0 · Wikimedia Commons",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bùi Thụy Đào Nguyên",
+  "nguon": "https://commons.wikimedia.org/wiki/File:S%C3%B4ng_H%C6%B0%C6%A1ng_(Hu%E1%BA%BF).jpg",
+  "tep": "File:Sông Hương (Huế).jpg"
+ }
+]

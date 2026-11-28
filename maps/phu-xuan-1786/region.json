@@ -1,0 +1,21 @@
+{
+ "id": "phu-xuan-1786",
+ "che_do": "co",
+ "ten": "Phú Xuân 1786",
+ "ghi_chu": "Bản đồ CỔ: không dùng dữ liệu bản đồ hiện đại (OSM). Sông Hương khai báo tay, điểm sông hút về đáy thung lũng; độ rộng PHÓNG ĐẠI để đội thuyền hiển thị được. Thành Phú Xuân (bờ bắc sông Hương), cửa Thuận An theo sử liệu, vị trí ước lượng. Quân Tây Sơn từ Quy Nhơn (ngoài khung, phía đông nam) ra theo đường biển và đường bộ. Biển và phá thế kỷ 18 (mực nước cổ 1 m).",
+ "vung": { "tay": 107.3, "dong": 107.95, "nam": 16.22, "bac": 16.68 },
+ "muc_nuoc_co": 1,
+ "bien_tai": [[107.94, 16.6], [107.9, 16.66]],
+ "song_xua": [
+  { "ten": "Sông Hương", "rong_m": 500, "hut_thung_lung": 800, "diem": [[107.52, 16.33], [107.54, 16.38], [107.555, 16.425], [107.575, 16.462], [107.6, 16.49], [107.615, 16.525], [107.62, 16.56]] }
+ ],
+ "dia_danh": [
+  { "ten": "Thành Phú Xuân", "lon": 107.574, "lat": 16.472, "loai": "thanh", "trai": true },
+  { "ten": "Cửa Thuận An", "lon": 107.625, "lat": 16.568 }
+ ],
+ "tuyen": [
+  { "ten": "Thủy quân Tây Sơn vào cửa Thuận An", "ben": "ta", "cachDi": "thuy", "diem": [[107.92, 16.63], [107.75, 16.6], [107.64, 16.575], [107.62, 16.555], [107.613, 16.52], [107.598, 16.488], [107.583, 16.468]] },
+  { "ten": "Bộ binh Tây Sơn từ phía nam ra", "ben": "ta", "diem": [[107.93, 16.25], [107.78, 16.33], [107.66, 16.4], [107.6, 16.445], [107.582, 16.457]] },
+  { "ten": "Hoàng Đình Thể ra đánh", "ben": "dich", "cachDi": "thang", "diem": [[107.574, 16.475], [107.578, 16.469]] }
+ ]
+}
