@@ -211,6 +211,17 @@
    "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/hai-trieu-1390/nguon.json"
   },
   {
+   "id": "bo-co-1408",
+   "ten": "Bô Cô 1408",
+   "nam": 1408,
+   "video": "phim-ban-do/bo-co-1408.mp4",
+   "anh_bia": "phim-ban-do/bo-co-1408.jpg",
+   "thoi_luong": "1:12",
+   "ngay": "2026-11-28",
+   "mo_ta": "Cuối năm 1408, trên bến Bô Cô, nghĩa quân nhà Hậu Trần đã giành chiến thắng lớn đầu tiên trước quân Minh xâm lược.",
+   "nguon": "Giọng: Manus · Bản đồ: © OpenStreetMap contributors (ODbL), địa hình Terrain Tiles (AWS) · Ảnh tư liệu: xem anh/bo-co-1408/nguon.json"
+  },
+  {
    "id": "kha-luu-1424",
    "ten": "Khả Lưu – Bồ Ải 1424",
    "nam": 1424,
